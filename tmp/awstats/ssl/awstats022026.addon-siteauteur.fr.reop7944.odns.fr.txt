@@ -1,0 +1,528 @@
+AWSTATS DATA FILE 8.0 (build 20240604)
+# If you remove this file, all statistics for date 202602 will be lost/reset.
+# Last config file used to build this data file was /home/reop7944/tmp/awstats/ssl/awstats.addon-siteauteur.fr.reop7944.odns.fr.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2108                
+POS_TIME 2787                
+POS_VISITOR 12216               
+POS_DAY 13396               
+POS_DOMAIN 3585                
+POS_LOGIN 3880                
+POS_ROBOT 4035                
+POS_WORMS 4605                
+POS_EMAILSENDER 4736                
+POS_EMAILRECEIVER 4879                
+POS_SESSION 13665               
+POS_FILESIZE 15727               
+POS_REQUESTTIME 15872               
+POS_SIDER 13861               
+POS_FILETYPES 5014                
+POS_DOWNLOADS 5291                
+POS_OS 5339                
+POS_BROWSER 5699                
+POS_SCREENSIZE 7274                
+POS_UNKNOWNREFERER 7348                
+POS_UNKNOWNREFERERBROWSER 8290                
+POS_ORIGIN 8794                
+POS_SEREFERRALS 8934                
+POS_PAGEREFS 9100                
+POS_SEARCHWORDS 9362                
+POS_KEYWORDS 9514                
+POS_MISC 2450                
+POS_ERRORS 9573                
+POS_CLUSTER 3736                
+POS_SIDER_404 9723                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20260301000935 95 20797 7892698641606
+FirstTime 20260221185117
+LastTime 20260228215554
+LastUpdate 20260301001709 95 0 94 0 0
+TotalVisits 82                  
+TotalUnique 27                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 27                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+DirectorSupport 0 0 0
+RealPlayerSupport 0 0 0
+JavascriptDisabled 0 0 0
+TotalMisc 0 0 0
+AddToFavourites 0 54 0
+FlashSupport 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 12 33 2429101 16 18 160
+1 13 18 885144 12 14 541365
+2 21 37 2515738 8 14 246992
+3 12 21 1160596 3 9 94335
+4 6 7 393066 2 3 259298
+5 3 6 172943 0 2 114
+6 5 5 259298 1 2 129763
+7 9 12 843338 2 4 93993
+8 5 20 1208774 0 0 0
+9 10 17 1377252 4 5 297283
+10 15 15 777894 2 7 317052
+11 10 21 1134430 1 7 763297
+12 13 24 2633528 11 41 823119
+13 12 15 595579 9 16 447512
+14 54 79 10114970 16 18 353405
+15 49 62 4289884 7 10 129763
+16 45 81 7269489 9 17 541277
+17 35 35 1103818 13 13 648245
+18 154 340 20685151 66 78 2056350
+19 425 490 9784624 35 65 2051801
+20 154 184 6706763 15 26 225807
+21 23 67 5039533 12 30 1078064
+22 17 32 2204281 15 19 152264
+23 26 64 4745090 10 16 376119
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 5
+fr 1070 1573 78927753
+us 39 93 7583595
+nl 15 15 1300340
+ca 2 2 259298
+de 2 2 259298
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 12
+Applebot/ 40 1739301 20260228115145 11
+robot 28 3192 20260228181625 28
+GPTBot/ 23 1077901 20260228201206 0
+checker 10 1296490 20260223171523 0
+curl 3 388947 20260222165110 0
+crawl 3 113954 20260222092012 0
+unknown 2 228 20260228194015 2
+no_user_agent 2 446359 20260224113448 0
+Googlebot/ 2 259298 20260222045635 0
+Go\-http\-client/ 2 191233 20260223202020 0
+bot[\s_+:,\.\;\/\\-] 2 259298 20260224065245 0
+bingbot/ 1 114 20260227105732 1
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 11
+css 81 3135984 0 0
+woff2 8 428800 0 0
+jpg 1 366434 0 0
+png 127 25720405 0 0
+php 654 7151227 0 0
+webp 1 129970 0 0
+js 338 13641316 0 0
+svg 6 85126 0 0
+html 336 36041288 0 0
+gif 3 30310 0 0
+Unknown 130 1599424 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 21
+ios_iphone 54 16
+linux 172 55
+android10 2 2
+ios_ipad 1 1
+androidoreo 9 1
+win10 1051 743
+androidpie 1 1
+macos12 6 6
+macosx8 2 2
+macosx14 8 1
+macosx15 35 14
+androidmarshmallow 40 23
+linuxubuntu 7 6
+winnt 1 1
+win8.1 1 1
+win8 1 1
+Unknown 253 237
+android11 1 1
+macosx9 15 3
+win7 10 4
+android12 15 9
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 76
+chrome130.0.0.0 40 23
+firefox77.0 2 2
+chrome141.0.0.0 7 1
+firefox55.0 1 1
+chrome142.0.0.0 4 4
+firefox109.0 2 1
+safari15.4 8 8
+safari15.1 1 1
+firefox50.0 1 1
+chrome138.0.0.0 1 0
+chrome99.0.4844.84 1 1
+chrome79.0.3945.79 18 3
+edge18 3 1
+firefox134.0 5 5
+chrome78.0.3904.108 45 45
+chrome121.0.0.0 21 3
+chrome94.0.4606.85 1 1
+netscape5.0 78 78
+chrome84.0.4147.89 2 2
+chrome125.0.0.0 35 6
+chrome37.0.2049.0 1 1
+firefox120.0 13 13
+chrome138.0.7204.23 30 10
+chrome83.0.4103.61 9 3
+chrome91.0.4472.77 1 1
+chrome84.0.4147.125 8 1
+safari17.0 1 1
+firefox132.0 2 0
+edge12 38 16
+mozilla 8 5
+chrome58.0.3029.110 1 1
+firefox148.0 739 558
+chrome83.0.4103.97 7 2
+chrome145.0.0.0 41 8
+chrome42.0.2311.152 1 1
+chrome116.0.0.0 13 10
+chrome131.0.0.0 2 1
+safari 36 12
+chrome132.0.0.0 1 1
+chrome137.0.0.0 2 1
+chrome124.0.0.0 1 1
+chrome60.0.3112.113 3 3
+chrome22.0.1229.79 1 1
+firefox124.0 3 3
+chrome98.0.4758.101 1 1
+safari17.6 1 0
+chrome102.0.0.0 10 2
+chrome144.0.0.0 22 19
+chrome91.0.4472.124 2 2
+chrome86.0.4240.198 43 26
+chrome114.0.0.0 15 9
+firefox33.0 2 2
+chrome139.0.0.0 9 5
+firefox98.0 1 1
+chrome143.0.0.0 2 1
+chrome113.0.0.0 2 2
+chrome80.0.3987.99 1 1
+Unknown 169 156
+chrome117.0.5938.132 3 1
+chrome28.0.1467.0 1 1
+firefox113.0 1 1
+chrome86.0.4240.111 1 1
+chrome134.0.0.0 10 1
+chrome119.0.0.0 32 4
+safari14.0.3 9 1
+firefox43.0 1 1
+iphone 7 1
+chrome145.0.7632.109 18 2
+chrome89.0.4389.114 24 24
+firefox122.0 4 4
+chrome108.0.0.0 9 2
+chrome129.0.0.0 19 3
+chrome101.0.4951.41 1 1
+firefox147.0 1 1
+chrome35.0.1916.47 15 3
+chrome117.0.0.0 11 8
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 14
+python-requests/2.32.5 20260223075727
+Mozilla/5.0_Firefox/33.0 20260223091149
+Mozilla/5.0_(compatible;_SparixEmailScraper/1.0;__https://sparix.ai) 20260224144513
+req/v3_(https://github.com/imroc/req) 20260223182221
+GuzzleHttp/7 20260223021605
+Hello_from_Palo_Alto_Networks,_find_out_more_about_our_scans_in_https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity 20260228091012
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20260226181118
+Mozilla/5.0_(l9scan/2.0.438313e2736313e2433323e2930313;__https://leakix.net) 20260221185339
+python-requests/2.32.4 20260224113446
+okhttp/5.3.0 20260226193301
+Mozilla/5.0 20260222181833
+Mozilla/5.0_(compatible;_Let's_Encrypt_validation_server;__https://www.letsencrypt.org) 20260223210735
+WordPress/6.9.1;_https://siteauteur.fr 20260228215554
+axios/1.8.4 20260221190753
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 8
+GuzzleHttp/7 20260223021605
+Hello_from_Palo_Alto_Networks,_find_out_more_about_our_scans_in_https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity 20260228091012
+WordPress/6.9.1;_https://siteauteur.fr 20260228215554
+python-requests/2.32.4 20260224113446
+axios/1.8.4 20260221190753
+okhttp/5.3.0 20260226193301
+python-requests/2.32.5 20260223075727
+req/v3_(https://github.com/imroc/req) 20260223182221
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 524 628
+From1 0 0
+From2 1 1
+From3 6 15
+From4 597 1041
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+bing_com_catchall 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 3
+https://mail.siteauteur.fr 4 13
+https://level.o2switch.net:2083 1 1
+https://fr.all-url.info/fr/siteauteur.fr/ 1 1
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+406 1 768
+401 7 252
+400 2 104
+503 1 6278
+301 175 0
+302 7 0
+404 69 5843661
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 47
+/.git/HEAD 1 -
+/wp-json/wp/v2/media/334 1 https://siteauteur.fr/wp-admin/post.php
+/https%3A/https%3A/siteauteur.fr 1 -
+/https%3A/siteauteur.fr/ 1 -
+/favicon.png 10 -
+/https%3A/siteauteur.fr/sample-page/https%3A/siteauteur.fr/wp-json/ 1 -
+/favicon.ico/sellers.json 1 -
+/sapp-wp-signon.php 1 -
+/favicon.ico/ads.txt 1 -
+/https%3A/gmpg.org/xfn/11 1 -
+/.well-known/security.txt 1 -
+/js/twint_ch.js 3 -
+/backend/.env 1 -
+/https%3A/siteauteur.fr/sample-page/https%3A/siteauteur.fr 1 -
+/https%3A/https%3A/siteauteur.fr/wp-includes/js/dist/script-modules/interactivity/index.min.js%3Fver%3D66c613f68580994bb00a 1 -
+/https%3A/siteauteur.fr/wp-json/https%3A/siteauteur.fr/wp-json/ 1 -
+/https%3A/siteauteur.fr/wp-content/themes/astra/assets/css/minified/main.min.css%3Fver%3D4.12.3 1 -
+/favicon.ico/app-ads.txt 1 -
+/https%3A/siteauteur.fr/https%3A/www.o2switch.fr 2 -
+/ads.txt 1 -
+/https%3A/siteauteur.fr/wp-json/ 3 -
+/css/support_parent.css 3 -
+/https%3A/siteauteur.fr/sample-page/ 1 -
+/_ignition/execute-solution 2 -
+/https%3A/siteauteur.fr/2026/02/21/hello-world/ 1 -
+/https%3A/https%3A/siteauteur.fr/wp-json/ 1 -
+/ 1 -
+/https%3A/siteauteur.fr/wp-json/https%3A/siteauteur.fr 1 -
+/js/lkk_ch.js 3 -
+/https%3A/siteauteur.fr/wp-json/%23 1 -
+/https%3A/siteauteur.fr/wp-json/https%3A/siteauteur.fr/sample-page/ 1 -
+/%23 1 -
+/.git/config 2 -
+/https%3A/siteauteur.fr/wp-json/https%3A/siteauteur.fr/wp-includes/js/dist/script-modules/interactivity/index.min.js%3Fver%3D66c613f68580994bb00a 1 -
+/https%3A/siteauteur.fr/https%3A/faq.o2switch.fr/hebergement-mutualise/tutoriels-cpanel/tiger-protect 2 -
+/https%3A/https%3A/siteauteur.fr/sample-page/ 1 -
+/https%3A/fr.wordpress.org 1 -
+/https%3A/siteauteur.fr/wp-json/https%3A/fr.wordpress.org 1 -
+/https%3A/siteauteur.fr/comments/feed/ 1 -
+/https%3A/siteauteur.fr/sample-page/https%3A/siteauteur.fr/wp-includes/js/dist/script-modules/interactivity/index.min.js%3Fver%3D66c613f68580994bb00a 1 -
+/nous-contacter 1 -
+/https%3A/siteauteur.fr/wp-includes/js/dist/script-modules/interactivity/index.min.js%3Fver%3D66c613f68580994bb00a 2 -
+/https%3A/%23 1 -
+/%23content 1 -
+/https%3A/https%3A/fr.wordpress.org 1 -
+/https%3A/siteauteur.fr 1 -
+/contactez-nous 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 27
+109.234.167.184 1070 1573 78927753 20260228215554
+188.166.220.226 15 15 1300340 20260228182245
+157.143.20.242 6 12 924668 20260228194034
+34.59.227.67 3 3 260068 20260226150333
+34.9.180.84 3 3 260068 20260226184752
+157.230.249.233 3 3 260068 20260228193238
+136.119.42.239 3 3 260068 20260226164921
+205.169.39.157 2 9 729007 20260227230650
+205.169.39.109 2 9 729007 20260227230614
+98.81.183.245 2 5 324691 20260226193340
+141.51.110.126 2 2 259298 20260227022407
+205.169.39.243 2 9 729007 20260227230954
+149.57.180.178 1 1 129649 20260228194527
+172.236.122.62 1 1 129649 20260228190536
+159.65.63.132 1 1 129649 20260227113546
+52.5.51.117 1 1 129649 20260227161933
+34.238.143.211 1 10 607596 20260228190706
+23.27.145.27 1 1 129649 20260228194501
+54.175.47.20 1 1 129660 20260228171656
+54.144.200.231 1 1 129660 20260226191552
+34.122.147.229 1 8 599358 20260227000924
+64.227.97.85 1 1 129649 20260227091508
+149.57.180.177 1 1 129649 20260228194420
+205.210.31.166 1 1 129649 20260228091012
+149.57.180.174 1 8 599358 20260228204254
+167.94.138.181 1 2 133768 20260226181115
+198.235.24.180 1 1 129649 20260228033453
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 8
+20260221 662 951 34087552 2
+20260222 174 245 17098497 6
+20260223 79 155 11134686 7
+20260224 49 81 5980472 10
+20260225 58 90 10453603 7
+20260226 26 33 2061402 12
+20260227 38 66 3954760 18
+20260228 42 64 3559312 20
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 9
+0s-30s 57
+30mn-1h 6
+15mn-30mn 1
+5mn-15mn 6
+30s-2mn 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 48
+/wp-admin/admin-ajax.php 424 354487 0 0
+/ 271 31874239 44 38
+/wp-cron.php 130 0 37 30
+/wp-login.php 69 668574 0 0
+/wp-json/wp/v2/pages/8/autosaves 64 995297 0 0
+//wp-json/wp/v2/users/ 23 17710 0 11
+/wp-json/oembed/1.0/embed 17 37021 0 0
+/wp-json/wp/v2/users/me 14 33845 0 0
+/wp-json/wp/v2/pages/8 13 279212 0 0
+/wp-json/ 12 3885399 0 1
+/feed/ 11 9702 0 2
+/comments/feed/ 11 8591 0 0
+/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2 8 428800 0 0
+/wp-admin/edit.php 6 988246 0 0
+/wp-admin/load-scripts.php 5 254783 0 0
+/wp-json/wp/v2/users/1 3 872 0 0
+/wp-admin/load-styles.php 3 2078914 0 0
+/https%3A/siteauteur.fr/feed/ 3 2309 0 0
+/wp-json/wp/v2/templates/lookup 2 4 0 0
+/wp-json/wp/v2/taxonomies 2 20350 0 0
+/wp-json/wp/v2/settings 2 12230 0 0
+/xmlrpc.php 2 1584 0 0
+/wp-admin/options-permalink.php 2 326607 0 0
+/wp-json/wp/v2/comments 2 4 0 0
+/wp-json/wp/v2/posts 2 4 0 0
+/wp-json/wp/v2/blocks 1 2 0 0
+/wp-admin/post.php 1 783929 0 0
+/softtest_wiscitnp/soft 1 20 0 0
+/update_pass.php 1 90 1 0
+/wp-json/wp/v2/media/11 1 7151 0 0
+/https%3A/siteauteur.fr/wp-json/https%3A/siteauteur.fr/feed/ 1 818 0 0
+/wp-json/wp/v2/categories/1 1 654 0 0
+/wp-admin/theme-install.php 1 179549 0 0
+/wp-json/wp/v2/users 1 39 0 0
+/wp-admin/async-upload.php 1 1880 0 0
+/https%3A/https%3A/siteauteur.fr/feed/ 1 796 0 0
+/wp-admin/options-reading.php 2 237676 0 0
+/wp-admin/themes.php 2 345339 0 0
+/wp-json/wp/v2/wp_pattern_category 2 4 0 0
+/https%3A/siteauteur.fr/sample-page/https%3A/siteauteur.fr/feed/ 1 822 0 0
+//xmlrpc.php 2 1584 0 0
+/check_charset.php 1 77 0 0
+/wp-admin/ 1 211473 0 0
+/wp-json/wp/v2/block-patterns/patterns 1 212713 0 0
+/wp-admin/post-new.php 1 754618 0 0
+/wp-json/wp/v2/pages/ 1 29429 0 0
+/wp-json/wp/v2/templates 1 2 0 0
+/wp-admin/edit-comments.php 1 173290 0 0
+END_SIDER
+
+# Payload Range - Payload Frequency
+BEGIN_FILESIZE 7
+44-100 417
+0-44 392
+2K-5K 133
+500-1K 81
+5K+ 987
+100-500 53
+1K-2K 56
+END_FILESIZE
+
+# Request Time Range - Request Time Frequency
+BEGIN_REQUESTTIME 0
+END_REQUESTTIME

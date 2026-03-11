@@ -1,0 +1,1364 @@
+Return-Path: <cpanel@siteauteur.fr>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id mI2tDmDwmWlLpTcAkSiHwg
+	(envelope-from <cpanel@siteauteur.fr>)
+	for <admin@siteauteur.fr>; Sat, 21 Feb 2026 18:50:24 +0100
+Return-path: <cpanel@siteauteur.fr>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Sat, 21 Feb 2026 18:50:24 +0100
+Received: from [127.0.0.1] (port=59110 helo=localhost.localdomain)
+	by level.o2switch.net with esmtpa (Exim 4.99.1)
+	(envelope-from <cpanel@siteauteur.fr>)
+	id 1vtr7R-0000000FJfi-1Xc9
+	for admin@siteauteur.fr;
+	Sat, 21 Feb 2026 18:50:24 +0100
+Date: Sat, 21 Feb 2026 17:50:24 GMT
+From: "cPanel on siteauteur.fr" <cpanel@siteauteur.fr>
+Message-Id: <1771696224.rt77TjtB0LXWOj5X@level.o2switch.net>
+Reply-To: "cPanel on siteauteur.fr" <cpanel@siteauteur.fr>
+Subject: =?UTF-8?B?W3NpdGVhdXRldXIuZnJdIENsaWVudCBjb25maWd1cmF0aW9uIHNl?= =?UTF-8?B?dHRpbmdzIGZvciDigJxhZG1pbkBzaXRlYXV0ZXVyLmZy4oCdLg==?=
+To: <admin@siteauteur.fr>
+X-iContact_locale: fr
+Mime-Version: 1.0
+Content-Type: multipart/mixed; boundary="mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382"
+
+--mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382
+Content-Type: multipart/alternative; boundary="alternative-Cpanel::Email::Object-3650338-1771696224-0.471507267023053"
+
+--alternative-Cpanel::Email::Object-3650338-1771696224-0.471507267023053
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Client Configuration settings for =E2=80=9Cadmin@siteauteur.fr=E2=80=9D.
+
+
+Mail Client Manual Settings
+---------------------------
+
+Secure SSL/TLS Settings (recommand=C3=A9)
+
+Nom d=E2=80=99utilisateur :
+
+admin@siteauteur.fr
+
+Mot de passe :
+
+Utilisez le mot de passe du compte de messagerie.
+
+Serveur entrant :
+
+level.o2switch.net
+
+  * IMAP Port: 993
+
+  * POP3 Port: 995
+
+Serveur sortant :
+
+level.o2switch.net
+
+  * SMTP Port: 465
+
+IMAP, POP3 et SMTP require authentication.
+
+Non-SSL Settings (NOT Recommended)
+
+Nom d=E2=80=99utilisateur :
+
+admin@siteauteur.fr
+
+Mot de passe :
+
+Utilisez le mot de passe du compte de messagerie.
+
+Serveur entrant :
+
+mail.siteauteur.fr
+
+  * IMAP Port: 143
+
+  * POP3 Port: 110
+
+Serveur sortant :
+
+mail.siteauteur.fr
+
+  * SMTP Port: 26
+
+IMAP, POP3 et SMTP require authentication.
+
+
+Calendar & Contacts Manual Settings
+-----------------------------------
+
+Secure SSL/TLS Settings (Recommended).
+
+Nom d=E2=80=99utilisateur :
+
+admin@siteauteur.fr
+
+Mot de passe :
+
+Utilisez le mot de passe du compte de messagerie.
+
+Serveur :
+
+https://level.o2switch.net:2080
+
+  * Port: 2080
+
+Full Calendar URL(s):
+
+  * cPanel CalDAV Calendar:
+
+  * https://level.o2switch.net:2080/calendars/admin@siteauteur.fr/calendar
+
+Full Contact List URL(s):
+
+  * cPanel CardDAV Address Book:
+
+  * https://level.o2switch.net:2080/addressbooks/admin@siteauteur.fr/addres=
+sbook
+
+Non-SSL Settings (NOT Recommended).
+
+Nom d=E2=80=99utilisateur :
+
+admin@siteauteur.fr
+
+Mot de passe :
+
+Utilisez le mot de passe du compte de messagerie.
+
+Serveur :
+
+http://mail.siteauteur.fr:2079
+
+  * Port: 2079
+
+Full Calendar URL(s):
+
+  * cPanel CalDAV Calendar:
+
+  * http://mail.siteauteur.fr:2079/calendars/admin@siteauteur.fr/calendar
+
+Full Contact List URL(s):
+
+  * cPanel CardDAV Address Book:
+
+  * http://mail.siteauteur.fr:2079/addressbooks/admin@siteauteur.fr/address=
+book
+
+A .mobileconfig file for use with iOS for iPhone/iPad/iPod and MacOS=C2=AE =
+Mail.app=C2=AE for Mountain Lion (10.8+) is attached to this message.
+
+Ce message vous est envoy=C3=A9 =C3=A0 la demande d=E2=80=99un ordinateur a=
+ssoci=C3=A9 =C3=A0 l=E2=80=99adresse IP =C2=AB 91.205.107.227 =C2=BB, via l=
+e service =C2=AB cpanel =C2=BB sur le serveur.
+
+L=E2=80=99emplacement de l=E2=80=99ordinateur distant semble =C3=AAtre : Fr=
+ance (FR).
+
+Le type de lien r=C3=A9seau de l=E2=80=99ordinateur distant semble =C3=AAtr=
+e : =C2=AB generic tunnel or VPN =C2=BB.
+
+Le syst=C3=A8me d=E2=80=99exploitation de l=E2=80=99ordinateur distant semb=
+le =C3=AAtre : =C2=AB Windows =C2=BB avec la version =C2=AB NT kernel 5.x =
+=C2=BB.
+
+Le syst=C3=A8me a g=C3=A9n=C3=A9r=C3=A9 ce message le samedi 21 f=C3=A9vrie=
+r 2026 =C3=A0 17:50:23 UTC.
+
+Ne r=C3=A9pondez pas =C3=A0 ce message automatique.
+
+cP
+
+Copyright=C2=A9 2026 cPanel, L.L.C.=
+
+--alternative-Cpanel::Email::Object-3650338-1771696224-0.471507267023053
+Content-Type: multipart/related; boundary="related-Cpanel::Email::Object-3650338-1771696224-0.153552710604039"
+
+--related-Cpanel::Email::Object-3650338-1771696224-0.153552710604039
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<body style=3D"background:#F4F4F4">
+    <div style=3D"margin:0;padding:0;background:#F4F4F4">
+        <table cellpadding=3D"10" cellspacing=3D"0" border=3D"0" width=3D"1=
+00%" style=3D"width:0 auto;">
+            <tbody>
+                <tr>
+                    <td align=3D"center">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"680" style=3D"border:0;width:0 auto;max-width:680px;">
+                            <tbody>
+                                <tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                    <td width=3D"680" height=3D"25" style=
+=3D"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;=
+color:#333333">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                            Client Configuration settings f=
+or =E2=80=9Cadmin@siteauteur.fr=E2=80=9D.
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                    </td>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                </tr>
+                                <tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                    <td style=3D"padding: 15px 0 20px 0; ba=
+ckground-color: #FFFFFF; border: 2px solid #E8E8E8; border-bottom: 2px soli=
+d #FF6C2C;">
+                                        <table width=3D"680" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" style=3D"background:#FFFFFF;font-family:=
+'Helvetica Neue',Helvetica,Arial,sans-serif;">
+                                            <tbody>
+                                                <tr>
+                                                    <td width=3D"15">
+                                                    </td>
+                                                    <td width=3D"650">
+                                                        <table cellpadding=
+=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <di=
+v id=3D"manual_settings_area" class=3D"section">
+        <h2 id=3D"hdrManualSettings">Mail Client Manual Settings</h2>
+=20=20=20=20=20=20=20=20
+        <div class=3D"row">
+         <div class=3D"col-md-6">
+          <div id=3D"ssl_settings_area"
+=20=20=20=20=20=20=20=20=20=20=20=20
+            style=3D"background-color: #fff;  border: 1px solid transparent=
+; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); margin-bot=
+tom: 20px; border-color: #428bca;"
+=20=20=20=20=20=20=20=20=20=20=20=20
+            class=3D"preferred-selection panel panel-primary">
+               <div
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                style=3D"border-top-left-radius: 3px; border-top-right-radi=
+us: 3px; padding: 10px 15px; background-color: #428bca; border-color: #428b=
+ca; color: #fff;"
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                class=3D"panel-heading">
+                Secure <abbr title=3D"Secure Sockets Layer">SSL</abbr>/<abb=
+r title=3D"Transport Layer Security">TLS</abbr> Settings
+                (recommand=C3=A9)
+              </div>
+              <table class=3D"table manual_settings_table" style=3D"border-=
+collapse: collapse; border-spacing: 0; margin-bottom: 0; width: 100%; backg=
+round-color: transparent; max-width: 100%;">
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblSSLSettingsAreaUsername">Nom d=E2=80=99utilisateur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valSSLSettingsAreaUsername" class=3D"data wrap-text">admin@siteaut=
+eur.fr</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblSettingsAreaPassword">Mot de passe=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valSettingsAreaPassword" class=3D"escape-note"> Utilisez le mot de=
+ passe du compte de messagerie.</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblSettingsAreaIncomingServer">Serveur entrant=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valSettingsAreaIncomingServer" class=3D"data">level.o2switch.net
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Internet Message Access Proto=
+col" class=3D"initialism">IMAP</abbr> Port: 993</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Post Office Protocol 3" class=
+=3D"initialism">POP3</abbr> Port: 995</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblSettingsAreaOutgoingServer">Serveur sortant=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valSettingsAreaOutGoingServer" class=3D"data">level.o2switch.net
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Simple Mail Transfer Protocol=
+">SMTP</abbr> Port: 465</li>
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" colspan=3D"2" class=3D"notes">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20
+                                                                           =
+     <div id=3D"lblSettingsAreaSmallNote1" class=3D"small_note">IMAP, POP3 =
+et SMTP require authentication.</div>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+         </div>
+=20=20
+      </div>
+=20=20=20=20=20=20=20=20
+
+        <div class=3D"row" id=3D"nonSSL" style=3D"display: none">
+         <div class=3D"col-md-6">
+           <div id=3D"non_ssl_settings_area"
+=20=20=20=20=20=20=20=20=20=20=20=20
+            style=3D"background-color: #fff;  border: 1px solid transparent=
+; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); margin-bot=
+tom: 20px; border-color: #f6c342;"
+=20=20=20=20=20=20=20=20=20=20=20=20
+           class=3D"panel panel-default panel-warning">
+               <div
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                style=3D"border-top-left-radius: 3px; border-top-right-radi=
+us: 3px; padding: 10px 15px; background-color: #fcf8e1; border-color: #f6c3=
+42; color: #333;"
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                class=3D"panel-heading">
+                <span id=3D"descNonSSLSettings" class=3D"caption not-recomm=
+ended">Non-SSL Settings (NOT Recommended)</span>
+              </div>
+              <table id=3D"tblManualSettingsTable" class=3D"table manual_se=
+ttings_table" style=3D"border-collapse: collapse; border-spacing: 0; margin=
+-bottom: 0; width: 100%; background-color: transparent; max-width: 100%;">
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblNonSSLSettingsUsername">Nom d=E2=80=99utilisateur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valNonSSLSettingsUsername" class=3D"data wrap-text">admin@siteaute=
+ur.fr</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblNonSSLSettingsPassword">Mot de passe=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valNonSSLSettingsPassword" class=3D"escape-note">Utilisez le mot d=
+e passe du compte de messagerie.</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"lblNonSSLSettingsIncomingServer">Serveur entrant=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"valNonSSLSettingsIncomingServer" class=3D"data">mail.siteauteur.fr=
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Internet Message Access Proto=
+col" class=3D"initialism">IMAP</abbr> Port: 143</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Post Office Protocol 3" class=
+=3D"initialism">POP3</abbr> Port: 110</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"NonSSLSettingsOutgoingServer">Serveur sortant=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" id=3D"NonSSLSettingsOutgoingServerData" class=3D"data">mail.siteauteur.f=
+r                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><abbr title=3D"Simple Mail Transfer Protocol=
+">SMTP</abbr> Port: 26</li>
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" colspan=3D"2" class=3D"notes">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20
+                                                                           =
+     <div id=3D"descNonSSLSettingsAuthenticationIsRequiredForIMAPPOP3SMTP1"=
+ class=3D"small_note">IMAP, POP3 et SMTP require authentication.</div>
+                      </td>
+                  </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+
+    </div><div class=3D"section">
+        <h2>Calendar &amp; Contacts Manual Settings</h2>
+        <div class=3D"row">
+=20=20=20=20=20=20=20=20=20
+         <div class=3D"col-md-6">
+          <div style=3D"background-color: #fff;  border: 1px solid transpar=
+ent; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); margin-=
+bottom: 20px; border-color: #428bca;" class=3D"preferred-selection panel pa=
+nel-primary">
+               <div style=3D"border-top-left-radius: 3px; border-top-right-=
+radius: 3px; padding: 10px 15px; background-color: #428bca; border-color: #=
+428bca; color: #fff;" class=3D"panel-heading">
+                Secure <abbr title=3D"Secure Sockets Layer">SSL</abbr>/<abb=
+r title=3D"Transport Layer Security">TLS</abbr> Settings (Recommended).
+              </div>
+              <table class=3D"table manual_settings_table" style=3D"border-=
+collapse: collapse; border-spacing: 0; margin-bottom: 0; width: 100%; backg=
+round-color: transparent; max-width: 100%;">
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Nom d=E2=80=99utilisateur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data wrap-text">admin@siteauteur.fr</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Mot de passe=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"escape-note"> Utilisez le mot de passe du compte de messagerie.=
+</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Serveur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">https://level.o2switch.net:2080
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">Port: 2080</li>
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Full Calendar URL(s):</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><b>cPanel CalDAV Calendar</b>:</li>
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">https://level.o2switch.net:2080/calendars/ad=
+min@siteauteur.fr/calendar</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Full Contact List URL(s):</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><b>cPanel CardDAV Address Book</b>:</li>
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">https://level.o2switch.net:2080/addressbooks=
+/admin@siteauteur.fr/addressbook</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+              </table>
+          </div>
+         </div>
+=20=20=20=20=20=20=20=20=20
+         <div class=3D"col-md-6">
+          <div style=3D"background-color: #fff;  border: 1px solid transpar=
+ent; border-radius: 4px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); margin-=
+bottom: 20px; border-color: #f6c342;" class=3D"preferred-selection panel pa=
+nel-primary">
+               <div style=3D"border-top-left-radius: 3px; border-top-right-=
+radius: 3px; padding: 10px 15px; background-color: #fcf8e1; border-color: #=
+f6c342; color: #333;" class=3D"panel-heading">
+                Non-SSL Settings (NOT Recommended).
+              </div>
+              <table class=3D"table manual_settings_table" style=3D"border-=
+collapse: collapse; border-spacing: 0; margin-bottom: 0; width: 100%; backg=
+round-color: transparent; max-width: 100%;">
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Nom d=E2=80=99utilisateur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data wrap-text">admin@siteauteur.fr</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Mot de passe=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"escape-note"> Utilisez le mot de passe du compte de messagerie.=
+</td>
+                  </tr>
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Serveur=C2=A0:</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">http://mail.siteauteur.fr:2079
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">Port: 2079</li>
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Full Calendar URL(s):</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><b>cPanel CalDAV Calendar</b>:</li>
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">http://mail.siteauteur.fr:2079/calendars/adm=
+in@siteauteur.fr/calendar</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                  <tr>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;">Full Contact List URL(s):</td>
+                      <td style=3D"border-top: 1px solid #ddd; padding: 8px=
+;" class=3D"data">
+                          <ul
+                          style=3D"margin-bottom: 10px; margin-top: 0; list=
+-style: outside none none; margin-left: -5px; padding-left: 0;"
+                          class=3D"port_list list-inline">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;"><b>cPanel CardDAV Address Book</b>:</li>
+                              <li style=3D"display: inline-block; padding-l=
+eft: 5px; padding-right: 5px;">http://mail.siteauteur.fr:2079/addressbooks/=
+admin@siteauteur.fr/addressbook</li>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20
+                          </ul>
+                      </td>
+                  </tr>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+              </table>
+          </div>
+         </div>
+=20=20=20=20=20=20=20=20=20
+        </div>
+      </div>
+    </div><p>
+ A .mobileconfig file for use with iOS for iPhone/iPad/iPod and MacOS=C2=AE=
+ Mail.app=C2=AE for Mountain Lion (10.8+) is attached to this message.
+</p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <di=
+v style=3D"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;border-t=
+op: 2px solid #E8E8E8; padding-top:5px; margin-top: 5px; font-size:12px; co=
+lor: #666666;">
+        <p style=3D"padding:0 0 0 0; margin: 5px 0 0 0;">
+=20=20=20=20=20=20=20=20
+          Ce message vous est envoy=C3=A9 =C3=A0 la demande d=E2=80=99un or=
+dinateur associ=C3=A9 =C3=A0 l=E2=80=99adresse <abbr title=3D"Internet Prot=
+ocol">IP</abbr> =C2=AB=C2=A091.205.107.227=C2=A0=C2=BB, via le service =C2=
+=AB=C2=A0cpanel=C2=A0=C2=BB sur le serveur.
+=20=20=20=20=20=20=20=20
+    </p>
+
+                    <p style=3D"padding:0 0 0 0; margin: 5px 0 0 0;">
+                            L=E2=80=99emplacement de l=E2=80=99ordinateur d=
+istant semble =C3=AAtre=C2=A0: France (FR).
+                    </p>
+=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20
+=20=20=20=20=20=20=20=20=20=20=20=20
+
+=20=20=20=20=20=20=20=20=20
+                            <p style=3D"padding:0 0 0 0; margin: 5px 0 0 0;=
+">
+          Le type de lien r=C3=A9seau de l=E2=80=99ordinateur distant sembl=
+e =C3=AAtre=C2=A0: =C2=AB=C2=A0generic tunnel or VPN=C2=A0=C2=BB.
+        </p>
+                          <p style=3D"padding:0 0 0 0; margin: 5px 0 0 0;">
+=20=20=20=20=20=20=20=20=20=20
+            Le syst=C3=A8me d=E2=80=99exploitation de l=E2=80=99ordinateur =
+distant semble =C3=AAtre=C2=A0: =C2=AB=C2=A0Windows=C2=A0=C2=BB avec la ver=
+sion =C2=AB=C2=A0NT kernel 5.x=C2=A0=C2=BB.
+=20=20=20=20=20=20=20=20=20=20
+        </p>
+=20=20=20=20=20=20=20=20=20=20
+    <p style=3D"padding:0 0 0 0; margin: 5px 0 0 0;">
+        Le syst=C3=A8me a g=C3=A9n=C3=A9r=C3=A9 ce message le samedi 21 f=
+=C3=A9vrier 2026 =C3=A0 17:50:23 UTC.
+    </p>
+</div>=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+                                                                           =
+<!-- -->
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20
+<p>
+    Ne r=C3=A9pondez pas =C3=A0 ce message automatique.
+</p>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </td>
+                                                    <td width=3D"15">
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                </tr>
+                                <tr>
+                                    <td align=3D"center" style=3D"padding-t=
+op: 10px;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                        <img src=3D"cid:auto_cid_1956603362=
+" height=3D"25" width=3D"25" style=3D"border:0;line-height:100%;border:0" a=
+lt=3D"cP">
+                                        <p style=3D"font-family:'Helvetica =
+Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#666666; padding: 0; =
+margin: 0;">Copyright=C2=A9=C2=A02026 cPanel, L.L.C.<p>
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20=20=20=20=20=20=20=20=20
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>=
+
+--related-Cpanel::Email::Object-3650338-1771696224-0.153552710604039
+Content-Type: image/png; x-unix-mode=0600; name="cpanel-logo-tiny.png"
+Content-Disposition: attachment; filename="cpanel-logo-tiny.png"
+Content-ID: <auto_cid_1956603362>
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAK
+T2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AU
+kSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXX
+Pues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgAB
+eNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAt
+AGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3
+AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dX
+Lh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+
+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk
+5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd
+0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA
+4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzA
+BhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/ph
+CJ7BKLyBCQRByAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5
+h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+
+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhM
+WE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQ
+AkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+Io
+UspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdp
+r+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZ
+D5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61Mb
+U2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY
+/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllir
+SKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79u
+p+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6Vh
+lWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1
+mz0x1zLnm+eb15vft2BaeFostqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lO
+k06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7Ry
+FDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3I
+veRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+B
+Z7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/
+0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5p
+DoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5q
+PNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIs
+OpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5
+hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQ
+rAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9
+rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1d
+T1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aX
+Dm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDuaO/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7
+vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3S
+PVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKa
+RptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO
+32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21
+e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfV
+P1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i
+/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8
+IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAADr7aVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8
+P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4
+bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1
+LjYtYzAxNCA3OS4xNTY3OTcsIDIwMTQvMDgvMjAtMDk6NTM6MDIgICAgICAgICI+CiAgIDxyZGY6
+UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5z
+IyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5z
+OnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgICAgICAgICAgeG1sbnM6eG1w
+TU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iCiAgICAgICAgICAgIHhtbG5zOnN0
+RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiCiAg
+ICAgICAgICAgIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3Av
+MS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8x
+LjEvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4w
+LyIKICAgICAgICAgICAgeG1sbnM6ZXhpZj0iaHR0cDovL25zLmFkb2JlLmNvbS9leGlmLzEuMC8i
+PgogICAgICAgICA8eG1wOkNyZWF0b3JUb29sPkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE0IChNYWNp
+bnRvc2gpPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDx4bXA6Q3JlYXRlRGF0ZT4yMDE1LTAz
+LTIyVDA3OjUwOjI4LTA1OjAwPC94bXA6Q3JlYXRlRGF0ZT4KICAgICAgICAgPHhtcDpNZXRhZGF0
+YURhdGU+MjAxNS0wMy0yMlQwNzo1MDoyOC0wNTowMDwveG1wOk1ldGFkYXRhRGF0ZT4KICAgICAg
+ICAgPHhtcDpNb2RpZnlEYXRlPjIwMTUtMDMtMjJUMDc6NTA6MjgtMDU6MDA8L3htcDpNb2RpZnlE
+YXRlPgogICAgICAgICA8eG1wTU06SW5zdGFuY2VJRD54bXAuaWlkOmQxMDU0MzZlLWY5ZTAtNDkx
+MS1iZTFiLTcwMzcxNDM4NTA4MjwveG1wTU06SW5zdGFuY2VJRD4KICAgICAgICAgPHhtcE1NOkRv
+Y3VtZW50SUQ+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjVmYTlmM2I1LTExMjAtMTE3OC1iOTIzLWZi
+MjdlNDc0YmQzYTwveG1wTU06RG9jdW1lbnRJRD4KICAgICAgICAgPHhtcE1NOk9yaWdpbmFsRG9j
+dW1lbnRJRD54bXAuZGlkOjA4ZTkxZjNlLWU3MjQtNDYzNC04YmJlLTFiNzRlNzMwMTA3NTwveG1w
+TU06T3JpZ2luYWxEb2N1bWVudElEPgogICAgICAgICA8eG1wTU06SGlzdG9yeT4KICAgICAgICAg
+ICAgPHJkZjpTZXE+CiAgICAgICAgICAgICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3Vy
+Y2UiPgogICAgICAgICAgICAgICAgICA8c3RFdnQ6YWN0aW9uPmNyZWF0ZWQ8L3N0RXZ0OmFjdGlv
+bj4KICAgICAgICAgICAgICAgICAgPHN0RXZ0Omluc3RhbmNlSUQ+eG1wLmlpZDowOGU5MWYzZS1l
+NzI0LTQ2MzQtOGJiZS0xYjc0ZTczMDEwNzU8L3N0RXZ0Omluc3RhbmNlSUQ+CiAgICAgICAgICAg
+ICAgICAgIDxzdEV2dDp3aGVuPjIwMTUtMDMtMjJUMDc6NTA6MjgtMDU6MDA8L3N0RXZ0OndoZW4+
+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDpzb2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBD
+QyAyMDE0IChNYWNpbnRvc2gpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICA8
+L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+
+CiAgICAgICAgICAgICAgICAgIDxzdEV2dDphY3Rpb24+c2F2ZWQ8L3N0RXZ0OmFjdGlvbj4KICAg
+ICAgICAgICAgICAgICAgPHN0RXZ0Omluc3RhbmNlSUQ+eG1wLmlpZDpkMTA1NDM2ZS1mOWUwLTQ5
+MTEtYmUxYi03MDM3MTQzODUwODI8L3N0RXZ0Omluc3RhbmNlSUQ+CiAgICAgICAgICAgICAgICAg
+IDxzdEV2dDp3aGVuPjIwMTUtMDMtMjJUMDc6NTA6MjgtMDU6MDA8L3N0RXZ0OndoZW4+CiAgICAg
+ICAgICAgICAgICAgIDxzdEV2dDpzb2Z0d2FyZUFnZW50PkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE0
+IChNYWNpbnRvc2gpPC9zdEV2dDpzb2Z0d2FyZUFnZW50PgogICAgICAgICAgICAgICAgICA8c3RF
+dnQ6Y2hhbmdlZD4vPC9zdEV2dDpjaGFuZ2VkPgogICAgICAgICAgICAgICA8L3JkZjpsaT4KICAg
+ICAgICAgICAgPC9yZGY6U2VxPgogICAgICAgICA8L3htcE1NOkhpc3Rvcnk+CiAgICAgICAgIDxw
+aG90b3Nob3A6RG9jdW1lbnRBbmNlc3RvcnM+CiAgICAgICAgICAgIDxyZGY6QmFnPgogICAgICAg
+ICAgICAgICA8cmRmOmxpPnhtcC5kaWQ6NEMxRkU2RTZCQzREMTFFNEI3MDg5OEZGODlDRkQ2RUU8
+L3JkZjpsaT4KICAgICAgICAgICAgPC9yZGY6QmFnPgogICAgICAgICA8L3Bob3Rvc2hvcDpEb2N1
+bWVudEFuY2VzdG9ycz4KICAgICAgICAgPHBob3Rvc2hvcDpDb2xvck1vZGU+MzwvcGhvdG9zaG9w
+OkNvbG9yTW9kZT4KICAgICAgICAgPHBob3Rvc2hvcDpJQ0NQcm9maWxlPnNSR0IgSUVDNjE5NjYt
+Mi4xPC9waG90b3Nob3A6SUNDUHJvZmlsZT4KICAgICAgICAgPGRjOmZvcm1hdD5pbWFnZS9wbmc8
+L2RjOmZvcm1hdD4KICAgICAgICAgPHRpZmY6T3JpZW50YXRpb24+MTwvdGlmZjpPcmllbnRhdGlv
+bj4KICAgICAgICAgPHRpZmY6WFJlc29sdXRpb24+NzIwMDAwLzEwMDAwPC90aWZmOlhSZXNvbHV0
+aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj43MjAwMDAvMTAwMDA8L3RpZmY6WVJlc29s
+dXRpb24+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVu
+aXQ+CiAgICAgICAgIDxleGlmOkNvbG9yU3BhY2U+MTwvZXhpZjpDb2xvclNwYWNlPgogICAgICAg
+ICA8ZXhpZjpQaXhlbFhEaW1lbnNpb24+MjU8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAg
+ICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MjU8L2V4aWY6UGl4ZWxZRGltZW5zaW9uPgogICAgICA8
+L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/Ph0AdIcAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkA
+AHUwAADqYAAAOpgAABdvkl/FRgAAAclJREFUeNrs1s+LjVEYB/DPHe7EYjY2wsaPjaZBZDQLEZGF
+hSwkNdlIWbC2UEr5D8ZGSX4sJJINaQjlNkn5lcVMSuSWaagZXImYrsU8N6fT6/JOkcV869T7nOc5
+53vO83yf930rzWbT30aHf4AZklKYDQ6tKLvmODZiFpqo4CvquIlzmAQDz4KkHNbjcBv/HvTHGJ1u
+unb9QcxmXEHX70g6UI30VNEZ6enN4ibxrWB9H/YWkczBPlzCYzyN8QS30YNlSfwo1mElNuFatt/O
+n4WfwgJciIIW4QHmY14ydxeP4nkEDzGMRTG3NL1JJ862IYAaVmVz+ckbmCiW8FQxt2a+LyFLIc2T
+OJ/4v8ftUuzH8sSupyQ7suCLOIJP0QMTkaa0oV7gPQbQHUpaG/Et3ElJ+hLHmzhRIyPuxdzEvoqD
+MYrwDqfTmnRlaWoULNqS2UNtavg55Ps6JRlJApbgaPRGC1VsS+yP+IDVBZtfDjnfyAt/PUlZBcew
+O2oyhBNYnGz2KvpneyaEMbz8lbrO4AAWJr7uRJY9IfMWBqPotTKv+nqcfKwgZrBA3rem+z2pYQNO
+4TnG8Rb3sCbs8cj1/TIklZkfif+O5McA9Y1iuiAu5qQAAAAASUVORK5CYII=
+
+--related-Cpanel::Email::Object-3650338-1771696224-0.153552710604039--
+
+--alternative-Cpanel::Email::Object-3650338-1771696224-0.471507267023053--
+
+--mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382
+Content-Type: application/octet-stream; x-unix-mode=0600; name="email-admin@siteauteur.fr.mobileconfig"
+Content-Disposition: attachment; filename="email-admin@siteauteur.fr.mobileconfig"
+Content-Transfer-Encoding: base64
+
+MIIZVgYJKoZIhvcNAQcCoIIZRzCCGUMCAQExDzANBglghkgBZQMEAgEFADCCC20GCSqGSIb3DQEH
+AaCCC14EggtaPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQ
+RSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6Ly93d3cu
+YXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPg0KPHBsaXN0IHZlcnNpb249IjEu
+MCI+DQo8ZGljdD4NCiAgPGtleT5QYXlsb2FkQ29udGVudDwva2V5Pg0KICA8YXJyYXk+DQogICAg
+PGRpY3Q+DQogICAgICA8a2V5PkVtYWlsQWNjb3VudERlc2NyaXB0aW9uPC9rZXk+DQogICAgICA8
+c3RyaW5nPmFkbWluQHNpdGVhdXRldXIuZnI8L3N0cmluZz4NCiAgICAgIDxrZXk+RW1haWxBY2Nv
+dW50TmFtZTwva2V5Pg0KICAgICAgPHN0cmluZz5hZG1pbkBzaXRlYXV0ZXVyLmZyPC9zdHJpbmc+
+DQogICAgICA8a2V5PkVtYWlsQWNjb3VudFR5cGU8L2tleT4NCiAgICAgIDxzdHJpbmc+RW1haWxU
+eXBlSU1BUDwvc3RyaW5nPg0KICAgICAgPGtleT5FbWFpbEFkZHJlc3M8L2tleT4NCiAgICAgIDxz
+dHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAgPGtleT5JbmNvbWluZ01h
+aWxTZXJ2ZXJBdXRoZW50aWNhdGlvbjwva2V5Pg0KICAgICAgPHN0cmluZz5FbWFpbEF1dGhQYXNz
+d29yZDwvc3RyaW5nPg0KICAgICAgPGtleT5JbmNvbWluZ01haWxTZXJ2ZXJIb3N0TmFtZTwva2V5
+Pg0KICAgICAgPHN0cmluZz5sZXZlbC5vMnN3aXRjaC5uZXQ8L3N0cmluZz4NCiAgICAgIDxrZXk+
+SW5jb21pbmdNYWlsU2VydmVyUG9ydE51bWJlcjwva2V5Pg0KICAgICAgPGludGVnZXI+OTkzPC9p
+bnRlZ2VyPg0KICAgICAgPGtleT5JbmNvbWluZ01haWxTZXJ2ZXJVc2VTU0w8L2tleT4NCiAgICAg
+IDx0cnVlLz4NCiAgICAgIDxrZXk+SW5jb21pbmdNYWlsU2VydmVyVXNlcm5hbWU8L2tleT4NCiAg
+ICAgIDxzdHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAgPGtleT5PdXRn
+b2luZ01haWxTZXJ2ZXJBdXRoZW50aWNhdGlvbjwva2V5Pg0KICAgICAgPHN0cmluZz5FbWFpbEF1
+dGhQYXNzd29yZDwvc3RyaW5nPg0KICAgICAgPGtleT5PdXRnb2luZ01haWxTZXJ2ZXJIb3N0TmFt
+ZTwva2V5Pg0KICAgICAgPHN0cmluZz5sZXZlbC5vMnN3aXRjaC5uZXQ8L3N0cmluZz4NCiAgICAg
+IDxrZXk+T3V0Z29pbmdNYWlsU2VydmVyUG9ydE51bWJlcjwva2V5Pg0KICAgICAgPGludGVnZXI+
+NDY1PC9pbnRlZ2VyPg0KICAgICAgPGtleT5PdXRnb2luZ01haWxTZXJ2ZXJVc2VTU0w8L2tleT4N
+CiAgICAgIDx0cnVlLz4NCiAgICAgIDxrZXk+T3V0Z29pbmdNYWlsU2VydmVyVXNlcm5hbWU8L2tl
+eT4NCiAgICAgIDxzdHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAgPGtl
+eT5PdXRnb2luZ1Bhc3N3b3JkU2FtZUFzSW5jb21pbmdQYXNzd29yZDwva2V5Pg0KICAgICAgPHRy
+dWUvPg0KICAgICAgPGtleT5QYXlsb2FkRGVzY3JpcHRpb248L2tleT4NCiAgICAgIDxzdHJpbmc+
+YWRtaW5Ac2l0ZWF1dGV1ci5mciBTZWN1cmUgRW1haWwgU2V0dXA8L3N0cmluZz4NCiAgICAgIDxr
+ZXk+UGF5bG9hZERpc3BsYXlOYW1lPC9rZXk+DQogICAgICA8c3RyaW5nPmFkbWluQHNpdGVhdXRl
+dXIuZnIgU2VjdXJlIEVtYWlsIFNldHVwPC9zdHJpbmc+DQogICAgICA8a2V5PlBheWxvYWRJZGVu
+dGlmaWVyPC9rZXk+DQogICAgICA8c3RyaW5nPmNwYW5lbC5tYWlsLm9yZy5hZG1pbi5zaXRlYXV0
+ZXVyLmZyPC9zdHJpbmc+DQogICAgICA8a2V5PlBheWxvYWRPcmdhbml6YXRpb248L2tleT4NCiAg
+ICAgIDxzdHJpbmc+c2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAgPGtleT5QYXlsb2FkVHlw
+ZTwva2V5Pg0KICAgICAgPHN0cmluZz5jb20uYXBwbGUubWFpbC5tYW5hZ2VkPC9zdHJpbmc+DQog
+ICAgICA8a2V5PlBheWxvYWRVVUlEPC9rZXk+DQogICAgICA8c3RyaW5nPjNlY2M5YzQ0LTc4NTIt
+Y2ZmZS1hNzc3LWNhYTA3MGViNWZlMTwvc3RyaW5nPg0KICAgICAgPGtleT5QYXlsb2FkVmVyc2lv
+bjwva2V5Pg0KICAgICAgPGludGVnZXI+MTwvaW50ZWdlcj4NCiAgICAgIDxrZXk+UHJldmVudEFw
+cFNoZWV0PC9rZXk+DQogICAgICA8ZmFsc2UvPg0KICAgICAgPGtleT5QcmV2ZW50TW92ZTwva2V5
+Pg0KICAgICAgPGZhbHNlLz4NCiAgICAgIDxrZXk+U01JTUVFbmFibGVkPC9rZXk+DQogICAgICA8
+ZmFsc2UvPg0KICAgICAgPGtleT5JbmNvbWluZ01haWxTZXJ2ZXJJTUFQUGF0aFByZWZpeDwva2V5
+Pg0KICAgICAgPHN0cmluZz5JTkJPWDwvc3RyaW5nPg0KICAgIDwvZGljdD4NCiAgPC9hcnJheT4N
+CiAgPGtleT5QYXlsb2FkRGVzY3JpcHRpb248L2tleT4NCiAgPHN0cmluZz5hZG1pbkBzaXRlYXV0
+ZXVyLmZyIFNlY3VyZSBFbWFpbCBTZXR1cDwvc3RyaW5nPg0KICA8a2V5PlBheWxvYWREaXNwbGF5
+TmFtZTwva2V5Pg0KICA8c3RyaW5nPmFkbWluQHNpdGVhdXRldXIuZnIgU2VjdXJlIEVtYWlsIFNl
+dHVwPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4NCiAgPHN0cmluZz5j
+cGFuZWwubWFpbC5vcmcuYWRtaW4uc2l0ZWF1dGV1ci5mci1lbWFpbDwvc3RyaW5nPg0KICA8a2V5
+PlBheWxvYWRPcmdhbml6YXRpb248L2tleT4NCiAgPHN0cmluZz5jcGFuZWwubWFpbC5vcmcuYWRt
+aW4uc2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICA8a2V5PlBheWxvYWRSZW1vdmFsRGlzYWxsb3dl
+ZDwva2V5Pg0KICA8ZmFsc2UvPg0KICA8a2V5PlBheWxvYWRUeXBlPC9rZXk+DQogIDxzdHJpbmc+
+Q29uZmlndXJhdGlvbjwvc3RyaW5nPg0KICA8a2V5PlBheWxvYWRVVUlEPC9rZXk+DQogIDxzdHJp
+bmc+MGNlMWI3ZGQtOGQwNi00OWJhLTkwNmMtMTVjYTdkMDFjNjVmPC9zdHJpbmc+DQogIDxrZXk+
+UGF5bG9hZFZlcnNpb248L2tleT4NCiAgPGludGVnZXI+MTwvaW50ZWdlcj4NCjwvZGljdD4NCjwv
+cGxpc3Q+DQqgggtbMIIFBjCCAu6gAwIBAgIRAMISMktwqbSRcdxA9+KFJjwwDQYJKoZIhvcNAQEL
+BQAwTzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2VhcmNoIEdy
+b3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMjQwMzEzMDAwMDAwWhcNMjcwMzEyMjM1OTU5
+WjAzMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3MgRW5jcnlwdDEMMAoGA1UEAxMDUjEyMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2pgodK2+lP474B7i5Ut1qywSf+2nAzJ+Npfs
+6DGPpRONC5kuHs0BUT1M5ShuCVUxqqUiXXL0LQfCTUA83wEjuXg39RplMjTmhnGdBO+ECFu9AhqZ
+66YBAJpzkG2Pogeg0JfT2kVhgTU9FPnEwF9q3AuWGrCf4yrqvSrWmMebcas7dA8827JgvlpLThjp
+2ypzXIlhZZ7+7Tymy05v5J75AEaz/xlNKmOzjmbGGIVwx1Blbzt05UiDDwhYXS0jnV6j/ujbAKHS
+9OMZTfLuevYnnuXNnC2i8n+cF63vEzc50bTILEHWhsDp7CH4WRt/uTp8n1wBnWIEwii9Cq08yhDs
+GwIDAQABo4H4MIH1MA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUH
+AwEwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUALUp8i2ObzHom0yteD763OkM0dIwHwYD
+VR0jBBgwFoAUebRZ5nu25eQBc4AIiMgaWPbpm24wMgYIKwYBBQUHAQEEJjAkMCIGCCsGAQUFBzAC
+hhZodHRwOi8veDEuaS5sZW5jci5vcmcvMBMGA1UdIAQMMAowCAYGZ4EMAQIBMCcGA1UdHwQgMB4w
+HKAaoBiGFmh0dHA6Ly94MS5jLmxlbmNyLm9yZy8wDQYJKoZIhvcNAQELBQADggIBAI910AnPanZI
+ZTKS3rVEyIV29BWEjAK/duuz8eL5boSoVpHhkkv34eoAeEiPdZLj5EZ7G2ArIK+gzhTlRQ1q4FKG
+pPPaFBSpqV/xbUb5UlAXQOnkHn3mFVj+qYv87/WeY+Bm4sN3Ox8BhyaU7UAQ3LeZ7N1X01xxQe4w
+IAAE3JVLUCiHmZL+qoCUtgYIFPgcg350QMUIWgxPXNGEncT921ne7nluI02V8pLUmClqXOsCwULw
++PVOZCB7qOMxxMBoCUeL2Ll4oMpOSr5pJCpLN3tRA2s6P1KLs9TSrVhOk+7LX28NMUlIusQ/nxLJ
+ID0RhAeFtPjyOCOscQBA53+NRjSCak7P4A5jX7ppmkcJECL+S0i3kXVUy5Me5BbrU8973jZNv/ax
+6+ZK6TM8jWmimL6of6OrX7ZU6E2WqazzsFrLG3o2kySbzlhSgJ81Cl4tv3SbYiYXnJExKQvzf83D
+Yotox3f0fwv7xln1A2ZLplCb0O+l/AK0YE0DS2FPxSAHi0iwMfW2nNHJrXcY3LLHD77gRgje4Eve
+ubi2xxa+Nmk/hmhLdIETiVDFanoCrMVIpQ59XWHkzdFmoHXHBV7oibVjGSO7ULSQ7MJ1Nz51phuD
+JSgAIU7A0zrLnOrAj/dfrlEWRhCvAgbuwLZX1A2sjNjXoPOHbsPiy+lO1KF8/XY7MIIGTTCCBTWg
+AwIBAgISBSB5Vp+fFgwdGP2ILzZMdjjdMA0GCSqGSIb3DQEBCwUAMDMxCzAJBgNVBAYTAlVTMRYw
+FAYDVQQKEw1MZXQncyBFbmNyeXB0MQwwCgYDVQQDEwNSMTIwHhcNMjYwMjAzMDEwNzE1WhcNMjYw
+NTA0MDEwNzE0WjAoMSYwJAYDVQQDEx1hdXRvY29uZmlnLmxldmVsLm8yc3dpdGNoLm5ldDCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK94bB5XEozo3dzc8Nvp170AwwbInUGPDIn0x0re
+ZVz8VHXiG4FsS5brcHEr4YXmQ88e0dgNdzZl7S5eV7AyYOzVCVYMt0kN2CcN4OGtqtQJRC/9wT7L
+FRDJmubh+l1Ipl9cAOOt3tojtig0zDdWZXgjClOUaFP2UnBCzkcdwigZZDiIodk4Xpg0xBzHait6
+uZjZS8XL7SEbVhM5DxOPdRkenfjDg3S8Xw2UwFCCbvWBSw6MlNyBCwGpMf32YEgQeXG39E5fkuJh
+3GGQGe5NrnfcLzXnNqduF2DwA9Jlqm0BpvTXX4TZjkbXwdpgFGt1UA5GuhCaWp6Z4X0Ogn9oUNMC
+AwEAAaOCA2QwggNgMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUIbbgwTunFsM3WIww29ZeTS2IoDQwHwYDVR0jBBgw
+FoAUALUp8i2ObzHom0yteD763OkM0dIwMwYIKwYBBQUHAQEEJzAlMCMGCCsGAQUFBzAChhdodHRw
+Oi8vcjEyLmkubGVuY3Iub3JnLzCCAVUGA1UdEQSCAUwwggFIgh1hdXRvY29uZmlnLmxldmVsLm8y
+c3dpdGNoLm5ldIIfYXV0b2Rpc2NvdmVyLmxldmVsLm8yc3dpdGNoLm5ldIIZY3BhbmVsLmxldmVs
+Lm8yc3dpdGNoLm5ldIIeY3BjYWxlbmRhcnMubGV2ZWwubzJzd2l0Y2gubmV0gh1jcGNvbnRhY3Rz
+LmxldmVsLm8yc3dpdGNoLm5ldIIXaXB2Ni5sZXZlbC5vMnN3aXRjaC5uZXSCEmxldmVsLm8yc3dp
+dGNoLm5ldIIXbWFpbC5sZXZlbC5vMnN3aXRjaC5uZXSCGndlYmRpc2subGV2ZWwubzJzd2l0Y2gu
+bmV0ghp3ZWJtYWlsLmxldmVsLm8yc3dpdGNoLm5ldIIWd2htLmxldmVsLm8yc3dpdGNoLm5ldIIW
+d3d3LmxldmVsLm8yc3dpdGNoLm5ldDATBgNVHSAEDDAKMAgGBmeBDAECATAuBgNVHR8EJzAlMCOg
+IaAfhh1odHRwOi8vcjEyLmMubGVuY3Iub3JnLzk0LmNybDCCAQwGCisGAQQB1nkCBAIEgf0EgfoA
++AB+AHF+lfPCOIptseOEST0x4VqpYgh2LUIA4AUM0Ge1pmHiAAABnCE/p9AACAAABQAIebgCBAMA
+RzBFAiEAl43JE6xgJHfQvaDMSRKsP5aMPuum62q8aQgi0/IRTwQCIBjS3nya2YOtkp8tzesT+DYX
+eyqxNVtq+0WSE70I+bd0AHYA0W6ppWgHfmY1oD83pd28A6U8QRIU1IgY9ekxsyPLlQQAAAGcIT+o
+BgAABAMARzBFAiEAmoKTFXJw2i1+Kih2fDWOrFDrWT/d1TofUOiGoIFg7t0CIAhfZzFYuA/cm4/H
+EoRCMQpTKeKWoo2HNjy+t9M5tsF/MA0GCSqGSIb3DQEBCwUAA4IBAQAJxXaufyWb3+fPd09dBSCV
+9MBuKcIN4xNQQu/mPKQNV+JEtAGtKK/PAZYHyfe4/1OS3K4/11+PLVOuVicvhgzGimermwtpoYf9
+9v8/Ws6J8aD4s/2hLA+uEO9wJk+CjFTK0w8lcUVW+VGOhjLxb+EvGkMxwZd5fcGlOllJSIAt7bH8
+i5cngXnb09lcZIk6apk3VPpDrO9ZlY7LR+hE4vAC89KTFdrk48acPiEUYu8Tddv5MaOWW8PCRFHD
+BUkqewaW1iB1TIa6RU5h4D+oF2p//pEn3gWIQhuGgEdqNAX6ycVViUjssoKxSzJVAlnasVNO2pi8
+PTa8P3W0qZ8iUVAOMYICWzCCAlcCAQEwSTAzMQswCQYDVQQGEwJVUzEWMBQGA1UEChMNTGV0J3Mg
+RW5jcnlwdDEMMAoGA1UEAxMDUjEyAhIFIHlWn58WDB0Y/YgvNkx2ON0wDQYJYIZIAWUDBAIBBQCg
+geQwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0BCQUxDxcNMjYwMjIxMTc1MDE3
+WjAvBgkqhkiG9w0BCQQxIgQg3yJHF9dCwlMIj2P5BoQKD+hDR6nGuopZcdhPc0xWVd8weQYJKoZI
+hvcNAQkPMWwwajALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFlAwQBAjAKBggqhkiG
+9w0DBzAOBggqhkiG9w0DAgICAIAwDQYIKoZIhvcNAwICAUAwBwYFKw4DAgcwDQYIKoZIhvcNAwIC
+ASgwDQYJKoZIhvcNAQEBBQAEggEAizn1ry8pLVODRQtBywPuCnx2XH3WRxs2HprIn4kMNFFVAE2F
+5KwQ0Ns4plAZRKh2Wa3xWIWvrGv3MMxxZx7mvTkYYUfO/5NW1rm/VC0NcVSgFPPALlXlsg/HzI+g
+XlgSb2oiQM9VyzaCl/0Z5I7PeSadu10k2bX7LetIdQNpFv/7y7u/LnyYQf4V+fhtsnQ8oTUeAmPN
+sx1ppjKPPGV2BkOSLm1QxcGLUOzmQ5NiQFH81xdPTnhOwLAuGaNonhvW2qmWnVRgyiS+nZnPieuw
+s5HX33BsWLUnPojw7QtVG9O74eg+qDlkxYzDYl6typSr5eJ9JWgkHWJZsv+A/5+HIQ==
+
+--mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382
+Content-Type: application/octet-stream; x-unix-mode=0600; name="carddav-admin@siteauteur.fr.mobileconfig"
+Content-Disposition: attachment; filename="carddav-admin@siteauteur.fr.mobileconfig"
+Content-Transfer-Encoding: base64
+
+MIIVIwYJKoZIhvcNAQcCoIIVFDCCFRACAQExDzANBglghkgBZQMEAgEFADCCBzoGCSqGSIb3DQEH
+AaCCBysEggcnPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQ
+RSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6Ly93d3cu
+YXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPg0KPHBsaXN0IHZlcnNpb249IjEu
+MCI+DQo8ZGljdD4NCiAgPGtleT5QYXlsb2FkQ29udGVudDwva2V5Pg0KICA8YXJyYXk+DQogICAg
+PGRpY3Q+DQogICAgICAgIDxrZXk+Q2FyZERBVkFjY291bnREZXNjcmlwdGlvbjwva2V5Pg0KICAg
+ICAgICA8c3RyaW5nPmFkbWluQHNpdGVhdXRldXIuZnIgU2VjdXJlIENvbnRhY3RzIFNldHVwPC9z
+dHJpbmc+DQogICAgICAgIDxrZXk+Q2FyZERBVkhvc3ROYW1lPC9rZXk+DQogICAgICAgIDxzdHJp
+bmc+bGV2ZWwubzJzd2l0Y2gubmV0OjIwODA8L3N0cmluZz4NCiAgICAgICAgPGtleT5DYXJkREFW
+VXNlU1NMPC9rZXk+DQogICAgICAgIDx0cnVlLz4NCiAgICAgICAgPGtleT5DYXJkREFWVXNlcm5h
+bWU8L2tleT4NCiAgICAgICAgPHN0cmluZz5hZG1pbkBzaXRlYXV0ZXVyLmZyPC9zdHJpbmc+DQog
+ICAgICAgIDxrZXk+UGF5bG9hZERlc2NyaXB0aW9uPC9rZXk+DQogICAgICAgIDxzdHJpbmc+YWRt
+aW5Ac2l0ZWF1dGV1ci5mciBTZWN1cmUgQ29udGFjdHMgU2V0dXA8L3N0cmluZz4NCiAgICAgICAg
+PGtleT5QYXlsb2FkRGlzcGxheU5hbWU8L2tleT4NCiAgICAgICAgPHN0cmluZz5DYXJkREFWPC9z
+dHJpbmc+DQogICAgICAgIDxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4NCiAgICAgICAgPHN0
+cmluZz5jcGFuZWwubWFpbC5vcmcuYWRtaW4uc2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAg
+ICA8a2V5PlBheWxvYWRPcmdhbml6YXRpb248L2tleT4NCiAgICAgICAgPHN0cmluZz5zaXRlYXV0
+ZXVyLmZyPC9zdHJpbmc+DQogICAgICAgIDxrZXk+UGF5bG9hZFR5cGU8L2tleT4NCiAgICAgICAg
+PHN0cmluZz5jb20uYXBwbGUuY2FyZGRhdi5hY2NvdW50PC9zdHJpbmc+DQogICAgICAgIDxrZXk+
+UGF5bG9hZFVVSUQ8L2tleT4NCiAgICAgICAgPHN0cmluZz45N2I4ZGNiZC00NTllLTg5OTctNzZj
+MS1lZDU4NGQyZDhlMzA8L3N0cmluZz4NCiAgICAgICAgPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5
+Pg0KICAgICAgICA8aW50ZWdlcj4xPC9pbnRlZ2VyPg0KICAgIDwvZGljdD4NCiAgPC9hcnJheT4N
+CiAgPGtleT5QYXlsb2FkRGVzY3JpcHRpb248L2tleT4NCiAgPHN0cmluZz5hZG1pbkBzaXRlYXV0
+ZXVyLmZyIFNlY3VyZSBDb250YWN0cyBTZXR1cDwvc3RyaW5nPg0KICA8a2V5PlBheWxvYWREaXNw
+bGF5TmFtZTwva2V5Pg0KICA8c3RyaW5nPmFkbWluQHNpdGVhdXRldXIuZnIgU2VjdXJlIENvbnRh
+Y3RzIFNldHVwPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4NCiAgPHN0
+cmluZz5jcGFuZWwubWFpbC5vcmcuYWRtaW4uc2l0ZWF1dGV1ci5mci1jYXJkZGF2PC9zdHJpbmc+
+DQogIDxrZXk+UGF5bG9hZE9yZ2FuaXphdGlvbjwva2V5Pg0KICA8c3RyaW5nPmNwYW5lbC5tYWls
+Lm9yZy5hZG1pbi5zaXRlYXV0ZXVyLmZyPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZFJlbW92YWxE
+aXNhbGxvd2VkPC9rZXk+DQogIDxmYWxzZS8+DQogIDxrZXk+UGF5bG9hZFR5cGU8L2tleT4NCiAg
+PHN0cmluZz5Db25maWd1cmF0aW9uPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZFVVSUQ8L2tleT4N
+CiAgPHN0cmluZz44NjY4YzFmYi1kOTI3LTVkNzgtNzk3YS1iN2MwOTI0MDllNjM8L3N0cmluZz4N
+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
+fQ6Cf2hQ0wIDAQABo4IDZDCCA2AwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+BggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQhtuDBO6cWwzdYjDDb1l5NLYigNDAf
+BgNVHSMEGDAWgBQAtSnyLY5vMeibTK14Pvrc6QzR0jAzBggrBgEFBQcBAQQnMCUwIwYIKwYBBQUH
+MAKGF2h0dHA6Ly9yMTIuaS5sZW5jci5vcmcvMIIBVQYDVR0RBIIBTDCCAUiCHWF1dG9jb25maWcu
+bGV2ZWwubzJzd2l0Y2gubmV0gh9hdXRvZGlzY292ZXIubGV2ZWwubzJzd2l0Y2gubmV0ghljcGFu
+ZWwubGV2ZWwubzJzd2l0Y2gubmV0gh5jcGNhbGVuZGFycy5sZXZlbC5vMnN3aXRjaC5uZXSCHWNw
+Y29udGFjdHMubGV2ZWwubzJzd2l0Y2gubmV0ghdpcHY2LmxldmVsLm8yc3dpdGNoLm5ldIISbGV2
+ZWwubzJzd2l0Y2gubmV0ghdtYWlsLmxldmVsLm8yc3dpdGNoLm5ldIIad2ViZGlzay5sZXZlbC5v
+MnN3aXRjaC5uZXSCGndlYm1haWwubGV2ZWwubzJzd2l0Y2gubmV0ghZ3aG0ubGV2ZWwubzJzd2l0
+Y2gubmV0ghZ3d3cubGV2ZWwubzJzd2l0Y2gubmV0MBMGA1UdIAQMMAowCAYGZ4EMAQIBMC4GA1Ud
+HwQnMCUwI6AhoB+GHWh0dHA6Ly9yMTIuYy5sZW5jci5vcmcvOTQuY3JsMIIBDAYKKwYBBAHWeQIE
+AgSB/QSB+gD4AH4AcX6V88I4im2x44RJPTHhWqliCHYtQgDgBQzQZ7WmYeIAAAGcIT+n0AAIAAAF
+AAh5uAIEAwBHMEUCIQCXjckTrGAkd9C9oMxJEqw/low+66brarxpCCLT8hFPBAIgGNLefJrZg62S
+ny3N6xP4Nhd7KrE1W2r7RZITvQj5t3QAdgDRbqmlaAd+ZjWgPzel3bwDpTxBEhTUiBj16TGzI8uV
+BAAAAZwhP6gGAAAEAwBHMEUCIQCagpMVcnDaLX4qKHZ8NY6sUOtZP93VOh9Q6IaggWDu3QIgCF9n
+MVi4D9ybj8cShEIxClMp4paijYc2PL630zm2wX8wDQYJKoZIhvcNAQELBQADggEBAAnFdq5/JZvf
+5893T10FIJX0wG4pwg3jE1BC7+Y8pA1X4kS0Aa0or88BlgfJ97j/U5Lcrj/XX48tU65WJy+GDMaK
+Z6ubC2mhh/32/z9azonxoPiz/aEsD64Q73AmT4KMVMrTDyVxRVb5UY6GMvFv4S8aQzHBl3l9waU6
+WUlIgC3tsfyLlyeBedvT2VxkiTpqmTdU+kOs71mVjstH6ETi8ALz0pMV2uTjxpw+IRRi7xN12/kx
+o5Zbw8JEUcMFSSp7BpbWIHVMhrpFTmHgP6gXan/+kSfeBYhCG4aAR2o0BfrJxVWJSOyygrFLMlUC
+WdqxU07amLw9Nrw/dbSpnyJRUA4xggJbMIICVwIBATBJMDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQK
+Ew1MZXQncyBFbmNyeXB0MQwwCgYDVQQDEwNSMTICEgUgeVafnxYMHRj9iC82THY43TANBglghkgB
+ZQMEAgEFAKCB5DAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNjAy
+MjExNzUwMTdaMC8GCSqGSIb3DQEJBDEiBCCZNikd+zGF3GiTDU614fWyUvsOR/GVAtW+qdxVQXfg
+ljB5BgkqhkiG9w0BCQ8xbDBqMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJYIZIAWUDBAEC
+MAoGCCqGSIb3DQMHMA4GCCqGSIb3DQMCAgIAgDANBggqhkiG9w0DAgIBQDAHBgUrDgMCBzANBggq
+hkiG9w0DAgIBKDANBgkqhkiG9w0BAQEFAASCAQCNjEvNLis+e37KqN4wwVqs/ZQloCGEKA/3RKGw
+0J4TwnLpIO+zXw1r33Fj5TN3PwEevlnuKXR49MhcDFEr2QjAr6uxEDKSobv1nOHXxjVwTt6O1G35
+Zr8F9TIpQG6ApCU+HI5KYepvSAq7V5szhLqJ5RLExZnRbcqyIsHUzTXb91m9/qidXi6pdUBbeLjw
+UgXTryAkwuMrI8D/LF0XKMkAtp/rxDgIlisGxlAKwTXiPDjiMTh3j/UXeVX0SBPhrI+gVBzpIZEh
+A78w4+QLmgsbcf8w0SXy0i9G4AT0lrLcswgzGYyeqJn8WmxtAc2TgipUoiMFssqdAetOCIM/ge8w
+
+--mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382
+Content-Type: application/octet-stream; x-unix-mode=0600; name="caldav-admin@siteauteur.fr.mobileconfig"
+Content-Disposition: attachment; filename="caldav-admin@siteauteur.fr.mobileconfig"
+Content-Transfer-Encoding: base64
+
+MIIVxQYJKoZIhvcNAQcCoIIVtjCCFbICAQExDzANBglghkgBZQMEAgEFADCCB9wGCSqGSIb3DQEH
+AaCCB80EggfJPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhRE9DVFlQ
+RSBwbGlzdCBQVUJMSUMgIi0vL0FwcGxlLy9EVEQgUExJU1QgMS4wLy9FTiIgImh0dHA6Ly93d3cu
+YXBwbGUuY29tL0RURHMvUHJvcGVydHlMaXN0LTEuMC5kdGQiPg0KPHBsaXN0IHZlcnNpb249IjEu
+MCI+DQo8ZGljdD4NCiAgPGtleT5QYXlsb2FkQ29udGVudDwva2V5Pg0KICA8YXJyYXk+DQogICAg
+PGRpY3Q+DQogICAgICAgIDxrZXk+Q2FsREFWQWNjb3VudERlc2NyaXB0aW9uPC9rZXk+DQogICAg
+ICAgIDxzdHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mcjwvc3RyaW5nPg0KICAgICAgICA8a2V5PkNh
+bERBVkhvc3ROYW1lPC9rZXk+DQogICAgICAgIDxzdHJpbmc+bGV2ZWwubzJzd2l0Y2gubmV0PC9z
+dHJpbmc+DQogICAgICAgIDxrZXk+Q2FsREFWUG9ydDwva2V5Pg0KICAgICAgICA8aW50ZWdlcj4y
+MDgwPC9pbnRlZ2VyPg0KICAgICAgICA8a2V5PkNhbERBVlByaW5jaXBhbFVSTDwva2V5Pg0KICAg
+ICAgICA8c3RyaW5nPi9wcmluY2lwYWxzL2FkbWluQHNpdGVhdXRldXIuZnI8L3N0cmluZz4NCiAg
+ICAgICAgPGtleT5DYWxEQVZVc2VTU0w8L2tleT4NCiAgICAgICAgPHRydWUvPg0KICAgICAgICA8
+a2V5PkNhbERBVlVzZXJuYW1lPC9rZXk+DQogICAgICAgIDxzdHJpbmc+YWRtaW5Ac2l0ZWF1dGV1
+ci5mcjwvc3RyaW5nPg0KICAgICAgICA8a2V5PlBheWxvYWREZXNjcmlwdGlvbjwva2V5Pg0KICAg
+ICAgICA8c3RyaW5nPmFkbWluQHNpdGVhdXRldXIuZnIgU2VjdXJlIENhbGVuZGFyIFNldHVwPC9z
+dHJpbmc+DQogICAgICAgIDxrZXk+UGF5bG9hZERpc3BsYXlOYW1lPC9rZXk+DQogICAgICAgIDxz
+dHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mciBTZWN1cmUgQ2FsZW5kYXIgU2V0dXA8L3N0cmluZz4N
+CiAgICAgICAgPGtleT5QYXlsb2FkSWRlbnRpZmllcjwva2V5Pg0KICAgICAgICA8c3RyaW5nPmNw
+YW5lbC5tYWlsLm9yZy5hZG1pbi5zaXRlYXV0ZXVyLmZyPC9zdHJpbmc+DQogICAgICAgIDxrZXk+
+UGF5bG9hZE9yZ2FuaXphdGlvbjwva2V5Pg0KICAgICAgICA8c3RyaW5nPnNpdGVhdXRldXIuZnI8
+L3N0cmluZz4NCiAgICAgICAgPGtleT5QYXlsb2FkVHlwZTwva2V5Pg0KICAgICAgICA8c3RyaW5n
+PmNvbS5hcHBsZS5jYWxkYXYuYWNjb3VudDwvc3RyaW5nPg0KICAgICAgICA8a2V5PlBheWxvYWRV
+VUlEPC9rZXk+DQogICAgICAgIDxzdHJpbmc+ZjVmMjk5MmEtMjZhZi0zY2ZmLTkxYTgtNjhiMzBh
+Mzk0MTM0PC9zdHJpbmc+DQogICAgICAgIDxrZXk+UGF5bG9hZFZlcnNpb248L2tleT4NCiAgICAg
+ICAgPGludGVnZXI+MTwvaW50ZWdlcj4NCiAgICA8L2RpY3Q+DQogIDwvYXJyYXk+DQogIDxrZXk+
+UGF5bG9hZERlc2NyaXB0aW9uPC9rZXk+DQogIDxzdHJpbmc+YWRtaW5Ac2l0ZWF1dGV1ci5mciBT
+ZWN1cmUgQ2FsZW5kYXIgU2V0dXA8L3N0cmluZz4NCiAgPGtleT5QYXlsb2FkRGlzcGxheU5hbWU8
+L2tleT4NCiAgPHN0cmluZz5hZG1pbkBzaXRlYXV0ZXVyLmZyIFNlY3VyZSBDYWxlbmRhciBTZXR1
+cDwvc3RyaW5nPg0KICA8a2V5PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+DQogIDxzdHJpbmc+Y3Bh
+bmVsLm1haWwub3JnLmFkbWluLnNpdGVhdXRldXIuZnItY2FsZGF2PC9zdHJpbmc+DQogIDxrZXk+
+UGF5bG9hZE9yZ2FuaXphdGlvbjwva2V5Pg0KICA8c3RyaW5nPmNwYW5lbC5tYWlsLm9yZy5hZG1p
+bi5zaXRlYXV0ZXVyLmZyPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZFJlbW92YWxEaXNhbGxvd2Vk
+PC9rZXk+DQogIDxmYWxzZS8+DQogIDxrZXk+UGF5bG9hZFR5cGU8L2tleT4NCiAgPHN0cmluZz5D
+b25maWd1cmF0aW9uPC9zdHJpbmc+DQogIDxrZXk+UGF5bG9hZFVVSUQ8L2tleT4NCiAgPHN0cmlu
+Zz5jZjQxMzFmYy00YmU1LTlkYzYtZGZhYy0zYWZmNzY5YzI3ZDc8L3N0cmluZz4NCiAgPGtleT5Q
+YXlsb2FkVmVyc2lvbjwva2V5Pg0KICA8aW50ZWdlcj4xPC9pbnRlZ2VyPg0KPC9kaWN0Pg0KPC9w
+bGlzdD4NCqCCC1swggUGMIIC7qADAgECAhEAwhIyS3CptJFx3ED34oUmPDANBgkqhkiG9w0BAQsF
+ADBPMQswCQYDVQQGEwJVUzEpMCcGA1UEChMgSW50ZXJuZXQgU2VjdXJpdHkgUmVzZWFyY2ggR3Jv
+dXAxFTATBgNVBAMTDElTUkcgUm9vdCBYMTAeFw0yNDAzMTMwMDAwMDBaFw0yNzAzMTIyMzU5NTla
+MDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQwwCgYDVQQDEwNSMTIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDamCh0rb6U/jvgHuLlS3WrLBJ/7acDMn42l+zo
+MY+lE40LmS4ezQFRPUzlKG4JVTGqpSJdcvQtB8JNQDzfASO5eDf1GmUyNOaGcZ0E74QIW70CGpnr
+pgEAmnOQbY+iB6DQl9PaRWGBNT0U+cTAX2rcC5YasJ/jKuq9KtaYx5txqzt0DzzbsmC+WktOGOnb
+KnNciWFlnv7tPKbLTm/knvkARrP/GU0qY7OOZsYYhXDHUGVvO3TlSIMPCFhdLSOdXqP+6NsAodL0
+4xlN8u569iee5c2cLaLyf5wXre8TNznRtMgsQdaGwOnsIfhZG3+5OnyfXAGdYgTCKL0KrTzKEOwb
+AgMBAAGjgfgwgfUwDgYDVR0PAQH/BAQDAgGGMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcD
+ATASBgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdDgQWBBQAtSnyLY5vMeibTK14Pvrc6QzR0jAfBgNV
+HSMEGDAWgBR5tFnme7bl5AFzgAiIyBpY9umbbjAyBggrBgEFBQcBAQQmMCQwIgYIKwYBBQUHMAKG
+Fmh0dHA6Ly94MS5pLmxlbmNyLm9yZy8wEwYDVR0gBAwwCjAIBgZngQwBAgEwJwYDVR0fBCAwHjAc
+oBqgGIYWaHR0cDovL3gxLmMubGVuY3Iub3JnLzANBgkqhkiG9w0BAQsFAAOCAgEAj3XQCc9qdkhl
+MpLetUTIhXb0FYSMAr9267Px4vluhKhWkeGSS/fh6gB4SI91kuPkRnsbYCsgr6DOFOVFDWrgUoak
+89oUFKmpX/FtRvlSUBdA6eQefeYVWP6pi/zv9Z5j4Gbiw3c7HwGHJpTtQBDct5ns3VfTXHFB7jAg
+AATclUtQKIeZkv6qgJS2BggU+ByDfnRAxQhaDE9c0YSdxP3bWd7ueW4jTZXyktSYKWpc6wLBQvD4
+9U5kIHuo4zHEwGgJR4vYuXigyk5KvmkkKks3e1EDazo/Uouz1NKtWE6T7stfbw0xSUi6xD+fEskg
+PRGEB4W0+PI4I6xxAEDnf41GNIJqTs/gDmNfummaRwkQIv5LSLeRdVTLkx7kFutTz3veNk2/9rHr
+5krpMzyNaaKYvqh/o6tftlToTZaprPOwWssbejaTJJvOWFKAnzUKXi2/dJtiJheckTEpC/N/zcNi
+i2jHd/R/C/vGWfUDZkumUJvQ76X8ArRgTQNLYU/FIAeLSLAx9bac0cmtdxjcsscPvuBGCN7gS965
+uLbHFr42aT+GaEt0gROJUMVqegKsxUilDn1dYeTN0WagdccFXuiJtWMZI7tQtJDswnU3PnWmG4Ml
+KAAhTsDTOsuc6sCP91+uURZGEK8CBu7AtlfUDayM2Neg84duw+LL6U7UoXz9djswggZNMIIFNaAD
+AgECAhIFIHlWn58WDB0Y/YgvNkx2ON0wDQYJKoZIhvcNAQELBQAwMzELMAkGA1UEBhMCVVMxFjAU
+BgNVBAoTDUxldCdzIEVuY3J5cHQxDDAKBgNVBAMTA1IxMjAeFw0yNjAyMDMwMTA3MTVaFw0yNjA1
+MDQwMTA3MTRaMCgxJjAkBgNVBAMTHWF1dG9jb25maWcubGV2ZWwubzJzd2l0Y2gubmV0MIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr3hsHlcSjOjd3Nzw2+nXvQDDBsidQY8MifTHSt5l
+XPxUdeIbgWxLlutwcSvhheZDzx7R2A13NmXtLl5XsDJg7NUJVgy3SQ3YJw3g4a2q1AlEL/3BPssV
+EMma5uH6XUimX1wA463e2iO2KDTMN1ZleCMKU5RoU/ZScELORx3CKBlkOIih2ThemDTEHMdqK3q5
+mNlLxcvtIRtWEzkPE491GR6d+MODdLxfDZTAUIJu9YFLDoyU3IELAakx/fZgSBB5cbf0Tl+S4mHc
+YZAZ7k2ud9wvNec2p24XYPAD0mWqbQGm9NdfhNmORtfB2mAUa3VQDka6EJpanpnhfQ6Cf2hQ0wID
+AQABo4IDZDCCA2AwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+AjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQhtuDBO6cWwzdYjDDb1l5NLYigNDAfBgNVHSMEGDAW
+gBQAtSnyLY5vMeibTK14Pvrc6QzR0jAzBggrBgEFBQcBAQQnMCUwIwYIKwYBBQUHMAKGF2h0dHA6
+Ly9yMTIuaS5sZW5jci5vcmcvMIIBVQYDVR0RBIIBTDCCAUiCHWF1dG9jb25maWcubGV2ZWwubzJz
+d2l0Y2gubmV0gh9hdXRvZGlzY292ZXIubGV2ZWwubzJzd2l0Y2gubmV0ghljcGFuZWwubGV2ZWwu
+bzJzd2l0Y2gubmV0gh5jcGNhbGVuZGFycy5sZXZlbC5vMnN3aXRjaC5uZXSCHWNwY29udGFjdHMu
+bGV2ZWwubzJzd2l0Y2gubmV0ghdpcHY2LmxldmVsLm8yc3dpdGNoLm5ldIISbGV2ZWwubzJzd2l0
+Y2gubmV0ghdtYWlsLmxldmVsLm8yc3dpdGNoLm5ldIIad2ViZGlzay5sZXZlbC5vMnN3aXRjaC5u
+ZXSCGndlYm1haWwubGV2ZWwubzJzd2l0Y2gubmV0ghZ3aG0ubGV2ZWwubzJzd2l0Y2gubmV0ghZ3
+d3cubGV2ZWwubzJzd2l0Y2gubmV0MBMGA1UdIAQMMAowCAYGZ4EMAQIBMC4GA1UdHwQnMCUwI6Ah
+oB+GHWh0dHA6Ly9yMTIuYy5sZW5jci5vcmcvOTQuY3JsMIIBDAYKKwYBBAHWeQIEAgSB/QSB+gD4
+AH4AcX6V88I4im2x44RJPTHhWqliCHYtQgDgBQzQZ7WmYeIAAAGcIT+n0AAIAAAFAAh5uAIEAwBH
+MEUCIQCXjckTrGAkd9C9oMxJEqw/low+66brarxpCCLT8hFPBAIgGNLefJrZg62Sny3N6xP4Nhd7
+KrE1W2r7RZITvQj5t3QAdgDRbqmlaAd+ZjWgPzel3bwDpTxBEhTUiBj16TGzI8uVBAAAAZwhP6gG
+AAAEAwBHMEUCIQCagpMVcnDaLX4qKHZ8NY6sUOtZP93VOh9Q6IaggWDu3QIgCF9nMVi4D9ybj8cS
+hEIxClMp4paijYc2PL630zm2wX8wDQYJKoZIhvcNAQELBQADggEBAAnFdq5/JZvf5893T10FIJX0
+wG4pwg3jE1BC7+Y8pA1X4kS0Aa0or88BlgfJ97j/U5Lcrj/XX48tU65WJy+GDMaKZ6ubC2mhh/32
+/z9azonxoPiz/aEsD64Q73AmT4KMVMrTDyVxRVb5UY6GMvFv4S8aQzHBl3l9waU6WUlIgC3tsfyL
+lyeBedvT2VxkiTpqmTdU+kOs71mVjstH6ETi8ALz0pMV2uTjxpw+IRRi7xN12/kxo5Zbw8JEUcMF
+SSp7BpbWIHVMhrpFTmHgP6gXan/+kSfeBYhCG4aAR2o0BfrJxVWJSOyygrFLMlUCWdqxU07amLw9
+Nrw/dbSpnyJRUA4xggJbMIICVwIBATBJMDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBF
+bmNyeXB0MQwwCgYDVQQDEwNSMTICEgUgeVafnxYMHRj9iC82THY43TANBglghkgBZQMEAgEFAKCB
+5DAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0yNjAyMjExNzUwMTda
+MC8GCSqGSIb3DQEJBDEiBCCl/lvux/22DtceZf+pisvydwtQNUoY3oW+2fCOzCifijB5BgkqhkiG
+9w0BCQ8xbDBqMAsGCWCGSAFlAwQBKjALBglghkgBZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3
+DQMHMA4GCCqGSIb3DQMCAgIAgDANBggqhkiG9w0DAgIBQDAHBgUrDgMCBzANBggqhkiG9w0DAgIB
+KDANBgkqhkiG9w0BAQEFAASCAQBDyEX1uc/+RxD3pPjzqThirzmnr79RftnTBPoRgRXmBfJ2mH5q
+Us5QiYFeu1aRNBf1Ih9sTRLpBAoYiT1qmJne6LosILFf30p+odnPJSkshJhCXBuShGitw0bW/ZMi
+tPc+stql78Sy9lGzIaGTauEuwEGzsd7GuHGMcVQMsa4XYTPbIuT1VmdjYeopmQzHTMfT8JDMHV34
+eBvDH2hQtrVdSDxHQc393fqtQAWrN57jcsbCQ1uMD5tJPhyGMyqBv0L2XGPEHD0ydYL+24r6k7rt
+TUX4SffGv33dtY1sQvk3qEgp9BT91ChpgfI/FY82c93Li1YCMhe/IzZZ6z2xW9iK
+--mixed-Cpanel::Email::Object-3650338-1771696224-0.160467826242382--

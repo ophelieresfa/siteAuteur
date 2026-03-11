@@ -1,0 +1,693 @@
+AWSTATS DATA FILE 8.0 (build 20240604)
+# If you remove this file, all statistics for date 202603 will be lost/reset.
+# Last config file used to build this data file was /home/reop7944/tmp/awstats/ssl/awstats.addon-siteauteur.fr.reop7944.odns.fr.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2108                
+POS_TIME 2797                
+POS_VISITOR 16997               
+POS_DAY 20520               
+POS_DOMAIN 3582                
+POS_LOGIN 4064                
+POS_ROBOT 4219                
+POS_WORMS 4660                
+POS_EMAILSENDER 4791                
+POS_EMAILRECEIVER 4934                
+POS_SESSION 20842               
+POS_FILESIZE 27346               
+POS_REQUESTTIME 27498               
+POS_SIDER 21051               
+POS_FILETYPES 5069                
+POS_DOWNLOADS 5381                
+POS_OS 5429                
+POS_BROWSER 5718                
+POS_SCREENSIZE 6592                
+POS_UNKNOWNREFERER 6666                
+POS_UNKNOWNREFERERBROWSER 7302                
+POS_ORIGIN 7820                
+POS_SEREFERRALS 7963                
+POS_PAGEREFS 8107                
+POS_SEARCHWORDS 8255                
+POS_KEYWORDS 8407                
+POS_MISC 2459                
+POS_ERRORS 8466                
+POS_CLUSTER 3920                
+POS_SIDER_404 8649                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20260310232948 4665 1208840 20338020567918
+FirstTime 20260301000935
+LastTime 20260310232947
+LastUpdate 20260311000451 4665 0 4665 0 0
+TotalVisits 152                 
+TotalUnique 83                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 83                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+AddToFavourites 0 506 0
+DirectorSupport 0 0 0
+TotalMisc 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+JavaEnabled 0 0 0
+QuickTimeSupport 0 0 0
+RealPlayerSupport 0 0 0
+FlashSupport 0 0 0
+PDFSupport 0 0 0
+JavascriptDisabled 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 18 45 3323063 12 13 536
+1 0 0 0 0 0 0
+2 11 45 5209221 3 3 517
+3 12 47 3859442 6 10 108024
+4 2 2 0 1 2 6392
+5 6 13 2054314 1 4 222949
+6 18 55 7362499 5 11 186600
+7 0 0 0 0 0 0
+8 21 27 1997335 7 15 161051
+9 19 26 1769591 2 8 342
+10 13 27 1422070 3 6 130429
+11 14 14 295980 5 7 130623
+12 1020 2036 226169395 21 65 314
+13 2074 4450 651991945 71 601 36193118
+14 2174 4814 521015524 39 396 24118479
+15 285 523 115690394 27 61 2250110
+16 16 16 906902 3 5 95142
+17 63 69 1672054 4 7 104119
+18 165 217 32181406 6 9 114
+19 586 910 108254332 13 72 764268
+20 489 702 39841581 24 95 686567
+21 11 27 2266036 4 5 129087
+22 19 39 4746599 8 10 902
+23 13 19 1213509 3 6 902
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 25 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 15
+ru 1836 5106 575339929
+us 1447 4180 775511314
+es 1259 1716 107668881
+it 1139 1576 160929811
+fr 943 943 2645933
+in 377 421 76823769
+gb 17 55 16342165
+ch 13 25 2647843
+ca 6 6 850890
+de 4 23 4353611
+nl 3 3 260068
+ro 2 51 5885802
+cl 1 9 1928784
+sc 1 1 129727
+id 1 8 1924665
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 25 first Hits must be first (order not required for others)
+BEGIN_ROBOT 9
+bingbot/ 25 275824 20260310214246 5
+robot 25 2850 20260310232948 25
+GPTBot/ 13 448278 20260310204355 0
+unknown 3 342 20260307200309 3
+checker 3 386403 20260308143921 0
+no_user_agent 1 114 20260303095404 1
+libwww\-perl 1 129649 20260301053333 0
+crawl 1 129649 20260302111646 0
+survey 1 128801 20260306210304 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 12
+jpg 18 6595812 0 0
+Unknown 1591 35288948 0 0
+html 883 141648280 0 0
+ttf 4 110704 0 0
+woff 24 552584 0 0
+svg 24 61418 0 0
+css 1095 35721188 0 0
+php 4546 341406338 0 0
+png 1254 869046109 0 0
+woff2 1 53600 0 0
+gif 59 683386 0 0
+js 4624 302074825 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 16
+ios_iphone 327 40
+ios_ipad 7 1
+macosx 2 2
+Unknown 1006 1002
+macosx15 17 10
+androidmarshmallow 25 13
+android12 1 1
+linux 70 19
+os/2 1 1
+win11 1 1
+win8.1 1 1
+win7 1 1
+win10 12661 5954
+androidics 1 1
+winlong 1 1
+android11 1 1
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 42
+safari 1 1
+safari14.0.3 262 25
+chrome114.0.0.0 9 9
+chrome144.0.0.0 2 2
+chrome78.0.3904.108 12 12
+netscape5.0 51 51
+chrome101.0.4951.61 1 1
+mozilla 4 2
+chrome101.0.4951.41 1 1
+safari14.1.2 7 1
+chrome108.0.0.0 1 1
+chrome104.0.5112.81 1 1
+chrome142.0.0.0 1 1
+safari1.0.3 1 1
+firefox148.0 1415 980
+chrome143.0.7499.110 2 2
+chrome84.0.4147.89 2 2
+chrome44.0.2403.157 1 1
+firefox118.0 1 1
+chrome138.0.7204.23 3 1
+chrome125.0.0.0 32 4
+chrome140.0.7339.186 8 1
+chrome120.0.0.0 1 1
+safari17.5 2 2
+chrome89.0.4389.114 18 18
+chrome130.0.0.0 25 13
+firefox149.0 11000 4900
+chrome119.0.0.0 27 5
+chrome131.0.0.0 8 8
+firefox120.0 7 7
+chrome121.0.0.0 94 14
+safari17.2 1 1
+firefox45.0 1 1
+chrome98.0.4758.141 1 1
+firefox109.0 1 1
+safari18.4 64 14
+chrome136.0.0.0 1 1
+Unknown 951 949
+iphone 1 1
+msie10.6 1 1
+chrome145.0.0.0 100 9
+android 1 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 9
+Mozilla/5.0 20260310192829
+okhttp/5.3.0 20260303190435
+WP-URLDetails/6.9.1_(_https://siteauteur.fr) 20260305140027
+WordPress/6.9.2;_https://siteauteur.fr 20260310232947
+req/v3_(https://github.com/imroc/req) 20260303100251
+WordPress/6.9.1;_https://siteauteur.fr 20260310185426
+DomainIntel/1.0 20260304034747
+Hello_from_Palo_Alto_Networks,_find_out_more_about_our_scans_in_https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity 20260310203611
+Mozilla/5.0_(compatible;_CensysInspect/1.1;__https://about.censys.io/) 20260305223902
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 7
+WP-URLDetails/6.9.1_(_https://siteauteur.fr) 20260305140027
+okhttp/5.3.0 20260303190435
+req/v3_(https://github.com/imroc/req) 20260303100251
+WordPress/6.9.2;_https://siteauteur.fr 20260310232947
+WordPress/6.9.1;_https://siteauteur.fr 20260310185426
+DomainIntel/1.0 20260304034747
+Hello_from_Palo_Alto_Networks,_find_out_more_about_our_scans_in_https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity 20260310203611
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 1459 1699
+From1 0 0
+From2 0 0
+From3 0 0
+From4 5590 12424
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 25 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 25 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 9
+201 34 233116
+421 27 9774
+401 5 180
+404 643 63375913
+301 84 0
+503 2 12556
+302 31 156104
+422 1 71
+403 5 165
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 94
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_57_56-200x300.png 9 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-42-18-Les-silences-du-couloir-%E2%80%93-SiteAuteur1-1-1536x1140.png 17 https://siteauteur.fr/
+/wp-content/uploads/2026/03/enveloppe-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-47-08-Tous-les-romans-%E2%80%93-SiteAuteur3-1-1536x1222.png 17 https://siteauteur.fr/
+/demo-auteur-thriller/romans 1 -
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_29_13-300x300.png 10 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-45-49-Les-silences-du-couloir-%E2%80%93-SiteAuteur2-300x181.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/85 1 https://siteauteur.fr/wp-admin/post.php
+/romans/ 1 https://siteauteur.fr/demo-auteur-thriller/
+/wp-json/wp/v2/media/335 5 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/vecteezy_icons-business-card-contact-information-symbols-vector_29816448-1024x828.png 3 -
+/wp-json/wp/v2/media/443 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-42-18-Les-silences-du-couloir-%E2%80%93-SiteAuteur1-1-300x223.png 5 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/400 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/utilisateur-verifie.png 16 https://siteauteur.fr/
+/wp-content/uploads/2026/03/envoyer-le-message-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/404 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-42-18-Les-silences-du-couloir-%E2%80%93-SiteAuteur1-1-1024x760.png 3 https://siteauteur.fr/
+/wp-json/wp/v2/media/451 1 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/334 10 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/450 1 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/350 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/vecteezy_icons-business-card-contact-information-symbols-vector_29816448-300x243.png 9 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/61 2 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/93 1 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/90 1 https://siteauteur.fr/wp-admin/post.php
+/static/style/sys_files/index.js 2 -
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-47-08-Tous-les-romans-%E2%80%93-SiteAuteur3-300x239.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-45-49-Les-silences-du-couloir-%E2%80%93-SiteAuteur2-1-300x181.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-42-18-Les-silences-du-couloir-%E2%80%93-SiteAuteur1-300x223.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/commencez-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/configuration1.png 14 https://siteauteur.fr/
+/wp-content/uploads/2026/03/right-arrow.png 13 https://siteauteur.fr/
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_56_56-200x300.png 9 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/checked1.png 1 https://siteauteur.fr/wp-admin/upload.php
+/static/style/protect/index.js 2 -
+/wp-json/wp/v2/media/452 1 https://siteauteur.fr/wp-admin/post.php
+/apple-touch-icon.png 4 -
+/wp-content/uploads/2026/03/checked2-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/utilisateur-verifie-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/security.png 6 -
+/wp-json/wp/v2/media/439 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/livre-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/livre-ouvert-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-5-mars-2026-14_47_01-1024x683.png 2 -
+/css/support_parent.css 2 -
+/wp-content/uploads/2026/03/right-arrow-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/91 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_52_57-683x1024.png 4 -
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-45-49-Les-silences-du-couloir-%E2%80%93-SiteAuteur2-1-1536x926.png 17 https://siteauteur.fr/
+/wp-content/uploads/2026/03/checked.png 34 https://siteauteur.fr/
+/wp-content/uploads/2026/03/vecteezy_icons-business-card-contact-information-symbols-vector_29816448-scaled.png 1 -
+/assets/js/auth.js 2 -
+/js/twint_ch.js 2 -
+/assets/js/message.js 1 -
+/ads.txt 1 -
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-47-08-Tous-les-romans-%E2%80%93-SiteAuteur3-2-300x239.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-2-mars-2026-13_33_51-683x1024.png 3 -
+/ 6 -
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-45-49-Les-silences-du-couloir-%E2%80%93-SiteAuteur2-1-1024x617.png 2 https://siteauteur.fr/
+/wp-json/wp/v2/media/333 3 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_52_57-200x300.png 11 https://siteauteur.fr/wp-admin/post.php
+/js/lkk_ch.js 1 -
+/wp-content/uploads/2026/03/ChatGPT-Image-5-mars-2026-14_47_01-300x200.png 10 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/envoyer-le-message.png 17 https://siteauteur.fr/
+/wp-admin/admin-ajax.php 21 https://siteauteur.fr/wp-admin/customize.php
+/wp-json/wp/v2/media/441 1 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/440 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-2-mars-2026-13_33_51-200x300.png 10 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/livre.png 17 https://siteauteur.fr/
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_57_56-683x1024.png 4 -
+/wp-content/uploads/2026/03/vecteezy_icons-business-card-contact-information-symbols-vector_29816448-1536x1242.png 52 https://siteauteur.fr/
+/wp-content/uploads/2026/03/verified-account-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/assets/js/qr_modal.js 1 -
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-47-08-Tous-les-romans-%E2%80%93-SiteAuteur3-1-1024x814.png 2 https://siteauteur.fr/
+/wp-content/uploads/2026/03/configuration1-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/512 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/checked1-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/amazon.png 63 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-5-mars-2026-14_47_01.png 52 https://siteauteur.fr/
+/wp-content/uploads/2026/03/commencez.png 9 https://siteauteur.fr/
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_56_56-683x1024.png 4 -
+/wp-content/uploads/2026/03/ChatGPT-Image-3-mars-2026-14_29_13.png 3 -
+/wp-json/wp/v2/media/356 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/ChatGPT-Image-2-mars-2026-13_33_51-1-200x300.png 10 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/18 1 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/checked-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/formulaire-de-remplissage.png 9 https://siteauteur.fr/
+/favicon.png 1 -
+/wp-content/uploads/2026/03/right-arrow-1-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/formulaire-de-remplissage-300x300.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/Screenshot-2026-03-09-at-12-47-08-Tous-les-romans-%E2%80%93-SiteAuteur3-1-300x239.png 4 https://siteauteur.fr/wp-admin/post.php
+/wp-content/uploads/2026/03/security-291x300.png 9 https://siteauteur.fr/wp-admin/post.php
+/wp-json/wp/v2/media/349 1 https://siteauteur.fr/wp-admin/post.php
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 25 first Hits must be first (order not required for others)
+BEGIN_VISITOR 83
+185.189.24.11 1836 5106 575339929 20260310152056
+91.205.106.220 1304 3881 747816356 20260305144855
+185.81.125.97 980 1415 97379654 20260302150640
+109.234.167.184 941 941 2516186 20260310232947 20260310232947 /wp-cron.php
+193.43.69.201 494 702 85847328 20260304143456
+193.43.69.202 422 510 40871814 20260304135210
+45.141.123.173 375 412 75716299 20260303151100
+217.216.124.40 270 292 9359883 20260303140006
+193.43.69.209 168 309 31938540 20260304123411
+134.122.88.27 51 51 591096 20260310192829
+193.43.69.199 38 38 1033121 20260304123959
+157.230.249.233 18 18 1561480 20260304001402
+193.43.69.208 17 17 1239008 20260304124353
+147.135.175.49 15 95 10730360 20260306201847
+178.22.106.230 13 25 2647843 20260307200331
+82.197.76.84 11 42 15242429 20260305143849
+185.91.69.242 9 9 929344 20260308092058
+54.183.176.171 4 4 520612 20260305084104
+136.119.75.157 3 3 258372 20260308151028
+34.122.68.143 3 3 258372 20260308151324
+34.122.147.229 3 24 2177463 20260307020954
+188.166.220.226 3 3 260068 20260301005259
+34.136.111.213 3 3 258372 20260308151604
+178.104.5.201 2 2 260306 20260304163733
+18.132.49.248 2 2 260408 20260305083006
+162.142.125.208 1 2 132920 20260305223859
+138.197.90.248 1 1 130029 20260303165658
+34.72.176.129 1 8 599862 20260305000951
+198.235.24.10 1 1 166995 20260310201249
+82.197.76.82 1 1 128812 20260305172539
+205.210.31.41 1 1 166995 20260310203611
+143.198.25.121 1 1 146678 20260304124918
+92.40.204.170 1 8 580793 20260303101006
+23.27.145.240 1 1 128801 20260307201205
+174.138.87.0 1 1 129727 20260303114631
+149.102.232.19 2 13 2554928 20260308060927
+198.235.24.43 1 1 129649 20260301034256
+23.27.145.252 1 2 175778 20260303211221
+196.196.53.57 1 1 129727 20260302145817
+167.94.146.48 1 2 132920 20260305211928
+156.146.63.192 1 2 133846 20260303095956
+23.27.145.102 1 8 978669 20260307212314
+138.197.33.153 1 1 130156 20260304132315
+37.120.205.204 1 16 1682703 20260310030401
+54.173.105.144 1 1 128801 20260307164411
+149.22.87.6 1 1 129727 20260302144848
+14.194.11.238 2 9 1107470 20260306023724
+102.129.234.18 1 8 1924665 20260308051002
+23.27.145.176 1 1 128801 20260307201127
+23.20.80.88 1 1 130029 20260303171118
+149.57.180.74 1 8 978669 20260307212034
+3.38.201.152 2 2 260408 20260305085647
+3.85.177.55 1 1 129738 20260302181202
+205.210.31.142 1 1 128801 20260307232406
+54.211.87.235 2 5 325451 20260303190521
+198.235.24.155 1 1 128801 20260307112727
+13.217.84.63 1 1 129649 20260301134120
+23.27.145.173 1 1 37464 20260301000935
+44.211.128.193 1 1 167006 20260310180219
+4.43.184.113 1 1 129649 20260301061611
+149.57.180.38 1 1 128801 20260307201200
+35.153.69.104 1 10 986907 20260305192351
+179.61.228.109 1 9 1928784 20260308060557
+198.235.24.153 1 1 129649 20260302003319
+23.27.145.90 1 1 129649 20260301001023
+199.168.150.73 1 1 128801 20260305231415
+86.107.104.250 1 35 4203099 20260310025910
+98.91.180.131 1 1 130153 20260304161841
+37.59.156.99 1 1 129649 20260301053029
+82.197.76.41 1 1 98 20260303140405
+34.6.164.206 1 1 130029 20260303220952
+104.28.153.18 1 8 580793 20260303095355
+194.146.15.57 2 21 4093553 20260308220706
+54.204.248.121 1 1 128801 20260305161512
+54.175.217.1 1 1 128812 20260308161712
+176.102.65.28 1 1 129727 20260303095957
+54.236.12.158 1 1 128812 20260306175035
+143.244.156.228 1 1 37452 20260306114943
+141.51.110.126 2 2 260058 20260304102425
+23.27.145.179 1 1 129649 20260301001125
+34.6.13.136 1 1 130029 20260303220951
+23.27.145.253 1 1 130029 20260303202322
+80.215.244.11 1 1 98 20260303140205
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 9
+20260301 31 38 2973584 15
+20260302 1049 1484 98158719 12
+20260303 800 885 88642298 23
+20260304 1308 1757 164028945 20
+20260305 1523 4187 771861491 28
+20260306 28 65 6053269 13
+20260307 46 79 6356656 15
+20260308 1142 1734 183714749 15
+20260310 1122 3894 411453481 11
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+30mn-1h 7
+5mn-15mn 5
+2mn-5mn 1
+1h+ 18
+30s-2mn 8
+15mn-30mn 10
+0s-30s 102
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 25 first Pages must be first (order not required for others)
+BEGIN_SIDER 147
+/wp-admin/admin-ajax.php 3065 98765071 7 12
+/wp-cron.php 921 0 51 49
+/ 506 82295645 89 75
+/demo-auteur-thriller/ 256 47984390 1 2
+/wp-admin/load-scripts.php 149 19190736 0 0
+/wp-json/wp/v2/pages/14 141 5613782 0 0
+/wp-json/wp/v2/pages/14/autosaves 138 4919528 0 0
+/wp-json/wp/v2/pages/8 132 7668445 0 1
+/wp-admin/load-styles.php 91 57396168 0 0
+/wp-json/wp/v2/settings 88 504526 0 0
+/wp-json/wp/v2/pages 83 6125770 0 0
+/wp-json/wp/v2/navigation 75 511490 0 0
+/wp-json/wp/v2/templates/lookup 69 138 0 0
+/wp-json/fluentform/v1/settings/3 64 17053 0 0
+/wp-login.php 63 590375 4 1
+/wp-json/wp/v2/navigation/160 60 287682 0 0
+/wp-json/wp/v2/comments 60 120 0 0
+/wp-json/wp/v2/taxonomies 59 583333 0 0
+/wp-admin/post.php 56 47016303 0 0
+/wp-json/wp/v2/block-renderer/fluentfom/guten-block 54 240336 0 0
+/wp-json/wp/v2/users/1 54 5247 0 0
+/wp-json/wp/v2/wp_pattern_category 54 108 0 0
+/wp-admin/edit.php 54 8326212 0 0
+/wp-json/wp/v2/pages/8/autosaves 54 2771927 0 0
+/wp-json/wp/v2/pages/ 37 1088873 0 0
+/romans/ 20 2473170 0 0
+/wp-json/fluentform/v1/settings/3/general 2 3856 0 0
+/wp-json/wp/v2/media/85 1 6448 0 0
+/wp-json/wp/v2/media/618 1 5640 0 0
+/xmlrpc.php 1 792 0 0
+/wp-json/wp/v2/pages/100 31 560711 0 0
+/wp-json/wp-site-health/v1/tests/loopback-requests 1 409 0 0
+/wp-admin/tools.php 2 239702 0 0
+/wp-json/wp-block-editor/v1/navigation-fallback 4 7093 0 0
+/wp-admin/theme-editor.php 28 13886262 0 0
+/wp-json/wp-site-health/v1/tests/https-status 1 889 0 0
+/wp-json/fluentform/v1/forms/3/resources 9 467710 0 0
+/wp-json/wp/v2/media/647 1 6493 0 0
+/wp-json/fluentform/v1/forms/3/pages 2 156 0 0
+/wp-json/wp/v2/media/605 1 5705 0 0
+/wp-json/wp/v2/media/597 1 7942 0 0
+/wp-json/wp/v2/block-patterns/patterns 18 3828834 0 0
+/wp-json/wp/v2/search 18 19120 0 0
+/wp-json/wp/v2/posts 21 42 0 0
+/wp-content/plugins/fluentform/assets/fonts/element-icons.woff 5 141000 0 0
+/wp-json/wp/v2/blocks 20 28332 0 0
+/wp-admin/customize.php 27 77393828 0 0
+/wp-admin/options-media.php 1 122025 0 0
+/wp-json/wp/v2/types 29 218858 0 0
+/comments/feed/ 2 1538 0 0
+/wp-json/wp/v2/block-directory/search 2 10206 0 0
+/wp-json/wp/v2/media/601 1 5827 0 0
+/wp-json/wp/v2/media/350 1 5572 0 0
+/wp-content/themes/twentytwentyfive/assets/fonts/manrope/Manrope-VariableFont_wght.woff2 1 53600 0 0
+/wp-json/wp/v2/media/600 1 5606 0 0
+/wp-admin/plugins.php 4 591823 0 0
+/wp-json/oembed/1.0/embed 4 8532 0 0
+/wp-json/wp/v2/media 13 37573 0 0
+/wp-json/wp/v2/media/650 1 6755 0 0
+/wp-json/wp/v2/block-renderer/core/rss 2 2028 0 0
+/wp-json/wp/v2/media/634 1 4763 0 0
+/wp-json/wp/v2/media/604 1 5946 0 0
+/wp-json/wp/v2/navigation/4 1 1520 0 0
+/wp-json/wp/v2/types/post 1 2841 0 0
+/wp-admin/options-permalink.php 3 395617 0 0
+/wp-json/wp/v2/media/646 1 6753 0 0
+/wp-admin/options-general.php 9 2215284 0 0
+/wp-json/wp/v2/media/648 1 6755 0 0
+/wp-json/wp/v2/block-renderer/core/latest-comments 4 537 0 0
+/wp-json/wp/v2/media/596 1 8133 0 0
+/wp-json/fluentform/v1/forms/ping 33 594 0 0
+/wp-admin/options-reading.php 2 249672 0 0
+/wp-json/wp/v2/categories/1 2 1308 0 0
+/wp-json/wp/v2/templates 14 28 0 0
+/wp-json/fluentform/v1/forms 4 7246 0 0
+/wp-json/fluentform/v1/forms/3/fields 2 841 0 0
+/wp-admin/options-privacy.php 2 251700 0 0
+/wp-json/wp/v2/media/93 3 20212 0 0
+/wp-json/wp/v2/media/90 3 20212 0 0
+/wp-admin/post-new.php 2 1503131 0 0
+/wp-json/wp/v2/media/346 1 8679 0 0
+/wp-json/wp/v2/template-parts 1 5811 0 0
+/wp-admin/ 11 1863871 0 0
+/wp-json/wp/v2/block-renderer/core/archives 3 327 0 0
+/wp-content/plugins/fluentform/assets/fonts/fluentformeditors.woff 5 47600 0 0
+/wp-json/fluentform/v1/forms/3/editHistory 2 3724 0 0
+/wp-json/wp-site-health/v1/tests/page-cache 1 2002 0 0
+/wp-json/ 3 1024971 0 0
+/feed/ 3 2610 0 1
+/wp-json/wp/v2/media/632 1 6733 0 0
+/wp-json/wp/v2/media/602 1 5843 0 0
+/wp-json/fluentform/v1/forms/3/shortcodes 2 4000 0 0
+/wp-json/wp/v2/menu-items 1 3661 0 0
+/wp-json/wp-site-health/v1/tests/dotorg-communication 1 404 0 0
+/wp-json/wp/v2/media/399 1 8191 0 0
+/wp-json/wp-site-health/v1/tests/authorization-header 1 430 0 0
+/wp-admin/upload.php 3 601627 0 0
+/wp-json/wp/v2/media/91 2 13461 0 0
+/wp-admin/update.php 1 102252 0 0
+/wp-content/plugins/fluentform/assets/fonts/fluentform.woff 6 166512 0 0
+/wp-admin/options-writing.php 2 255524 0 0
+/wp-json/wp/v2/media/276 4 26932 0 0
+/wp-json/fluentform/v1/forms/3 1 65 0 0
+/wp-json/wp/v2/media/607 1 5737 0 0
+/demo-auteur-thriller-romans/ 34 4905351 0 0
+/wp-json/fluentform/v1/settings/3/preset 3 564 0 0
+/wp-json/wp/v2/widget-types 26 177242 0 0
+/wp-admin/users.php 1 133048 0 0
+/wp-json/wp/v2/categories 3 6 0 0
+/wp-admin/plugin-editor.php 1 407617 0 0
+/wp-json/wp/v2/media/344 1 8618 0 0
+/wp-json/fluentform/v1/settings/3/customizer 1 30 0 0
+/wp-admin/widgets.php 1 629581 0 0
+/wp-json/wp/v2/menus 28 39102 0 0
+/wp-json/wp/v2/media/594 1 5606 0 0
+/wp-json/fluentform/v1/forms/templates 1 32630 0 0
+/wp-json/wp/v2/pages/100/autosaves 13 169731 0 0
+/wp-admin/site-editor.php 1 758393 0 0
+/wp-json/wp/v2/users/me 13 35205 0 0
+//wp-json/wp/v2/users/ 10 7700 0 10
+/wp-includes/js/tinymce/skins/lightgray/fonts/tinymce.woff 3 56472 0 0
+/wp-json/wp/v2/media/636 1 5572 0 0
+/wp-admin/nav-menus.php 7 1120056 0 0
+/wp-admin/admin.php 16 4342305 0 0
+/wp-admin/themes.php 25 4068963 0 0
+/wp-admin/site-health.php 1 141868 0 0
+/wp-json/wp/v2/media/608 1 5674 0 0
+/wp-json/wp/v2/media/356 1 4763 0 0
+/wp-json/wp/v2/media/606 1 5761 0 0
+/wp-json/astra/v1/admin/settings/ 1 161 0 0
+/wp-content/plugins/fluentform/assets/fonts/vendor/element-ui/packages/theme-chalk/src/element-icons.woff 5 141000 0 0
+/wp-admin/upgrade.php 1 1 0 0
+/wp-json/wp/v2/media/19 1 6748 0 0
+/wp-json/fluentform/v1/settings/3/save-preset 1 49 0 0
+/wp-admin/options-discussion.php 1 134713 0 0
+/wp-json/wp-block-editor/v1/url-details 9 850 0 0
+/wp-json/wp/v2/block-renderer/core/tag-cloud 2 240 0 0
+/wp-admin/plugin-install.php 1 177862 0 0
+/wp-content/plugins/fluentform/assets/fonts/fluentform.ttf 4 110704 0 0
+/wp-json/wp/v2/media/349 1 8530 0 0
+/wp-admin/about.php 1 129931 0 0
+/wp-json/wp/v2/media/11 2 14362 0 0
+/wp-admin/update-core.php 2 265395 0 0
+/wp-json/wp-site-health/v1/tests/background-updates 1 428 0 0
+/wp-json/wp/v2/types/wp_block 1 2902 0 0
+/wp-admin/async-upload.php 1 2501 0 0
+/wp-json/wp/v2/media/18 12 80824 0 0
+END_SIDER
+
+# Payload Range - Payload Frequency
+BEGIN_FILESIZE 7
+0-44 2083
+44-100 2844
+100-500 319
+1K-2K 672
+500-1K 395
+5K+ 7742
+2K-5K 1479
+END_FILESIZE
+
+# Request Time Range - Request Time Frequency
+BEGIN_REQUESTTIME 0
+END_REQUESTTIME

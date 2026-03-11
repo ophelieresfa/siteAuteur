@@ -1,0 +1,6 @@
+passwd:$6$FFWN120TmdR1mTkV$TZ1W6l8PC4EYGWaIU0EGnNMrIRSrl5Kkx3nhVxo66Z46gY0nEC4qJuaVaWBaUn/7wCM7QsE9ZuKeXiqj4sBib1
+quota:0
+homedir:/home/reop7944/mail/siteauteur.fr/admin
+strength:100
+lastchanged:-1
+perms:rw
