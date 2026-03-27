@@ -1,0 +1,26 @@
+# WordPress config
+wp-config.php
+wp-config-local.php
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Composer
+vendor/
+
+# Uploads (optionnel)
+wp-content/uploads/
+
+# Cache
+wp-content/cache/
