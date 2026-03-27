@@ -8,35 +8,35 @@ AWSTATS DATA FILE 8.0 (build 20240604)
 # update).
 BEGIN_MAP 28
 POS_GENERAL 2104                
-POS_TIME 2782                
-POS_VISITOR 5833                
-POS_DAY 5972                
-POS_DOMAIN 3259                
-POS_LOGIN 3481                
-POS_ROBOT 3636                
-POS_WORMS 3768                
-POS_EMAILSENDER 3899                
-POS_EMAILRECEIVER 4042                
-POS_SESSION 6185                
-POS_FILESIZE 6437                
-POS_REQUESTTIME 6522                
-POS_SIDER 6352                
-POS_FILETYPES 4177                
-POS_DOWNLOADS 4254                
-POS_OS 4302                
-POS_BROWSER 4381                
-POS_SCREENSIZE 4445                
-POS_UNKNOWNREFERER 4519                
-POS_UNKNOWNREFERERBROWSER 4660                
-POS_ORIGIN 4796                
-POS_SEREFERRALS 4928                
-POS_PAGEREFS 5072                
-POS_SEARCHWORDS 5220                
-POS_KEYWORDS 5372                
-POS_MISC 2446                
-POS_ERRORS 5431                
-POS_CLUSTER 3337                
-POS_SIDER_404 5524                
+POS_TIME 2777                
+POS_VISITOR 6531                
+POS_DAY 6669                
+POS_DOMAIN 3296                
+POS_LOGIN 3533                
+POS_ROBOT 3688                
+POS_WORMS 3966                
+POS_EMAILSENDER 4097                
+POS_EMAILRECEIVER 4240                
+POS_SESSION 7163                
+POS_FILESIZE 7428                
+POS_REQUESTTIME 7530                
+POS_SIDER 7342                
+POS_FILETYPES 4375                
+POS_DOWNLOADS 4469                
+POS_OS 4540                
+POS_BROWSER 4621                
+POS_SCREENSIZE 4703                
+POS_UNKNOWNREFERER 4777                
+POS_UNKNOWNREFERERBROWSER 5107                
+POS_ORIGIN 5405                
+POS_SEREFERRALS 5539                
+POS_PAGEREFS 5683                
+POS_SEARCHWORDS 5831                
+POS_KEYWORDS 5983                
+POS_MISC 2441                
+POS_ERRORS 6042                
+POS_CLUSTER 3389                
+POS_SIDER_404 6149                
 END_MAP
 
 # LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
@@ -48,62 +48,63 @@ END_MAP
 # MonthHostsKnown   = Number of hosts known
 # MonthHostsUnKnown = Number of hosts unknown
 BEGIN_GENERAL 8
-LastLine 20260310180219 10 1606 10381932276374
+LastLine 20260326085031 4 531 5830491544450
 FirstTime 20260301000952
-LastTime 20260310180219
-LastUpdate 20260311000450 10 0 10 0 0
-TotalVisits 28                  
+LastTime 20260326071246
+LastUpdate 20260327001510 4 0 4 0 0
+TotalVisits 85                  
 TotalUnique 1                   
 MonthHostsKnown 0                   
-MonthHostsUnknown 1                   
+MonthHostsUnknown 2                   
 END_GENERAL
 
 # Misc ID - Pages - Hits - Bandwidth
 BEGIN_MISC 10
-WindowsMediaPlayerSupport 0 0 0
-RealPlayerSupport 0 0 0
-JavaEnabled 0 0 0
-FlashSupport 0 0 0
-PDFSupport 0 0 0
-AddToFavourites 0 2 0
-JavascriptDisabled 0 0 0
 QuickTimeSupport 0 0 0
-DirectorSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
 TotalMisc 0 0 0
+AddToFavourites 0 5 0
+DirectorSupport 0 0 0
+PDFSupport 0 0 0
+FlashSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+RealPlayerSupport 0 0 0
 END_MISC
 
 # Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
 BEGIN_TIME 24
-0 9 9 0 5 5 0
-1 0 0 0 0 0 0
-2 3 3 0 2 2 0
-3 3 3 0 2 2 0
-4 0 0 0 0 0 0
-5 2 2 0 1 1 0
-6 4 4 0 4 4 0
-7 2 2 0 1 1 0
-8 0 0 0 0 0 0
-9 2 2 0 1 2 0
-10 0 0 0 0 0 0
-11 0 0 0 0 0 0
-12 0 0 0 0 0 0
-13 5 5 0 4 5 0
-14 5 5 0 5 5 0
-15 3 3 0 3 3 0
-16 6 6 0 4 4 0
-17 3 3 0 3 3 0
-18 5 5 0 3 3 0
-19 0 0 0 0 0 0
+0 11 11 0 11 11 409752
+1 6 6 0 5 5 0
+2 9 9 0 6 7 114
+3 9 9 0 6 6 0
+4 5 5 0 6 6 0
+5 8 8 0 4 4 101468
+6 11 11 0 9 9 0
+7 12 12 0 7 9 9944
+8 3 3 0 4 5 114
+9 3 3 0 2 3 0
+10 2 2 0 2 2 0
+11 1 1 0 1 1 0
+12 0 0 0 2 2 0
+13 5 5 0 5 6 0
+14 12 12 0 9 10 0
+15 17 17 0 12 13 114
+16 13 13 0 8 8 0
+17 11 11 0 9 9 0
+18 7 7 0 4 4 0
+19 4 4 0 3 4 0
 20 1 1 0 1 1 0
-21 1 1 0 1 1 0
-22 2 2 0 1 1 0
-23 0 0 0 0 0 0
+21 4 4 0 3 4 0
+22 4 4 0 2 2 0
+23 0 1 19903 0 0 0
 END_TIME
 
 # Domain - Pages - Hits - Bandwidth
 # The 25 first Pages must be first (order not required for others)
-BEGIN_DOMAIN 1
-fr 56 56 0
+BEGIN_DOMAIN 2
+fr 158 158 0
+bg 0 1 19903
 END_DOMAIN
 
 # Cluster ID - Pages - Hits - Bandwidth
@@ -117,7 +118,11 @@ END_LOGIN
 
 # Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
 # The 25 first Hits must be first (order not required for others)
-BEGIN_ROBOT 0
+BEGIN_ROBOT 4
+unknown 2 228 20260325083240 2
+nutch 1 114 20260319153118 1
+bot[\s_+:,\.\;\/\\-] 1 114 20260325021812 1
+Go\-http\-client/ 1 9830 20260314073829 0
 END_ROBOT
 
 # Worm ID - Hits - Bandwidth - Last visit
@@ -136,22 +141,25 @@ BEGIN_EMAILRECEIVER 0
 END_EMAILRECEIVER
 
 # Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
-BEGIN_FILETYPES 1
-php 56 0 0 0
+BEGIN_FILETYPES 2
+txt 1 19903 0 0
+php 158 0 0 0
 END_FILETYPES
 
 # Downloads - Hits - Bandwidth
-BEGIN_DOWNLOADS 0
+BEGIN_DOWNLOADS 1
+/license.txt 1 0 19903
 END_DOWNLOADS
 
 # OS ID - Hits
 BEGIN_OS ID - Hits - Pages 1
-Unknown 56 56
+Unknown 159 158
 END_OS
 
 # Browser ID - Hits - Pages
-BEGIN_BROWSER 1
-Unknown 56 56
+BEGIN_BROWSER 2
+netscape5.0 1 0
+Unknown 158 158
 END_BROWSER
 
 # Screen size - Hits
@@ -159,18 +167,25 @@ BEGIN_SCREENSIZE 0
 END_SCREENSIZE
 
 # Unknown referer OS - Last visit date
-BEGIN_UNKNOWNREFERER 1
+BEGIN_UNKNOWNREFERER 5
+Mozilla/5.0 20260315230649
+WordPress/6.9.3;_https://siteauteur.fr 20260311152532
+WordPress/6.9.2;_https://siteauteur.fr 20260311053445
+WordPress/6.9.4;_https://siteauteur.fr 20260326071246
 WordPress/6.9.1;_https://siteauteur.fr 20260310180219
 END_UNKNOWNREFERER
 
 # Unknown referer Browser - Last visit date
-BEGIN_UNKNOWNREFERERBROWSER 1
+BEGIN_UNKNOWNREFERERBROWSER 4
+WordPress/6.9.3;_https://siteauteur.fr 20260311152532
 WordPress/6.9.1;_https://siteauteur.fr 20260310180219
+WordPress/6.9.4;_https://siteauteur.fr 20260326071246
+WordPress/6.9.2;_https://siteauteur.fr 20260311053445
 END_UNKNOWNREFERERBROWSER
 
 # Origin - Pages - Hits 
 BEGIN_ORIGIN 6
-From0 56 56
+From0 158 159
 From1 0 0
 From2 0 0
 From3 0 0
@@ -198,24 +213,29 @@ BEGIN_KEYWORDS 0
 END_KEYWORDS
 
 # Errors - Hits - Bandwidth
-BEGIN_ERRORS 2
-302 1 0
-301 40 0
+BEGIN_ERRORS 3
+302 3 0
+301 113 0
+404 5 511220
 END_ERRORS
 
 # URL with 404 errors - Hits - Last URL referrer
-BEGIN_SIDER_404 0
+BEGIN_SIDER_404 3
+/dup-installer/main.installer.php 1 -
+/mentions-legales 2 -
+/contact 2 -
 END_SIDER_404
 
 # Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
 # [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
 # The 25 first Hits must be first (order not required for others)
-BEGIN_VISITOR 1
-109.234.167.184 56 56 0 20260310180219 20260310170849 /wp-cron.php
+BEGIN_VISITOR 2
+109.234.167.184 158 158 0 20260326071246
+91.92.243.240 0 1 19903 
 END_VISITOR
 
 # Date - Pages - Hits - Bandwidth - Visits
-BEGIN_DAY 9
+BEGIN_DAY 25
 20260301 12 12 0 6
 20260302 3 3 0 3
 20260303 5 5 0 3
@@ -225,24 +245,43 @@ BEGIN_DAY 9
 20260307 5 5 0 3
 20260308 14 14 0 4
 20260310 5 5 0 2
+20260311 7 7 0 3
+20260312 5 5 0 2
+20260313 3 3 0 2
+20260314 6 6 0 4
+20260315 11 12 19903 5
+20260316 13 13 0 7
+20260317 3 3 0 2
+20260318 7 7 0 4
+20260319 6 6 0 3
+20260320 8 8 0 5
+20260321 9 9 0 5
+20260322 6 6 0 3
+20260323 4 4 0 3
+20260324 8 8 0 5
+20260325 4 4 0 3
+20260326 2 2 0 1
 END_DAY
 
 # Session range - Number of visits
-BEGIN_SESSION 3
-2mn-5mn 1
-30mn-1h 4
-0s-30s 22
+BEGIN_SESSION 4
+0s-30s 71
+15mn-30mn 2
+30mn-1h 8
+2mn-5mn 4
 END_SESSION
 
 # URL - Pages - Bandwidth - Entry - Exit
 # The 25 first Pages must be first (order not required for others)
 BEGIN_SIDER 1
-/wp-cron.php 56 0 28 27
+/wp-cron.php 158 0 85 85
 END_SIDER
 
 # Payload Range - Payload Frequency
-BEGIN_FILESIZE 1
-0-44 99
+BEGIN_FILESIZE 3
+5K+ 7
+100-500 4
+0-44 279
 END_FILESIZE
 
 # Request Time Range - Request Time Frequency

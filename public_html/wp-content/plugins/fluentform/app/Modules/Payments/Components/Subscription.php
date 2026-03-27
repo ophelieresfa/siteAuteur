@@ -32,6 +32,21 @@ class Subscription extends BaseFieldManager
             if (!isset($element['settings']['layout_class'])) {
                 $element['settings']['layout_class'] = '';
             }
+            // Backward compatibility: ensure existing plans have end date fields
+            if (!empty($element['settings']['subscription_options'])) {
+                foreach ($element['settings']['subscription_options'] as &$option) {
+                    if (!isset($option['has_end_date'])) {
+                        $option['has_end_date'] = 'no';
+                    }
+                    if (!isset($option['subscription_end_date'])) {
+                        $option['subscription_end_date'] = '';
+                    }
+                    if (!isset($option['expire_behavior'])) {
+                        $option['expire_behavior'] = 'show_error';
+                    }
+                }
+                unset($option);
+            }
             return $element;
         });
         add_filter('fluentform/response_render_' . $this->key, function ($response, $field, $form_id, $isHtml = false) {
@@ -64,16 +79,19 @@ class Subscription extends BaseFieldManager
                 'selection_type'       => 'radio',
                 'subscription_options' => [
                     [
-                        "bill_times"          => 0,
-                        "billing_interval"    => "month",
-                        "has_signup_fee"      => "no",
-                        "has_trial_days"      => "no",
-                        "is_default"          => "yes",
-                        "name"                => __("Monthly Plan", 'fluentform'),
-                        "plan_features"       => [],
-                        "signup_fee"          => 0,
-                        "subscription_amount" => 9.99,
-                        "trial_days"          => 0,
+                        "bill_times"            => 0,
+                        "billing_interval"      => "month",
+                        "has_signup_fee"        => "no",
+                        "has_trial_days"        => "no",
+                        "is_default"            => "yes",
+                        "name"                  => __("Monthly Plan", 'fluentform'),
+                        "plan_features"         => [],
+                        "signup_fee"            => 0,
+                        "subscription_amount"   => 9.99,
+                        "trial_days"            => 0,
+                        "has_end_date"          => "no",
+                        "subscription_end_date" => "",
+                        "expire_behavior"       => "show_error",
                     ]
                 ],
                 'price_label'          => __('Price:', 'fluentform'),
@@ -135,6 +153,11 @@ class Subscription extends BaseFieldManager
         $this->renderMultiProduct($data, $form);
     }
 
+    private function isPlanExpiredAndHidden($plan)
+    {
+        return PaymentHelper::isPlanExpiredAndHidden($plan);
+    }
+
     public function renderSingleItem($data, $form)
     {
         $elementName = $data['element'];
@@ -152,6 +175,11 @@ class Subscription extends BaseFieldManager
         $data = apply_filters('fluentform/rendering_field_data_' . $elementName, $data, $form);
         $plan = ArrayHelper::get($data, 'settings.subscription_options.0', []);
         $plan['index'] = 0;
+
+        // Hide the entire field if the single plan is expired and set to hide
+        if ($this->isPlanExpiredAndHidden($plan)) {
+            return;
+        }
 
         $isCustomAmount = ArrayHelper::get($plan, 'user_input') === 'yes';
         if ($isCustomAmount) {
@@ -188,7 +216,7 @@ class Subscription extends BaseFieldManager
         $elMarkup .= $paymentSummary;
 
         $html = $this->buildElementMarkup($elMarkup, $data, $form);
-    
+
         $html = apply_filters_deprecated(
             'fluentform_rendering_field_html_' . $elementName,
             [
@@ -221,6 +249,16 @@ class Subscription extends BaseFieldManager
         );
 
         $data = apply_filters('fluentform/rendering_field_data_' . $elementName, $data, $form);
+
+        // If all plans are expired and hidden, hide the entire field
+        $pricingPlans = ArrayHelper::get($data, 'settings.subscription_options', []);
+        $visiblePlans = array_filter($pricingPlans, function ($plan) {
+            return !$this->isPlanExpiredAndHidden($plan);
+        });
+
+        if (empty($visiblePlans)) {
+            return;
+        }
 
         $currency = PaymentHelper::getFormCurrency($form->id);
 
@@ -276,10 +314,13 @@ class Subscription extends BaseFieldManager
 
         $groupId = $this->makeElementId($data, $form);
 
-        $pricingPlans = ArrayHelper::get($data, 'settings.subscription_options', []);
-
         foreach ($pricingPlans as $index => $pricingPlan) {
             $pricingPlan['index'] = $index;
+
+            // Skip expired plans that are set to hide
+            if ($this->isPlanExpiredAndHidden($pricingPlan)) {
+                continue;
+            }
 
             $isDefaultPlan = ArrayHelper::get($pricingPlan, 'is_default') === 'yes';
 
@@ -391,7 +432,7 @@ class Subscription extends BaseFieldManager
             $currentBillableAmount = 0;
             $trialDays = ArrayHelper::get($plan, 'trial_days');
         }
-        
+
         return [
             'data-subscription_amount' => $subscriptionAmount ?: 0,
             'data-billing_interval'    => $plan['billing_interval'],
@@ -424,7 +465,7 @@ class Subscription extends BaseFieldManager
     {
         $htmlID = ArrayHelper::get($field, 'attributes.name') . '_custom_' . $plan['index'];
         $isDefault = ArrayHelper::get($plan, 'is_default') === 'yes';
-    
+
         $customAmountInputAttributes = $this->buildAttributes([
             'name'                   => $htmlID,
             'type'                   => 'number',
@@ -454,7 +495,7 @@ class Subscription extends BaseFieldManager
 
         return $markup;
     }
-    
+
     public function addWhiteListedFields($whiteListedFields, $formId)
     {
         $form = wpFluent()->table('fluentform_forms')->find($formId);

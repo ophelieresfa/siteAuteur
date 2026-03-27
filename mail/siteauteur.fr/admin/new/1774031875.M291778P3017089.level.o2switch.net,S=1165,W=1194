@@ -1,0 +1,29 @@
+Return-Path: <reop7944@level.o2switch.net>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id R/fSDwOUvWmBCS4AkSiHwg
+	(envelope-from <reop7944@level.o2switch.net>)
+	for <admin@siteauteur.fr>; Fri, 20 Mar 2026 19:37:55 +0100
+Return-path: <reop7944@level.o2switch.net>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Fri, 20 Mar 2026 19:37:55 +0100
+Received: from reop7944 by level.o2switch.net with local (Exim 4.99.1)
+	(envelope-from <reop7944@level.o2switch.net>)
+	id 1w3ejL-0000000Cerp-0DNx
+	for admin@siteauteur.fr;
+	Fri, 20 Mar 2026 19:37:55 +0100
+To: admin@siteauteur.fr
+Subject: =?UTF-8?Q?[SiteAuteur]_Mot_de_passe_chang=C3=A9?=
+X-PHP-Script: siteauteur.fr/index.php for 185.189.24.11
+ X-PHP-Originating-Script: 1127:PHPMailer.php
+Date: Fri, 20 Mar 2026 18:37:54 +0000
+From: WordPress <wordpress@siteauteur.fr>
+Message-ID: <6Emi9vKIxEyeDIF4qrCF0dvUzJXemGzuCQ2WSECSp1g@siteauteur.fr>
+X-Mailer: PHPMailer 7.0.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Mot de passe modifié pour le compte : resfa.ophelie@yahoo.fr
+

@@ -1150,4 +1150,20 @@ class PaymentHelper
 
         return substr( $value, 0, - strlen( $salt ) );
     }
+
+    public static function isPlanExpiredAndHidden($plan)
+    {
+        if (ArrayHelper::get($plan, 'has_end_date') !== 'yes') {
+            return false;
+        }
+        if (ArrayHelper::get($plan, 'expire_behavior') !== 'hide') {
+            return false;
+        }
+        $endDateStr = ArrayHelper::get($plan, 'subscription_end_date');
+        if (!$endDateStr) {
+            return false;
+        }
+        $endDate = strtotime($endDateStr . ' +1 day');
+        return !$endDate || $endDate <= current_time('timestamp');
+    }
 }

@@ -1,0 +1,420 @@
+[26-Mar-2026 08:35:48 UTC] SA AJAX upload appelé
+[26-Mar-2026 08:35:48 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 08:35:48 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpxeVSnh
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 08:35:48 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 08:35:48 UTC] SA AJAX upload appelé
+[26-Mar-2026 08:35:48 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 08:35:48 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php6cBB6k
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 08:35:48 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 08:59:57 UTC] SA AJAX upload appelé
+[26-Mar-2026 08:59:57 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 08:59:57 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php9XAMfI
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 08:59:57 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 08:59:58 UTC] SA AJAX upload appelé
+[26-Mar-2026 08:59:58 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 08:59:58 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpg4ndlE
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 08:59:58 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:02:08 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:02:08 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:02:08 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/php5itOGY
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:02:08 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:02:08 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:02:08 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:02:08 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpGJ3Pv5
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:02:08 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:03:22 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:03:22 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:03:22 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpeokFVP
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:03:22 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:03:22 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:03:22 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:03:22 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpZPm4B6
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:03:22 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2-1.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:04:13 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:04:13 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:04:13 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Couverture livre fini.jpg
+            [full_path] => Couverture livre fini.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpLRE3Wx
+            [error] => 0
+            [size] => 651968
+        )
+
+)
+
+[26-Mar-2026 09:04:13 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Couverture-livre-fini.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Couverture-livre-fini.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:04:42 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:04:42 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:04:42 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpA6IZXR
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:04:42 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:05:23 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:05:23 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:05:23 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Couverture livre fini.jpg
+            [full_path] => Couverture livre fini.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpfIFVnM
+            [error] => 0
+            [size] => 651968
+        )
+
+)
+
+[26-Mar-2026 09:05:23 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Couverture-livre-fini.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Couverture-livre-fini.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:05:24 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:05:24 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:05:24 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Couverture livre fini.jpg
+            [full_path] => Couverture livre fini.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phprpLc6Y
+            [error] => 0
+            [size] => 651968
+        )
+
+)
+
+[26-Mar-2026 09:05:24 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Couverture-livre-fini-1.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Couverture-livre-fini-1.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:05:34 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:05:34 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:05:34 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phppqKUtX
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:05:34 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+
+[26-Mar-2026 09:05:40 UTC] SA AJAX upload appelé
+[26-Mar-2026 09:05:40 UTC] POST: Array
+(
+    [action] => sa_upload_onboarding_file
+    [nonce] => c0d0e67209
+    [session_id] => 
+    [field_name] => file-upload_2
+)
+
+[26-Mar-2026 09:05:40 UTC] FILES: Array
+(
+    [file] => Array
+        (
+            [name] => Sans titre - 2.jpg
+            [full_path] => Sans titre - 2.jpg
+            [type] => image/jpeg
+            [tmp_name] => /tmp/phpxYU2ad
+            [error] => 0
+            [size] => 2124250
+        )
+
+)
+
+[26-Mar-2026 09:05:40 UTC] UPLOAD RESULT: Array
+(
+    [file] => /home/reop7944/public_html/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [url] => https://siteauteur.fr/wp-content/uploads/2026/03/Sans-titre-2.jpg
+    [type] => image/jpeg
+)
+

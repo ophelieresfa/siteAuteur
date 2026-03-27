@@ -1,0 +1,38 @@
+Return-Path: <reop7944@level.o2switch.net>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id 8AdeMdNasGkCnhIAkSiHwg
+	(envelope-from <reop7944@level.o2switch.net>)
+	for <admin@siteauteur.fr>; Tue, 10 Mar 2026 18:54:27 +0100
+Return-path: <reop7944@level.o2switch.net>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Tue, 10 Mar 2026 18:54:27 +0100
+Received: from reop7944 by level.o2switch.net with local (Exim 4.99.1)
+	(envelope-from <reop7944@level.o2switch.net>)
+	id 1w01Hn-000000059qk-2fay
+	for admin@siteauteur.fr;
+	Tue, 10 Mar 2026 18:54:27 +0100
+To: admin@siteauteur.fr
+Subject: =?UTF-8?Q?[SiteAuteur]_Votre_site_a_=C3=A9t=C3=A9_mis_?=
+ =?UTF-8?Q?=C3=A0_jour_vers_WordPress_6.9.2?=
+X-PHP-Script: siteauteur.fr/wp-cron.php for 109.234.167.184
+ X-PHP-Originating-Script: 1127:PHPMailer.php
+Date: Tue, 10 Mar 2026 17:54:27 +0000
+From: WordPress <wordpress@siteauteur.fr>
+Message-ID: <6nci1jbEMqiHkG9SLexmXRNWUIX65TgBR0Cuzwc3tfA@siteauteur.fr>
+X-Mailer: PHPMailer 7.0.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Bonjour ! Votre site à l’adresse https://siteauteur.fr a été automatiquement mis à jour vers WordPress 6.9.2.
+
+Vous n’avez rien de plus à faire. Pour en savoir plus sur la version 6.9.2, lisez l’écran À Propos de WordPress : 
+https://siteauteur.fr/wp-admin/about.php
+
+Si vous rencontrez des problèmes ou avez besoin d’assistance, les volontaires du forum d’entraide de WPFR (https://wpfr.net/support) devraient pouvoir vous aider.
+https://wpfr.net/support
+
+L’équipe WordPress
+

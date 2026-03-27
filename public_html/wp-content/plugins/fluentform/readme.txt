@@ -4,7 +4,7 @@ Tags: contact form, wp forms, forms, form builder, custom form
 Requires at least: 6.4
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 6.1.20
+Stable tag: 6.1.21
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -437,6 +437,15 @@ You can get support from our official support thread at <a href="https://wpmanag
 12. Asset Loading Comparison with Other Plugins
 
 == Changelog ==
+
+= 6.1.21 (Date: March 17, 2026) =
+- Adds subscription end date to auto-calculate bill_times for subscrition payments
+- Hardens Stripe SCA payment confirmation endpoints against fraud and DoS
+- Fixes spoofable form_id in SCA payment confirmation that could select wrong Stripe API key
+- Adds transaction status validation (intended state) to prevent unauthorized payment confirmations
+- Adds payment amount verification after Stripe confirms payment
+- Fixes missing capability check on MailChimp interest groups endpoint
+- Fixes unsanitized sort_by parameter in Logger and Submission queries
 
 = 6.1.20 (Date: March 04, 2026) =
 - Fixes Stripe coupon discount rounding losing cents on multi-quantity line items

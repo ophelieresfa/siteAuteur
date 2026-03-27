@@ -1,0 +1,40 @@
+Return-Path: <reop7944@level.o2switch.net>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id uCNUGzNovWlCRBIAkSiHwg
+	(envelope-from <reop7944@level.o2switch.net>)
+	for <admin@siteauteur.fr>; Fri, 20 Mar 2026 16:30:59 +0100
+Return-path: <reop7944@level.o2switch.net>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Fri, 20 Mar 2026 16:30:59 +0100
+Received: from reop7944 by level.o2switch.net with local (Exim 4.99.1)
+	(envelope-from <reop7944@level.o2switch.net>)
+	id 1w3boR-000000054W3-1PbJ
+	for admin@siteauteur.fr;
+	Fri, 20 Mar 2026 16:30:59 +0100
+To: admin@siteauteur.fr
+Subject: =?UTF-8?Q?[SiteAuteur]_R=C3=A9initialisation_du_mot_de_passe?=
+X-PHP-Script: siteauteur.fr/wp-login.php for 185.189.24.11
+ X-PHP-Originating-Script: 1127:PHPMailer.php
+Date: Fri, 20 Mar 2026 15:30:59 +0000
+From: WordPress <wordpress@siteauteur.fr>
+Message-ID: <VXOGnEt10lvyXvNrcG49q2sqsxfLbEebvgcNTm6UBE@siteauteur.fr>
+X-Mailer: PHPMailer 7.0.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Quelqu’un a demandé la réinitialisation du mot de passe pour le compte suivant :
+
+Titre du site : SiteAuteur
+
+Identifiant : OphersSiteAuteuradm
+
+Si ceci est une erreur, ignorez cet e-mail et rien ne se passera.
+
+Pour renouveler votre mot de passe, cliquez sur le lien suivant :
+
+https://siteauteur.fr/wp-login.php?login=OphersSiteAuteuradm&key=jyXaQCa1TS8di1varaI6&action=rp&wp_lang=fr_FR
+
+

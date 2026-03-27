@@ -1,0 +1,1142 @@
+ /*
+Theme Name: Astra Child
+Template: astra
+Version: 1.0
+*/
+
+html  {
+	cursor: default;
+}
+
+.hidden {
+	display: none;
+}
+
+.ff-default .ff-el-form-control:focus {
+	border: 1px solid #c7a46a !important;
+}
+
+.title-divider {
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	gap:14px;
+	margin: 20px auto 30px auto !important;
+	margin-bottom: 0;
+}
+
+.title-divider .line1 {
+	width:140px;
+	height:1px;
+	background:linear-gradient(90deg,rgba(199,164,106,0),rgba(199,164,106,0.8),rgba(199,164,106,1),rgba(199,164,106,1),rgba(199,164,106,1));
+}
+
+.title-divider .line2 {
+	width:140px;
+	height:1px;
+	background:linear-gradient(90deg,rgba(199,164,106,1),rgba(199,164,106,1),rgba(199,164,106,1),rgba(199,164,106,0.8),rgba(199,164,106,0));
+}
+
+.title-divider .dot {
+	width:6px;
+	height:6px;
+	background:#c7a46a;
+	border-radius:50%;
+}
+
+.home .siteauteur-pricing {
+	position: relative;
+	background: #ffffff;
+	max-width: 420px;
+	margin: 60px auto;
+	padding: 40px;
+	border-radius: 16px;
+	text-align: center;
+	box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+	font-family: inherit;
+}
+
+.home .pricing-badge {
+	background: #e6f4ef;
+	color: #2fb38a;
+	padding: 6px 18px;
+	border-radius: 20px;
+	font-size: 14px;
+	font-weight: 600;
+  	left: 50%;
+	position: absolute;
+	top: 0%;
+	transform: translate(-50%, -50%);
+}
+
+.home .price-main {
+	font-size:16px;
+	margin-top:10px;
+}
+
+.home .price-big {
+	font-size:25px;
+	font-weight:700;
+}
+
+.home .price-separator {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin: 20px 0;
+	font-size: 16px;
+	width: 50%;
+}
+
+.home .price-separator::before,
+.home .price-separator::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #e5e7eb;
+}
+
+.home .price-month{
+  font-size:20px;
+}
+
+.home .siteauteur-pricing hr {
+  border-top:1px solid #e5e7eb;
+}
+
+.home #faq .wp-block-accordion {
+	width: 70%;
+}
+
+.home #faq .wp-block-accordion-item {
+	background: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+	margin-bottom: 10px;
+}
+
+.home #faq .wp-block-accordion-panel {
+	margin: 0;
+	padding: 30px;
+}
+
+.home .wp-block-accordion-heading__toggle:hover,
+.home .wp-block-accordion-heading__toggle:focus {
+	background-color: #3fc095;
+}
+
+.home .wp-block-accordion-heading__toggle .wp-block-accordion-heading__toggle-icon {
+	color: #3fc095;
+}
+
+.home .wp-block-accordion-heading__toggle:hover .wp-block-accordion-heading__toggle-icon,
+.home .wp-block-accordion-heading__toggle:focus .wp-block-accordion-heading__toggle-icon {
+	color: #ffffff;
+}
+
+footer.site-footer .footer-container {
+	display: flex;
+}
+
+footer.site-footer .footer-container .footer-col {
+	width: 25%;
+}
+
+footer.site-footer .footer-container .footer-brand h3 {
+	font-size: 18px;
+	margin-bottom: 15px;
+	color: #1E293B;
+}
+
+footer.site-footer .footer-container .footer-brand p {
+	font-size: 14px;
+	color: #1E293B;
+}
+
+
+footer.site-footer .footer-container .footer-nav {
+	margin-left: 70px;
+}
+
+footer.site-footer .footer-container .footer-col h4 {
+	font-size: 16px;
+	text-decoration: underline;
+	margin-bottom: 15px;
+	color: #1E293B;
+}
+
+footer.site-footer .footer-container .footer-col ul {
+	margin: 0;
+}
+
+footer.site-footer .footer-container .footer-col ul li {
+	list-style-type: none;
+}
+
+footer.site-footer .footer-container .footer-col ul li a {
+	color: #1E293B;
+	font-size: 14px;
+}
+
+footer.site-footer .footer-container .footer-col ul li a:hover {
+	color: #3fc095;
+	text-decoration: underline;
+}
+
+footer.site-footer .site-below-footer-wrap {
+	background-color: #f9f9f9;
+}
+
+footer.site-footer .footer-cta .footer-button {
+	border-color: #3fc095;
+	background-color: #3fc095;
+	color: #fff;
+	font-size: 14px;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	padding-left: 30px;
+	border-radius: 5px;
+}
+
+footer.site-footer .footer-cta .footer-button:hover {
+	border-color: #343434;
+	background-color: #343434;
+}
+
+.page-id-14 header,
+.page-id-100 header,
+.page-id-929 header {
+	display:none;
+}
+
+.page-id-14 #header-nav,
+.page-id-100 #header-nav {
+    position: fixed;
+    top:-107px;
+    left:0;
+    width:100%;
+    z-index:999999;
+    transition: all 0.35s ease;
+}
+
+.page-id-14 #header-nav > .wp-block-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.page-id-14 #header-nav h1 a,
+.page-id-100 #header-nav h1 a {
+	text-decoration: none;
+}
+
+.page-id-14 #header-nav h1 a,
+.page-id-100 #header-nav h1 a {
+	color: #c7a46a !important;
+}
+
+.page-id-14 #header-nav h1 a:hover,
+.page-id-100 #header-nav h1 a:hover {
+	color: #ffffff !important;
+}
+
+.page-id-14 #header-nav.visible,
+.page-id-100 #header-nav.visible {
+    top:0;
+}
+
+.page-id-14 #header-nav ul li:hover,
+.page-id-100 #header-nav ul li:hover {
+	color: #c7a46a !important;
+	text-decoration-color: #c7a46a !important;
+}
+
+.page-id-100 .nav-items {
+	display: none;
+}
+
+.page-id-14 footer,
+.page-id-100 footer,
+.page-id-929 footer {
+	display: none;
+}
+
+.page-id-14 #hero {
+	display:flex;
+	height:100vh;
+	background: linear-gradient( 180deg, #0a0a0a 0%, #101720 60%, #1b2636 100% );
+	overflow: hidden;
+}
+
+.page-id-14 #hero figure {
+	width: 45%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background-color: black;
+  	box-shadow: 80px 60px 80px rgba(0,0,0,0.7);
+}
+
+.page-id-14 #hero figure img {
+	height:100%;
+	width:auto;
+	object-fit:contain;
+}
+
+.page-id-14 #hero .wp-block-media-text__content {
+	width:55%;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	padding:60px;
+}
+
+.page-id-14 #hero .wp-block-media-text__content h1 {
+	font-weight: 501 !important;
+}
+
+.page-id-14 #hero .wp-block-media-text__content .book-by {
+	font-weight: 501;
+}
+
+.page-id-14 #hero .wp-block-media-text__content .review-total {
+	gap: 10px;
+}
+
+.page-id-14 #hero .btn-secondary a {
+	background-color: transparent !important;
+}
+
+.page-id-14 #hero .btn-primary a,
+.page-id-14 #hero .btn-secondary a{
+	transition: all 0.25s ease;
+	font-size: 14px !important;
+}
+
+.page-id-14 #hero .btn-primary a:hover,
+.page-id-14 #hero .btn-secondary a:hover {
+	transform: translateY(-5px);
+	box-shadow: 0px 10px 13px -7px #fff, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.page-id-14 #synopsis {
+	background: linear-gradient(180deg, rgba(0,0,0,0.03) 0px, transparent 120px),#f3f2ef;
+}
+
+.page-id-14 #synopsis h2 {
+	font-weight: 501;
+}
+
+.page-id-14 #synopsis h2::before {
+	content: "SYNOPSIS";
+	position: absolute;
+	font-size: 220px;
+	font-weight: 700;
+	color: rgba(0,0,0,0.03);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	pointer-events: none;
+}
+
+.page-id-14 #why-this-book {
+	border-top:1px solid #e2e0dc;
+	background-color: #f3f3f1;
+}
+
+.page-id-14 #why-this-book .wp-block-columns figure {
+	background-color: #151d29;
+	border-radius: 50%;
+	padding: 20px;
+}
+
+.page-id-14 #why-this-book .wp-block-column {
+	position: relative;
+	padding: 0 40px;
+}
+
+.page-id-14 #why-this-book .wp-block-column:not(:last-child)::after {
+	content:"";
+	position:absolute;
+	right:0;
+	top:50%;
+	transform:translateY(-50%);
+	width:1px;
+	height:60%;
+	background:#d8d8d8;
+}
+
+.page-id-14 #extrait-book {
+	background: 
+		radial-gradient(circle at center,rgba(255,255,255,0.05),transparent 60%), 
+		linear-gradient(180deg,#0b121b 0%,#050a10 50%,#162436 100%);
+}	
+
+.page-id-14 #extrait-book .citation-book {
+	background:radial-gradient(circle,rgba(255,255,255,0.06),transparent 70%);
+	padding:40px;
+	border-radius:6px;
+}
+
+.page-id-14 #extrait-book .conteneur {
+	max-width: 50%;
+	position: relative;
+}
+
+.page-id-14 #extrait-book .conteneur .quote1 img {
+	position: absolute;
+	top: 85px;
+	left: 0;
+}
+
+.page-id-14 #extrait-book .conteneur .quote2 img {
+	rotate: 180deg;
+	position: absolute;
+	bottom: 25px;
+	right: 0;
+}
+
+.page-id-14 #review-reader {
+	background: #F2F2F2;
+	padding-top: 50px !important;
+	padding-bottom: 50px !important;
+}
+
+.page-id-14 #review-reader .wp-block-column {
+	background: #ffffff;
+	border-radius: 5px;
+	padding: 50px 20px;
+	box-shadow: 0 8px 30px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.04);
+	transition: all 0.3s ease;
+}
+
+.page-id-14 #review-reader .wp-block-column .title-divider .line1 {
+	width: 70px;
+}
+
+.page-id-14 #review-reader .wp-block-column .title-divider .line2 {
+	width: 70px;
+}
+
+.page-id-14 #a-propos-auteur {
+	border-top: 1px solid #e2e0dc;
+	background: linear-gradient(180deg, rgba(0,0,0,0.03) 0px, transparent 120px),#f3f2ef;
+}
+
+.page-id-14 #a-propos-auteur .wp-block-button {
+	margin-top: 20px;
+}
+
+.page-id-14 #a-propos-auteur .wp-block-button a:hover {
+	background-color: #c7a46a !important;
+	color: #ffffff !important;
+}
+
+.page-id-14 #extrait-mail {
+	background: radial-gradient( circle at center, #131c25 0%, #0a1621 35%, #0e1e2f 65%, #0a1623 100% );
+	box-shadow: inset 0 0 120px rgba(0,0,0,0.4);
+	padding: 0 !important;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group {
+	width: 40%;
+	padding: 80px 0;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .fluentform {
+	padding: 0;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .fluentform fieldset {
+	position: relative;
+}
+
+.page-id-14 #extrait-mail .fluentform .ff-el-form-control {
+	padding-right: 190px;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .fluentform .ff_submit_btn_wrapper {
+	position: absolute;
+  	top: 0;
+	right: 0;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .fluentform button {
+	color: #000;
+	box-shadow: none;
+	border-radius: 0 7px 7px 0;
+	border: none;
+	height: 40px;
+	padding: 0 20px;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .fluentform button:hover {
+	color: #c7a46a;
+	background-color: black;
+}
+
+.page-id-14 #extrait-mail > .wp-block-group .note-form {
+	gap: 10px;
+}
+
+.page-id-14 #ast-scroll-top,
+.page-id-100 #ast-scroll-top {
+	background-color: #c7a46a;
+}
+
+.page-id-14 #discover-book .wp-block-columns .col1 p {
+	width: 50%;
+	line-height: 20px;
+}
+
+.page-id-14 #discover-book .wp-block-columns .col2 .grp-note {
+	gap: 3px;
+}
+
+.page-id-14 #discover-book .wp-block-columns .col2 .grp-note p {
+	line-height: 20px;
+}
+
+.page-id-14 #discover-book .wp-block-columns .col3 p {
+	width: 35%;
+	line-height: 20px;
+}
+
+.page-id-14 #discover-book .col1,
+.page-id-14 #discover-book .col2,
+.page-id-14 #discover-book .col3 {
+	position: relative;
+	padding: 40px 0;
+}
+
+.page-id-14 #discover-book .col1::after,
+.page-id-14 #discover-book .col2::after {
+	content:"";
+	position:absolute;
+	right:-20px;
+	top:50%;
+	transform:translateY(-50%);
+	width:1px;
+	height:60%;
+	background:#d8d8d8;
+}
+
+.page-id-14 #discover-book .btn-buy {
+	background-color: #c7a46a;
+	color: #fff;
+	padding: 12px 30px;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	margin: 30px auto 0 auto !important;
+	display: block;
+	width: fit-content;
+}
+
+.page-id-14 #discover-book .btn-buy:hover {
+	border: 1px solid #c7a46a;
+	background-color: #fff;;
+	color: #c7a46a;
+}
+
+.page-id-14 #discover-book figure img {
+	border: 1px solid #c7a46a;
+	padding: 10px;
+	border-radius: 50%;
+}
+
+.page-id-14 #footer,
+.page-id-100 #footer {
+	background: radial-gradient( circle at center, #131c25 0%, #0a1621 35%, #0e1e2f 65%, #0a1623 100% );
+	box-shadow: inset 0 0 120px rgba(0,0,0,0.4);
+	border-top: 1px solid #c7a46a;
+}
+
+.page-id-100 #footer {
+	padding-top: 0 !important;
+}
+
+.page-id-100 #all-book-columns .avalable{
+	margin-top: 15px;
+}
+
+.page-id-100 #footer .wp-block-columns {
+	display: none !important;
+}
+
+.page-id-14 #copyright,
+.page-id-100 #copyright {
+	border-top: 1px solid #c7a46a;
+}
+
+.page-id-14 #footer .btn-buy ,
+.page-id-100 #footer .btn-buy {
+	background-color: #c7a46a;
+	border: 1px solid #c7a46a;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 12px;
+	cursor: pointer;
+	margin: 30px auto 0 auto !important;
+	display: block;
+	width: fit-content;
+}
+
+.page-id-14 #footer .btn-buy:hover,
+.page-id-100 #footer .btn-buy:hover {
+	background-color: #fff;
+	color: #c7a46a;
+}
+
+.page-id-14 #footer ul,
+.page-id-100 #footer ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.page-id-14 #footer ul li,
+.page-id-100 #footer ul li {
+	text-decoration: underline;
+}
+
+.page-id-14 #footer .col4 .fluentform,
+.page-id-100 #footer .col4 .fluentform {
+	margin-top: 10px;
+}
+
+.page-id-14 #footer .col4 .fluentform fieldset,
+.page-id-100 #footer .col4 .fluentform fieldset {
+	position: relative;
+}
+
+.page-id-14 #footer .col4 .fluentform .ff_submit_btn_wrapper,
+.page-id-100 #footer .col4 .fluentform .ff_submit_btn_wrapper {
+	position: absolute;
+  	top: 0;
+	right: 0;
+}
+
+.page-id-14 #footer .col4 .fluentform .ff-el-form-control,
+.page-id-100 #footer .col4 .fluentform .ff-el-form-control {
+	background-color: transparent;
+	padding-right: 110px;
+}
+
+.page-id-14 #footer .col4 .fluentform .ff-el-form-control::placeholder,
+.page-id-100 #footer .col4 .fluentform .ff-el-form-control::placeholder {
+	color: #ffffffb5;
+	font-size: 14px;
+}
+
+.page-id-14 #footer .col4 .fluentform button,
+.page-id-100 #footer .col4 .fluentform button {
+	border-radius: 0 7px 7px 0;
+	box-shadow: none;
+	border-radius: 0 7px 7px 0;
+	border: none;
+	height: 40px;
+	font-size: 14px;
+}
+
+.page-id-14 #footer .wp-block-columns,
+.page-id-100 #footer .wp-block-columns {
+	display: flex;
+	align-items: center !important;
+	padding: 0 20px;
+}
+
+.page-id-14 #footer .wp-block-column,
+.page-id-100 #footer .wp-block-column {
+	position: relative;
+	padding: 0 20px;
+}
+
+.page-id-14 #footer .col1::after,
+.page-id-100 #footer .col1::after,
+.page-id-14 #footer .col2::after,
+.page-id-100 #footer .col2::after,
+.page-id-14 #footer .col3::after,
+.page-id-100 #footer .col3::after {
+	content:"";
+	position:absolute;
+	right:0;
+	top:50%;
+	transform:translateY(-50%);
+	width:1px;
+	height:60%;
+	background:#d8d8d8;
+}
+
+.page-id-100 #all-book {
+	background: linear-gradient( 180deg, #0a0a0a 0%, #101720 60%, #000 100% );
+}
+
+.page-id-100 #all-book #all-book-columns .wp-block-button a {
+	background-color: transparent !important;
+	border: 1px solid #c7a46a;
+	color: #c7a46a;
+}
+
+.page-id-100 #all-book #all-book-columns .wp-block-button a:hover {
+	background-color: #c7a46a !important;
+	color: #ffffff;
+}
+
+.page-id-100 #all-book .wp-block-columns figure {
+	box-shadow:
+		0 30px 70px rgba(0,0,0,0.8),
+		0 15px 40px rgba(0,0,0,0.6);
+}
+
+.page-id-100 #all-book #main-book {
+	border-top: 1px solid #c7a46a;
+	padding-top: 50px;
+}
+
+.page-id-100 #all-book #main-book p {
+	width: 50%;
+}
+
+.page-id-100 #all-book #main-book .wp-block-button a {
+	background-color: #c7a46a;
+	color: #000;
+	border-color: #c7a46a;
+}
+
+.page-id-100 #all-book #main-book .wp-block-button a:hover {
+	background-color: transparent;
+	border: 1px solid #c7a46a;
+	color: #c7a46a;
+}
+
+/* Popup contact créée en JS */
+.contact-popup-dynamic {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	display: none;
+}
+
+.contact-popup-dynamic.is-open {
+	display: block;
+}
+
+.contact-popup-dynamic .contact-popup-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.68);
+	backdrop-filter: blur(2px);
+}
+
+.contact-popup-dynamic .contact-popup-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: min(92vw, 760px);
+	max-height: 90vh;
+	overflow-y: auto;
+	color: #fff;
+	border: 1px solid rgba(199, 164, 106, 0.35);
+	border-radius: 18px;
+	padding: 30px 85px;
+	background: #ffffff;
+  	box-shadow: inset 0 0 120px rgba(0,0,0,0.4);
+}
+
+/* Bouton fermeture */
+.contact-popup-dynamic .contact-popup-close {
+	position: absolute;
+	top: 10px;
+	right: 14px;
+	width: 36px;
+	height: 36px;
+	border: 0;
+	border-radius: 50%;
+	background: transparent;
+	color: #c7a46a;
+	font-size: 28px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* Titre */
+.contact-popup-dynamic .contact-popup-title {
+	margin: 0 0 18px;
+	text-align: center;
+	color: #c7a46a;
+	font-size: 24px;
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+/* Empêcher le scroll de la page */
+body.contact-popup-open {
+	overflow: hidden;
+}
+
+/* Le formulaire d'origine est hidden : on le force visible quand il est dans la popup */
+.contact-popup-dynamic #contact-form {
+	display: block !important;
+}
+
+.contact-popup-dynamic #contact-form.hidden {
+	display: block !important;
+}
+
+/* Ajustements Fluent Forms */
+.contact-popup-dynamic .ff-el-form-control,
+.contact-popup-dynamic input,
+.contact-popup-dynamic textarea,
+.contact-popup-dynamic select {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.contact-popup-dynamic .ff-el-form-control,
+.contact-popup-dynamic input[type="text"],
+.contact-popup-dynamic input[type="email"],
+.contact-popup-dynamic textarea {
+	background: #ffffff;
+	color: #fff;
+	border: 1px solid #c7a46a !important;
+	border-radius: 10px;
+	padding: 12px 14px;
+}
+
+.contact-popup-dynamic label {
+	color: #c7a46a;
+	font-weight: 401 !important;
+}
+
+.contact-popup-dynamic .ff-btn.ff-btn-submit,
+.contact-popup-dynamic button[type="submit"] {
+	background: #c7a46a !important;
+	border: none;
+	border-radius: 5px;
+	padding: 12px 22px;
+	cursor: pointer;
+}
+
+.contact-popup-dynamic .ff-btn.ff-btn-submit:hover,
+.contact-popup-dynamic button[type="submit"]:hover {
+	border: 1px solid #c7a46a;
+	background: #fff !important;
+}
+
+/* Rendre le "Contact" du footer cliquable visuellement */
+footer li,
+.wp-block-column.col3 li {
+	cursor: pointer;
+}
+
+@media (min-width: 1025px) and (max-width: 1199px) {
+	.page-id-14 #synopsis h2::before {
+		font-size: 190px;
+	}
+
+	#discover-book > .wp-block-group {
+		max-width: 80%;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group {
+		width: 60%;
+	}
+
+	.page-id-14 #footer .wp-block-columns {
+		padding: 0 20px;
+	}
+
+	.page-id-14 #footer .col1 {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.page-id-14 #hero {
+		height: auto;
+	}
+
+	.page-id-14 #hero figure img {
+		width: 100%;
+	}
+
+	.page-id-14 #synopsis h2::before {
+		font-size: 150px;
+	}
+
+	.page-id-14 #extrait-book .conteneur {
+		max-width: 80%;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group {
+  		width: 70% !important;
+	}
+
+	.page-id-14 #a-propos-auteur > .wp-block-columns {
+		display: block;
+	}
+
+	.page-id-14 #a-propos-auteur > .wp-block-columns .img-author {
+		float: left;
+		width: 30%;
+		margin: 0 30px 20px 0;
+	}
+
+	.page-id-14 #a-propos-auteur .wp-block-buttons {
+		text-align: center;
+		margin: 30px auto 0 auto;
+		display: block;
+	}
+
+	.page-id-14 #why-this-book .wp-block-column{
+		position:relative;
+	}
+
+	.page-id-14 #why-this-book .wp-block-column {
+		margin-bottom: 30px;
+	}
+
+	.page-id-14 #discover-book > .wp-block-group {
+		max-width: 100% !important;
+	}
+
+	.page-id-14 #discover-book .wp-block-columns .wp-block-column {
+		flex-basis: 0 !important;
+	}
+
+	.page-id-14 #discover-book > .wp-block-group {
+		max-width: 80%;
+	}
+
+	.page-id-14 #footer .wp-block-columns {
+		padding: 0 20px;
+	}
+
+	.page-id-14 #footer .col1 {
+		display: none;
+	}
+
+	.page-id-14 #footer .col2,
+	.page-id-14 #footer .col3 {
+		flex-basis: 0 !important;
+		text-align: center;
+	}
+
+	.page-id-14 #footer .col3::after {
+		content: none;
+	}
+
+	.page-id-14 #footer .col4 {
+		border-top: 1px solid #d8d8d8;
+		padding: 20px 0 0 0;
+		margin-top: 10px;
+		text-align: center;
+	}
+
+	.page-id-14 #footer .wp-block-columns {
+		margin-bottom: 0 !important;
+	}
+
+	.page-id-14 #footer .fluentform {
+		width: 60%;
+		margin: 15px auto 0 auto;
+	}
+}
+
+@media (max-width: 781px) {
+	.page-id-14 #why-this-book .wp-block-column:not(:last-child)::after {
+		content: "";
+		left: 50%;
+		transform: translateX(-50%);
+		top: auto;
+		bottom: -30px;
+		width: 120px;
+		height: 1px;
+		background: #d8d8d8;
+	}
+}
+
+@media (max-width: 767px) {
+	.page-id-14 .title-divider {
+		width: 100%;
+	}
+
+	.page-id-14 #hero {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.page-id-14 #hero .wp-block-media-text__media {
+		width: 100%;
+	}
+
+	.page-id-14 #hero .wp-block-media-text__content {
+		width: 100%;
+	}
+
+	.page-id-14 #synopsis h2::before {
+		font-size: 65px;
+	}
+
+	.page-id-14 #why-this-book .wp-block-columns .wp-block-column:not(:last-child) {
+		margin-bottom: 35px !important;
+	}
+
+	.page-id-14 #review-reader .wp-block-columns .wp-block-column:not(:last-child) {
+		margin-bottom: 0 !important;
+	}
+
+	.page-id-14 #extrait-book .conteneur {
+		max-width: 100%;
+	}
+
+	.page-id-14 #extrait-book .conteneur .quote1 img {
+		top: 95px;
+	}
+	
+	.page-id-14 #extrait-book .conteneur .quote2 img {
+		bottom: 30px;
+	}
+
+	.page-id-14 #extrait-book figure img {
+		display: none;
+	}
+
+	.page-id-14 #extrait-book .citation-book {
+		padding: 15px 0;
+	}
+
+	#review-reader {
+		padding-top: 50px !important;
+		padding-bottom: 50px !important;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group {
+		width: 80%;
+		padding: 50px 0;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group .fluentform button {
+		border-radius: 7px;
+	}
+
+	.page-id-14 #extrait-mail .fluentform .ff-el-form-control {
+		padding-right: 15px;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group .fluentform .ff_submit_btn_wrapper {
+		position: initial;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group .note-form {
+		justify-content: center;
+	}
+
+	.page-id-14 #extrait-mail > .wp-block-group .fluentform button:hover {
+		color: #fff;
+	}
+
+	.page-id-14 #discover-book > .wp-block-group {
+		max-width: 100%;
+	}
+
+	.page-id-14 #discover-book .wp-block-columns .col1 p {
+		width: 100%;
+		text-align: center;
+	}
+
+	.page-id-14 #discover-book .wp-block-columns .col3 p {
+		width: 100%;
+		text-align: center;
+	}
+
+	.page-id-14 #discover-book .col1, 
+	.page-id-14 #discover-book .col2, 
+	.page-id-14 #discover-book .col3 {
+		padding: 0;
+	}
+
+	.page-id-14 #discover-book .wp-block-group {
+		gap: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.page-id-14 #discover-book .wp-block-column:not(:last-child)::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		top: auto;
+		bottom: -30px;
+		width: 120px;
+		height: 1px;
+		background: #d8d8d8;
+  	}
+
+	.page-id-14 #discover-book .wp-block-column {
+		margin-bottom: 35px !important;
+	}
+
+	.page-id-14 #discover-book .wp-block-group > p {
+		margin-bottom: 0 !important;
+	}
+
+	.page-id-14 #discover-book .btn-buy {
+		margin: 0 auto !important;
+	}
+
+	.page-id-100 #header-nav {
+		margin: 0 !important;
+	}
+
+	.has-modal-open .admin-bar .is-menu-open .wp-block-navigation__responsive-dialog {
+		margin: 20px !important;
+	}
+
+	.page-id-14 #header-nav h1, 
+	.page-id-100 .wp-block-group.alignfull.has-ast-global-color-6-background-color h1 {
+		font-size: 20px !important;
+	}
+
+	.page-id-14 #footer .wp-block-columns {
+		margin-bottom: 0 !important;
+	}
+
+	.page-id-14 #footer .wp-block-column {
+		text-align: center;
+	}	
+
+	.page-id-14 #footer .col2 {
+		text-align: left;
+	}
+
+	.page-id-14 #footer .col3 {
+		text-align: right;
+	}
+
+	.page-id-14 #footer .col4 p {
+		margin-top: 10px !important;
+	}
+
+	.page-id-14 #footer ul li {
+		padding: 5px 0;
+	}
+
+	.contact-popup-dynamic .contact-popup-box {
+		width: calc(100vw - 24px);
+		max-height: 88vh;
+		padding: 22px 14px 18px;
+		border-radius: 14px;
+	}
+
+  	.contact-popup-dynamic .contact-popup-title {
+    	font-size: 20px;
+  	}
+}

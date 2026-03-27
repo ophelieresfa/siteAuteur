@@ -1,0 +1,69 @@
+Return-Path: <reop7944@level.o2switch.net>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id 8J8PM3/4vGniHQ0AkSiHwg
+	(envelope-from <reop7944@level.o2switch.net>)
+	for <admin@siteauteur.fr>; Fri, 20 Mar 2026 08:34:23 +0100
+Return-path: <reop7944@level.o2switch.net>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Fri, 20 Mar 2026 08:34:23 +0100
+Received: from reop7944 by level.o2switch.net with local (Exim 4.99.1)
+	(envelope-from <reop7944@level.o2switch.net>)
+	id 1w3UND-00000003f4w-2Ylz
+	for admin@siteauteur.fr;
+	Fri, 20 Mar 2026 08:34:23 +0100
+To: admin@siteauteur.fr
+Subject: [SiteAuteur] New user account
+X-PHP-Script: siteauteur.fr/index.php for 185.189.24.11
+ X-PHP-Originating-Script: 1127:PHPMailer.php
+Date: Fri, 20 Mar 2026 07:34:23 +0000
+From: SiteAuteur <admin@siteauteur.fr>
+Message-ID: <cPtJ40C42vp6B0gp7Bz7IdAvEVQR54HxfrgqFOY4KEM@siteauteur.fr>
+X-Mailer: PHPMailer 7.0.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+				<body style="background: #fff;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;">
+
+				
+
+<div style="max-width: 560px;padding: 20px;background: #ffffff;border-radius: 5px;margin:40px auto;font-family: Open Sans,Helvetica,Arial;font-size: 15px;color: #666;">
+
+	<div style="color: #444444;font-weight: normal;">
+		<div style="text-align: center;font-weight:600;font-size:26px;padding: 10px 0;border-bottom: solid 3px #eeeeee;">SiteAuteur</div>
+
+		<div style="clear:both"></div>
+	</div>
+
+	<div style="padding: 0 30px 30px 30px;border-bottom: 3px solid #eeeeee;">
+
+		<div style="padding: 30px 0;font-size: 24px;text-align: center;line-height: 40px;">Ophélie Resfa has just created an account on SiteAuteur.</div>
+
+		<div style="padding: 10px 0 50px 0;text-align: center;">To view their profile click here: <a href="https://siteauteur.fr/user/ophers/" style="color: #3ba1da;text-decoration: none;">https://siteauteur.fr/user/ophers/</a></div>
+
+		<div style="padding: 0 0 15px 0;">
+
+			<div style="background: #eee;color: #444;padding: 12px 15px; border-radius: 3px;font-weight: bold;font-size: 16px;">Here is the submitted registration form:<br /><br />
+				<p><label>Date d’enregistrement de l’utilisateur ou utilisatrice: </label><span>mars 20, 2026 7:34 am</span></p><p><label>Formulaire: </label><span>Default Registration - ID du formulaire : 1074</span></p><div class="um-row _um_row_1 " style="margin: 0 0 30px 0;"><p><label>Identifiant: </label><span>Ophers</span></p><p><label>Prénom: </label><span>Ophélie</span></p><p><label>Nom: </label><span>Resfa</span></p><p><label>Adresse e-mail: </label><span>resfa.ophelie@yahoo.fr</span></p>
+			</div>
+		</div>
+
+	</div>
+
+	<div style="color: #999;padding: 20px 30px">
+
+		<div style="">Thank you!</div>
+		<div style="">The <a href="https://siteauteur.fr" style="color: #3ba1da;text-decoration: none;">SiteAuteur</a> Team</div>
+
+	</div>
+
+</div>
+
+				</body>
+				</html>
+
+				
+

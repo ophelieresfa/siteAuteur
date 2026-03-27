@@ -1,0 +1,958 @@
+Return-Path: <0101019d0b25ab17-d1e68fd4-dbcb-402b-8d28-96eefffabc01-000000@bounce.stripe.com>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id 9v/uH+44vWmyLjMAkSiHwg
+	(envelope-from <0101019d0b25ab17-d1e68fd4-dbcb-402b-8d28-96eefffabc01-000000@bounce.stripe.com>)
+	for <admin@siteauteur.fr>; Fri, 20 Mar 2026 13:09:18 +0100
+Return-path: <0101019d0b25ab17-d1e68fd4-dbcb-402b-8d28-96eefffabc01-000000@bounce.stripe.com>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Fri, 20 Mar 2026 13:09:18 +0100
+Received: from a62-30.smtp-out.us-west-2.amazonses.com ([54.240.62.30]:60497)
+	by level.o2switch.net with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.99.1)
+	(envelope-from <0101019d0b25ab17-d1e68fd4-dbcb-402b-8d28-96eefffabc01-000000@bounce.stripe.com>)
+	id 1w3YfB-0000000E2sr-1K1P
+	for admin@siteauteur.fr;
+	Fri, 20 Mar 2026 13:09:18 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=abcvmdrdgulwh3z7nkunhc6x66y7omp5; d=stripe.com; t=1774008511;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=FHuEvIPsUAC+qTsZQhzFxOl1qL1s0IPug9jxOzCwwAE=;
+	b=k48N/zvirLTaqAJcL4VbIaMfINZ/JX5Q8oQnrjXiCsUbuRMsgB0NlHndwA/MwAUc
+	GflaR02c6qxORRdqZtg9v88UEA/v2+rd+oWUdxFvoHNiF0w8cBDynVY0/YVkAgGwohB
+	/dpx/iN5lLgTHoCon7vtHXcceo0qr2zUaE3lbmks=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=hsbnp7p3ensaochzwyq5wwmceodymuwv; d=amazonses.com; t=1774008511;
+	h=Date:From:Reply-To:To:Message-ID:Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=FHuEvIPsUAC+qTsZQhzFxOl1qL1s0IPug9jxOzCwwAE=;
+	b=SoUsKV+CvYqbFneGZ1Hqp0gdHGJcgo3xQfrqBhdRvRpLAS8SUfL5Gv9w4TGsEOfd
+	Lel5KvkYkQgdH5bn7+XN5lBRXcWlUDB+IxtKLyGY/NYURyHJGl/n8j7F6ypKPfADJH/
+	E6LtidxF46kPMDsUW9sk7+OcV8SYELrn3d13DcME=
+Date: Fri, 20 Mar 2026 12:08:31 +0000
+From: Stripe <notifications@stripe.com>
+Reply-To: Stripe <notifications@stripe.com>
+To: admin@siteauteur.fr
+Message-ID: <0101019d0b25ab17-d1e68fd4-dbcb-402b-8d28-96eefffabc01-000000@us-west-2.amazonses.com>
+Subject: Confirmez votre adresse e-mail
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_69bd38bed578f_2d734683f2fc3113c"
+Content-Transfer-Encoding: 7bit
+X-Stripe-EID: em_m1z5fxz3gavvpfsilt2yxrdapzdczd
+BIMI-Selector: v=BIMI1; s=transactional;
+Feedback-ID: ::1.us-west-2.U9efwdPDLNZNk/S34uMIpcrlbDF6b3rs/s41tFWSWJ8=:AmazonSES
+X-SES-Outgoing: 2026.03.20-54.240.62.30
+X-Spam-Status: No, score=0.5
+X-Spam-Score: 5
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "scan.jabatus.fr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ Content preview:  Merci d'avoir cr__ votre compte Stripe. Veuillez confirmer
+    votre adresse e-mail pour pouvoir vous lancer. Confirmez votre adresse e-mail
+    : https://dashboard.stripe.com/confirm_email?t=TL69iCOuEYrs8cBtzDJHVQWuK4GgDssB
+    
+ Content analysis details:   (0.5 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: stripe.com]
+  0.1 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+                              no trust
+                             [54.240.62.30 listed in list.dnswl.org]
+ -0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
+                             [54.240.62.30 listed in wl.mailspike.net]
+  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+  0.1 SUKA_64                BODY: No description available.
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                           [54.240.62.30 listed in sa-trusted.bondedsender.org]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The
+                             query to Validity was blocked.  See
+                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
+                              for more information.
+                             [54.240.62.30 listed in bl.score.senderscore.com]
+  0.1 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or
+                             identical to background
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+  0.1 DKIM_INVALID           DKIM or DK signature exists, but is not valid
+  0.0 T_KAM_HTML_FONT_INVALID Test for Invalidly Named or Formatted
+                             Colors in HTML
+ -0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
+  0.1 T_REMOTE_IMAGE         Message contains an external image
+X-Spam-Flag: NO
+
+
+----==_mimepart_69bd38bed578f_2d734683f2fc3113c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Merci d'avoir cr=C3=A9=C3=A9 votre compte Stripe. Veuillez confirmer votr=
+e adresse e-mail pour pouvoir vous lancer.
+
+Confirmez votre adresse e-mail : https://dashboard.stripe.com/confirm_ema=
+il?t=3DTL69iCOuEYrs8cBtzDJHVQWuK4GgDssB
+
+Une fois votre adresse e-mail confirm=C3=A9e, vous pourrez proc=C3=A9der =
+=C3=A0 la configuration de votre compte. Consultez notre site de support =
+(https://support.stripe.com) en cas de questions ou si vous avez besoin d=
+'aide.
+
+=3D=3D=3D
+
+Stripe, 354 Oyster Point Blvd, South San Francisco, CA 94080
+
+Vous souhaitez faire r=C3=A9f=C3=A9rence =C3=A0 ce message=C2=A0? Utilise=
+z cet ID=C2=A0: em_m1z5fxz3gavvpfsilt2yxrdapzdczd=
+
+----==_mimepart_69bd38bed578f_2d734683f2fc3113c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ww=
+w.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" lang=3D"en" xml:lang=3D"en">=
+
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+    <meta name=3D"robots" content=3D"noindex">
+  <title>Confirmez votre adresse e-mail</title><style>/**
+  * IMPORTANT:
+  * Please read before changing anything, CSS involved in our HTML emails=
+ is
+  * extremely specific and written a certain way for a reason. It might n=
+ot make
+  * sense in a normal setting but Outlook loves it this way.
+  *
+  * !!! div[style*=3D"margin: 16px 0"] allows us to target a weird margin=
+
+  * !!! bug in Android's email client.
+  * !!! Do not remove.
+  *
+  * Also, the img files are hosted on S3. Please don't break these URLs!
+  * The images are also versioned by date, so please update the URLs acco=
+rdingly
+  * if you create new versions
+  *
+***/
+
+/**
+  * # Root
+  * - CSS resets and general styles go here.
+**/
+
+html,
+body,
+a,
+span,
+div[style*=3D'margin: 16px 0'] {
+  border: 0 !important;
+  margin: 0 !important;
+  outline: 0 !important;
+  padding: 0 !important;
+  text-decoration: none !important;
+}
+
+a,
+span,
+td,
+th {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/**
+  * # Delink
+  * - Classes for overriding clients which creates links out of things li=
+ke
+  *   emails, addresses, phone numbers, etc.
+**/
+
+span.st-Delink a {
+  color: #414552 !important;
+  text-decoration: none !important;
+}
+
+/** Modifier: preheader */
+span.st-Delink.st-Delink--preheader a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+/** */
+
+/** Modifier: title */
+span.st-Delink.st-Delink--title a {
+  color: #414552 !important;
+  text-decoration: none !important;
+}
+/** */
+
+/** Modifier: footer */
+span.st-Delink.st-Delink--footer a {
+  color: #687385 !important;
+  text-decoration: none !important;
+}
+/** */
+
+/**
+  * # Header
+**/
+
+table.st-Header td.st-Header-background div.st-Header-area {
+  height: 76px !important;
+  width: 600px !important;
+  background-repeat: no-repeat !important;
+  background-size: 600px 76px !important;
+}
+
+table.st-Header td.st-Header-logo div.st-Header-area {
+  height: 29px !important;
+  width: 70px !important;
+  background-repeat: no-repeat !important;
+  background-size: 70px 29px !important;
+}
+
+table.st-Header td.st-Header-logo.st-Header-logo--atlasAzlo div.st-Header=
+-area {
+  height: 21px !important;
+  width: 216px !important;
+  background-repeat: no-repeat !important;
+  background-size: 216px 21px !important;
+}
+
+/**
+  * # Retina
+  * - Targets high density displays and devices smaller than 768px.
+  *
+  * ! For mobile specific styling, see `# Mobile`.
+**/
+
+@media (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi),
+  all and (max-width: 768px) {
+  /**
+    * # Target
+    * - Hides images in these devices to display the larger version as a
+    *   background image instead.
+  **/
+
+  /** Modifier: mobile */
+  div.st-Target.st-Target--mobile img {
+    display: none !important;
+    margin: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    mso-hide: all !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+  /** */
+
+  /**
+    * # Header
+  **/
+
+  table.st-Header td.st-Header-background div.st-Header-area {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2017-08-21/header/Header-background.png') !important;
+  }
+
+  /** Modifier: white */
+  table.st-Header.st-Header--white td.st-Header-background div.st-Header-=
+area {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2017-08-21/header/Header-background--white.png') !important;
+  }
+  /** */
+
+  /** Modifier: simplified */
+  table.st-Header.st-Header--simplified td.st-Header-logo div.st-Header-a=
+rea {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2023-03-30/header/stripe_logo_blurple_email_highres.png') !important=
+;
+  }
+  /** */
+
+  /** Modifier: simplified + atlasAzlo */
+  table.st-Header.st-Header--simplified
+    td.st-Header-logo.st-Header-logo--atlasAzlo
+    div.st-Header-area {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2018-05-02/header/Header-logo--atlasAzlo.png') !important;
+  }
+  /** */
+}
+
+/**
+  * # Mobile
+  * - This affects emails views in clients less than 600px wide.
+**/
+
+@media only screen and (max-width: 600px) {
+  /**
+    * # Wrapper
+  **/
+
+  table.st-Wrapper,
+  table.st-Width.st-Width--mobile {
+    min-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0px !important;
+  }
+
+  .st-SandboxRibbon {
+    text-align: left !important; /* Align text to the left on mobile */
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  /**
+    * # Spacer
+  **/
+
+  /** Modifier: gutter */
+  td.st-Spacer.st-Spacer--gutter {
+    width: 16px !important;
+  }
+  /** */
+
+  /** Modifier: td.kill */
+  td.st-Spacer.st-Spacer--kill {
+    width: 0 !important;
+  }
+  td.st-Spacer.st-Spacer--height {
+    height: 0 !important;
+  }
+  /** */
+
+  /** Modifier: div.kill */
+  div.st-Spacer.st-Spacer--kill {
+    height: 0px !important;
+  }
+  /** */
+
+  /** Modifier: footer */
+  .st-Mobile--footer {
+    text-align: left !important;
+  }
+  /** */
+
+  /**
+    * # Font
+  **/
+
+  /** Modifier: title */
+  td.st-Font.st-Font--title,
+  td.st-Font.st-Font--title span,
+  td.st-Font.st-Font--title a {
+    font-size: 20px !important;
+    line-height: 28px !important;
+    font-weight: 700 !important;
+  }
+  /** */
+
+  /** Modifier: header */
+  td.st-Font.st-Font--header,
+  td.st-Font.st-Font--header span,
+  td.st-Font.st-Font--header a {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+  /** */
+
+  /** Modifier: body */
+  td.st-Font.st-Font--body,
+  td.st-Font.st-Font--body span,
+  td.st-Font.st-Font--body a {
+    font-size: 16px !important;
+    line-height: 24px !important;
+  }
+  /** */
+
+  /** Modifier: caption */
+  td.st-Font.st-Font--caption,
+  td.st-Font.st-Font--caption span,
+  td.st-Font.st-Font--caption a {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+  /** */
+
+  /**
+    * # Header
+  **/
+  table.st-Header td.st-Header-background div.st-Header-area {
+    margin: 0 !important;
+    width: auto !important;
+    background-position: 0 0 !important;
+  }
+
+  table.st-Header td.st-Header-background div.st-Header-area {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2017-08-21/header/Header-background--mobile.png') !important;
+  }
+
+  /** Modifier: white */
+  table.st-Header.st-Header--white td.st-Header-background div.st-Header-=
+area {
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2017-08-21/header/Header-background--white--mobile.png') !important;=
+
+  }
+  /** */
+
+  /** Modifier: simplified */
+  table.st-Header.st-Header--simplified td.st-Header-logo {
+    width: auto !important;
+  }
+
+  table.st-Header.st-Header--simplified td.st-Header-spacing {
+    width: 0 !important;
+  }
+
+  table.st-Header.st-Header--simplified td.st-Header-logo div.st-Header-a=
+rea {
+    margin: 0 !important;
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2023-03-30/header/stripe_logo_blurple_email_highres.png') !important=
+;
+  }
+
+  table.st-Header.st-Header--simplified
+    td.st-Header-logo.st-Header-logo--atlasAzlo
+    div.st-Header-area {
+    margin: 0 auto !important;
+    background-image: url('https://stripe-images.s3.amazonaws.com/html_em=
+ails/2018-05-02/header/Header-logo--atlasAzlo.png') !important;
+  }
+  /** */
+
+  /**
+    * # Divider
+  **/
+
+  table.st-Divider td.st-Spacer.st-Spacer--gutter,
+  tr.st-Divider td.st-Spacer.st-Spacer--gutter {
+    background-color: #e6ebf1;
+  }
+
+  /**
+    * # Blocks
+  **/
+
+  table.st-Blocks table.st-Blocks-inner {
+    border-radius: 0 !important;
+  }
+
+  table.st-Blocks
+    table.st-Blocks-inner
+    table.st-Blocks-item
+    td.st-Blocks-item-cell {
+    display: block !important;
+  }
+
+  /**
+    * # Hero Units
+  **/
+
+  /* Hides dividers in hero units so that vertical spacing remains consis=
+tent */
+  table.st-Hero-Container td.st-Spacer--divider {
+    display: none !important;
+    margin: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    mso-hide: all !important;
+    padding: 0 !important;
+
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  table.st-Hero-Responsive {
+    margin: 16px auto !important;
+  }
+
+  /**
+    * # Button
+  **/
+
+  table.st-Button td.st-Button-area,
+  table.st-Button td.st-Button-area a.st-Button-link,
+  table.st-Button td.st-Button-area span.st-Button-internal {
+    height: 44px !important;
+    line-height: 24px !important;
+    font-size: 16px !important;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi),
+  all and (max-width: 768px) {
+  /**
+    * # mobile image
+   **/
+  div.st-Target.st-Target--mobile img {
+    display: none !important;
+    margin: 0 !important;
+    max-height: 0 !important;
+    min-height: 0 !important;
+    mso-hide: all !important;
+    padding: 0 !important;
+
+    font-size: 0 !important;
+    line-height: 0 !important;
+  }
+
+  /**
+    * # document-list-item image
+   **/
+  div.st-Icon.st-Icon--document {
+    background-image: url('https://stripe-images.s3.amazonaws.com/notific=
+ations/icons/document--16--regular.png') !important;
+  }
+}
+</style></head>
+  <body class=3D"st-Email" bgcolor=3D"#f6f9fc" style=3D"border: 0; margin=
+: 0; padding: 0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10=
+0%; min-width: 100%; width: 100%;" override=3D"fix">
+
+      <!-- PREHEADER_SWAP_TAG -->
+
+      <!-- SANDBOX_WARNING_BANNER_SWAP_TAG -->
+
+      <!-- Background -->
+      <table class=3D"st-Background" bgcolor=3D"#f6f9fc" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border: 0; margi=
+n: 0; padding: 0;">
+        <tbody>
+          <tr>
+            <td class=3D"st-Spacer st-Spacer--kill st-Spacer--height" hei=
+ght=3D"64">
+              <div class=3D"st-Spacer st-Spacer--kill">&nbsp;</div>
+            </td>
+          </tr>
+
+          <tr>
+            <td style=3D"border: 0; margin: 0; padding: 0;">
+              <!-- Wrapper -->
+              <table class=3D"st-Wrapper" align=3D"center" bgcolor=3D"#ff=
+ffff" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" styl=
+e=3D"border-top-left-radius: 16px; border-top-right-radius: 16px; margin:=
+ 0 auto; min-width: 600px;">
+                <tbody>
+                  <tr>
+                    <td style=3D"border: 0; margin: 0; padding: 0;">
+                      =
+
+
+  <!-- STRIPE_PREHEADER_START_TAG -->
+<table class=3D"st-Preheader st-Width st-Width--mobile" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600px;"=
+>
+  <tbody>
+    <tr>
+      <td align=3D"center" height=3D"0" style=3D"border: 0; margin: 0; pa=
+dding: 0; color: #ffffff; display: none !important; font-size: 1px; line-=
+height: 1px; max-height: 0; max-width: 0; mso-hide: all !important; opaci=
+ty: 0; overflow: hidden; visibility: hidden;">
+        <span class=3D"st-Delink st-Delink--preheader" style=3D"color: #f=
+fffff; text-decoration: none;">
+
+          =
+
+    Premiers pas avec votre compte Stripe
+  =
+
+
+          <!-- Prevents elements showing up in email client preheader tex=
+t, fyi https://parcel.io/blog/preheader-spacing -->
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F=
+ =E2=80=87=CD=8F =E2=80=87=CD=8F
+          =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+
+          =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+
+          =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+
+          =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD=
+
+          =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD
+          =C2=A0
+
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- STRIPE_PREHEADER_END_TAG -->
+
+  <table class=3D"st-Header st-Header--simplified st-Width st-Width--mobi=
+le" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D=
+"min-width: 600px;">
+  <tbody>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--divider" colspan=3D"4" height=3D"=
+48" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-heigh=
+t: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td class=3D"st-Header-logo" align=3D"left" height=3D"29" width=3D"=
+70" style=3D"border: 0; margin: 0; padding: 0;">
+        <a style=3D"border: 0; margin: 0; padding: 0; text-decoration: no=
+ne;" href=3D"https://stripe.com">
+          <img alt=3D"Stripe" border=3D"0" class=3D"st-Header-source" hei=
+ght=3D"29" width=3D"70" style=3D"border: 0; margin: 0; padding: 0; color:=
+ #6772e5; display: block; font-family: -apple-system, 'SF Pro Display', '=
+SF Pro Text', 'Helvetica', sans-serif; font-size: 12px; font-weight: norm=
+al;" src=3D"https://stripe-images.s3.amazonaws.com/html_emails/2023-03-30=
+/header/stripe_logo_blurple_email_highres.png">
+        </a>
+      </td>
+      <td class=3D"st-Header-spacing" width=3D"423" style=3D"border: 0; m=
+argin: 0; padding: 0;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--divider" colspan=3D"4" height=3D"=
+32" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-heigh=
+t: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <table class=3D"st-Copy st-Width st-Width--mobile" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600px;">
+  <tbody>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+8" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-height=
+: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td style=3D"border: 0; margin: 0; padding: 0; color: #414552 !impo=
+rtant; font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Helv=
+etica', sans-serif; font-weight:400; font-size: 16px; line-height: 24px;"=
+>
+
+      Merci d'avoir cr=C3=A9=C3=A9 votre compte Stripe. Veuillez confirme=
+r votre adresse e-mail pour pouvoir vous lancer.
+
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+8" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-height=
+: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <table class=3D"st-Copy st-Width st-Width--mobile" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600px;">
+  <tbody>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+24" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-heigh=
+t: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td class=3D"st-Font st-Font--body" style=3D"border: 0; margin: 0; =
+padding: 0; color: #414552; font-family: -apple-system, 'SF Pro Display',=
+ 'SF Pro Text', 'Helvetica', sans-serif; font-size: 16px; line-height: 30=
+px;" align=3D"left">
+
+        <!-- Button -->
+        <table class=3D"st-Button" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0">
+          <tbody>
+            <tr>
+              <td align=3D"center" class=3D"st-Button-area" height=3D"36"=
+ style=3D"border: 0; margin: 0; padding: 0; background-color: #625afa; bo=
+rder-radius: 4px; text-align: center;">
+                <a class=3D"st-Button-link" style=3D"border: 0; margin: 0=
+; padding: 0; color: #ffffff; height: 28px; text-align: center; text-deco=
+ration: none;" href=3D"https://dashboard.stripe.com/confirm_email?t=3DTL6=
+9iCOuEYrs8cBtzDJHVQWuK4GgDssB">
+                  <span class=3D"st-Button-internal" style=3D"border: 0; =
+margin: 0; padding: 0; color: #ffffff; font-family: -apple-system, 'SF Pr=
+o Display', 'SF Pro Text', 'Helvetica', sans-serif; font-size: 16px; font=
+-weight: bold; height: 36px; line-height: 30px; mso-line-height-rule: exa=
+ctly; text-decoration: none; white-space: nowrap; width: 100%;">=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0
+    Confirmez votre adresse e-mail
+  =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- /Button -->
+
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+24" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-heigh=
+t: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <table class=3D"st-Copy st-Width st-Width--mobile" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600px;">
+  <tbody>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+8" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-height=
+: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td style=3D"border: 0; margin: 0; padding: 0; color: #414552 !impo=
+rtant; font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Helv=
+etica', sans-serif; font-weight:400; font-size: 16px; line-height: 24px;"=
+>
+
+      Une fois votre adresse e-mail confirm=C3=A9e, vous pourrez proc=C3=A9=
+der =C3=A0 la configuration de votre compte. <a style=3D"border: 0; margi=
+n: 0; padding: 0; color: #625afa !important; font-weight: bold; text-deco=
+ration: none;  " href=3D"https://support.stripe.com?email_id=3Dem_m1z5fxz=
+3gavvpfsilt2yxrdapzdczd">Consultez notre site de support</a> en cas de qu=
+estions ou si vous avez besoin d'aide.
+
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--stacked" colspan=3D"3" height=3D"=
+8" style=3D"border: 0; margin: 0; padding: 0; font-size: 1px; line-height=
+: 1px; mso-line-height-rule: exactly;">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <div style=3D"background-color: #f6f9fc">
+  <table class=3D"st-Footer st-Width st-Width--mobile st-Layout-Wrapper" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"m=
+in-width: 600px; border-bottom-right-radius: 16px; border-bottom-left-rad=
+ius: 16px;" bgcolor=3D"#ffffff">
+    <tbody>
+      <tr>
+        <td class=3D"st-Spacer st-Spacer--wrapper" height=3D"40">
+          <div class=3D"st-Spacer">=C2=A0</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<table class=3D"st-Footer st-Width st-Width--mobile" border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" style=3D"min-width: 600px;" bg=
+color=3D"#f6f9fc">
+  <tbody>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--wrapper" height=3D"32">
+        <div class=3D"st-Spacer">=C2=A0</div>
+      </td>
+    </tr>
+
+
+
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td class=3D"st-Font st-Font--caption st-Mobile--footer" style=3D"b=
+order: 0; margin: 0; padding: 0; color: #687385; font-family: -apple-syst=
+em, 'SF Pro Display', 'SF Pro Text', 'Helvetica', sans-serif; font-size: =
+12px; line-height: 20px;
+      text-align: left;">
+        <span class=3D"st-Delink st-Delink--footer" style=3D"border: 0; m=
+argin: 0; padding: 0; color: #687385; text-decoration: none;">
+          Stripe, 354 Oyster Point Blvd, South San Francisco, CA 94080
+        </span>
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--wrapper" height=3D"10">
+        <div class=3D"st-Spacer">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+      <td class=3D"st-Font st-Font--caption st-Mobile--footer" style=3D"b=
+order: 0; margin: 0; padding: 0; color: #687385; font-family: -apple-syst=
+em, 'SF Pro Display', 'SF Pro Text', 'Helvetica', sans-serif; font-size: =
+12px; line-height: 20px;
+      text-align: left;">
+        <span class=3D"st-Delink st-Delink--footer" style=3D"border: 0; m=
+argin: 0; padding: 0; color: #687385; text-decoration: none;">
+            Vous souhaitez faire r=C3=A9f=C3=A9rence =C3=A0 ce message=C2=
+=A0? Utilisez cet ID=C2=A0: em_m1z5fxz3gavvpfsilt2yxrdapzdczd
+        </span>
+      </td>
+      <td class=3D"st-Spacer st-Spacer--gutter" style=3D"border: 0; margi=
+n: 0; padding: 0; font-size: 1px; line-height: 1px; mso-line-height-rule:=
+ exactly;" width=3D"48">
+        <div class=3D"st-Spacer st-Spacer--filler">=C2=A0</div>
+      </td>
+    </tr>
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--wrapper" height=3D"15">
+        <div class=3D"st-Spacer">=C2=A0</div>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td class=3D"st-Spacer st-Spacer--wrapper" height=3D"32">
+        <div class=3D"st-Spacer st-Spacer--kill">=C2=A0</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Wrapper -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- /Background -->
+  </body>
+</html>=
+
+----==_mimepart_69bd38bed578f_2d734683f2fc3113c--

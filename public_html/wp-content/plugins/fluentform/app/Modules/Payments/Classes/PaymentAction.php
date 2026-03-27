@@ -561,6 +561,29 @@ class PaymentAction
                     'updated_at'    => current_time('mysql')
                 ]);
             } else {
+                $billTimes = (isset($plan['bill_times'])) ? $plan['bill_times'] : 0;
+
+                // If end date is set, dynamically calculate bill_times from today
+                if (
+                    ArrayHelper::get($plan, 'has_end_date') === 'yes'
+                    && ($endDateStr = ArrayHelper::get($plan, 'subscription_end_date'))
+                ) {
+                    $endDate = strtotime($endDateStr . ' +1 day');
+                    $now = current_time('timestamp');
+                    if (!$endDate || $endDate <= $now) {
+                        if (ArrayHelper::get($plan, 'expire_behavior') === 'hide') {
+                            continue;
+                        }
+                        wp_send_json([
+                            'errors' => [__('This subscription plan was expired', 'fluentform')]
+                        ], 423);
+                    }
+                    $diffDays = max(1, ceil(($endDate - $now) / 86400));
+                    $intervalMap = ['day' => 1, 'week' => 7, 'month' => 30, 'year' => 365];
+                    $interval = isset($intervalMap[$plan['billing_interval']]) ? $intervalMap[$plan['billing_interval']] : 30;
+                    $billTimes = max(1, ceil($diffDays / $interval));
+                }
+
                 $subscription = array(
                     'element_id'       => $name,
                     'item_name'        => $label,
@@ -569,7 +592,7 @@ class PaymentAction
                     'billing_interval' => $plan['billing_interval'],
                     'trial_days'       => 0,
                     'recurring_amount' => PaymentHelper::convertToCents($plan['subscription_amount']),
-                    'bill_times'       => (isset($plan['bill_times'])) ? $plan['bill_times'] : 0,
+                    'bill_times'       => $billTimes,
                     'initial_amount'   => 0,
                     'status'           => 'pending',
                     'original_plan'    => maybe_serialize($plan),

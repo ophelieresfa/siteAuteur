@@ -1,0 +1,57 @@
+Return-Path: <reop7944@level.o2switch.net>
+Delivered-To: admin@siteauteur.fr
+Received: from level.o2switch.net
+	by level.o2switch.net with LMTP
+	id MFWwKRl/vWllLyEAkSiHwg
+	(envelope-from <reop7944@level.o2switch.net>)
+	for <admin@siteauteur.fr>; Fri, 20 Mar 2026 18:08:41 +0100
+Return-path: <reop7944@level.o2switch.net>
+Envelope-to: admin@siteauteur.fr
+Delivery-date: Fri, 20 Mar 2026 18:08:41 +0100
+Received: from reop7944 by level.o2switch.net with local (Exim 4.99.1)
+	(envelope-from <reop7944@level.o2switch.net>)
+	id 1w3dKz-000000099gU-27Fx
+	for admin@siteauteur.fr;
+	Fri, 20 Mar 2026 18:08:41 +0100
+To: admin@siteauteur.fr
+Subject: =?UTF-8?Q?[SiteAuteur]_Votre_site_conna=C3=AEt_un_probl?=
+ =?UTF-8?Q?=C3=A8me_technique?=
+X-PHP-Script: siteauteur.fr/wp-admin/admin-ajax.php for 185.189.24.11
+ X-PHP-Originating-Script: 1127:PHPMailer.php
+Date: Fri, 20 Mar 2026 17:08:41 +0000
+From: WordPress <wordpress@siteauteur.fr>
+Message-ID: <dBDYZFqsiIyIybcJWkAZy0ugbl7vRPYZ3wqsUzUmE@siteauteur.fr>
+X-Mailer: PHPMailer 7.0.0 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Bonjour !
+
+WordPress dispose d’une fonctionnalité native permettant de détecter si une extension ou un thème cause une erreur fatale sur votre site, et vous notifie avec cet e-mail automatique.
+
+
+Ici, WordPress a trouvé une erreur avec votre thème, « Astra Child ».
+
+Commencez par visiter votre site (https://siteauteur.fr/) pour vérifier s’il y a des problèmes visibles. Ensuite, visitez la page où une erreur a été relevée (https://siteauteur.fr/wp-admin/admin-ajax.php) et vérifiez si des problèmes sont visibles.
+
+Veuillez contacter votre hébergeur pour une assistance concernant la résolution de ce problème.
+
+Si votre site semble cassé ou si vous ne pouvez pas accéder à votre tableau de bord normalement, WordPress dispose maintenant d’un « mode de récupération ». Cela vous permet de vous connecter en sécurité sur votre tableau de bord afin de chercher la source du problème.
+
+https://siteauteur.fr/wp-login.php?action=enter_recovery_mode&rm_token=9XveMxkSQ18CNvOrHQh3nD&rm_key=94SNN9jgEMMZHOeglDaE1H
+
+Pour garder votre site en sécurité, ce lien expirera dans 1 jour. Ne vous inquiétez cependant pas : un nouveau lien vous sera envoyé si l’erreur se présente à nouveau.
+
+Si vous cherchez de l’aide pour ce problème, les informations suivantes pourraient vous être demandées :
+WordPress version 6.9.4
+Thème actif : Astra Child (version 1.0.0)
+Extension actuelle :  (version )
+PHP version 8.1.33
+
+
+
+Détails de l’erreur
+======================
+Une erreur de type E_PARSE a été causée dans la ligne 92 du fichier /home/reop7944/public_html/wp-content/themes/astra-child/functions.php. Message d’erreur : syntax error, unexpected token "
+
