@@ -2209,6 +2209,16 @@ footer li,
     display: none;
 }
 
+#fluentform_6 .ff-el-is-required.asterisk-right label::after {
+    display: none !important;
+}
+
+#fluentform_6 .sa-required-star {
+    color: #3fc095;
+    margin-left: 2px;
+    font-weight: 700;
+}
+
 @media (max-width: 1199px) {
 	.home .ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link {
 		color: #fff;

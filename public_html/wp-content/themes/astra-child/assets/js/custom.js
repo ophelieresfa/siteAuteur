@@ -1061,6 +1061,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             refreshSteps();
+            updateRequiredAsterisks();
             showStep(0);
         }, 50);
     }
@@ -1091,7 +1092,6 @@ document.addEventListener("DOMContentLoaded", function () {
             ".ff-dropzone"
         ];
 
-        // 1) Chercher via un label lié au input
         if (field.id) {
             const linkedLabel = form.querySelector(`label[for="${CSS.escape(field.id)}"]`);
             if (linkedLabel) {
@@ -1102,7 +1102,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // 2) Chercher via le bouton visible d'upload
         const uploadBtn = form.querySelector(
             `.ff_upload_btn, [data-name="${CSS.escape(field.name || "")}"], [data-target-name="${CSS.escape(field.name || "")}"]`
         );
@@ -1114,7 +1113,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-        // 3) Chercher un conteneur qui contient un texte/zone lié à ce champ
         if (field.name) {
             const candidates = Array.from(form.querySelectorAll(".ff-el-group, .ff-field_container, .ff-el-file-upload, .ff-el-image-upload, .ff_upload_wrap, .ff-dropzone"));
             for (const candidate of candidates) {
@@ -1205,10 +1203,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderUploadProgress(field, file) {
         const group = findUploadGroup(field) || field.parentElement || form;
-        console.log("UPLOAD GROUP", group);
-
         const slot = ensureUploadSlot(field);
-        console.log("UPLOAD SLOT", slot);
 
         if (!group || !slot) return null;
 
@@ -1286,6 +1281,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         delete serverDraft.uploads[field.name];
                     }
 
+                    updateFieldAsterisk(field);
                 } catch (e) {
                     console.error("Erreur suppression fichier", e);
                     alert("Erreur suppression fichier");
@@ -1319,6 +1315,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setUploadHiddenValue(field.name, JSON.stringify([fileData.url]));
             renderRestoredUpload(field, fileData);
+            updateFieldAsterisk(field);
         });
     }
 
@@ -1327,15 +1324,11 @@ document.addEventListener("DOMContentLoaded", function () {
         form.dataset.saUploadBound = "1";
 
         form.addEventListener("change", function (e) {
-            console.log("CHANGE détecté", e.target);
-
             const field = e.target;
             if (!(field instanceof HTMLInputElement)) return;
             if ((field.type || "").toLowerCase() !== "file") return;
 
             const file = field.files && field.files[0] ? field.files[0] : null;
-            console.log("FILE détecté", field.name, file);
-
             if (!file) return;
 
             const group = findUploadGroup(field) || field.parentElement || form;
@@ -1399,12 +1392,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
 
                     serverDraft.uploads[field.name] = result.data.file;
-
-                    // important : on stocke aussi dans un hidden soumis avec le formulaire
                     setUploadHiddenValue(field.name, JSON.stringify([result.data.file.url]));
 
                     renderRestoredUpload(field, result.data.file);
                     clearFieldError(field);
+                    updateFieldAsterisk(field);
                     setUploadState(false);
                     updateUploadButtonsState();
                 };
@@ -1418,13 +1410,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
 
                 xhr.send(formData);
-                } catch (err) {
-                    console.error("Erreur upload fichier", err);
-                    removeRestoredUploadUi(group);
-                    setUploadState(false);
-                    updateUploadButtonsState();
-                    alert("Erreur upload fichier");
-                }
+            } catch (err) {
+                console.error("Erreur upload fichier", err);
+                removeRestoredUploadUi(group);
+                setUploadState(false);
+                updateUploadButtonsState();
+                alert("Erreur upload fichier");
+            }
         });
     }
 
@@ -1464,6 +1456,287 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function isActuallyRequired(field) {
+        return field.required || field.getAttribute("aria-required") === "true";
+    }
+
+    function getFieldLabel(field) {
+        if (!field) return null;
+
+        const type = (field.type || "").toLowerCase();
+
+        if ((type === "radio" || type === "checkbox") && field.name) {
+            const group = field.closest(".ff-el-group, .ff-field_container");
+            if (group) {
+                const groupLabel = group.querySelector(":scope > .ff-el-input--label label");
+                if (groupLabel) return groupLabel;
+            }
+        }
+
+        if (field.id) {
+            const directLabel = form.querySelector(`label[for="${CSS.escape(field.id)}"]`);
+            if (directLabel) {
+                const inlineChoiceLabel = directLabel.closest(".ff-el-form-check-label");
+                if (!inlineChoiceLabel) return directLabel;
+            }
+        }
+
+        const group = field.closest(".ff-el-group, .ff-field_container, .ff-name-address-wrapper, .ff-t-cell");
+        if (group) {
+            const groupLabel = group.querySelector(":scope > .ff-el-input--label label");
+            if (groupLabel) return groupLabel;
+        }
+
+        const parentGroup = field.closest(".ff-el-group, .ff-field_container");
+        if (parentGroup) {
+            const label = parentGroup.querySelector(".ff-el-input--label label");
+            if (label) return label;
+        }
+
+        return null;
+    }
+
+    function syncLabelRequiredClass(labelWrapper, isRequired) {
+        if (!labelWrapper) return;
+
+        if (isRequired) {
+            labelWrapper.classList.add("ff-el-is-required");
+            labelWrapper.classList.add("asterisk-right");
+        } else {
+            labelWrapper.classList.remove("ff-el-is-required");
+        }
+    }
+
+    function updateFieldAsterisk(field) {
+        if (!field) return;
+
+        const label = getFieldLabel(field);
+        if (!label) return;
+
+        const labelWrapper = label.closest(".ff-el-input--label");
+        const required = isActuallyRequired(field);
+
+        syncLabelRequiredClass(labelWrapper, required);
+
+        let star = label.querySelector(".sa-required-star");
+
+        if (required) {
+            if (!star) {
+                star = document.createElement("span");
+                star.className = "sa-required-star";
+                star.setAttribute("aria-hidden", "true");
+                star.textContent = "*";
+                label.appendChild(star);
+            }
+        } else if (star) {
+            star.remove();
+        }
+    }
+
+    function updateRadioGroupAsterisk(name) {
+        if (!name) return;
+
+        const radios = Array.from(form.querySelectorAll(`input[type="radio"][name="${CSS.escape(name)}"]`));
+        if (!radios.length) return;
+
+        const required = radios.some(isActuallyRequired);
+        const label = getFieldLabel(radios[0]);
+        if (!label) return;
+
+        const labelWrapper = label.closest(".ff-el-input--label");
+        syncLabelRequiredClass(labelWrapper, required);
+
+        let star = label.querySelector(".sa-required-star");
+
+        if (required) {
+            if (!star) {
+                star = document.createElement("span");
+                star.className = "sa-required-star";
+                star.setAttribute("aria-hidden", "true");
+                star.textContent = "*";
+                label.appendChild(star);
+            }
+        } else if (star) {
+            star.remove();
+        }
+    }
+
+    function updateCheckboxGroupAsterisk(name) {
+        if (!name) return;
+
+        const checkboxes = Array.from(form.querySelectorAll(`input[type="checkbox"][name="${CSS.escape(name)}"]`));
+        if (!checkboxes.length) return;
+
+        const required = checkboxes.some(isActuallyRequired);
+        const label = getFieldLabel(checkboxes[0]);
+        if (!label) return;
+
+        const labelWrapper = label.closest(".ff-el-input--label");
+        syncLabelRequiredClass(labelWrapper, required);
+
+        let star = label.querySelector(".sa-required-star");
+
+        if (required) {
+            if (!star) {
+                star = document.createElement("span");
+                star.className = "sa-required-star";
+                star.setAttribute("aria-hidden", "true");
+                star.textContent = "*";
+                label.appendChild(star);
+            }
+        } else if (star) {
+            star.remove();
+        }
+    }
+
+    function updateRequiredAsterisks(scope = form) {
+        const fields = scope.querySelectorAll("input, textarea, select");
+        const processedRadioNames = new Set();
+        const processedCheckboxNames = new Set();
+
+        fields.forEach(field => {
+            const type = (field.type || "").toLowerCase();
+
+            if (type === "hidden" || type === "submit" || type === "button") {
+                return;
+            }
+
+            if (type === "radio" && field.name) {
+                if (processedRadioNames.has(field.name)) return;
+                processedRadioNames.add(field.name);
+                updateRadioGroupAsterisk(field.name);
+                return;
+            }
+
+            if (type === "checkbox" && field.name) {
+                if (processedCheckboxNames.has(field.name)) return;
+                processedCheckboxNames.add(field.name);
+                updateCheckboxGroupAsterisk(field.name);
+                return;
+            }
+
+            updateFieldAsterisk(field);
+        });
+    }
+
+    function setFieldRequired(field, required = true) {
+        if (!field) return;
+
+        if (required) {
+            field.required = true;
+            field.setAttribute("aria-required", "true");
+        } else {
+            field.required = false;
+            field.removeAttribute("aria-required");
+        }
+
+        updateFieldAsterisk(field);
+    }
+
+    function setRadioGroupRequired(name, required = true) {
+        if (!name) return;
+
+        const radios = form.querySelectorAll(`input[type="radio"][name="${CSS.escape(name)}"]`);
+        radios.forEach(radio => {
+            if (required) {
+                radio.required = true;
+                radio.setAttribute("aria-required", "true");
+            } else {
+                radio.required = false;
+                radio.removeAttribute("aria-required");
+            }
+        });
+
+        if (radios[0]) updateRadioGroupAsterisk(name);
+    }
+
+    function setCheckboxGroupRequired(name, required = true) {
+        if (!name) return;
+
+        const checkboxes = form.querySelectorAll(`input[type="checkbox"][name="${CSS.escape(name)}"]`);
+        checkboxes.forEach(checkbox => {
+            if (required) {
+                checkbox.required = true;
+                checkbox.setAttribute("aria-required", "true");
+            } else {
+                checkbox.required = false;
+                checkbox.removeAttribute("aria-required");
+            }
+        });
+
+        if (checkboxes[0]) updateCheckboxGroupAsterisk(name);
+    }
+
+    function syncCustomRequiredFields() {
+        // reset de tous les champs "obligatoires métier" pilotés par JS
+        setCheckboxGroupRequired("checkbox[]", false);
+        setCheckboxGroupRequired("checkbox_1[]", false);
+
+        [
+            "file-upload_2",
+            "file-upload_3",
+            "image-upload_2",
+            "file-upload",
+            "file_upload_6",
+            "file-upload_4"
+        ].forEach(name => {
+            const field = form.querySelector(`input[type="file"][name="${CSS.escape(name)}"]`);
+            if (field) setFieldRequired(field, false);
+        });
+
+        const currentStepDef = steps[currentStep];
+        if (!currentStepDef) {
+            updateRequiredAsterisks();
+            return;
+        }
+
+        if (currentStepDef.key === "general") {
+            setCheckboxGroupRequired("checkbox[]", true);
+
+            const couverture = form.querySelector('input[type="file"][name="file-upload_2"]');
+            if (couverture) setFieldRequired(couverture, true);
+        }
+
+        if (currentStepDef.key === "hero") {
+            const imageHero = form.querySelector('input[type="file"][name="file-upload_3"]');
+            if (imageHero) setFieldRequired(imageHero, true);
+        }
+
+        if (currentStepDef.key === "author") {
+            const photoAuteur = form.querySelector('input[type="file"][name="image-upload_2"]');
+            if (photoAuteur) setFieldRequired(photoAuteur, true);
+        }
+
+        if (currentStepDef.key === "emails") {
+            const radioOui = form.querySelector('input[type="radio"][name="input_radio_3"][value="Oui"]:checked');
+            const pdfBonus = form.querySelector('input[type="file"][name="file-upload"]');
+
+            if (radioOui && pdfBonus && !pdfBonus.closest(".ff_excluded")) {
+                setFieldRequired(pdfBonus, true);
+            }
+        }
+
+        if (currentStepDef.key === "other-books") {
+            const autresRomansUpload = form.querySelector('input[type="file"][name="file_upload_6"]');
+            if (autresRomansUpload) setFieldRequired(autresRomansUpload, true);
+        }
+
+        if (currentStepDef.key === "recap") {
+            setCheckboxGroupRequired("checkbox_1[]", true);
+        }
+
+        if (currentStepDef.key === "technical") {
+            const radioLogoOui = form.querySelector('input[type="radio"][name="input_radio_8"][value="Oui"]:checked');
+            const logoField = form.querySelector('input[type="file"][name="file-upload_4"]');
+
+            if (radioLogoOui && logoField && !logoField.closest(".ff_excluded")) {
+                setFieldRequired(logoField, true);
+            }
+        }
+
+        updateRequiredAsterisks();
+    }
+
     function disableFieldForWizard(field) {
         if (!field) return;
 
@@ -1477,12 +1750,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (type === "file") {
             field.required = false;
             field.removeAttribute("aria-required");
+            updateFieldAsterisk(field);
             return;
         }
 
         field.disabled = true;
         field.required = false;
         field.removeAttribute("aria-required");
+        updateFieldAsterisk(field);
     }
 
     function enableFieldForWizard(field) {
@@ -1506,6 +1781,8 @@ document.addEventListener("DOMContentLoaded", function () {
             field.required = false;
             field.removeAttribute("aria-required");
         }
+
+        updateFieldAsterisk(field);
     }
 
     function setFieldsStateInContainer(container, disabled) {
@@ -1561,6 +1838,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         enableFieldsForStep(index);
+        syncCustomRequiredFields();
 
         updateProgressUI(index);
         toggleSubmitButton(index);
@@ -1936,10 +2214,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function isFieldFilled(field) {
         return getFieldValue(field) !== "";
-    }
-
-    function isActuallyRequired(field) {
-        return field.required || field.getAttribute("aria-required") === "true";
     }
 
     function validateRadioGroup(scope, name) {
@@ -2713,6 +2987,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             setTimeout(() => {
                 clearFieldError(target);
+                updateFieldAsterisk(target);
             }, 150);
         });
     }
@@ -2734,6 +3009,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             saveFormData();
             debounceServerSave();
+            updateRequiredAsterisks();
         });
     }
 
@@ -2752,21 +3028,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 field.required = false;
                 field.removeAttribute("aria-required");
                 field.disabled = false;
+                updateFieldAsterisk(field);
                 return;
             }
 
             field.disabled = true;
             field.required = false;
             field.removeAttribute("aria-required");
+            updateFieldAsterisk(field);
         });
 
         form.querySelectorAll('input[type="file"]').forEach(field => {
             field.disabled = false;
+            updateFieldAsterisk(field);
         });
 
         if (submitButton) {
             submitButton.disabled = false;
         }
+
+        updateRequiredAsterisks();
     }
 
     function bindSubmitPersistence() {
@@ -2820,9 +3101,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     maxVisitedStep = currentStep;
                 }
 
+                syncCustomRequiredFields();
                 showStep(currentStep);
+
             } else {
                 updateProgressUI(currentStep);
+                syncCustomRequiredFields();
             }
         });
     }
@@ -2858,6 +3142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             form.dispatchEvent(new Event("change", { bubbles: true }));
             form.dispatchEvent(new Event("input", { bubbles: true }));
+            syncCustomRequiredFields
         }, 50);
     }
 
@@ -2876,6 +3161,7 @@ document.addEventListener("DOMContentLoaded", function () {
             form.querySelectorAll('input[type="radio"], input[type="checkbox"], select').forEach(field => {
                 field.dispatchEvent(new Event("change", { bubbles: true }));
             });
+            syncCustomRequiredFields();
         }, 100);
 
         refreshSteps();
@@ -2894,6 +3180,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         maxVisitedStep = currentStep;
+        syncCustomRequiredFields();
         showStep(currentStep);
     }
 
