@@ -1,5 +1,6 @@
 # WordPress config
 wp-config.php
+public_html/wp-config.php
 wp-config-local.php
 
 # Environment files
