@@ -1,27 +1,29 @@
+# Server / cPanel / mail / logs / temp
+.cpanel/
+.caldav/
+etc/
+mail/
+logs/
+tmp/
+.lastlogin
+
 # WordPress config
 wp-config.php
 public_html/wp-config.php
 wp-config-local.php
 
-# Environment files
+# Generated / cache
+public_html/error_log
+public_html/wp-admin/error_log
+public_html/wp-content/uploads/
+public_html/wp-content/languages/
+public_html/wp-content/languages/plugins/
+
+# Env / misc
 .env
 .env.local
-
-# Logs
+node_modules/
+vendor/
 *.log
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Node
-node_modules/
-
-# Composer
-vendor/
-
-# Uploads (optionnel)
-wp-content/uploads/
-
-# Cache
-wp-content/cache/
