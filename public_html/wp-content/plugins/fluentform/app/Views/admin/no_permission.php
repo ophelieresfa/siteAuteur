@@ -1,3 +1,8 @@
+<?php
+
+defined('ABSPATH') or die;
+
+?>
 <style>
     #no_permission_page {
         background: #fff;

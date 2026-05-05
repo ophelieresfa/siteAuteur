@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\EntriesImport;
 
+defined('ABSPATH') or die;
+
 use Exception;
 use FluentForm\App\Models\EntryDetails;
 use FluentForm\App\Models\Form;
@@ -286,12 +288,15 @@ class EntriesImportService
     protected function failed($message = '')
     {
         if ($message) {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $message = __($message, 'fluentformpro');
         } else {
             $type = Arr::get($this->attrs, 'file_type', '');
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+            // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
             $message = __("You have a faulty $type file, please import correct file.", 'fluentformpro');
         }
-        throw new Exception($message);
+        throw new Exception($message); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
     }
     
     /**

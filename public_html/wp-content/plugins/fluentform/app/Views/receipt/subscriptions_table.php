@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template variables in view files
 ?>
 <table style="width: 100%;border: 1px solid #cbcbcb;margin-top: 0; margin-bottom: 15px;" class="table ffp_order_items_table ffp_table table_bordered">

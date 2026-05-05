@@ -1,0 +1,279 @@
+#content {
+    background-color: #f8f8f8;
+}
+
+header .ast-container {
+    max-width: 100% !important;
+    padding: 0;
+}
+
+.sa-live-header-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: center;
+}
+
+.sa-live-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3fc095;
+}
+
+.sa-live-help-card a {
+    font-size: 14px;
+    color: #3fc095;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 501;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #dce8e1;
+}
+
+.sa-live-dashboard h1 {
+    margin: 0 0 16px;
+    font-size: 35px;
+    line-height: 1.05;
+    font-weight: 501;
+    color: #343434;
+}
+
+.sa-live-hello p {
+    margin: 0 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #5c677d;
+}
+
+.sa-live-help-card {
+    padding: 24px;
+    margin: 20px 0;
+    background: #f3fbf7;
+    border-color: #dcefe7;
+    border: 1px solid #e7ebf1;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(36, 49, 78, 0.05);
+}
+
+.sa-live-help-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #343434;
+}
+
+.sa-live-help-card p {
+    margin: 0 0 14px;
+    font-size: 14px;
+    color: #67748e;
+}
+
+.sa-invoices-page {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 0 60px;
+}
+
+.sa-invoices-page .sa-live-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.sa-invoices-page .sa-live-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.sa-invoices-page .sa-subscription-invoices-card {
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    border-radius: 5px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.sa-invoices-page .sa-invoices-page-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.sa-invoices-page .sa-invoices-page-topbar h3 {
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.2;
+    color: #25324b;
+}
+
+.sa-invoices-page .sa-invoices-page-count {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.sa-invoices-page .sa-invoices-back-link {
+    background: #ffffff;
+    color: #343434;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #343434;
+    font-size: 14px;
+}
+
+.sa-invoices-page .sa-invoices-back-link:hover {
+    border-color: #3fc095;
+    color: #3fc095;
+}
+
+.sa-invoices-page .sa-subscription-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.sa-invoices-page .sa-subscription-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.sa-invoices-page .sa-subscription-table thead th {
+    padding: 16px 18px;
+    text-align: left;
+    background: #eef8f4;
+    border: 1px solid #d9ebe3;
+    color: #25324b;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sa-invoices-page .sa-subscription-table tbody td {
+    padding: 18px;
+    border: 1px solid #edf1f5;
+    color: #4b5563;
+    font-size: 14px;
+    vertical-align: middle;
+    background: #ffffff;
+}
+
+.sa-invoices-page .sa-subscription-table tbody tr:hover td {
+    background: #fcfefd;
+}
+
+.sa-invoices-page .sa-subscription-paid-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #ecfdf3;
+    color: #15965c;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.sa-invoices-page .sa-subscription-table a {
+    color: #3fc095;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sa-invoices-page .sa-subscription-table a:hover {
+    text-decoration: underline;
+}
+
+.sa-invoices-page .sa-invoices-pagination {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sa-invoices-page .sa-invoices-pagination-left,
+.sa-invoices-page .sa-invoices-pagination-center,
+.sa-invoices-page .sa-invoices-pagination-right {
+    display: flex;
+    align-items: center;
+}
+
+.sa-invoices-page .sa-invoices-pagination-center {
+    font-size: 14px;
+    font-weight: 700;
+    color: #25324b;
+}
+
+.sa-invoices-page .sa-invoices-pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #343434;    
+    background: #ffffff;
+    color: #25324b;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sa-invoices-page .sa-invoices-pagination-btn:hover {
+    border-color: #3fc095;
+    color: #3fc095;
+}
+
+.sa-invoices-page .sa-invoices-pagination-btn.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+    .sa-invoices-page .sa-live-layout {
+        flex-direction: column;
+        padding: 0 20px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sa-invoices-page .sa-subscription-invoices-card {
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .sa-invoices-page .sa-invoices-page-topbar h3 {
+        font-size: 26px;
+    }
+
+    .sa-invoices-page .sa-invoices-pagination {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sa-invoices-page .sa-invoices-pagination-left,
+    .sa-invoices-page .sa-invoices-pagination-center,
+    .sa-invoices-page .sa-invoices-pagination-right {
+        justify-content: center;
+    }
+
+    .sa-invoices-page .sa-invoices-pagination-btn {
+        width: 100%;
+    }
+}

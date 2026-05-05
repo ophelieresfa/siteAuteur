@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\Submission;
 
+defined('ABSPATH') or die;
+
 use Exception;
 use FluentForm\App\Models\EntryDetails;
 use FluentForm\App\Models\Form;
@@ -76,7 +78,7 @@ class SubmissionService
             }
 
             $meta = $submission->submissionMeta;
-            if ($meta) {
+            if (count($meta)) {
                 $submission->_entry_uid_hash = Arr::get($meta, '0.value');
                 $this->setEntryUidLink($submission);
             }
@@ -313,6 +315,7 @@ class SubmissionService
 
         $allowedKeys = ['_visible_columns', '_columns_order'];
         if (!in_array($metaKey, $allowedKeys)) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
             throw new \Exception(__('Invalid meta key for column settings.', 'fluentform'));
         }
 
@@ -488,18 +491,35 @@ class SubmissionService
             $metaKeys[] = 'api_log';
         }
 
-        $notes = SubmissionMeta::where('response_id', $submissionId)
+        $perPage = (int) Arr::get($attributes, 'per_page', 0);
+        $page = (int) Arr::get($attributes, 'page', 1);
+
+        $query = SubmissionMeta::where('response_id', $submissionId)
             ->whereIn('meta_key', $metaKeys)
-            ->orderBy('id', 'DESC')
-            ->get();
+            ->orderBy('id', 'DESC');
+
+        if ($perPage > 0) {
+            $perPage = min($perPage, 100);
+            $notes = $query->forPage($page, $perPage)->get();
+        } else {
+            $notes = $query->get();
+        }
+
+        // Batch-fetch users to avoid N+1 queries
+        $userIds = $notes->pluck('user_id')->filter()->unique()->values()->toArray();
+        $usersMap = [];
+        if (!empty($userIds)) {
+            $users = get_users(['include' => $userIds, 'fields' => ['ID', 'display_name']]);
+            foreach ($users as $user) {
+                $usersMap[$user->ID] = $user->display_name;
+            }
+        }
 
         foreach ($notes as $note) {
             if ($note->user_id) {
                 $note->pemalink = get_edit_user_link($note->user_id);
-                $user = get_user_by('ID', $note->user_id);
-
-                if ($user) {
-                    $note->created_by = $user->display_name;
+                if (isset($usersMap[$note->user_id])) {
+                    $note->created_by = $usersMap[$note->user_id];
                 } else {
                     $note->created_by = __('Fluent Forms Bot', 'fluentform');
                 }
@@ -597,9 +617,8 @@ class SubmissionService
             ]);
 
         if (defined('FLUENTFORMPRO')) {
-            // let's update the corresponding user IDs for transactions and
-            wpFluent()->table('fluentform_transactions')
-                ->where('submission_id', $submission->id)
+            // let's update the corresponding user IDs for transactions
+            \FluentForm\App\Models\Transaction::where('submission_id', $submission->id)
                 ->update([
                     'user_id'    => $userId,
                     'updated_at' => current_time('mysql'),

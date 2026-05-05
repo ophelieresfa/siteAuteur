@@ -118,8 +118,9 @@ class FormController extends Controller
     public function update(FormService $formService)
     {
         try {
+            // Sanitization handled in Updater::update() — only title, status, form_id, formFields are extracted
             $attributes = $this->request->all();
-            
+
             $formService->update($attributes);
             
             return $this->sendSuccess([

@@ -2,7 +2,7 @@
 /**
 Plugin Name: Fluent Forms Pro Add On Pack
 Description: The Pro version of FluentForm, the most advanced, drag and drop form builder plugin for WordPress.
-Version: 6.1.21
+Version: 6.2.0
 Author: Fluent Forms
 Author URI: https://fluentforms.com
 Plugin URI: https://fluentforms.com/
@@ -14,7 +14,7 @@ Domain Path: /resources/languages
 defined('ABSPATH') or die;
 
 define('FLUENTFORMPRO', true);
-define('FLUENTFORMPRO_VERSION', '6.1.21');
+define('FLUENTFORMPRO_VERSION', '6.2.0');
 defined('FLUENTFORM_MINIMUM_CORE_VERSION') or define('FLUENTFORM_MINIMUM_CORE_VERSION', '6.0.0');
 define('FLUENTFORM_UPLOAD_DIR', '/fluentform');
 define('FLUENTFORMPRO_DIR_URL', plugin_dir_url(__FILE__));
@@ -109,7 +109,7 @@ if (!class_exists('FluentFormPro')) {
                 ];
                 foreach ($actions as $action) {
                     add_action($action, function () use ($message) {
-                        printf('<div class="fluentform-admin-notice notice notice-error">%1$s</div>', $message);
+                        printf('<div class="fluentform-admin-notice notice notice-error">%1$s</div>', wp_kses_post($message));
                     });
                 }
                 return;
@@ -224,7 +224,7 @@ if (!class_exists('FluentFormPro')) {
                 $message = __('FluentForm PRO Add-On Requires FluentForm Base Plugin, ', 'fluentformpro') . '<b><a href="' . $pluginInfo->url
                     . '">' . $install_url_text . '</a></b>';
 
-                printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), $message);
+                printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), wp_kses_post($message));
             });
         }
 
@@ -302,9 +302,7 @@ if (!class_exists('FluentFormPro')) {
 
 
             // Show update notice for Fluent Forms FREE version for major compatibility
-            // @since 6.1.0
-            // @todo: remove this after some release
-            if (defined('FLUENTFORM_VERSION') && version_compare(FLUENTFORM_VERSION, '6.1.1', '<')) {
+            if (defined('FLUENTFORM_VERSION') && version_compare(FLUENTFORM_VERSION, '6.2.0', '<')) {
                 $message = '<div style="padding: 15px 5px;" ><b>' . __('Heads UP: ',
                         'fluentformpro') . '</b>' . __('Fluent Forms FREE version needs to be updated to the latest version. Some features will not function correctly until you update.',
                         'fluentformpro') . '<a href="' . admin_url('plugins.php?s=fluent+forms&plugin_status=all&force-check=1') . '">' . __(' Please update Fluent Forms FREE to the latest version now.',
@@ -315,7 +313,7 @@ if (!class_exists('FluentFormPro')) {
                 ];
                 foreach ($actions as $action) {
                     add_action($action, function () use ($message) {
-                        printf('<div class="fluentform-admin-notice notice notice-warning">%1$s</div>', $message);
+                        printf('<div class="fluentform-admin-notice notice notice-warning">%1$s</div>', wp_kses_post($message));
                     });
                 }
             }

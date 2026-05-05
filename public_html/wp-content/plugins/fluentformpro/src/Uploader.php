@@ -2,6 +2,8 @@
 
 namespace FluentFormPro;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Modules\Form\FormHandler;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -240,7 +242,7 @@ class Uploader extends FormHandler
     public function renameFileName($file)
     {
         $originalFileArray = $file;
-        $prefix = 'ff-' . md5(uniqid(rand())) . '-ff-';
+        $prefix = 'ff-' . md5(uniqid(wp_rand())) . '-ff-';
         
         $file['name'] = $prefix . $file['name'];
     
@@ -467,6 +469,7 @@ class Uploader extends FormHandler
         if (!empty($fromPath) && is_file($fromPath)) {
             //if destination dir exists if not make it
             if (!file_exists(dirname($toPath))) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir -- Direct mkdir needed for upload directory creation
                 mkdir(dirname($toPath));
             }
             if (file_exists(dirname($toPath))) {
@@ -543,7 +546,8 @@ class Uploader extends FormHandler
 
                 $tempFilePath = $tempDir . $file;
                 if (is_file($tempFilePath) && (filemtime($tempFilePath) < time() - $maxFileAge)) {
-                    if (@unlink($tempFilePath)) {
+                    wp_delete_file($tempFilePath);
+                    if (!file_exists($tempFilePath)) {
                         $deletedCount++;
                     }
 
@@ -567,6 +571,7 @@ class Uploader extends FormHandler
     private function secureDirectory($path)
     {
         if (!is_dir($path)) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir -- Direct mkdir needed for upload directory creation
             mkdir($path, 0755);
             file_put_contents(
                 $path . '/.htaccess',
@@ -612,7 +617,8 @@ class Uploader extends FormHandler
                 wp_die();
             } else {
                 $file_name = \FluentForm\App\Helpers\Protector::decrypt($file_name);
-                wp_die(@unlink(wp_upload_dir()['basedir'] . FLUENTFORM_UPLOAD_DIR . '/temp/' . $file_name));
+                $file_name = basename($file_name);
+                wp_die(@unlink(wp_upload_dir()['basedir'] . FLUENTFORM_UPLOAD_DIR . '/temp/' . $file_name)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.AlternativeFunctions.unlink_unlink -- unlink returns boolean for wp_die; wp_delete_file cannot be used inside wp_die
             }
         }
     }

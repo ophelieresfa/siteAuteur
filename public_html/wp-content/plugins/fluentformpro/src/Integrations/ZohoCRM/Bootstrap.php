@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\ZohoCRM;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;
@@ -25,6 +27,9 @@ class Bootstrap extends IntegrationManagerController
         add_filter('fluentform/save_integration_value_' . $this->integrationKey, [$this, 'validate'], 10, 3);
         add_action('admin_init', function () {
             if (isset($_REQUEST['ff_zohocrm_auth'])) {
+                if (!current_user_can('fluentform_settings_manager')) {
+                    return;
+                }
                 $client = $this->getRemoteClient();
                 if (isset($_REQUEST['code'])) {
                     // Get the access token now
@@ -61,6 +66,7 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo' => $this->logo,
             'menu_title' => __('Zoho CRM Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description' => __($this->description, 'fluentformpro'),
             'valid_message' => __('Your Zoho CRM API Key is valid', 'fluentformpro'),
             'invalid_message' => __('Your Zoho CRM API Key is not valid', 'fluentformpro'),
@@ -150,6 +156,7 @@ class Bootstrap extends IntegrationManagerController
             $integrationSettings['status'] = false;
             update_option($this->optionKey, $integrationSettings, 'no');
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($err_msg, 'fluentformpro'),
                 'status' => false
             ], 400);
@@ -301,6 +308,7 @@ class Bootstrap extends IntegrationManagerController
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
 
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'].' is required', 'fluentformpro')];
             }
         }
@@ -329,6 +337,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($formattedMainFields as $fieldName => $mainField) {
             $fieldValue = Arr::get($feedData, $fieldName);
             if ($mainField['required'] && empty($fieldValue)) {
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 do_action('fluentform/integration_action_result', $feed, 'failed', __("Skipped insert Zoho CRM  $list_id data for missing required value. Field: " . $fieldName . '.' , 'fluentformpro'));
                 return false;
             }
@@ -470,22 +479,28 @@ class Bootstrap extends IntegrationManagerController
                 if ($this->isMainField($field)) {
                     $data = array(
                         'key' => $field['api_name'],
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'placeholder' => __($field['display_label'], 'fluentformpro'),
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'label' => __($field['field_label'], 'fluentformpro'),
                         'required' => false,
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'tips' => __('Enter ' . $field['display_label'] . ' value or choose form input provided by shortcode.', 'fluentformpro'),
                         'component' => 'value_text'
                     );
 
                     if ($field['system_mandatory']) {
                         $data['required'] = true;
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $data['tips'] = __($field['display_label'] . ' is a required field. Enter value or choose form input provided by shortcode.', 'fluentformpro');
                     }
                     if($field['data_type'] == 'datetime'){
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $data['tips'] = __($field['display_label'] . ' is a required field. Enter value or choose form input shortcode. <br> Make sure format is (01/01/2022 00:00 +0:00)', 'fluentformpro');
                     }
                     if ($field['data_type'] == 'picklist' && $field['pick_list_values']) {
                         $data['component'] = 'select';
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $data['tips'] = __("Choose " . $field['display_label'] . " type in select list.", 'fluentformpro');
                         $data_options= array();
                         foreach ($field['pick_list_values'] as $option) {
@@ -552,9 +567,13 @@ class Bootstrap extends IntegrationManagerController
                     Enter the following details: <br>
                     <strong>Client Name:</strong> The name of your application you want to register with Zoho. <br>
                     <strong>Homepage URL:</strong> The URL of your web page. Your site url
-                    <b><u><?php echo site_url(); ?></u></b><br>
+                    <b><u><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo site_url(); ?></u></b><br>
                     <strong>Authorized Redirect URIs:</strong> Your app redirect url must be
-                    <b><u><?php echo admin_url('?ff_zohocrm_auth=1'); ?></u></b>
+                    <b><u><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo admin_url('?ff_zohocrm_auth=1'); ?></u></b>
                 </li>
 
                 <li>

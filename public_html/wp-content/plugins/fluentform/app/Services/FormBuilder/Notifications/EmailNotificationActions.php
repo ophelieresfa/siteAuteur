@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FormBuilder\Notifications;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\FormBuilder\ShortCodeParser;
@@ -39,7 +41,7 @@ class EmailNotificationActions
             ->where('meta_key', 'notifications')
             ->get();
 
-        if (! $emailFeeds) {
+        if (count($emailFeeds) === 0) {
             return;
         }
 

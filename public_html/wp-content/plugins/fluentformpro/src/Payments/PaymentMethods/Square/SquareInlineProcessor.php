@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Payments\PaymentMethods\Square;
 
+defined('ABSPATH') or die;
+
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentFormPro\Payments\PaymentHelper;
 
@@ -230,6 +232,7 @@ class SquareInlineProcessor extends SquareProcessor
                 'component'        => 'Payment',
                 'status'           => 'error',
                 'title'            => __('Square Payment Error', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'description'      => __($message, 'fluentformpro')
             ];
 

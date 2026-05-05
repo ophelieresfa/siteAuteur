@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Component;
 
+defined('ABSPATH') or die;
+
 trait ComponentInitTrait
 {
     /**

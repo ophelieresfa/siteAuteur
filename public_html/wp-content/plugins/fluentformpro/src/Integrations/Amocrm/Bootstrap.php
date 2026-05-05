@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Amocrm;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -29,11 +31,21 @@ class Bootstrap extends IntegrationManagerController
 
         add_action('admin_init', function () {
             if (isset($_REQUEST['ff_amocrm_auth'])) {
+                if (!current_user_can('fluentform_settings_manager')) {
+                    return;
+                }
                 $client = $this->getRemoteClient();
                 if(isset($_REQUEST['code'])) {
                     $code = sanitize_text_field($_REQUEST['code']);
-                    $referer = sanitize_text_field($_REQUEST['referer']);
                     $settings = $this->getGlobalSettings([]);
+                    $referer = isset($settings['api_domain']) ? sanitize_text_field($settings['api_domain']) : '';
+                    if (!$referer) {
+                        $referer = sanitize_text_field($_REQUEST['referer']);
+                    }
+                    if (!$referer || !preg_match('/^[a-zA-Z0-9\-]+\.amocrm\.(com|ru|eu)$/', $referer)) {
+                        wp_redirect(admin_url('admin.php?page=fluent_forms_settings#general-amocrm-settings'));
+                        exit();
+                    }
                     $settings = $client->generateAccessToken($code, $referer, $settings);
                     if (!is_wp_error($settings)) {
                         $settings['status'] = true;
@@ -87,6 +99,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($this->getFields($settings['list_id']) as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -133,6 +146,7 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo'               => $this->logo,
             'menu_title'         => __('Amocrm Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description'   => __($this->description, 'fluentformpro'),
             'valid_message'      => __('Your Amocrm Secret Key is valid', 'fluentformpro'),
             'invalid_message'    => __('Your Amocrm Secret Key is not valid', 'fluentformpro'),
@@ -173,7 +187,9 @@ class Bootstrap extends IntegrationManagerController
         <div>
             <ol>
                 <li>Open Settings -> Integrations -> Then from upper right side click on the button Create Integration.
-                <li>Set the redirect URL as <b><?php echo $authLink; ?></b> then check the Allow access: All.</br>Set your Integration Name and give a short description and save the settings.
+                <li>Set the redirect URL as <b><?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $authLink; ?></b> then check the Allow access: All.</br>Set your Integration Name and give a short description and save the settings.
                 </li>
                 <li>Under private integrations find your integration. Click on the integration and go to Keys and scopes. Here you will find Secret key and Integration ID.</li>
             </ol>
@@ -345,6 +361,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $elements->get_error_message();
             $code = $elements->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -652,6 +669,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $lists->get_error_message();
             $code = $lists->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -662,9 +680,12 @@ class Bootstrap extends IntegrationManagerController
             if($enums = ArrayHelper::get($field, 'enums')) {
                 $data = [
                     'key'         => 'custom*' . $field['id'] . '*select*' . $field['name'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'placeholder' => __($field['name'] . ' Type', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'       => __($field['name'] . ' Type', 'fluentformpro'),
                     'required'    => false,
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'        => __($field['name'] . ' is a ' .$field['type']. ' type of field.', 'fluentformpro'),
                     'component'   => 'select'
                 ];
@@ -679,9 +700,12 @@ class Bootstrap extends IntegrationManagerController
                 if($field['code'] == 'PHONE' || $field['code'] == 'EMAIL') {
                     $data = [
                         'key'         => 'custom*' . $field['id'] . '*text*' . $field['code'],
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'placeholder' => __($field['name'], 'fluentformpro'),
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'label'       => __($field['name'], 'fluentformpro'),
                         'required'    => false,
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'tips'        => __($field['name'] . ' is a string type of field.', 'fluentformpro'),
                         'component'   => 'value_text'
                     ];
@@ -705,9 +729,12 @@ class Bootstrap extends IntegrationManagerController
             else {
                 $data = [
                     'key'         => 'custom*' . $field['id'] . '*normal*' . $field['name'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'placeholder' => __($field['name'], 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'       => __($field['name'], 'fluentformpro'),
                     'required'    => false,
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'        => __($field['name'] . ' is a ' .$field['type']. ' type of field.', 'fluentformpro'),
                     'component'   => 'value_text'
                 ];

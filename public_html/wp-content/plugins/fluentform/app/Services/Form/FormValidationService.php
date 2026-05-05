@@ -247,6 +247,7 @@ class FormValidationService
                 throw new ValidationException('', 429, null,  [
                     'errors' => [
                         'restricted' => [
+                            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Sanitized by fluentform_sanitize_html
                             fluentform_sanitize_html(apply_filters(
                                 'fluentform/too_many_requests',
                                 __('Too Many Requests.', 'fluentform'),
@@ -288,10 +289,10 @@ class FormValidationService
         $isAllowed = apply_filters('fluentform/is_form_renderable', $isAllowed, $this->form);
 
         if (!$isAllowed['status']) {
-            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception message, not output
             throw new ValidationException('', 422, null,  [
                 'errors' => [
                     'restricted' => [
+                        // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Sanitized by fluentform_sanitize_html
                         fluentform_sanitize_html($isAllowed['message']),
                     ],
                 ],
@@ -334,6 +335,7 @@ class FormValidationService
                     throw new ValidationException('', 422, null,  [
                         'errors' => [
                             'restricted' => [
+                                // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Sanitized by fluentform_sanitize_html
                                 !empty($customMessage) ? fluentform_sanitize_html($customMessage) : fluentform_sanitize_html($defaultMessage),
                             ],
                         ],
@@ -874,6 +876,7 @@ class FormValidationService
         throw new ValidationException('', 422, null,  [
             'errors' => [
                 'restricted' => [
+                    // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Sanitized by fluentform_sanitize_html
                     fluentform_sanitize_html($message)
                 ],
             ],

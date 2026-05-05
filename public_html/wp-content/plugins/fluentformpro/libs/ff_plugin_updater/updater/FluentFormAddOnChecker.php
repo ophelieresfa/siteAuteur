@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or die;
+
 class FluentFormAddOnChecker
 {
     private $vars;
@@ -55,6 +57,7 @@ class FluentFormAddOnChecker
     public function register_option()
     {
         // creates our settings in the options table
+        // phpcs:ignore PluginCheck.CodeAnalysis.SettingSanitization.register_settingMissing -- License key sanitized via sanitize_text_field in save handler
         register_setting($this->get_var('option_group'), $this->get_var('license_key'));
     }
 
@@ -113,13 +116,17 @@ class FluentFormAddOnChecker
     {
         $licenseData = get_option($this->get_var('license_status') . '_checking');
         $expireMessage = $this->getExpireMessage($licenseData);
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo '<div class="error">' . $expireMessage . '</div>';
     }
 
     public function errorNotice()
     {
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo '<div class="error fluentform-admin-notice error_notice' . $this->get_var('option_group') . '"><p>' .
-            sprintf(__('The %s license needs to be activated. %sActivate Now%s', 'fluentformpro'),
+            // translators: %1$s is the plugin title, %2$s is the opening link tag, %3$s is the closing link tag
+            sprintf(__('The %1$s license needs to be activated. %2$sActivate Now%3$s', 'fluentformpro'),
                 $this->get_var('plugin_title'), '<a href="' . $this->get_var('activate_url') . '">',
                 '</a>') .
             '</p></div>';
@@ -164,6 +171,7 @@ class FluentFormAddOnChecker
 
     function license_page()
     {
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
         $license = $this->getSavedLicenseKey();
         $status = $this->getSavedLicenseStatus();
 
@@ -221,6 +229,7 @@ class FluentFormAddOnChecker
                 <?php settings_fields($this->get_var('option_group')); ?>
                 <?php if ('valid' != $status): ?>
                     <h5 class="mb-2"><?php echo __('License Key', 'fluentformpro') ?></h5>
+                    <?php // translators: %s is the plugin title ?>
                     <p class="mb-3"><?php echo esc_html(sprintf(__('Thank you for purchasing %s!  Please enter your license key below.', 'fluentformpro'), $this->get_var('plugin_title'))); ?></p>
                 <?php endif; ?>
 
@@ -238,7 +247,9 @@ class FluentFormAddOnChecker
                     <div class="el-input--large">
                         <input id="<?php echo esc_attr($license) ?>"
                                name="<?php echo $this->get_var('license_key') ?>"
-                               type="text" class="regular-text el-input__inner" value="<?php esc_attr_e($license); ?>"
+                               type="text" class="regular-text el-input__inner" value="<?php
+                               // phpcs:ignore WordPress.WP.I18n.MissingArgDomain, WordPress.WP.I18n.NonSingularStringLiteralText
+                               esc_attr_e($license); ?>"
                                placeholder="Enter your license key"/>
                     </div>
                 </label>
@@ -254,7 +265,7 @@ class FluentFormAddOnChecker
                     <input type="hidden" name="<?php echo $this->get_var('option_group') ?>_do_deactivate_license"
                            value="1"/>
                     <input type="submit" class="el-button el-button--primary is-plain el-button--large"
-                           name="<?= $this->get_var('option_group') ?>_deactivate"
+                           name="<?php echo $this->get_var('option_group') ?>_deactivate"
                            value="<?php echo __('Deactivate License', 'fluentformpro'); ?>"/>
                 <?php } else {
                     wp_nonce_field($this->get_var('option_group') . '_nonce',
@@ -267,10 +278,13 @@ class FluentFormAddOnChecker
                 <?php } ?>
             </form>
             <p class="contact_us_line">
-                <?php echo sprintf(esc_html(__('Any queries regarding your license key? %sContact us!%s', 'fluentformpro')), '<a href="' . $this->get_var('contact_url') . '" target="_blank">', '</a>'); ?>
+                <?php
+                    // translators: %1$s is the opening link tag, %2$s is the closing link tag
+                    echo sprintf(esc_html(__('Any queries regarding your license key? %1$sContact us!%2$s', 'fluentformpro')), '<a href="' . $this->get_var('contact_url') . '" target="_blank">', '</a>'); ?>
             </p>
         </div>
         <?php
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
     function activate_license()
@@ -392,6 +406,7 @@ class FluentFormAddOnChecker
             $this->setLicenseKey($license);
             // save the license key to the database
             return array(
+                // translators: %s is the plugin title
                 'message'  => sprintf(__('Congratulation! %s is successfully activated', 'fluentformpro'), $this->get_var('plugin_title')),
                 'response' => $license_data,
                 'status'   => 'valid'
@@ -576,9 +591,11 @@ class FluentFormAddOnChecker
 
         if ($licenseData->error == 'expired') {
             $renewUrl = $this->getRenewUrl($licenseKey);
-            $errorMessage = sprintf(__('Your license has been expired at %s. Please %sclick here%s to renew your license', 'fluentformpro'), $licenseData->expires, '<a target="_blank" href="' . $renewUrl . '">', '</a>');
+            // translators: %1$s is the expiry date, %2$s is the opening link tag, %3$s is the closing link tag
+            $errorMessage = sprintf(__('Your license has been expired at %1$s. Please %2$sclick here%3$s to renew your license', 'fluentformpro'), $licenseData->expires, '<a target="_blank" href="' . $renewUrl . '">', '</a>');
         } else if ($licenseData->error == 'no_activations_left') {
-            $errorMessage = sprintf(__('No Activation Site left: You have activated all the sites that your license offer. Please go to wpmanageninja.com account and review your sites. You may deactivate your unused sites from wpmanageninja account or you can purchase another license. %sClick Here to purchase another license%s', 'fluentformpro'), '<a target="_blank" href="' . $this->get_var('purchase_url') . '">', '</a>');
+            // translators: %1$s is the opening link tag, %2$s is the closing link tag
+            $errorMessage = sprintf(__('No Activation Site left: You have activated all the sites that your license offer. Please go to wpmanageninja.com account and review your sites. You may deactivate your unused sites from wpmanageninja account or you can purchase another license. %1$sClick Here to purchase another license%2$s', 'fluentformpro'), '<a target="_blank" href="' . $this->get_var('purchase_url') . '">', '</a>');
         } else if ($licenseData->error == 'missing') {
             $errorMessage = __('The given license key is not valid. Please verify that your license is correct. You may login to wpmanageninja.com account and get your valid license key for your purchase.', 'fluentformpro');
         }
@@ -588,9 +605,10 @@ class FluentFormAddOnChecker
 
     private function urlGetContentFallBack($url)
     {
-        $parts = parse_url($url);
+        $parts = wp_parse_url($url);
         $host = $parts['host'];
         $result = false;
+        // phpcs:disable WordPress.WP.AlternativeFunctions.curl_curl_init, WordPress.WP.AlternativeFunctions.curl_curl_setopt, WordPress.WP.AlternativeFunctions.curl_curl_exec, WordPress.WP.AlternativeFunctions.curl_curl_close -- Updater SSL check requires direct cURL
         if (!function_exists('curl_init')) {
             $ch = curl_init();
             $header = array('GET /1575051 HTTP/1.1',
@@ -610,7 +628,9 @@ class FluentFormAddOnChecker
             $result = curl_exec($ch);
             curl_close($ch);
         }
+        // phpcs:enable
         if (!$result && function_exists('fopen') && function_exists('stream_get_contents')) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen -- SSL certificate download
             $handle = fopen($url, "r");
             $result = stream_get_contents($handle);
         }
@@ -661,7 +681,9 @@ class FluentFormAddOnChecker
     {
         $renewUrl = $this->get_var('activate_url');
 
-        return sprintf(__('%sYour %s license has been %sexpired at %s, Please %sClick Here to Renew Your License%s', 'fluentformpro'), '<p>', $this->get_var('plugin_title'), '<b>', date('d M Y', strtotime($licenseData->expires)) . '</b>', '<a href="' . $renewUrl . '"><b>', '</b></a>' . '</p>');
+        // translators: %1$s is opening p tag, %2$s is the plugin title, %3$s is opening bold tag, %4$s is the expiry date with closing bold tag, %5$s is opening link and bold tag, %6$s is closing bold, link, and p tags
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
+        return sprintf(__('%1$sYour %2$s license has been %3$sexpired at %4$s, Please %5$sClick Here to Renew Your License%6$s', 'fluentformpro'), '<p>', $this->get_var('plugin_title'), '<b>', date('d M Y', strtotime($licenseData->expires)) . '</b>', '<a href="' . $renewUrl . '"><b>', '</b></a>' . '</p>');
     }
 
     private function willShowExpirationNotice()
@@ -689,17 +711,23 @@ class FluentFormAddOnChecker
         $renewUrl = $this->getRenewUrl();
         $renewHTML = '';
         if ($status == 'expired') {
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $expiredDate = date('d M Y', strtotime($license_data->expires));
-            $renewHTML = sprintf(__('%sYour license was expired at %s', 'fluentformpro'), '<p>', '<b>' . $expiredDate . '</b></p>');
-            $renewHTML .= sprintf(__('%sClick Here to renew your license%s', 'fluentformpro'), '<p><a class="button-secondary button_activate" target="_blank" href="' . $renewUrl . '">', '</a></p>');
+            // translators: %1$s is opening p tag, %2$s is the expiry date wrapped in bold and closing p tags
+            $renewHTML = sprintf(__('%1$sYour license was expired at %2$s', 'fluentformpro'), '<p>', '<b>' . $expiredDate . '</b></p>');
+            // translators: %1$s is opening p and link tags, %2$s is closing link and p tags
+            $renewHTML .= sprintf(__('%1$sClick Here to renew your license%2$s', 'fluentformpro'), '<p><a class="button-secondary button_activate" target="_blank" href="' . $renewUrl . '">', '</a></p>');
         } else if ($status == 'valid') {
             if ($license_data->expires != 'lifetime') {
+                // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                 $expireDate = date('d M Y', strtotime($license_data->expires));
                 $interval = strtotime($license_data->expires) - time();
                 $intervalDays = intval($interval / (60 * 60 * 24));
                 if ($intervalDays < 30) {
-                    $renewHTML = sprintf(__('%sYour license will be expired in %s days%s', 'fluentformpro'), '<p>', $intervalDays, '</p>');
-                    $renewHTML .= sprintf(__('%sPlease %sClick Here to renew your license%s', 'fluentformpro'), '<p>', '<a class="button-secondary button_activate" target="_blank" href="' . $renewUrl . '">', '</a></p>');
+                    // translators: %1$s is opening p tag, %2$s is the number of days, %3$s is closing p tag
+                    $renewHTML = sprintf(__('%1$sYour license will be expired in %2$s days%3$s', 'fluentformpro'), '<p>', $intervalDays, '</p>');
+                    // translators: %1$s is opening p tag, %2$s is opening link tag, %3$s is closing link and p tags
+                    $renewHTML .= sprintf(__('%1$sPlease %2$sClick Here to renew your license%3$s', 'fluentformpro'), '<p>', '<a class="button-secondary button_activate" target="_blank" href="' . $renewUrl . '">', '</a></p>');
                 }
             }
         }

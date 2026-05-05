@@ -66,6 +66,36 @@ class Submission extends Model
         return $this->hasMany(EntryDetails::class, 'submission_id', 'id');
     }
 
+    /**
+     * A submission has many transactions.
+     *
+     * @return \FluentForm\Framework\Database\Orm\Relations\HasMany
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'submission_id', 'id');
+    }
+
+    /**
+     * A submission has many subscriptions.
+     *
+     * @return \FluentForm\Framework\Database\Orm\Relations\HasMany
+     */
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class, 'submission_id', 'id');
+    }
+
+    /**
+     * A submission has many order items.
+     *
+     * @return \FluentForm\Framework\Database\Orm\Relations\HasMany
+     */
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'submission_id', 'id');
+    }
+
     public function customQuery($attributes = [])
     {
         $entryType = Arr::get($attributes, 'entry_type');
@@ -83,7 +113,7 @@ class Submission extends Model
         $startDate = Arr::get($dateRange, 0);
         $endDate = Arr::get($dateRange, 1);
         $search = Arr::get($attributes, 'search');
-        $sortBy = Arr::get($attributes, 'sort_by', 'DESC');
+        $sortBy = \FluentForm\App\Helpers\Helper::sanitizeOrderValue(Arr::get($attributes, 'sort_by', 'DESC'));
 
         $wheres = [];
         $paymentStatuses = Arr::get($attributes, 'payment_statuses');
@@ -116,11 +146,13 @@ class Submission extends Model
                     ->where('fluentform_submissions.created_at', '<=', $endDate);
             })
             ->when($search, function ($q) use ($search) {
-                return $q->where(function ($q) use ($search) {
-                    return $q->where('fluentform_submissions.id', 'LIKE', "%{$search}%")
-                        ->orWhere('response', 'LIKE', "%{$search}%")
-                        ->orWhere('fluentform_submissions.status', 'LIKE', "%{$search}%")
-                        ->orWhere('fluentform_submissions.created_at', 'LIKE', "%{$search}%");
+                global $wpdb;
+                $escaped = $wpdb->esc_like($search);
+                return $q->where(function ($q) use ($escaped) {
+                    return $q->where('fluentform_submissions.id', 'LIKE', "%{$escaped}%")
+                        ->orWhere('response', 'LIKE', "%{$escaped}%")
+                        ->orWhere('fluentform_submissions.status', 'LIKE', "%{$escaped}%")
+                        ->orWhere('fluentform_submissions.created_at', 'LIKE', "%{$escaped}%");
                 });
             })
             ->when($wheres, function ($q) use ($wheres) {
@@ -247,21 +279,11 @@ class Submission extends Model
 
         EntryDetails::whereIn('submission_id', $submissionIds)->delete();
 
-        //delete  models this way for now
-        // todo: update wpFluent to the framework model
         try {
             if (PaymentHelper::hasPaymentSettings()) {
-                wpFluent()->table('fluentform_order_items')
-                    ->whereIn('submission_id', $submissionIds)
-                    ->delete();
-
-                wpFluent()->table('fluentform_transactions')
-                    ->whereIn('submission_id', $submissionIds)
-                    ->delete();
-
-                wpFluent()->table('fluentform_subscriptions')
-                    ->whereIn('submission_id', $submissionIds)
-                    ->delete();
+                OrderItem::whereIn('submission_id', $submissionIds)->delete();
+                Transaction::whereIn('submission_id', $submissionIds)->delete();
+                Subscription::whereIn('submission_id', $submissionIds)->delete();
             }
 
             wpFluent()->table('ff_scheduled_actions')
@@ -290,17 +312,21 @@ class Submission extends Model
                 return $q->whereIn('form_id', $allowFormIds);
             })
             ->when($search, function ($q) use ($search){
-                return $q->orWhereHas('form', function ($q) use ($search) {
-                    return $q->orWhere('title', 'LIKE', "%{$search}%");
+                global $wpdb;
+                $escaped = $wpdb->esc_like($search);
+                return $q->orWhereHas('form', function ($q) use ($escaped) {
+                    return $q->orWhere('title', 'LIKE', "%{$escaped}%");
                 });
             })
             ->paginate()
             ->toArray();
 
+        $useHumanDate = apply_filters('fluentform/entries_human_date', false);
+
         foreach ($result['data'] as &$entry) {
             $entry['entry_url'] = admin_url('admin.php?page=fluent_forms&route=entries&form_id=' . $entry['form_id'] . '#/entries/' . $entry['id']);
 
-            if (apply_filters('fluentform/entries_human_date', false)) {
+            if ($useHumanDate) {
                 $entry['human_date'] = human_time_diff(strtotime($entry['created_at']), strtotime(current_time('mysql')));
             }
         }

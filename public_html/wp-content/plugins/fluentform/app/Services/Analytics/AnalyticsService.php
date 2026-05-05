@@ -37,7 +37,7 @@ class AnalyticsService
             'browser'    => $browser->getBrowser(),
             'platform'   => $browser->getPlatform(),
             'created_at' => current_time('mysql'),
-            'source_url' => $request->server('HTTP_REFERER', ''),
+            'source_url' => esc_url_raw($request->server('HTTP_REFERER', '')),
         ];
         
         $query = FormAnalytics::where('ip', $data['ip'])

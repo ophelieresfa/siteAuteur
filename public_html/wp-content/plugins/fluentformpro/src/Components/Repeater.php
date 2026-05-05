@@ -55,7 +55,7 @@ class Repeater extends BaseComponent
             \FluentForm\Framework\Helpers\ArrayHelper::except($data['attributes'], 'name')
         );
 		ob_start();
-		echo "<div {$atts}>";
+		echo "<div {$atts}>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped via buildAttributes
 
 		$first = $data['fields'][0]['settings'];
 		if (count($data['fields']) == 1 && $first['validation_rules']['required']['value']) {
@@ -64,7 +64,7 @@ class Repeater extends BaseComponent
     		echo "<div class='ff-el-input--label'>";
     	}
 
-        echo "<label>{$data['settings']['label']}</label>";
+        echo "<label>{$data['settings']['label']}</label>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form label
 		echo "</div><div class='ff-el-input--content'>";
 
         echo "<div class='ff-t-container'>";
@@ -86,7 +86,7 @@ class Repeater extends BaseComponent
         }
 
         echo "</div>";
-        echo $this->getRepeater($data['element']);
+        echo $this->getRepeater($data['element']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Repeater button HTML
 		echo "</div>";
 		echo "</div>";
 		$html = ob_get_clean();
@@ -103,7 +103,7 @@ class Repeater extends BaseComponent
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_'.$elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_'.$elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
         \FluentForm\App\Helpers\Helper::getNextTabIndex(50);
 	}
 

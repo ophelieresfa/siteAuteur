@@ -37,9 +37,12 @@ class Bootstrap extends IntegrationManagerController
 
         return [
             'logo'             => $this->logo,
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_title'       => __($this->title . ' Settings', 'fluentformpro'),
             'menu_description' => __('Create a Bot by sending /newbot command to @BotFather in telegram. After completing the steps @BotFather will provide you the Bot Token. <br>Create a Channel/group/supergroup. Add the Bot as Administrator to your Channel/Group.<br /><a href="https://wpmanageninja.com/docs/fluent-form/integrations-available-in-wp-fluent-form/telegram-messenger-integration-with-wp-fluent-forms/" target="_blank">Please read the documentation for step by step tutorial</a>', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'valid_message'    => __($this->title . ' integration is complete', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'invalid_message'  => __($this->title . ' integration is not complete', 'fluentformpro'),
             'save_button_text' => __('Save Settings', 'fluentformpro'),
             'fields'           => [
@@ -65,7 +68,9 @@ class Bootstrap extends IntegrationManagerController
             ],
             'hide_on_valid'    => true,
             'discard_settings' => [
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'section_description' => __('Your ' . $this->title . ' API integration is up and running', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'button_text'         => __('Disconnect ' . $this->title, 'fluentformpro'),
                 'data'                => [
                     'chat_id'   => '',
@@ -105,6 +110,7 @@ class Bootstrap extends IntegrationManagerController
             ], 200);
         }
 
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
         $responseMessage = __('Your ' . $this->integrationKey . ' api key has been verified and successfully set', 'fluentformpro');
         $status = false;
         // Verify API key now
@@ -152,6 +158,7 @@ class Bootstrap extends IntegrationManagerController
         }
 
         wp_send_json_success([
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'message' => __($responseMessage, 'fluentformpro'),
             'status'  => $status
         ], $responseCode);
@@ -166,7 +173,9 @@ class Bootstrap extends IntegrationManagerController
             'is_active'             => $this->isConfigured(),
             'configure_title'       => __('Configuration required!', 'fluentformpro'),
             'global_configure_url'  => admin_url('admin.php?page=fluent_forms_settings#general-' . $this->integrationKey . '-settings'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'configure_message'     => __($this->title . ' is not configured yet! Please configure your  api first', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'configure_button_text' => __('Set ' . $this->title . ' API', 'fluentformpro')
         ];
         return $integrations;
@@ -217,6 +226,7 @@ class Bootstrap extends IntegrationManagerController
                 [
                     'key'       => 'conditionals',
                     'label'     => __('Conditional Logics', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'      => __('Allow ' . $this->title . ' integration conditionally based on your submission values', 'fluentformpro'),
                     'component' => 'conditional_block'
                 ],

@@ -46,7 +46,7 @@ class UserRegistrationApi
     {
         $feeds = $this->getFormUserFeeds($form);
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return $errors;
         }
 

@@ -1,0 +1,123 @@
+#content {
+    background: #f6f7f8;
+    padding-bottom: 60px;
+}
+
+.sa-account-premium.sa-contact-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 34px 20px 80px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.sa-account-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3fc095;
+}
+
+form.fluent_form_5 .ff-btn-submit:not(.ff_btn_no_style):hover {
+    background-color: #343434 !important;
+    opacity: 1;
+}
+
+.ff-default .ff-el-form-control {
+    font-size: 14px;
+}
+
+.sa-contact-hero h1 {
+    margin: 0 0 16px;
+    font-size: 35px;
+    line-height: 1.05;
+    font-weight: 501;
+    color: #343434;
+}
+
+/* HERO */
+
+.sa-contact-hero-left {
+    max-width: 760px;
+}
+
+/* BODY */
+.sa-contact-body {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+.sa-contact-main {
+    min-width: 0;
+}
+
+.fluentform {
+    margin-block-start: 0 !important;
+}
+
+/* neutraliser les centrages du contenu public */
+.sa-contact-card form {
+    width: 100% !important;
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    padding: 30px 40px !important;
+}
+
+/* masquer un éventuel doublon de titre dans le contenu WP */
+.sa-contact-card .descr-title,
+.sa-contact-card .wp-block-heading:first-child {
+    display: none;
+}
+
+.sa-contact-card > *:first-child {
+    margin-top: 0;
+}
+
+.sa-contact-card > *:last-child {
+    margin-bottom: 0;
+}
+
+.sa-contact-card .ff_form_main_parent {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    padding: 0 !important;
+}
+
+.sa-contact-card .ff-t-container {
+    width: 100%;
+    margin: 0;
+}
+
+@media (max-width: 1100px) {
+    .sa-contact-hero h1 {
+        font-size: 46px;
+    }
+
+    .sa-contact-body {
+        grid-template-columns: 280px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 980px) {
+    .sa-account-premium.sa-contact-page {
+        padding: 0 16px;
+    }
+
+    .sa-contact-hero h1 {
+        font-size: 38px;
+    }
+
+    .sa-contact-hero-text {
+        font-size: 16px;
+    }
+
+    .sa-contact-body {
+        grid-template-columns: 1fr;
+    }
+}

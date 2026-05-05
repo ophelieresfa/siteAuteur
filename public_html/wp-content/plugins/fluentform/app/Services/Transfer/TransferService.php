@@ -2,17 +2,19 @@
 
 namespace FluentForm\App\Services\Transfer;
 
+defined('ABSPATH') or die;
+
 use Exception;
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Models\Form;
 use FluentForm\App\Models\FormMeta;
 use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\SubmissionMeta;
 use FluentForm\App\Modules\Form\FormDataParser;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\FormBuilder\ShortCodeParser;
-use FluentForm\App\Services\Submission\SubmissionService;
 use FluentForm\Framework\Foundation\App;
-use FluentForm\Framework\Request\File;
+use FluentForm\Framework\Http\Request\File;
 use FluentForm\Framework\Support\Arr;
 
 class TransferService
@@ -94,6 +96,9 @@ class TransferService
                             $metaValue = Arr::get($metaData, 'value');
                             if ("ffc_form_settings_generated_css" == $metaKey || "ffc_form_settings_meta" == $metaKey) {
                                 $metaValue = str_replace('ff_conv_app_' . Arr::get($formItem, 'id'), 'ff_conv_app_' . $formId, $metaValue);
+                            }
+                            if (is_string($metaValue)) {
+                                $metaValue = wp_kses_post($metaValue);
                             }
                             $settings = [
                                 'form_id'  => $formId,
@@ -178,7 +183,19 @@ class TransferService
         $submissions = FormDataParser::parseFormEntries($submissions, $form, $formInputs);
         $parsedShortCodes = [];
         $exportData = [];
-        $submissionService = new SubmissionService();
+
+        // Preload notes for all submissions in a single query to avoid N+1
+        $notesMap = [];
+        if ($withNotes && count($submissions)) {
+            $submissionIds = array_map(function ($s) { return is_object($s) ? $s->id : $s['id']; }, $submissions->toArray());
+            $allNotes = SubmissionMeta::whereIn('response_id', $submissionIds)
+                ->where('meta_key', '_notes')
+                ->get();
+            foreach ($allNotes as $note) {
+                $notesMap[$note->response_id][] = $note->value;
+            }
+        }
+
         foreach ($submissions as $submission) {
 
             $submission->response = json_decode($submission->response, true);
@@ -224,10 +241,10 @@ class TransferService
                     }
                 }
             }
-            if($withNotes){
-                $notes = $submissionService->getNotes($submission->id, ['form_id' => $form->id])->pluck('value');
-                if(!empty($notes)){
-                    $temp[] = implode(", ",$notes->toArray());
+            if ($withNotes) {
+                $noteValues = isset($notesMap[$submission->id]) ? $notesMap[$submission->id] : [];
+                if (!empty($noteValues)) {
+                    $temp[] = implode(", ", $noteValues);
                 }
             }
 
@@ -309,15 +326,25 @@ class TransferService
         $tableName = Arr::get($args, 'table');
 
         if ($tableName) {
+            $allowedTables = apply_filters('fluentform/export_allowed_tables', [
+                'fluentform_submissions',
+            ]);
+            if (!in_array($tableName, $allowedTables, true)) {
+                wp_send_json([
+                    'message' => __('Invalid table name for export.', 'fluentform')
+                ], 422);
+            }
             $query = wpFluent()->table($tableName)
                 ->where('form_id', (int) Arr::get($args, 'form_id'))
                 ->orderBy('id', Helper::sanitizeOrderValue(Arr::get($args, 'sort_by', 'DESC')));
 
             $searchString = Arr::get($args, 'search');
             if ($searchString) {
-                $query->where(function ($q) use ($searchString) {
-                    $q->where('id', 'LIKE', "%{$searchString}%")
-                        ->orWhere('response', 'LIKE', "%{$searchString}%");
+                global $wpdb;
+                $escaped = $wpdb->esc_like($searchString);
+                $query->where(function ($q) use ($escaped) {
+                    $q->where('id', 'LIKE', "%{$escaped}%")
+                        ->orWhere('response', 'LIKE', "%{$escaped}%");
                 });
             }
         } else {
@@ -350,7 +377,7 @@ class TransferService
         require_once FLUENTFORM_DIR_PATH . '/vendor/autoload.php';
         $fileName = ($fileName) ? $fileName . '.' . $type : 'export-data-' . date('d-m-Y') . '.' . $type;
 
-        // Create writer based on type using WriterEntityFactory
+        // Create writer based on type
         switch (strtolower($type)) {
             case 'csv':
                 $writer = \OpenSpout\Writer\Common\Creator\WriterEntityFactory::createCSVWriter();

@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Models\Form;
 use FluentForm\App\Modules\Acl\Acl;
 

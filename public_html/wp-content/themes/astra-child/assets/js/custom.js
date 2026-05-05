@@ -47,391 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const zoomFigures = document.querySelectorAll("#example-site figure.zoomable");
 
     if (!zoomFigures.length) return;
-
-    // Évite de créer le lightbox plusieurs fois
-    if (document.querySelector(".siteauteur-lightbox")) return;
-
-    // Création du lightbox
-    const lightbox = document.createElement("div");
-    lightbox.className = "siteauteur-lightbox";
-    lightbox.setAttribute("aria-hidden", "true");
-
-    lightbox.innerHTML = `
-        <div class="siteauteur-lightbox__inner" role="dialog" aria-modal="true" aria-label="Aperçu de l'image">
-            <button type="button" class="siteauteur-lightbox__close" aria-label="Fermer">×</button>
-            <img class="siteauteur-lightbox__img" src="" alt="">
-            <div class="siteauteur-lightbox__hint">Échap pour fermer</div>
-        </div>
-    `;
-
-    document.body.appendChild(lightbox);
-
-    const lightboxImg = lightbox.querySelector(".siteauteur-lightbox__img");
-    const closeBtn = lightbox.querySelector(".siteauteur-lightbox__close");
-
-    let lastFocusedElement = null;
-
-    function openLightbox(img) {
-        const fullSrc = img.currentSrc || img.src;
-        const altText = img.getAttribute("alt") || "";
-
-        lastFocusedElement = document.activeElement;
-
-        lightboxImg.src = fullSrc;
-        lightboxImg.alt = altText;
-
-        lightbox.classList.add("is-active");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("siteauteur-lightbox-open");
-
-        closeBtn.focus();
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove("is-active");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("siteauteur-lightbox-open");
-
-        // petit délai pour éviter un flash visuel pendant la transition
-        setTimeout(() => {
-            lightboxImg.src = "";
-            lightboxImg.alt = "";
-        }, 220);
-
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-        }
-    }
-
-    zoomFigures.forEach((figure) => {
-        const img = figure.querySelector("img");
-        if (!img) return;
-
-        figure.setAttribute("tabindex", "0");
-        figure.setAttribute("role", "button");
-        figure.setAttribute("aria-label", "Ouvrir l'image en grand");
-
-        figure.addEventListener("click", function () {
-            openLightbox(img);
-        });
-
-        figure.addEventListener("keydown", function (e) {
-            if (e.key === "Enter" || e.key === " ") {
-                e.preventDefault();
-                openLightbox(img);
-            }
-        });
-    });
-
-    closeBtn.addEventListener("click", closeLightbox);
-
-    lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && lightbox.classList.contains("is-active")) {
-            closeLightbox();
-        }
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector("#header-nav");
-    const synopsis = document.querySelector("#synopsis");
-
-    if (!header || !synopsis) return;
-
-    function getOffset() {
-        const width = window.innerWidth;
-
-        if (width < 768) {
-            return 140; // mobile
-        } else if (width < 1024) {
-            return 160; // tablette
-         } else if (width >= 1025 && width <= 1199) {
-            return 160; // tablette paysage
-        } else {
-            return 107; // desktop
-        }
-    }
-
-    function toggleHeader() {
-        const rect = synopsis.getBoundingClientRect();
-        const offset = getOffset();
-
-        if (rect.top <= offset) {
-            header.classList.add("visible");
-        } else {
-            header.classList.remove("visible");
-        }
-    }
-
-    toggleHeader();
-
-    window.addEventListener("scroll", toggleHeader);
-    window.addEventListener("resize", toggleHeader);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const header = document.querySelector("#header-nav");
-    const menuLinks = document.querySelectorAll('#header-nav a[href^="#"]');
-    const btnHero = document.querySelectorAll('#hero a[href^="#"]');
-    const btnFooter = document.querySelectorAll('#footer a[href^="#"]');
-
-    if (!header || !menuLinks.length) return;
-    if (!header || !btnHero.length) return;
-    if (!header || !btnFooter.length) return;
-
-    menuLinks.forEach(link => {
-        link.addEventListener("click", function (e) {
-
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
-
-            e.preventDefault();
-
-            const headerHeight = header.offsetHeight;
-            const offset = 0; // espace sous le menu
-
-            const position =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                offset;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-
-        });
-    });
-
-    btnHero.forEach(link => {
-        link.addEventListener("click", function (e) {
-
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
-
-            e.preventDefault();
-
-            const headerHeight = header.offsetHeight;
-            const offset = 0; // espace sous le menu
-
-            const position =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                offset;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-
-        });
-    });
-
-    btnFooter.forEach(link => {
-        link.addEventListener("click", function (e) {
-
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
-
-            if (!target) return;
-
-            e.preventDefault();
-
-            const headerHeight = header.offsetHeight;
-            const offset = 0; // espace sous le menu
-
-            const position =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                offset;
-
-            window.scrollTo({
-                top: position,
-                behavior: "smooth"
-            });
-
-        });
-    });
-
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  // Trouver le <li> qui contient exactement "Contact"
-  const contactItem = Array.from(document.querySelectorAll("li")).find((li) => {
-    return li.textContent.trim().toLowerCase() === "contact";
-  });
-
-  if (!contactItem) return;
-
-  // Création dynamique de la popup
-  const popup = document.createElement("div");
-  popup.className = "contact-popup-dynamic";
-  popup.setAttribute("aria-hidden", "true");
-
-  popup.innerHTML = `
-    <div class="contact-popup-overlay"></div>
-    <div class="contact-popup-box" role="dialog" aria-modal="true" aria-label="Formulaire de contact">
-        <button type="button" class="contact-popup-close" aria-label="Fermer">&times;</button>
-        <h2 class="contact-popup-title">Contact</h2>
-        <div class="title-divider">
-            <span class="line1"></span>
-            <span class="dot"></span>
-            <span class="line2"></span>
-        </div>
-        <div class="contact-popup-form-wrap"></div>
-    </div>
-  `;
-
-  document.body.appendChild(popup);
-
-  const formWrap = popup.querySelector(".contact-popup-form-wrap");
-  const overlay = popup.querySelector(".contact-popup-overlay");
-  const closeBtn = popup.querySelector(".contact-popup-close");
-
-  // Déplacer le formulaire dans la popup
-  formWrap.appendChild(form);
-
-  // Sécurités d'affichage
-  form.classList.remove("hidden");
-  form.style.display = "block";
-
-  function openPopup(e) {
-    if (e) e.preventDefault();
-    popup.classList.add("is-open");
-    popup.setAttribute("aria-hidden", "false");
-    document.body.classList.add("contact-popup-open");
-  }
-
-  function closePopup() {
-    popup.classList.remove("is-open");
-    popup.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("contact-popup-open");
-  }
-
-  contactItem.addEventListener("click", openPopup);
-  overlay.addEventListener("click", closePopup);
-  closeBtn.addEventListener("click", closePopup);
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && popup.classList.contains("is-open")) {
-      closePopup();
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector('#fluentform_5');
-    if (!form) return;
-
-    const popupBox = form.closest('.contact-popup-box');
-
-    function checkFormState() {
-        if (form.classList.contains('ff_force_hide')) {
-            popupBox.classList.add('form-success');
-        } else {
-            popupBox.classList.remove('form-success');
-        }
-    }
-
-    checkFormState();
-
-    const observer = new MutationObserver(checkFormState);
-    observer.observe(form, {
-        attributes: true,
-        attributeFilter: ['class']
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    document.querySelectorAll(".sa-toggle-password").forEach(btn => {
-
-        btn.addEventListener("click", function () {
-
-            const input = document.getElementById(this.dataset.target);
-
-            if (!input) return;
-
-            if (input.type === "password") {
-                input.type = "text";
-                this.textContent = "Cacher"; // oeil barré
-            } else {
-                input.type = "password";
-                this.textContent = "Afficher"; // oeil
-            }
-
-        });
-
-    });
-
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const mobileNav = document.querySelector("#ast-mobile-site-navigation");
-    const mobileToggle = document.querySelector(".ast-mobile-menu-trigger-minimal");
-    const mobileMenuList = document.querySelector("#ast-hf-mobile-menu .main-header-menu");
-
-    if (!mobileNav || !mobileToggle) return;
-
-    function updateMobileMenuState() {
-        const navOpen =
-            mobileNav.classList.contains("toggled") ||
-            mobileNav.getAttribute("aria-expanded") === "true" ||
-            mobileToggle.getAttribute("aria-expanded") === "true" ||
-            (mobileMenuList && mobileMenuList.getAttribute("aria-expanded") === "true");
-
-        document.body.classList.toggle("mobile-menu-open", navOpen);
-    }
-
-    updateMobileMenuState();
-
-    const observer = new MutationObserver(updateMobileMenuState);
-
-    observer.observe(mobileNav, {
-        attributes: true,
-        attributeFilter: ["class", "aria-expanded"]
-    });
-
-    observer.observe(mobileToggle, {
-        attributes: true,
-        attributeFilter: ["class", "aria-expanded"]
-    });
-
-    if (mobileMenuList) {
-        observer.observe(mobileMenuList, {
-            attributes: true,
-            attributeFilter: ["class", "aria-expanded"]
-        });
-    }
-
-    mobileToggle.addEventListener("click", function () {
-        setTimeout(updateMobileMenuState, 50);
-    });
-
-    window.addEventListener("resize", updateMobileMenuState);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const zoomFigures = document.querySelectorAll("#example-site figure.zoomable");
-
-    if (!zoomFigures.length) return;
     if (document.querySelector(".siteauteur-lightbox")) return;
 
     const lightbox = document.createElement("div");
@@ -562,9 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnHero = document.querySelectorAll('#hero a[href^="#"]');
     const btnFooter = document.querySelectorAll('#footer a[href^="#"]');
 
-    if (!header || !menuLinks.length) return;
-    if (!header || !btnHero.length) return;
-    if (!header || !btnFooter.length) return;
+    if (!header) return;
 
     function bindSmoothScroll(links) {
         links.forEach(link => {
@@ -602,10 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
     if (!form) return;
 
-    const contactItem = Array.from(document.querySelectorAll("li")).find((li) => {
-        return li.textContent.trim().toLowerCase() === "contact";
-    });
-
+    const contactItem = document.getElementById("contact");
     if (!contactItem) return;
 
     const popup = document.createElement("div");
@@ -649,6 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove("contact-popup-open");
     }
 
+    contactItem.style.cursor = "pointer";
     contactItem.addEventListener("click", openPopup);
     overlay.addEventListener("click", closePopup);
     closeBtn.addEventListener("click", closePopup);
@@ -736,9 +347,320 @@ document.addEventListener("DOMContentLoaded", function () {
     let serverDraft = { fields: {}, uploads: {} };
     let saveDraftTimeout = null;
     let activeUploads = 0;
+    let isInitializingForm = true;
 
     const submitButton = form.querySelector('button[type="submit"]');
     const submitWrapper = submitButton ? submitButton.closest(".ff_submit_btn_wrapper") : null;
+
+    const addressLine1Field = form.querySelector('#ff_6_address_1_address_line_1_');
+    const cityField = form.querySelector('#ff_6_address_1_city_');
+    const zipField = form.querySelector('#ff_6_address_1_zip_');
+    const countryField = form.querySelector('#ff_6_address_1_country_');
+
+    let addressAutocompleteBox = null;
+    let addressAutocompleteItems = [];
+    let addressAutocompleteActiveIndex = -1;
+    let addressAutocompleteAbortController = null;
+
+    function debounce(fn, delay = 400) {
+        let timer = null;
+        return function (...args) {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), delay);
+        };
+    }
+
+    function ensureAddressAutocompleteBox() {
+        if (!addressLine1Field) return null;
+        if (addressAutocompleteBox) return addressAutocompleteBox;
+
+        const wrapper =
+            addressLine1Field.closest(".ff-el-input--content") ||
+            addressLine1Field.parentElement;
+
+        if (!wrapper) return null;
+
+        wrapper.style.position = "relative";
+
+        addressAutocompleteBox = document.createElement("div");
+        addressAutocompleteBox.className = "sa-address-autocomplete";
+        addressAutocompleteBox.style.position = "absolute";
+        addressAutocompleteBox.style.left = "0";
+        addressAutocompleteBox.style.right = "0";
+        addressAutocompleteBox.style.top = "100%";
+        addressAutocompleteBox.style.marginTop = "6px";
+        addressAutocompleteBox.style.background = "#fff";
+        addressAutocompleteBox.style.border = "1px solid #dcdfe6";
+        addressAutocompleteBox.style.borderRadius = "10px";
+        addressAutocompleteBox.style.boxShadow = "0 10px 30px rgba(0,0,0,.08)";
+        addressAutocompleteBox.style.zIndex = "9999";
+        addressAutocompleteBox.style.maxHeight = "260px";
+        addressAutocompleteBox.style.overflowY = "auto";
+        addressAutocompleteBox.style.display = "none";
+        addressAutocompleteBox.style.color = "#1f2a44";
+
+        wrapper.appendChild(addressAutocompleteBox);
+
+        return addressAutocompleteBox;
+    }
+
+    function hideAddressSuggestions() {
+        if (!addressAutocompleteBox) return;
+        addressAutocompleteBox.innerHTML = "";
+        addressAutocompleteBox.style.display = "none";
+        addressAutocompleteItems = [];
+        addressAutocompleteActiveIndex = -1;
+    }
+
+    function normalizeCountryCode(code) {
+        return (code || "").toUpperCase();
+    }
+
+    function formatStreetFromAddress(address) {
+        const houseNumber = address.house_number || "";
+        const road =
+            address.road ||
+            address.pedestrian ||
+            address.footway ||
+            address.cycleway ||
+            address.path ||
+            "";
+        return `${houseNumber} ${road}`.trim();
+    }
+
+    function getCityFromAddress(address) {
+        return (
+            address.city ||
+            address.town ||
+            address.village ||
+            address.municipality ||
+            address.hamlet ||
+            ""
+        );
+    }
+
+    function dispatchFieldUpdates(...fields) {
+        fields.forEach(field => {
+            if (!field) return;
+            field.dispatchEvent(new Event("input", { bubbles: true }));
+            field.dispatchEvent(new Event("change", { bubbles: true }));
+        });
+    }
+
+    function applyAddressSuggestion(item) {
+        const address = item.address || {};
+
+        const street = formatStreetFromAddress(address);
+        const city = getCityFromAddress(address);
+        const postcode = address.postcode || "";
+        const countryCode = normalizeCountryCode(address.country_code);
+
+        if (addressLine1Field) {
+            addressLine1Field.value = street || item.display_name || "";
+        }
+
+        if (cityField) {
+            cityField.value = city;
+        }
+
+        if (zipField) {
+            zipField.value = postcode;
+        }
+
+        if (countryField && countryCode) {
+            const option = Array.from(countryField.options).find(
+                opt => (opt.value || "").toUpperCase() === countryCode
+            );
+            if (option) {
+                countryField.value = option.value;
+            }
+        }
+
+        dispatchFieldUpdates(addressLine1Field, cityField, zipField, countryField);
+        hideAddressSuggestions();
+    }
+
+    function renderAddressSuggestions(results) {
+        const box = ensureAddressAutocompleteBox();
+        if (!box) return;
+
+        box.innerHTML = "";
+        addressAutocompleteItems = results || [];
+        addressAutocompleteActiveIndex = -1;
+
+        if (!addressAutocompleteItems.length) {
+            hideAddressSuggestions();
+            return;
+        }
+
+        addressAutocompleteItems.forEach((item, index) => {
+            const row = document.createElement("button");
+            row.type = "button";
+            row.className = "sa-address-autocomplete__item";
+            row.style.display = "block";
+            row.style.width = "100%";
+            row.style.textAlign = "left";
+            row.style.border = "0";
+            row.style.background = "#e8f7f2";
+            row.style.margin = "0 0 5px 0";
+            row.style.border = "1px solid #d9efe7";
+            row.style.transition = "all .15s ease";
+            row.style.padding = "12px 14px";
+            row.style.cursor = "pointer";
+            row.style.fontSize = "14px";
+            row.style.lineHeight = "1.4";
+            row.style.color = "#1f2a44";
+            row.style.webkitTextFillColor = "#1f2a44";
+
+            row.textContent = item.display_name || "Adresse";
+
+            row.addEventListener("mouseenter", function () {
+                addressAutocompleteActiveIndex = index;
+                updateAddressSuggestionHighlight();
+            });
+
+            row.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+                applyAddressSuggestion(item);
+            });
+
+            box.appendChild(row);
+        });
+
+        box.style.display = "block";
+    }
+
+    function updateAddressSuggestionHighlight() {
+        if (!addressAutocompleteBox) return;
+
+        const rows = addressAutocompleteBox.querySelectorAll(".sa-address-autocomplete__item");
+
+        rows.forEach((row, index) => {
+            if (index === addressAutocompleteActiveIndex) {
+                row.style.background = "#d2efe6";
+                row.style.border = "1px solid #9fded0";
+                row.style.transform = "translateY(-1px)";
+            } else {
+                row.style.background = "#e8f7f2";
+                row.style.border = "1px solid #d9efe7";
+                row.style.transform = "translateY(0)";
+            }
+        });
+    }
+
+    async function searchAddressSuggestions(query) {
+        if (addressAutocompleteAbortController) {
+            addressAutocompleteAbortController.abort();
+        }
+
+        addressAutocompleteAbortController = new AbortController();
+
+        const url = new URL("https://nominatim.openstreetmap.org/search");
+        url.searchParams.set("format", "jsonv2");
+        url.searchParams.set("addressdetails", "1");
+        url.searchParams.set("limit", "5");
+        url.searchParams.set("countrycodes", "fr,be,ch,es");
+        url.searchParams.set("q", query);
+
+        const response = await fetch(url.toString(), {
+            method: "GET",
+            headers: {
+                "Accept": "application/json"
+            },
+            signal: addressAutocompleteAbortController.signal
+        });
+
+        if (!response.ok) {
+            throw new Error("Erreur recherche adresse");
+        }
+
+        return response.json();
+    }
+
+    const debouncedAddressSearch = debounce(async function () {
+        if (!addressLine1Field) return;
+
+        const query = (addressLine1Field.value || "").trim();
+
+        if (query.length < 3) {
+            hideAddressSuggestions();
+            return;
+        }
+
+        try {
+            const results = await searchAddressSuggestions(query);
+            renderAddressSuggestions(results);
+        } catch (error) {
+            if (error.name === "AbortError") return;
+            console.error("Erreur autocomplétion adresse :", error);
+            hideAddressSuggestions();
+        }
+    }, 400);
+
+    function bindAddressAutocomplete() {
+        if (!addressLine1Field) return;
+
+        ensureAddressAutocompleteBox();
+
+        addressLine1Field.addEventListener("input", function () {
+            debouncedAddressSearch();
+        });
+
+        if (zipField) {
+            zipField.addEventListener("input", function () {
+                this.value = this.value.replace(/\s+/g, "");
+            });
+        }
+
+        addressLine1Field.addEventListener("focus", function () {
+            const query = (addressLine1Field.value || "").trim();
+            if (query.length >= 3) {
+                debouncedAddressSearch();
+            }
+        });
+
+        addressLine1Field.addEventListener("keydown", function (e) {
+            if (!addressAutocompleteItems.length || !addressAutocompleteBox || addressAutocompleteBox.style.display === "none") {
+                return;
+            }
+
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                addressAutocompleteActiveIndex++;
+                if (addressAutocompleteActiveIndex >= addressAutocompleteItems.length) {
+                    addressAutocompleteActiveIndex = 0;
+                }
+                updateAddressSuggestionHighlight();
+            }
+
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                addressAutocompleteActiveIndex--;
+                if (addressAutocompleteActiveIndex < 0) {
+                    addressAutocompleteActiveIndex = addressAutocompleteItems.length - 1;
+                }
+                updateAddressSuggestionHighlight();
+            }
+
+            if (e.key === "Enter") {
+                if (addressAutocompleteActiveIndex >= 0 && addressAutocompleteItems[addressAutocompleteActiveIndex]) {
+                    e.preventDefault();
+                    applyAddressSuggestion(addressAutocompleteItems[addressAutocompleteActiveIndex]);
+                }
+            }
+
+            if (e.key === "Escape") {
+                hideAddressSuggestions();
+            }
+        });
+
+        document.addEventListener("click", function (e) {
+            if (!addressAutocompleteBox) return;
+            if (e.target === addressLine1Field) return;
+            if (addressAutocompleteBox.contains(e.target)) return;
+            hideAddressSuggestions();
+        });
+    }
 
     function getUploadHiddenName(fieldName) {
         const map = {
@@ -849,6 +771,21 @@ document.addEventListener("DOMContentLoaded", function () {
         if (field.name) return field.name;
         if (field.id) return field.id;
         return null;
+    }
+
+    function addLinkFieldError(field, message) {
+        clearFieldError(field);
+
+        field.classList.add("ff-error-field");
+
+        const container = getFieldErrorContainer(field);
+        if (!container) return;
+
+        const error = document.createElement("div");
+        error.className = "ff-step-error link-error";
+        error.textContent = message;
+
+        container.appendChild(error);
     }
 
     function collectFormData() {
@@ -1622,12 +1559,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function setFieldRequired(field, required = true) {
         if (!field) return;
 
-        if (required) {
+        if (required && !isFieldHidden(field)) {
             field.required = true;
             field.setAttribute("aria-required", "true");
+            field.setAttribute("required", "required");
         } else {
             field.required = false;
+            field.removeAttribute("required");
             field.removeAttribute("aria-required");
+            field.setCustomValidity("");
         }
 
         updateFieldAsterisk(field);
@@ -1655,20 +1595,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const checkboxes = form.querySelectorAll(`input[type="checkbox"][name="${CSS.escape(name)}"]`);
         checkboxes.forEach(checkbox => {
-            if (required) {
+            if (required && !isFieldHidden(checkbox)) {
                 checkbox.required = true;
                 checkbox.setAttribute("aria-required", "true");
+                checkbox.setAttribute("required", "required");
             } else {
                 checkbox.required = false;
+                checkbox.removeAttribute("required");
                 checkbox.removeAttribute("aria-required");
+                checkbox.setCustomValidity("");
             }
         });
 
         if (checkboxes[0]) updateCheckboxGroupAsterisk(name);
     }
 
+    function isFieldHidden(field) {
+        if (!field) return true;
+
+        if (field.type === "hidden") return true;
+        if (field.hidden) return true;
+        if (field.closest("[hidden]")) return true;
+        if (field.closest(".ff_excluded")) return true;
+        if (field.closest(".ff-el-group.ff_excluded")) return true;
+        if (field.closest(".ff-step-content") && !field.closest(".ff-step-content.active")) return true;
+        if (field.closest(".ff_conditional_hidden")) return true;
+        if (field.closest(".ff-el-is-hidden")) return true;
+
+        const style = window.getComputedStyle(field);
+        if (style.display === "none" || style.visibility === "hidden") return true;
+
+        const rect = field.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return true;
+
+        return false;
+    }
+
+    function clearHiddenFieldRequirement(field) {
+        if (!field) return;
+
+        field.required = false;
+        field.removeAttribute("required");
+        field.removeAttribute("aria-required");
+        field.setCustomValidity("");
+
+        updateFieldAsterisk(field);
+    }
+
+    function clearHiddenGroupRequirement(selector) {
+        form.querySelectorAll(selector).forEach(field => {
+            if (isFieldHidden(field)) {
+                clearHiddenFieldRequirement(field);
+            }
+        });
+    }
+
+    function cleanupHiddenRequiredFieldsBeforeSubmit() {
+        form.querySelectorAll("input, select, textarea").forEach(field => {
+            if (isFieldHidden(field)) {
+                clearHiddenFieldRequirement(field);
+            }
+        });
+
+        clearHiddenGroupRequirement('input[type="checkbox"][name="checkbox[]"]');
+        clearHiddenGroupRequirement('input[type="checkbox"][name="checkbox_1[]"]');
+        clearHiddenGroupRequirement('input[type="file"][name="file-upload_2"]');
+        clearHiddenGroupRequirement('input[type="file"][name="file-upload_3"]');
+        clearHiddenGroupRequirement('input[type="file"][name="file-upload"]');
+        clearHiddenGroupRequirement('input[type="file"][name="file_upload_6"]');
+        clearHiddenGroupRequirement('input[type="file"][name="file-upload_4"]');
+        clearHiddenGroupRequirement('input[type="file"][name="image-upload_2"]');
+    }
+    
     function syncCustomRequiredFields() {
-        // reset de tous les champs "obligatoires métier" pilotés par JS
         setCheckboxGroupRequired("checkbox[]", false);
         setCheckboxGroupRequired("checkbox_1[]", false);
 
@@ -1817,7 +1816,7 @@ document.addEventListener("DOMContentLoaded", function () {
         allStepElements.forEach(el => setFieldsStateInContainer(el, false));
     }
 
-    function showStep(index) {
+    function showStep(index, shouldScroll = true) {
         refreshSteps();
         createProgressUI();
         hideAllSteps();
@@ -1852,10 +1851,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         saveStep(index);
 
-        form.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+        if (shouldScroll) {
+            form.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
     }
 
     function createProgressUI() {
@@ -2132,19 +2133,41 @@ document.addEventListener("DOMContentLoaded", function () {
         stepContent.querySelectorAll(".ff-error-field").forEach(el => el.classList.remove("ff-error-field"));
     }
 
+    function getFieldErrorContainer(field) {
+        if (!field) return null;
+
+        const type = (field.type || "").toLowerCase();
+
+        if (type === "file") {
+            return findUploadGroup(field) || field.parentElement || form;
+        }
+
+        const repeaterCell = field.closest("td");
+        if (repeaterCell) {
+            return repeaterCell;
+        }
+
+        return (
+            field.closest(".ff-el-group") ||
+            field.closest(".ff-el-input--content") ||
+            field.parentElement ||
+            form
+        );
+    }
+
     function addFieldError(field, message) {
-        const group = findUploadGroup(field) || field.parentElement || form;
-        if (!group) return;
+        const container = getFieldErrorContainer(field);
+        if (!container) return;
 
         if (field.classList) {
             field.classList.add("ff-error-field");
         }
 
-        if (!group.querySelector(".ff-step-error")) {
+        if (!container.querySelector(".ff-step-error")) {
             const error = document.createElement("div");
             error.className = "ff-step-error";
             error.textContent = message;
-            group.appendChild(error);
+            container.appendChild(error);
         }
     }
 
@@ -2435,7 +2458,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateReseauxSociaux(stepContent) {
-        const repeater = stepContent.querySelector('.technical-information-content .ff-el-repeater');
+        const repeater = stepContent.querySelector('[data-name="repeater_field_3"].ff-el-repeater');
         if (!repeater || !isVisible(repeater) || isExcluded(repeater)) {
             return { isValid: true, firstInvalidField: null };
         }
@@ -2458,8 +2481,31 @@ document.addEventListener("DOMContentLoaded", function () {
             const nomValue = (nomField.value || "").trim();
             const lienValue = (lienField.value || "").trim();
 
-            if (nomValue !== "" && lienValue === "") {
-                addFieldError(lienField, "Veuillez renseigner le lien.");
+            const rowIsEmpty = nomValue === "" && lienValue === "";
+            const rowIsComplete = nomValue !== "" && lienValue !== "";
+
+            if (rowIsEmpty) {
+                return;
+            }
+
+            if (!rowIsComplete) {
+                if (nomValue === "") {
+                    addFieldError(nomField, "Veuillez renseigner le nom du réseau.");
+                    if (!firstInvalidField) firstInvalidField = nomField;
+                    isValid = false;
+                }
+
+                if (lienValue === "") {
+                    addFieldError(lienField, "Veuillez renseigner le lien.");
+                    if (!firstInvalidField) firstInvalidField = lienField;
+                    isValid = false;
+                }
+
+                return;
+            }
+
+            if (!isValidUrlLike(lienValue)) {
+                addLinkFieldError(lienField, "Veuillez entrer un lien valide (ex : https://instagram.com).");
                 if (!firstInvalidField) firstInvalidField = lienField;
                 isValid = false;
             }
@@ -2511,6 +2557,190 @@ document.addEventListener("DOMContentLoaded", function () {
         return { isValid: true, firstInvalidField: null };
     }
 
+    function validateDisplayedRating(stepContent) {
+        const field = stepContent.querySelector('input[name="input_text_10"]');
+
+        if (!field || !isFieldEligible(field)) {
+            return { isValid: true, firstInvalidField: null };
+        }
+
+        const value = (field.value || "").trim();
+
+        if (value === "") {
+            return { isValid: true, firstInvalidField: null };
+        }
+
+        if (!isValidDisplayedRating(value)) {
+            addFieldError(field, "Format valide : 4.75/5, 8.5/10 ou 82.45/100");
+            return { isValid: false, firstInvalidField: field };
+        }
+
+        return { isValid: true, firstInvalidField: null };
+    }
+
+    function validateReviewRatings(stepContent) {
+        const fields = [
+            'input[name="input_text_29"]',
+            'input[name="input_text_33"]',
+            'input[name="input_text_31"]'
+        ];
+
+        let isValid = true;
+        let firstInvalidField = null;
+
+        fields.forEach(selector => {
+            const field = stepContent.querySelector(selector);
+
+            if (!field || !isFieldEligible(field)) return;
+
+            const value = (field.value || "").trim();
+
+            if (value === "") return;
+
+            if (!isValidDisplayedRating(value)) {
+                addFieldError(field, "Format valide : 4.75/5, 8.5/10 ou 82.45/100");
+                isValid = false;
+                if (!firstInvalidField) firstInvalidField = field;
+            }
+        });
+
+        return { isValid, firstInvalidField };
+    }
+
+    function validateHeroMainButtonLink(stepContent) {
+        const field = stepContent.querySelector('input[name="input_text_13"]');
+
+        if (!field || !isFieldEligible(field)) {
+            return { isValid: true, firstInvalidField: null };
+        }
+
+        const value = (field.value || "").trim();
+
+        if (value === "") {
+            addFieldError(field, "Veuillez renseigner le lien du bouton principal.");
+            return { isValid: false, firstInvalidField: field };
+        }
+
+        if (!isValidUrlLike(value)) {
+            addLinkFieldError(field, "Veuillez entrer un lien valide (ex : https://amazon.fr).");
+            return { isValid: false, firstInvalidField: field };
+        }
+
+        return { isValid: true, firstInvalidField: null };
+    }
+
+    function isValidUrlLike(value) {
+        const v = (value || "").trim();
+        if (v === "") return false;
+
+        const pattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[^\s]*)?$/i;
+        return pattern.test(v);
+    }
+
+    function isValidDisplayedRating(value) {
+        const v = (value || "").trim();
+        if (v === "") return false;
+
+        const match = v.match(/^(\d+(?:[.,]\d{1,2})?)\/(5|10|100)$/);
+        if (!match) return false;
+
+        const note = parseFloat(match[1].replace(",", "."));
+        const max = parseInt(match[2], 10);
+
+        if (Number.isNaN(note) || Number.isNaN(max)) return false;
+        if (note < 0) return false;
+        if (note > max) return false;
+
+        return true;
+    }
+
+    function normalizePostalCountry(countryValue) {
+        const value = (countryValue || "").trim().toUpperCase();
+
+        if (["FR", "FRANCE", "FRANCE MÉTROPOLITAINE", "FRANCE METROPOLITAINE"].includes(value)) {
+            return "FR";
+        }
+
+        if (["BE", "BELGIQUE", "BELGIUM"].includes(value)) {
+            return "BE";
+        }
+
+        if (["CH", "SUISSE", "SWITZERLAND"].includes(value)) {
+            return "CH";
+        }
+
+        if (["ES", "ESPAGNE", "SPAIN"].includes(value)) {
+            return "ES";
+        }
+
+        return value;
+    }
+
+    function isValidPostalCodeByCountry(postalCode, countryCode) {
+        const code = (postalCode || "").trim();
+        const country = normalizePostalCountry(countryCode);
+
+        if (code === "") return false;
+        if (country === "") return true;
+
+        switch (country) {
+            case "FR":
+                return /^\d{5}$/.test(code);
+            case "BE":
+                return /^\d{4}$/.test(code);
+            case "CH":
+                return /^\d{4}$/.test(code);
+            case "ES":
+                return /^\d{5}$/.test(code);
+            default:
+                return true;
+        }
+    }
+
+    function validateAddressPostalCode(stepContent) {
+        const zip = zipField || stepContent.querySelector('#ff_6_address_1_zip_');
+        const country = countryField || stepContent.querySelector('#ff_6_address_1_country_');
+
+        if (!zip || !country || !isFieldEligible(zip) || !isFieldEligible(country)) {
+            return { isValid: true, firstInvalidField: null };
+        }
+
+        const zipValue = (zip.value || "").trim();
+        const countryValue = normalizePostalCountry(country.value || "");
+
+        console.log("ZIP =", zip.value);
+        console.log("COUNTRY RAW =", country.value);
+        console.log("COUNTRY NORMALIZED =", normalizePostalCountry(country.value));
+
+        if (zipValue === "" || countryValue === "") {
+            return { isValid: true, firstInvalidField: null };
+        }
+
+        if (!isValidPostalCodeByCountry(zipValue, countryValue)) {
+            let message = "Veuillez entrer un code postal valide pour le pays sélectionné.";
+
+            switch (countryValue) {
+                case "FR":
+                    message = "Veuillez entrer un code postal français valide (5 chiffres).";
+                    break;
+                case "BE":
+                    message = "Veuillez entrer un code postal belge valide (4 chiffres).";
+                    break;
+                case "CH":
+                    message = "Veuillez entrer un code postal suisse valide (4 chiffres).";
+                    break;
+                case "ES":
+                    message = "Veuillez entrer un code postal espagnol valide (5 chiffres).";
+                    break;
+            }
+
+            addFieldError(zip, message);
+            return { isValid: false, firstInvalidField: zip };
+        }
+
+        return { isValid: true, firstInvalidField: null };
+    }
+
     function validateLiensAchatLivre(stepContent) {
         const repeater = stepContent.querySelector('.book-links.ff-el-repeater');
         if (!repeater || !isVisible(repeater) || isExcluded(repeater)) {
@@ -2552,6 +2782,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     addFieldError(lienField, "Veuillez renseigner le lien.");
                     if (!firstInvalidField) firstInvalidField = lienField;
                     isValid = false;
+                } else if (!isValidUrlLike(lienValue)) {
+                    addLinkFieldError(lienField, "Veuillez entrer un lien valide (ex : https://amazon.fr).");
+                    if (!firstInvalidField) firstInvalidField = lienField;
+                    isValid = false;
                 }
 
                 return;
@@ -2573,6 +2807,14 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!firstInvalidField) firstInvalidField = lienField;
                     isValid = false;
                 }
+
+                return;
+            }
+
+            if (!isValidUrlLike(lienValue)) {
+                addLinkFieldError(lienField, "Veuillez entrer un lien valide (ex : https://amazon.fr).");
+                if (!firstInvalidField) firstInvalidField = lienField;
+                isValid = false;
             }
         });
 
@@ -2661,6 +2903,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     addFieldError(lienField, "Veuillez renseigner le lien du livre.");
                     if (!firstInvalidField) firstInvalidField = lienField;
                     isValid = false;
+                } else if (!isValidUrlLike(lienValue)) {
+                    addLinkFieldError(lienField, "Veuillez entrer un lien valide (ex : https://amazon.fr).");
+                    if (!firstInvalidField) firstInvalidField = lienField;
+                    isValid = false;
                 }
 
                 if (formatValue === "") {
@@ -2689,6 +2935,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (lienValue === "") {
                     addFieldError(lienField, "Veuillez renseigner le lien du livre.");
+                    if (!firstInvalidField) firstInvalidField = lienField;
+                    isValid = false;
+                } else if (!isValidUrlLike(lienValue)) {
+                    addLinkFieldError(lienField, "Veuillez entrer un lien valide (ex : https://amazon.fr).");
                     if (!firstInvalidField) firstInvalidField = lienField;
                     isValid = false;
                 }
@@ -2814,6 +3064,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validateCurrentStep(stepIndex) {
+        console.log("validateCurrentStep appelée, étape =", stepIndex);
         clearStepErrors(stepIndex);
 
         const stepContent = getCurrentStepContainer(stepIndex);
@@ -2825,6 +3076,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let customValidation = { isValid: true, firstInvalidField: null };
 
         const currentStepDef = steps[stepIndex];
+        console.log("currentStepDef =", currentStepDef);
 
         if (currentStepDef && currentStepDef.key === "general") {
             const formatsValidation = validateFormatsDisponibles(stepContent);
@@ -2846,14 +3098,29 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentStepDef && currentStepDef.key === "hero") {
             const auteursValidation = validateAuteursRessemblants(stepContent);
             const imageValidation = validateImagePrincipaleHero(stepContent);
+            const displayedRatingValidation = validateDisplayedRating(stepContent);
+            const heroMainButtonLinkValidation = validateHeroMainButtonLink(stepContent);
 
             customValidation = {
                 isValid:
                     auteursValidation.isValid &&
-                    imageValidation.isValid,
+                    imageValidation.isValid &&
+                    displayedRatingValidation.isValid &&
+                    heroMainButtonLinkValidation.isValid,
                 firstInvalidField:
                     auteursValidation.firstInvalidField ||
-                    imageValidation.firstInvalidField
+                    imageValidation.firstInvalidField ||
+                    displayedRatingValidation.firstInvalidField ||
+                    heroMainButtonLinkValidation.firstInvalidField
+            };
+        }
+
+        if (currentStepDef && currentStepDef.key === "reviews") {
+            const reviewRatingValidation = validateReviewRatings(stepContent);
+
+            customValidation = {
+                isValid: reviewRatingValidation.isValid,
+                firstInvalidField: reviewRatingValidation.firstInvalidField
             };
         }
 
@@ -2901,14 +3168,17 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentStepDef && currentStepDef.key === "technical") {
             const reseauxValidation = validateReseauxSociaux(stepContent);
             const logoValidation = validateLogo(stepContent);
+            const postalCodeValidation = validateAddressPostalCode(stepContent);
 
             customValidation = {
                 isValid:
                     reseauxValidation.isValid &&
-                    logoValidation.isValid,
+                    logoValidation.isValid &&
+                    postalCodeValidation.isValid,
                 firstInvalidField:
                     reseauxValidation.firstInvalidField ||
-                    logoValidation.firstInvalidField
+                    logoValidation.firstInvalidField ||
+                    postalCodeValidation.firstInvalidField
             };
         }
 
@@ -2939,15 +3209,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function clearFieldError(field) {
-        const group = findUploadGroup(field) || field.parentElement || form;
+        const container = getFieldErrorContainer(field);
 
         if (field.classList) {
             field.classList.remove("ff-error-field");
         }
 
-        if (group) {
-            const error = group.querySelector(".ff-step-error");
-            if (error) error.remove();
+        if (container) {
+            container.querySelectorAll(".ff-step-error").forEach(el => el.remove());
         }
     }
 
@@ -2997,6 +3266,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const target = e.target;
             if (!(target instanceof HTMLElement)) return;
             if (!target.closest("#fluentform_6")) return;
+            if (isInitializingForm) return;
+            if (!e.isTrusted) return;
 
             saveFormData();
             debounceServerSave();
@@ -3007,13 +3278,18 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!(target instanceof HTMLElement)) return;
             if (!target.closest("#fluentform_6")) return;
 
+            updateRequiredAsterisks();
+
+            if (isInitializingForm) return;
+            if (!e.isTrusted) return;
+
             saveFormData();
             debounceServerSave();
-            updateRequiredAsterisks();
         });
     }
 
     function beforeFinalSubmit() {
+        cleanupHiddenRequiredFieldsBeforeSubmit();
         enableAllFieldsBeforeSubmit();
 
         form.querySelectorAll("input, textarea, select, button").forEach(field => {
@@ -3061,12 +3337,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             beforeFinalSubmit();
+            cleanupHiddenRequiredFieldsBeforeSubmit();
 
             const isValid = validateCurrentStep(currentStep);
             if (!isValid) {
                 e.preventDefault();
                 return;
             }
+
+            cleanupHiddenRequiredFieldsBeforeSubmit();
 
             if (!form.checkValidity()) {
                 e.preventDefault();
@@ -3076,9 +3355,24 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         form.addEventListener("submit", function () {
+            // Ne pas vider ici
+        });
+
+        function handleSuccessfulSubmission() {
             setTimeout(async () => {
                 await clearAllFormStateAfterSubmit();
-            }, 800);
+            }, 300);
+        }
+
+        const successObserver = new MutationObserver(function () {
+            if (form.classList.contains("ff_force_hide")) {
+                handleSuccessfulSubmission();
+            }
+        });
+
+        successObserver.observe(form, {
+            attributes: true,
+            attributeFilter: ["class"]
         });
     }
 
@@ -3102,7 +3396,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 syncCustomRequiredFields();
-                showStep(currentStep);
+                showStep(currentStep, false);
 
             } else {
                 updateProgressUI(currentStep);
@@ -3142,7 +3436,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             form.dispatchEvent(new Event("change", { bubbles: true }));
             form.dispatchEvent(new Event("input", { bubbles: true }));
-            syncCustomRequiredFields
+            syncCustomRequiredFields();
         }, 50);
     }
 
@@ -3171,6 +3465,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bindSubmitPersistence();
         bindConditionalSteps();
         bindCustomUploads();
+        bindAddressAutocomplete();
 
         currentStep = getSavedStep();
         refreshSteps();
@@ -3182,7 +3477,291 @@ document.addEventListener("DOMContentLoaded", function () {
         maxVisitedStep = currentStep;
         syncCustomRequiredFields();
         showStep(currentStep);
+
+        setTimeout(() => {
+            isInitializingForm = false;
+        }, 300);
     }
 
     init();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    function initSiteAuteurRegisterPasswordUI() {
+        const registerForm = document.querySelector(".um-register form, form.um-form");
+        if (!registerForm) return false;
+
+        if (registerForm.dataset.saPasswordUiReady === "1") {
+            return true;
+        }
+
+        const passwordInput =
+            registerForm.querySelector('input[name="user_password"]') ||
+            registerForm.querySelector('input[name^="user_password-"]') ||
+            registerForm.querySelector('.um-field[data-key="user_password"] input') ||
+            registerForm.querySelector('.um-field-password input');
+
+        const confirmInput =
+            registerForm.querySelector('input[name="confirm_user_password"]') ||
+            registerForm.querySelector('input[name^="confirm_user_password-"]') ||
+            registerForm.querySelector('.um-field[data-key="confirm_user_password"] input') ||
+            registerForm.querySelector('.um-field-password[data-key="confirm_user_password"] input') ||
+            registerForm.querySelector('#confirm_user_password-1074');
+
+            const strengthText = registerForm.querySelector("#sa-password-strength-text");
+            const strengthBars = registerForm.querySelectorAll(".sa-strength-bars span");
+            const ruleItems = registerForm.querySelectorAll("#sa-password-rules li");
+            const rulesBox = registerForm.querySelector("#sa-password-rules");
+            const strengthBox = registerForm.querySelector("#sa-password-strength");
+
+        if (
+            !passwordInput ||
+            !confirmInput ||
+            !strengthText ||
+            !strengthBars.length ||
+            !ruleItems.length ||
+            !rulesBox ||
+            !strengthBox
+        ) {
+            return false;
+        }
+
+        const eyeOpen = `
+            <svg class="sa-eye-open" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12C4.8 8.6 8.05 6.5 12 6.5C15.95 6.5 19.2 8.6 21 12C19.2 15.4 15.95 17.5 12 17.5C8.05 17.5 4.8 15.4 3 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="2.7" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+        `;
+
+        const eyeClosed = `
+            <svg class="sa-eye-closed" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 12C4.8 8.6 8.05 6.5 12 6.5C15.95 6.5 19.2 8.6 21 12C19.2 15.4 15.95 17.5 12 17.5C8.05 17.5 4.8 15.4 3 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="2.7" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 4L20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+        `;
+
+        function enhancePasswordField(input) {
+            if (!input) return;
+
+            const fieldArea = input.closest(".um-field-area-password, .um-field-area");
+            if (!fieldArea) return;
+
+            fieldArea.classList.add("sa-password-field-area");
+
+            if (fieldArea.querySelector(".sa-password-toggle")) return;
+
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "sa-password-toggle";
+            button.setAttribute("aria-label", "Afficher ou masquer le mot de passe");
+            button.innerHTML = eyeOpen + eyeClosed;
+
+            button.addEventListener("click", function () {
+                const isPassword = input.type === "password";
+                input.type = isPassword ? "text" : "password";
+                button.classList.toggle("is-visible", isPassword);
+            });
+
+            fieldArea.appendChild(button);
+        }
+
+        function getRules(password) {
+            return {
+                length: password.length >= 8,
+                uppercase: /[A-ZÀ-ÖØ-Þ]/.test(password),
+                digit: /\d/.test(password),
+                special: /[^A-Za-z0-9À-ÖØ-öø-ÿ]/.test(password)
+            };
+        }
+
+        function getStrengthLevel(password, rules) {
+            if (!password) return 0;
+
+            let validCount = 0;
+
+            if (rules.length) validCount++;
+            if (rules.uppercase) validCount++;
+            if (rules.digit) validCount++;
+            if (rules.special) validCount++;
+
+            if (validCount <= 1) return 1;
+            if (validCount === 2) return 2;
+            if (validCount === 3) return 3;
+            return 4;
+        }
+
+        function getStrengthLabel(level) {
+            if (level <= 1) return "Très faible";
+            if (level === 2) return "Faible";
+            if (level === 3) return "Moyenne";
+            return "Forte";
+        }
+
+        function updateRulesUI(rules) {
+            ruleItems.forEach(function (item) {
+                const key = item.getAttribute("data-rule");
+                item.classList.toggle("is-valid", !!rules[key]);
+            });
+        }
+
+        function updateStrengthUI(level) {
+            strengthText.textContent = getStrengthLabel(level);
+            strengthText.className = "is-level-" + level;
+
+            strengthBars.forEach(function (bar, index) {
+                bar.classList.remove("is-active", "is-level-1", "is-level-2", "is-level-3", "is-level-4");
+
+                if (index < level) {
+                    bar.classList.add("is-active", "is-level-" + level);
+                }
+            });
+
+            rulesBox.classList.remove("is-level-0", "is-level-1", "is-level-2", "is-level-3", "is-level-4");
+            rulesBox.classList.add("is-level-" + level);
+
+            strengthBox.classList.remove("is-level-0", "is-level-1", "is-level-2", "is-level-3", "is-level-4");
+            strengthBox.classList.add("is-level-" + level);
+        }
+
+        function validatePasswordField() {
+            const password = passwordInput.value || "";
+            const rules = getRules(password);
+
+            const valid =
+                rules.length &&
+                rules.uppercase &&
+                rules.digit &&
+                rules.special;
+
+            passwordInput.setCustomValidity(
+                valid || password === ""
+                    ? ""
+                    : "Ton mot de passe doit respecter toutes les règles de sécurité indiquées."
+            );
+
+            return valid;
+        }
+
+        function validateConfirmField() {
+            const password = passwordInput.value || "";
+            const confirm = confirmInput.value || "";
+
+            if (confirm === "") {
+                confirmInput.setCustomValidity("");
+                return false;
+            }
+
+            const valid = password === confirm;
+
+            confirmInput.setCustomValidity(
+                valid ? "" : "Les mots de passe ne correspondent pas."
+            );
+
+            return valid;
+        }
+
+        function updateAll() {
+            const password = passwordInput.value || "";
+            const rules = getRules(password);
+            const level = getStrengthLevel(password, rules);
+
+            updateRulesUI(rules);
+            updateStrengthUI(level);
+            validatePasswordField();
+            validateConfirmField();
+        }
+
+        enhancePasswordField(passwordInput);
+        enhancePasswordField(confirmInput);
+
+        passwordInput.setAttribute("placeholder", "Ex : Password123!");
+        confirmInput.setAttribute("placeholder", "Ex : Password123!");
+
+        passwordInput.addEventListener("input", updateAll);
+        passwordInput.addEventListener("keyup", updateAll);
+        passwordInput.addEventListener("change", updateAll);
+        passwordInput.addEventListener("paste", function () {
+            setTimeout(updateAll, 0);
+        });
+
+        confirmInput.addEventListener("input", function () {
+            validateConfirmField();
+        });
+
+        confirmInput.addEventListener("keyup", function () {
+            validateConfirmField();
+        });
+
+        [passwordInput, confirmInput].forEach(function (input) {
+            input.addEventListener("invalid", function () {
+                if (!input.value) {
+                    input.setCustomValidity("Veuillez compléter ce champ.");
+                }
+            });
+
+            input.addEventListener("input", function () {
+                if (!input.value) {
+                    input.setCustomValidity("");
+                }
+            });
+        });
+
+        registerForm.addEventListener("submit", function (e) {
+            const passwordValid = validatePasswordField();
+            const confirmValid = validateConfirmField();
+
+            if (!passwordInput.value) {
+                passwordInput.setCustomValidity("Veuillez compléter ce champ.");
+                passwordInput.reportValidity();
+                e.preventDefault();
+                return;
+            }
+
+            if (!confirmInput.value) {
+                confirmInput.setCustomValidity("Veuillez compléter ce champ.");
+                confirmInput.reportValidity();
+                e.preventDefault();
+                return;
+            }
+
+            if (!passwordValid) {
+                passwordInput.reportValidity();
+                e.preventDefault();
+                return;
+            }
+
+            if (!confirmValid) {
+                confirmInput.reportValidity();
+                e.preventDefault();
+                return;
+            }
+        });
+
+        registerForm.dataset.saPasswordUiReady = "1";
+        updateAll();
+
+        return true;
+    }
+
+    let tries = 0;
+    const maxTries = 40;
+
+    const interval = setInterval(function () {
+        tries++;
+
+        const ok = initSiteAuteurRegisterPasswordUI();
+        if (ok || tries >= maxTries) {
+            clearInterval(interval);
+        }
+    }, 250);
+
+    const observer = new MutationObserver(function () {
+        initSiteAuteurRegisterPasswordUI();
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });

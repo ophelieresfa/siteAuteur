@@ -119,6 +119,7 @@ class AffiliateWPFF extends Affiliate_WP_Base
                 'component'        => 'AffiliateWP',
                 'status'           => 'success',
                 'title'            => __('Pushed Data to AffiliateWP', 'fluentformpro'),
+                // translators: %1$d is the referral ID, %2$s is the amount, %3$s is the affiliate name, %4$d is the affiliate ID
                 'description'      => sprintf(
                     __('Referral #%1$d for %2$s recorded for %3$s (ID: %4$d).', 'fluentformpro'),
                     $referral->referral_id,
@@ -160,6 +161,7 @@ class AffiliateWPFF extends Affiliate_WP_Base
             'component'        => 'Affiliate Wp',
             'status'           => 'success',
             'title'            => __('Pushed Data to Affiliate WP', 'fluentformpro'),
+            // translators: %1$d is the referral ID, %2$s is the amount, %3$s is the affiliate name, %4$d is the affiliate ID
             'description'      => sprintf(
                 __('Referral #%1$d for %2$s recorded for %3$s (ID: %4$d).', 'fluentformpro'),
                 $referral->referral_id,
@@ -179,8 +181,9 @@ class AffiliateWPFF extends Affiliate_WP_Base
         $referral = affiliate_wp()->referrals->get_by('reference', $submission->id, $this->context);
         $amount = affwp_currency_filter(affwp_format_amount($referral->amount));
         $name = affiliate_wp()->affiliates->get_affiliate_name($referral->affiliate_id);
+        // translators: %1$d is the referral ID, %2$s is the amount, %3$s is the affiliate name
         $note = sprintf(
-            __('Referral #%d for %s for %s rejected', 'fluentformpro'),
+            __('Referral #%1$d for %2$s for %3$s rejected', 'fluentformpro'),
             $referral->referral_id,
             $amount,
             $name

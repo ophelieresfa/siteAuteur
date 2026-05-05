@@ -7,6 +7,9 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\OrderItem;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 
 class OrderData
@@ -32,9 +35,8 @@ class OrderData
 
     public static function getOrderItems($submission)
     {
-        $items = wpFluent()->table('fluentform_order_items')
-            ->where('submission_id', $submission->id)
-	        ->where('type', '!=', 'discount') // type = single, signup_fee
+        $items = OrderItem::bySubmission($submission->id)
+            ->products()
             ->get();
 
         foreach ($items as $item) {
@@ -47,9 +49,8 @@ class OrderData
 
     public static function getDiscounts($submission)
     {
-        $items = wpFluent()->table('fluentform_order_items')
-            ->where('submission_id', $submission->id)
-            ->where('type', 'discount')
+        $items = OrderItem::bySubmission($submission->id)
+            ->discounts()
             ->get();
 
         foreach ($items as $item) {
@@ -62,8 +63,7 @@ class OrderData
 
     public static function getTransactions($submissionId)
     {
-        $transactions = wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submissionId)
+        $transactions = Transaction::bySubmission($submissionId)
             ->whereIn('transaction_type', ['onetime', 'subscription'])
             ->orderBy('id', 'ASC')
             ->get();
@@ -93,9 +93,8 @@ class OrderData
 
     public static function getRefunds($submissionId)
     {
-        $transactions = wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submissionId)
-            ->where('transaction_type', 'refund')
+        $transactions = Transaction::bySubmission($submissionId)
+            ->refunds()
             ->orderBy('id', 'ASC')
             ->get();
 
@@ -128,7 +127,7 @@ class OrderData
             $total += $item->line_total;
         }
 
-        if($discountItems) {
+        if(count($discountItems)) {
             foreach ($discountItems as $discountItem) {
                 $total -= $discountItem->line_total;
             }
@@ -143,8 +142,7 @@ class OrderData
 
 	public static function getSubscriptionsAndPaymentTotal($submission)
 	{
-		$subscriptions = wpFluent()->table('fluentform_subscriptions')
-			->where('submission_id', $submission->id)
+		$subscriptions = Subscription::bySubmission($submission->id)
 			->get();
 
 		$subscriptionPaymentTotal = 0;
@@ -162,9 +160,7 @@ class OrderData
 
 	public static function getSubscriptionTransactions($subscriptionId)
 	{
-		$transactions = wpFluent()->table('fluentform_transactions')
-			->where('subscription_id', $subscriptionId)
-			->get();
+		$transactions = Transaction::where('subscription_id', $subscriptionId)->get();
 
 		foreach ($transactions as $transaction) {
 			$transaction->payment_note = Helper::safeUnserialize($transaction->payment_note);

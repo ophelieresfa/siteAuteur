@@ -414,12 +414,14 @@ abstract class DynamicBase
     {
         if (is_array($date)) {
             foreach ($date as $i => &$d) {
+                // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                 $d = date('Y-m-d H:i:s', strtotime($d));
                 if (0 !== $i) {
                     $d = str_replace('00:00:00', '23:59:59', $d);
                 }
             }
         } else {
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $date = date('Y-m-d H:i:s', strtotime($date));
         }
         return $date;

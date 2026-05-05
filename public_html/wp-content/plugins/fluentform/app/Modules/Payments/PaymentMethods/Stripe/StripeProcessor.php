@@ -7,6 +7,8 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Services\FormBuilder\ShortCodeParser;
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentForm\App\Modules\Payments\PaymentHelper;
@@ -469,8 +471,7 @@ class StripeProcessor extends BaseProcessor
 
         $chargeId = $data->payment_intent;
         // Get the Transaction from database
-        $transaction = wpFluent()->table('fluentform_transactions')
-            ->where('charge_id', $chargeId)
+        $transaction = Transaction::where('charge_id', $chargeId)
             ->where('payment_method', 'stripe')
             ->first();
 
@@ -479,8 +480,7 @@ class StripeProcessor extends BaseProcessor
             return;
         }
 
-        $submission = wpFluent()->table('fluentform_submissions')
-            ->find($transaction->submission_id);
+        $submission = Submission::find($transaction->submission_id);
 
         if (!$submission) {
             return;
@@ -493,10 +493,7 @@ class StripeProcessor extends BaseProcessor
         }
 
         // Remove All Existing Refunds
-        wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submission->id)
-            ->where('transaction_type', 'refund')
-            ->delete();
+        Transaction::bySubmission($submission->id)->refunds()->delete();
 
         $this->refund($amountRefunded, $transaction, $submission, 'stripe', $chargeId, 'Refund from Stripe');
 

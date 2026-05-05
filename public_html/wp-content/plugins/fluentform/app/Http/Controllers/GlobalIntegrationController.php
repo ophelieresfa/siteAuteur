@@ -8,13 +8,6 @@ use Exception;
 
 class GlobalIntegrationController extends Controller
 {
-    /**
-     * Request object
-     *
-     * @var \FluentForm\Framework\Request\Request $request
-     */
-    protected $request;
-    
   
     public function index(GlobalIntegrationService $globalIntegrationService)
     {

@@ -257,7 +257,7 @@ class FrontEndEntryView
         $isEnabled        = ArrayHelper::get($frontEndSettings, 'status') === 'yes';
         if ($isEnabled) {
             $submissionShortcodes['shortcodes']['{submission.entry_uid_link}'] = __('Entry Frontend View Link',
-                'fluentform');
+                'fluentformpro');
         }
         
         return $submissionShortcodes;

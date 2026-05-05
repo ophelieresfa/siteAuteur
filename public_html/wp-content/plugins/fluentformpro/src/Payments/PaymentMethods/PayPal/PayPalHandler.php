@@ -87,6 +87,7 @@ class PayPalHandler
         }
 
         if ($transaction->status == 'requires_capture') {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $transaction->additional_note = __('<b>Action Required: </b> The payment has been authorized but not captured yet. Please <a target="_blank" rel="noopener" href="' . $transaction->action_url . '">Click here</a> to capture this payment in stripe.com', 'fluentformpro');
         }
 

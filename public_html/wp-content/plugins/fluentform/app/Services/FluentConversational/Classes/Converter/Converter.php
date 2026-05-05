@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FluentConversational\Classes\Converter;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -1286,7 +1288,7 @@ class Converter
 
             \FluentFormPro\classes\DraftSubmissionsManager::migrate();
 
-            $draftForm = wpFluent()->table('fluentform_draft_submissions')->where('hash', $hash)->first();
+            $draftForm = \FluentFormPro\classes\DraftSubmissionsManager::get($hash);
 
             if ($draftForm) {
                 $saveAndResume = true;
@@ -1341,10 +1343,7 @@ class Converter
         }
 
         if ($hash) {
-            $draftForm = wpFluent()->table('fluentform_draft_submissions')
-                ->where('hash', $hash)
-                ->where('form_id', $formId)
-                ->first();
+            $draftForm = \FluentFormPro\classes\DraftSubmissionsManager::get($hash, $formId);
         } elseif (!$draftForm && $userId = get_current_user_id()) {
             $draftForm = wpFluent()->table('fluentform_draft_submissions')
                 ->where('user_id', $userId)

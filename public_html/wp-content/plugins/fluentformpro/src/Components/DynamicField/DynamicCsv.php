@@ -35,7 +35,7 @@ class DynamicCsv
         $csvParser = new \CSVParser;
         $content = @file_get_contents($csvUrl);
         if (!$content) {
-            throw new \Exception(__('Invalid url', 'fluentformpro'));
+            throw new \Exception(__('Invalid url', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         $csvParser->load_data($content);
@@ -50,7 +50,7 @@ class DynamicCsv
         $result = $csvParser->parse($csvDelimiter);
 
         if(!$result) {
-            throw new \Exception(__('Empty data', 'fluentformpro'));
+            throw new \Exception(__('Empty data', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         $headers = array_shift($result);
         $limit = (int)Arr::get($config, 'result_limit');

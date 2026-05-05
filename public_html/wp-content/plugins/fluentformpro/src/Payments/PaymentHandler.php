@@ -94,7 +94,7 @@ class PaymentHandler
         ];
         foreach ($actions as $action) {
             add_action($action, function () use ($message) {
-                printf('<div class="fluentform-admin-notice notice notice-success">%1$s</div>', $message);
+                printf('<div class="fluentform-admin-notice notice notice-success">%1$s</div>', wp_kses_post($message));
             });
         }
 
@@ -180,8 +180,10 @@ class PaymentHandler
                     'discount:'                => __('Discount:', 'fluentformpro'),
                     'processing_text'          => __('Processing payment. Please wait...', 'fluentformpro'),
                     'confirming_text'          => __('Confirming payment. Please wait...', 'fluentformpro'),
-                    'Signup Fee for %s'        => __('Signup Fee for %s', 'fluentform'),
-                    'Signup Fee for %1s - %2s' => __('Signup Fee for %1s - %2s', 'fluentform'),
+                    // translators: %s is the subscription plan name
+                    'Signup Fee for %s'        => __('Signup Fee for %s', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.UnorderedPlaceholdersText -- JS sprintf uses %1s/%2s format, not PHP %1$s/%2$s
+                    'Signup Fee for %1s - %2s' => __('Signup Fee for %1s - %2s', 'fluentformpro'),
                 ]
             ]);
 
@@ -251,7 +253,7 @@ class PaymentHandler
 
         if (isset($_GET['fluentform_payment']) && isset($_GET['payment_method'])) {
             add_action('wp', function () {
-                $data = $_GET;
+                $data = fluentFormSanitizer($_GET, null, 'sanitize_text_field');
 
                 $type = sanitize_text_field($_GET['fluentform_payment']);
 
@@ -604,7 +606,7 @@ class PaymentHandler
         $originalUid = Helper::getSubmissionMeta($submissionId, '_entry_uid_hash');
 
         if ($originalUid != $uid) {
-            die(__('Transaction UID is invalid', 'fluentformpro'));
+            die(__('Transaction UID is invalid', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
 
         return true;
@@ -626,7 +628,7 @@ class PaymentHandler
             })
             ->get();
 
-        if (!$transactions) {
+        if (!count($transactions)) {
             return false;
         }
 

@@ -387,27 +387,28 @@ class StripeInlineProcessor extends StripeProcessor
      */
     protected function validateScaRequest($submissionId, $paymentIntentId, $submission = null, $transaction = null)
     {
-        $strictMode = apply_filters('fluentform/stripe_sca_strict_security', false);
         $warnings = [];
 
-        // Validate nonce (optional in non-strict mode for backward compatibility)
+        // Validate nonce — always required by default.
+        // Filter allows opt-out only for backward compat; emits deprecation notice.
         $nonce = isset($_REQUEST['_ff_stripe_nonce']) ? sanitize_text_field(wp_unslash($_REQUEST['_ff_stripe_nonce'])) : '';
-        
+
         if ($nonce) {
             $nonceAction = 'fluentform_sca_confirm_' . $submissionId;
             if (!wp_verify_nonce($nonce, $nonceAction)) {
-                $error = __('Security verification failed. Invalid nonce.', 'fluentform');
-                if ($strictMode) {
-                    return new \WP_Error('invalid_nonce', $error);
-                }
-                $warnings[] = 'Invalid nonce provided';
+                return new \WP_Error('invalid_nonce', __('Security verification failed. Invalid nonce.', 'fluentform'));
             }
         } else {
-            $warning = 'No nonce provided for SCA payment confirmation';
+            $strictMode = apply_filters('fluentform/stripe_sca_strict_security', true);
             if ($strictMode) {
                 return new \WP_Error('missing_nonce', __('Security verification failed. Nonce required.', 'fluentform'));
             }
-            $warnings[] = $warning;
+            _deprecated_argument(
+                'fluentform/stripe_sca_strict_security',
+                '6.2.0',
+                esc_html(__('Disabling strict SCA nonce verification is deprecated and will be removed in a future version.', 'fluentform'))
+            );
+            $warnings[] = 'No nonce provided for SCA payment confirmation';
         }
 
         // Validate submission exists
@@ -517,7 +518,8 @@ class StripeInlineProcessor extends StripeProcessor
                     'status'           => 'error',
                     'title'            => __('Stripe Amount Mismatch', 'fluentform'),
                     'description'      => sprintf(
-                        __('Expected %d but Stripe confirmed %d. Payment rejected.', 'fluentform'),
+                        // translators: %1$d is the expected amount, %2$d is the confirmed amount
+                        __('Expected %1$d but Stripe confirmed %2$d. Payment rejected.', 'fluentform'),
                         intval($transaction->payment_total),
                         intval($confirmation->amount)
                     )

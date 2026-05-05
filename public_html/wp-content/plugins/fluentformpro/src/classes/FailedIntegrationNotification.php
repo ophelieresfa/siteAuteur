@@ -92,6 +92,7 @@ class FailedIntegrationNotification
         }
         $settings = $this->getEmailConfig();
         $currentTime = current_time('mysql');
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
         $lastHour = date('Y-m-d H:i:s', strtotime('-1 hour', strtotime($currentTime)));
         $failedFeeds = Scheduler::whereIn('status', ['failed', 'error'])
             ->where('retry_count', '>=', 3)
@@ -102,7 +103,7 @@ class FailedIntegrationNotification
             ->limit(11)
             ->get();
     
-        if (!$failedFeeds || $failedFeeds->isEmpty()) {
+        if (!count($failedFeeds)) {
             return;
         }
         foreach ($failedFeeds as $index => $feed) {
@@ -130,6 +131,7 @@ class FailedIntegrationNotification
     private function broadCast($recipients, $failedFeeds)
     {
         $currentTime = current_time('mysql');
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
         $lastHour = date('Y-m-d H:i:s', strtotime('-1 hour', strtotime($currentTime)));
         $data = [
             'failed_feeds'    => $failedFeeds,
@@ -157,7 +159,7 @@ class FailedIntegrationNotification
         
         $headers = ['Content-Type: text/html; charset=utf-8'];
         
-        $emailSubject = esc_html__('Failed Integration Notification', 'fluentform');
+        $emailSubject = esc_html__('Failed Integration Notification', 'fluentformpro');
         
         $emailSubject = apply_filters('fluentform/failed_integration_email_subject', $emailSubject);
         

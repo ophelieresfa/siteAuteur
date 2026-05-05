@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Chat;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Models\FormMeta;
 use FluentForm\App\Services\FormBuilder\ShortCodeParser;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -87,7 +89,7 @@ class ChatFieldController
                          ->where('form_id', $form->id)
                          ->get();
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return $message;
         }
 
@@ -458,6 +460,7 @@ class ChatFieldController
             $feedId = ArrayHelper::get($feed, 'id');
             $formId = ArrayHelper::get($feed, 'form_id');
             $feedName = ArrayHelper::get($value, 'name');
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $chatGPTShortCodesContainer['shortcodes']['{chat_gpt_response.'. $formId . '_' . $feedId . '}'] = __(sprintf('ChatGPT Response for %s', $feedName), 'fluentformpro');
         }
 

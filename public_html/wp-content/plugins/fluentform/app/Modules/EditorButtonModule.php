@@ -33,9 +33,9 @@ class EditorButtonModule
                     ->select(['id', 'title'])
                     ->get();
 
-        $forms = array_map(function ($item) {
+        $forms = $forms->map(function ($item) {
             return ['value' => $item->id, 'text' => $item->title];
-        }, $forms);
+        })->all();
 
         wp_localize_script('fluentform_editor_script', 'fluentform_editor_vars', [
             'forms' => $forms,

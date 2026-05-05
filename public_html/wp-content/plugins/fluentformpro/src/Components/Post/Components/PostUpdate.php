@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Components\Post\Components;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\FormBuilder\BaseFieldManager;
@@ -190,7 +192,7 @@ class PostUpdate extends BaseFieldManager
         $postFormHandler = new PostFormHandler();
         $feeds = $postFormHandler->getFormFeeds($form);
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return;
         }
         foreach ($feeds as $feed) {

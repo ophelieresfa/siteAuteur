@@ -337,7 +337,7 @@ class Bootstrap extends IntegrationManagerController
             $folders[] = [
                 'label' => isset($folder['name'])
                     ? $folder['name']
-                    : esc_html__('Default Client Folder', 'fluentformicontact'),
+                    : esc_html__('Default Client Folder', 'fluentformpro'),
                 'value' => $folder['clientFolderId']
             ];
         }

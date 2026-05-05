@@ -1,5 +1,8 @@
 <?php
 namespace FluentFormPro\Integrations\Pipedrive;
+
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -271,16 +274,20 @@ class Bootstrap extends IntegrationManagerController
 
                     $data = array(
                         'key' => $field['key'],
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'placeholder' => __($field['name'], 'fluentformpro'),
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'label' => __($field['name'], 'fluentformpro'),
                         'data_type' => $field['field_type'],
                         'required' => false,
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         'tips' => __('Enter ' . $field['name'] . ' value or choose form input provided by shortcode.', 'fluentformpro'),
                         'component' => 'value_text'
                     );
 
                     if ($this->isRequiredField($serviceId, $field)) {
                         $data['required'] = true;
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $data['tips'] = __($field['name'] . ' is a required field. Enter value or choose form input provided by shortcode.', 'fluentformpro');
                     }
 
@@ -290,6 +297,7 @@ class Bootstrap extends IntegrationManagerController
 
                     if ($this->isSelectField($field)) {
                         $data['component'] = 'select';
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $data['tips'] = __("Choose " . $field['name'] . " type in select list.", 'fluentformpro');
                         $data_options = array();
                         if ($field['field_type'] === 'user') {
@@ -302,6 +310,7 @@ class Bootstrap extends IntegrationManagerController
                             }
                         } elseif (in_array($field['field_type'], ['org', 'people'])) {
                             $people_options = $orgs_options = [];
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             $data['tips'] .= __("<br> If list empty first create " . $field['name'] ." in you pipedrive dashboard.", 'fluentformpro');
                             $orgs = $api->getOrganizations();
                             if (is_wp_error($orgs) || !$orgs['success']) {
@@ -477,6 +486,7 @@ class Bootstrap extends IntegrationManagerController
             }
 
             if ($key['required'] && empty($feedData[$key['feed_key']])) {
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 do_action('fluentform/integration_action_result', $feed, 'failed',  __('Failed to insert Pipedrive feed. Details : ' . $key['label'] . ' empty', 'fluentformpro'));
                 return false;
             }
@@ -506,6 +516,7 @@ class Bootstrap extends IntegrationManagerController
             }
 
             if ($date = ArrayHelper::get($postData, 'expected_close_date')) {
+                // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                 $postData['expected_close_date'] = date('Y-m-d', strtotime($date));
             }
         }
@@ -514,6 +525,7 @@ class Bootstrap extends IntegrationManagerController
 
         if ($list_id === 'activities') {
             if ($date = ArrayHelper::get($postData,'due_date')) {
+                // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                 $postData['due_date'] = date('Y-m-d', strtotime($date));
             }
         }
@@ -539,6 +551,7 @@ class Bootstrap extends IntegrationManagerController
             foreach ($fields as $field){
                 if ($field['required'] && empty($settings[$field['feed_key']])) {
                     $error = true;
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     $msg = __($field['label'].' is required.', 'fluentformpro');
                     if ($field['data_type'] === 'org') {
                         $msg .= __(' First Create Organization In your Integration.', 'fluentformpro');

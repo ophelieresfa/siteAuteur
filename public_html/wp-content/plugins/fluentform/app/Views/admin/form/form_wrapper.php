@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template variables in view files
 ?>
 <div class="ff_form_wrap ff_screen_<?php echo esc_attr($route); ?>">

@@ -35,12 +35,14 @@ class Client
 		->where('meta_key', $this->metaKey)
 		->get();
 
-		if ($hooks) {
-			$hooks = array_map(function($hook) {
-				$hook->value = json_decode($hook->value);
-				return $hook;
-			}, $hooks);
+		if (!is_array($hooks)) {
+			$hooks = is_object($hooks) && method_exists($hooks, 'toArray') ? $hooks->toArray() : (array) $hooks;
 		}
+
+		foreach ($hooks as &$hook) {
+			$hook->value = json_decode($hook->value);
+		}
+		unset($hook);
 
 		wp_send_json_success($hooks);
 	}

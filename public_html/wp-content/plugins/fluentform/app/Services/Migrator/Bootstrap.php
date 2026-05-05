@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\Migrator;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Services\Migrator\Classes\NinjaFormsMigrator;
 use FluentForm\App\Services\Migrator\Classes\CalderaMigrator;
 use FluentForm\App\Services\Migrator\Classes\GravityFormsMigrator;

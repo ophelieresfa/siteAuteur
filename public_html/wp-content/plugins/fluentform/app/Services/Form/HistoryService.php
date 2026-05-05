@@ -354,8 +354,9 @@ class HistoryService
             ])
                 ->orderBy('id', 'asc')
                 ->limit($entriesToRemove)
-                ->pluck('id');
-            
+                ->pluck('id')
+                ->toArray();
+
             FormMeta::whereIn('id', $oldestEntries)->delete();
         }
     }

@@ -32,7 +32,14 @@ class SubmissionNoteController extends Controller
     {
         try {
             $attributes = $this->request->all();
-            
+
+            if (isset($attributes['note']['content'])) {
+                $attributes['note']['content'] = wp_kses_post($attributes['note']['content']);
+            }
+            if (isset($attributes['note']['status'])) {
+                $attributes['note']['status'] = sanitize_text_field($attributes['note']['status']);
+            }
+
             return $this->sendSuccess(
                 $submissionService->storeNote($submissionId, $attributes)
             );

@@ -7,6 +7,10 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\Form;
+use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Modules\Payments\PaymentMethods\BaseProcessor;
 use FluentForm\Database\Migrations\Submissions;
@@ -181,7 +185,7 @@ class AjaxEndpoints
         $request = wpFluentForm()->request;
         $formId = intval($request->get('form_id', 0));
         $settings = PaymentHelper::getFormSettings($formId, 'admin');
-        $form = wpFluent()->table('fluentform_forms')->find($formId);
+        $form = Form::find($formId);
         $addressFields = array_values(FormFieldsParser::getAddressFields($form));
 
         $paymentSettings = [
@@ -249,8 +253,7 @@ class AjaxEndpoints
         $subscriptionId = intval($request->get('subscription_id', 0));
         
         $transactionId = $transactionData['id'];
-        $oldTransaction = wpFluent()->table('fluentform_transactions')
-            ->find($transactionId);
+        $oldTransaction = Transaction::find($transactionId);
 
         $changingStatus = $oldTransaction->status != $transactionData['status'];
 
@@ -265,26 +268,22 @@ class AjaxEndpoints
 
         $updateData['updated_at'] = current_time('mysql');
 
-        wpFluent()->table('fluentform_transactions')
-            ->where('id', $transactionId)
-            ->update($updateData);
+        Transaction::where('id', $transactionId)->update($updateData);
 
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verified in route registration
         if ($subscriptionId) {
-            $existingSubscription = wpFluent()->table('fluentform_subscriptions')
-                                        ->find($subscriptionId);
+            $existingSubscription = Subscription::find($subscriptionId);
 
             $changedStatus = ArrayHelper::get($transactionData, 'status');
 
             $isStatusChanged = $existingSubscription->status != $changedStatus;
 
             if ($isStatusChanged) {
-                wpFluent()->table('fluentform_subscriptions')
-                          ->where('id', $subscriptionId)
-                          ->update([
-                              'status' => $changedStatus,
-                              'updated_at' => current_time('mysql')
-                          ]);
+                Subscription::where('id', $subscriptionId)
+                    ->update([
+                        'status' => $changedStatus,
+                        'updated_at' => current_time('mysql')
+                    ]);
             }
         }
 
@@ -324,10 +323,7 @@ class AjaxEndpoints
 
             if ($newStatus == 'paid' || $newStatus == 'pending' || $newStatus == 'processing') {
                 // Delete All Refunds
-                wpFluent()->table('fluentform_transactions')
-                    ->where('submission_id', $oldTransaction->submission_id)
-                    ->where('transaction_type', 'refund')
-                    ->delete();
+                Transaction::bySubmission($oldTransaction->submission_id)->refunds()->delete();
             }
 
             $baseProcessor->setSubmissionId($oldTransaction->submission_id);
@@ -416,31 +412,25 @@ class AjaxEndpoints
         // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Nonce verified in route registration
         $submissionId = ArrayHelper::get($attributes, 'submission_id', 0);
 
-        $oldTransaction = wpFluent()->table('fluentform_transactions')
-                                    ->find($transactionId);
+        $oldTransaction = Transaction::find($transactionId);
 
-        $oldSubmission = wpFluent()->table('fluentform_submissions')
-                                   ->find($submissionId);
+        $oldSubmission = Submission::find($submissionId);
 
         if ($oldTransaction && $oldSubmission) {
             $isStatusNotCancelled = $oldTransaction->status !== 'cancelled' && $oldSubmission->payment_status !== 'cancelled';
 
             if ($isStatusNotCancelled) {
-                $updateData =
+                Transaction::where('id', $transactionId)
+                    ->update([
+                        'status' => 'cancelled',
+                        'updated_at' => current_time('mysql')
+                    ]);
 
-                wpFluent()->table('fluentform_transactions')
-                          ->where('id', $transactionId)
-                          ->update([
-                              'status' => 'cancelled',
-                              'updated_at' => current_time('mysql')
-                          ]);
-
-                wpFluent()->table('fluentform_submissions')
-                          ->where('id', $submissionId)
-                          ->update([
-                              'payment_status' => 'cancelled',
-                              'updated_at' => current_time('mysql')
-                          ]);
+                Submission::where('id', $submissionId)
+                    ->update([
+                        'payment_status' => 'cancelled',
+                        'updated_at' => current_time('mysql')
+                    ]);
             }
         }
 

@@ -257,6 +257,7 @@ class FormStylerGenerator
 
     }
 
+    // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- CSS generation with sanitized admin-only values
     public function generateSmartCheckable($item, $selector)
     {
         $itemColor = Arr::get($item, 'color.value');

@@ -7,6 +7,12 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\Form;
+use FluentForm\App\Models\OrderItem;
+use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\SubmissionMeta;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentForm\App\Services\Form\SubmissionHandlerService;
@@ -50,7 +56,7 @@ abstract class BaseProcessor
             $data['transaction_hash'] = md5($data['transaction_type'] . '_payment_' . $data['submission_id'] . '-' . $data['form_id'] . '_' . $data['created_at'] . '-' . time() . '-' . wp_rand(100, 999));
         }
 
-        return wpFluent()->table('fluentform_transactions')->insertGetId($data);
+        return Transaction::create($data)->id;
     }
 
     public function insertRefund($data)
@@ -73,36 +79,31 @@ abstract class BaseProcessor
             $data['transaction_hash'] = md5($data['transaction_type'] . '_payment_' . $data['submission_id'] . '-' . $data['form_id'] . '_' . $data['created_at'] . '-' . time() . '-' . wp_rand(100, 999));
         }
 
-        return wpFluent()->table('fluentform_transactions')->insertGetId($data);
+        return Transaction::create($data)->id;
     }
 
     public function getTransaction($transactionId, $column = 'id')
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where($column, $transactionId)
-            ->first();
+        return Transaction::where($column, $transactionId)->first();
     }
 
     public function getRefund($refundId, $column = 'id')
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where($column, $refundId)
-            ->where('transaction_type', 'refund')
+        return Transaction::where($column, $refundId)
+            ->refunds()
             ->first();
     }
 
     public function getTransactionByChargeId($chargeId)
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $this->submissionId)
+        return Transaction::bySubmission($this->submissionId)
             ->where('charge_id', $chargeId)
             ->first();
     }
 
     public function getLastTransaction($submissionId)
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submissionId)
+        return Transaction::bySubmission($submissionId)
             ->orderBy('id', 'DESC')
             ->first();
     }
@@ -122,8 +123,7 @@ abstract class BaseProcessor
 
         do_action('fluentform/before_payment_status_change', $newStatus, $this->getSubmission());
 
-        wpFluent()->table('fluentform_submissions')
-            ->where('id', $this->submissionId)
+        Submission::where('id', $this->submissionId)
             ->update([
                 'payment_status' => $newStatus,
                 'updated_at'     => current_time('mysql')
@@ -161,9 +161,8 @@ abstract class BaseProcessor
 
     public function recalculatePaidTotal()
     {
-        $transactions = wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $this->submissionId)
-            ->whereIn('status', ['paid', 'requires_capture', 'processing', 'partially-refunded', 'refunded'])
+        $transactions = Transaction::bySubmission($this->submissionId)
+            ->paid()
             ->get();
 
         $total = 0;
@@ -183,8 +182,7 @@ abstract class BaseProcessor
             $total = $total - $refunds;
         }
 
-        wpFluent()->table('fluentform_submissions')
-            ->where('id', $this->submissionId)
+        Submission::where('id', $this->submissionId)
             ->update([
                 'total_paid' => $total,
                 'updated_at' => current_time('mysql')
@@ -199,16 +197,13 @@ abstract class BaseProcessor
 
     public function getRefundTotal()
     {
-        $refunds = wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $this->submissionId)
-            ->where('transaction_type', 'refund')
+        $refunds = Transaction::bySubmission($this->submissionId)
+            ->refunds()
             ->get();
 
         $total = 0;
-        if ($refunds) {
-            foreach ($refunds as $refund) {
-                $total += $refund->payment_total;
-            }
+        foreach ($refunds as $refund) {
+            $total += $refund->payment_total;
         }
 
         return $total;
@@ -235,8 +230,7 @@ abstract class BaseProcessor
             $transactionId
         );
 
-        wpFluent()->table('fluentform_transactions')
-            ->where('id', $transactionId)
+        Transaction::where('id', $transactionId)
             ->update([
                 'status'     => $newStatus,
                 'updated_at' => current_time('mysql')
@@ -268,9 +262,7 @@ abstract class BaseProcessor
     {
         $data['updated_at'] = current_time('mysql');
 
-        return wpFluent()->table('fluentform_transactions')
-            ->where('id', $transactionId)
-            ->update($data);
+        return Transaction::where('id', $transactionId)->update($data);
     }
 
     public function completePaymentSubmission($isAjax = true)
@@ -290,7 +282,7 @@ abstract class BaseProcessor
             if ($this->getMetaData('is_form_action_fired') == 'yes') {
                 $data = $submissionService->getReturnData($submission->id, $this->getForm(),
                     $submission->response);
-                
+
                 $returnData = [
                     'insert_id' => $submission->id,
                     'result'    => $data,
@@ -310,7 +302,7 @@ abstract class BaseProcessor
                 $this->setMetaData('is_form_action_fired', 'yes');
             }
             return $returnData;
-        
+
         } catch (\Exception $e) {
             return [
                 'insert_id' => $submission->id,
@@ -318,7 +310,7 @@ abstract class BaseProcessor
                 'error'     => $e->getMessage(),
             ];
         }
-        
+
     }
 
     public function getSubmission()
@@ -327,9 +319,7 @@ abstract class BaseProcessor
             return $this->submission;
         }
 
-        $submission = wpFluent()->table('fluentform_submissions')
-            ->where('id', $this->submissionId)
-            ->first();
+        $submission = Submission::where('id', $this->submissionId)->first();
 
         if (!$submission) {
             return false;
@@ -351,26 +341,22 @@ abstract class BaseProcessor
 
         $submission = $this->getSubmission();
 
-        $this->form = wpFluent()->table('fluentform_forms')
-            ->where('id', $submission->form_id)
-            ->first();
+        $this->form = Form::where('id', $submission->form_id)->first();
 
         return $this->form;
     }
 
     public function getOrderItems()
     {
-        return wpFluent()->table('fluentform_order_items')
-            ->where('submission_id', $this->submissionId)
-            ->where('type', '!=', 'discount') // type = single, signup_fee
+        return OrderItem::bySubmission($this->submissionId)
+            ->products()
             ->get();
     }
 
     public function getDiscountItems()
     {
-        return wpFluent()->table('fluentform_order_items')
-            ->where('submission_id', $this->submissionId)
-            ->where('type', 'discount')
+        return OrderItem::bySubmission($this->submissionId)
+            ->discounts()
             ->get();
     }
 
@@ -378,29 +364,26 @@ abstract class BaseProcessor
     {
         $value = maybe_serialize($value);
 
-        return wpFluent()->table('fluentform_submission_meta')
-            ->insertGetId([
-                'response_id' => $this->getSubmissionId(),
-                'form_id'     => $this->getForm()->id,
-                'meta_key'    => $name,
-                'value'       => $value,
-                'created_at'  => current_time('mysql'),
-                'updated_at'  => current_time('mysql')
-            ]);
+        return SubmissionMeta::create([
+            'response_id' => $this->getSubmissionId(),
+            'form_id'     => $this->getForm()->id,
+            'meta_key'    => $name,
+            'value'       => $value,
+            'created_at'  => current_time('mysql'),
+            'updated_at'  => current_time('mysql')
+        ])->id;
     }
 
     public function deleteMetaData($name)
     {
-        return wpFluent()->table('fluentform_submission_meta')
-            ->where('meta_key', $name)
+        return SubmissionMeta::where('meta_key', $name)
             ->where('response_id', $this->getSubmissionId())
             ->delete();
     }
 
     public function getMetaData($metaKey)
     {
-        $meta = wpFluent()->table('fluentform_submission_meta')
-            ->where('response_id', $this->getSubmissionId())
+        $meta = SubmissionMeta::where('response_id', $this->getSubmissionId())
             ->where('meta_key', $metaKey)
             ->first();
 
@@ -469,7 +452,7 @@ abstract class BaseProcessor
         });
 
         add_action('wp_enqueue_scripts', function () {
-            wp_enqueue_style('fluent-form-landing', fluentformMix('css/frameless.css'), [], FLUENTFORM_VERSION);
+            wp_enqueue_style('fluent-form-landing', fluentFormMix('css/frameless.css'), [], FLUENTFORM_VERSION);
         });
 
         status_header(200);
@@ -571,9 +554,8 @@ abstract class BaseProcessor
         }
 
         $this->setSubmissionId($submission->id);
-        $existingRefund = wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submission->id)
-            ->where('transaction_type', 'refund')
+        $existingRefund = Transaction::bySubmission($submission->id)
+            ->refunds()
             ->first();
 
         if ($existingRefund) {
@@ -600,12 +582,10 @@ abstract class BaseProcessor
                 'transaction_type' => 'refund'
             ];
 
-            wpFluent()->table('fluentform_transactions')->where('id', $existingRefund->id)
-                ->update($updateData);
+            Transaction::where('id', $existingRefund->id)->update($updateData);
 
-            $existingRefund = wpFluent()->table('fluentform_transactions')
-                ->where('submission_id', $submission->id)
-                ->where('transaction_type', 'refund')
+            $existingRefund = Transaction::bySubmission($submission->id)
+                ->refunds()
                 ->first();
 
             if ($transaction->status != $status) {
@@ -695,8 +675,8 @@ abstract class BaseProcessor
         if ($type == 'paid') {
             $returnData = $this->getReturnData();
         } else {
-            $pendingTitle = __('Payment was not marked as paid', 'fluentformpro');
-            $pendingMessage = __('Looks like you have is still on pending status', 'fluentformpro');
+            $pendingTitle = __('Payment was not marked as paid', 'fluentform');
+            $pendingMessage = __('Looks like you have is still on pending status', 'fluentform');
             $returnData = [
                 'insert_id' => $submission->id,
                 'title'     => apply_filters('fluentform/payment_pending_title', $pendingTitle, $submission, $form),
@@ -713,8 +693,7 @@ abstract class BaseProcessor
 
     public function getSubscriptions($status = false)
     {
-        $subscriptions = wpFluent()->table('fluentform_subscriptions')
-            ->where('submission_id', $this->submissionId)
+        $subscriptions = Subscription::bySubmission($this->submissionId)
             ->when($status, function ($q) use ($status) {
                 $q->where('status', $status);
             })
@@ -732,15 +711,12 @@ abstract class BaseProcessor
     {
         $data['updated_at'] = current_time('mysql');
 
-        return wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $id)
-            ->update($data);
+        return Subscription::where('id', $id)->update($data);
     }
 
     public function maybeInsertSubscriptionCharge($item)
     {
-        $exists = wpFluent()->table('fluentform_transactions')
-            ->where('transaction_type', 'subscription')
+        $exists = Transaction::subscriptionType()
             ->where('submission_id', $item['submission_id'])
             ->where('subscription_id', $item['subscription_id'])
             ->where('charge_id', $item['charge_id'])
@@ -761,9 +737,7 @@ abstract class BaseProcessor
             unset($item['transaction_hash']);
             unset($item['created_at']);
 
-            wpFluent()->table('fluentform_transactions')
-                ->where('id', $exists->id)
-                ->update($item);
+            Transaction::where('id', $exists->id)->update($item);
 
             $id = $exists->id;
         } else {
@@ -777,7 +751,7 @@ abstract class BaseProcessor
                 $item['transaction_hash'] = $uniqueHash;
             }
 
-            $id = wpFluent()->table('fluentform_transactions')->insertGetId($item);
+            $id = Transaction::create($item)->id;
             $isNew = true;
         }
 
@@ -785,31 +759,26 @@ abstract class BaseProcessor
         $transaction = fluentFormApi('submissions')->transaction($id);
 
         // We want to update the total amount here
-        $parentSubscription = wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $transaction->subscription_id)
-            ->first();
+        $parentSubscription = Subscription::where('id', $transaction->subscription_id)->first();
 
         // Let's count the total subscription payment
         if ($parentSubscription) {
             list($billCount, $paymentTotal) = $this->getPaymentCountsAndTotal($parentSubscription->id);
 
-            wpFluent()->table('fluentform_subscriptions')
-                ->where('id', $parentSubscription->id)
+            Subscription::where('id', $parentSubscription->id)
                 ->update([
                     'bill_count'    => $billCount,
                     'payment_total' => $paymentTotal,
                     'updated_at'    => current_time('mysql')
                 ]);
 
-            wpFluent()->table('fluentform_submissions')->where('id', $parentSubscription->submission_id)
+            Submission::where('id', $parentSubscription->submission_id)
                 ->update([
                     'payment_total' => $paymentTotal,
                     'total_paid'    => $paymentTotal,
                 ]);
 
-            $subscription = wpFluent()->table('fluentform_subscriptions')
-                ->where('id', $parentSubscription->id)
-                ->first();
+            $subscription = Subscription::where('id', $parentSubscription->id)->first();
 
             if($isNew) {
                 $submission = $this->getSubmission();
@@ -849,10 +818,8 @@ abstract class BaseProcessor
 
     public function getPaymentCountsAndTotal($subscriptionId, $paymentMethod = false)
     {
-        $payments = wpFluent()
-            ->table('fluentform_transactions')
-            ->select(['id', 'payment_total'])
-            ->where('transaction_type', 'subscription')
+        $payments = Transaction::select(['id', 'payment_total'])
+            ->subscriptionType()
             ->where('subscription_id', $subscriptionId)
             ->when($paymentMethod, function ($q) use ($paymentMethod) {
                 $q->where('payment_method', $paymentMethod);
@@ -905,9 +872,7 @@ abstract class BaseProcessor
     {
         $data['updated_at'] = current_time('mysql');
 
-        return wpFluent()->table('fluentform_submissions')
-            ->where('id', $id)
-            ->update($data);
+        return Submission::where('id', $id)->update($data);
     }
 
     public function limitLength($string, $limit = 127)
@@ -1052,8 +1017,7 @@ abstract class BaseProcessor
             return $subscription;
         }
 
-        wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $subscription->id)
+        Subscription::where('id', $subscription->id)
             ->update([
                 'status' => $newStatus,
                 'updated_at' => current_time('mysql')

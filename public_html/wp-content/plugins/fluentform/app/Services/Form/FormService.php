@@ -597,7 +597,7 @@ class FormService
         global $wpdb;
         $placeholders = implode(', ', array_fill(0, count($postTypes), '%s'));
         $args = array_merge($postTypes, ['%fluentform%']);
-        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $placeholders contains only %s literals
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $placeholders is safe: generated from array_fill with %s format strings
         $matchingIds = $wpdb->get_col($wpdb->prepare(
             "SELECT ID FROM {$wpdb->posts} WHERE post_type IN ({$placeholders}) AND post_status != 'trash' AND post_content LIKE %s",
             $args

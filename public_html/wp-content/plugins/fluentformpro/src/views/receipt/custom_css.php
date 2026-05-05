@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') or die; ?>
 <style type="text/css">
     .ffp_table {
         empty-cells: show;

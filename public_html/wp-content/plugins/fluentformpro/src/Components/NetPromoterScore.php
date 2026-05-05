@@ -163,7 +163,7 @@ class NetPromoterScore extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
     }
 
     private function getThead($options, $textStart, $textEnd)
@@ -173,8 +173,12 @@ class NetPromoterScore extends BaseFieldManager
         <thead>
             <tr>
                 <th colspan="<?php echo count($options); ?>">
-                    <span class="ff_not-likely"><?php echo $textStart; ?></span>
-                    <span class="ff_extremely-likely"><?php echo $textEnd; ?></span>
+                    <span class="ff_not-likely"><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $textStart; ?></span>
+                    <span class="ff_extremely-likely"><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $textEnd; ?></span>
                 </th>
             </tr>
         </thead>
@@ -210,9 +214,11 @@ class NetPromoterScore extends BaseFieldManager
                     $atts = $this->buildAttributes($atts);
                 ?>
                 <td>
-                    <input <?php echo $atts; ?>>
-                    <label class='ff-el-net-label' for="<?php echo $id; ?>">
-                        <span><?php echo $option; ?></span>
+                    <input <?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $atts; ?>>
+                    <label class='ff-el-net-label' for="<?php echo esc_attr($id); ?>">
+                        <span><?php echo esc_html($option); ?></span>
                     </label>
                 </td>
                 <?php endforeach; ?>

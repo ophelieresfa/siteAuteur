@@ -116,6 +116,7 @@ class StripeProcessor extends BaseProcessor
                 $checkoutArgs['line_items'][] = [
                     'amount'   => $price,
                     'currency' => $transaction->currency,
+                    // translators: %s is the subscription plan name
                     'name'     => sprintf(__('Signup fee for %s', 'fluentformpro'), $subscription->plan_name),
                     'quantity' => 1
                 ];
@@ -308,7 +309,7 @@ class StripeProcessor extends BaseProcessor
                     $transaction = $this->getTransaction($transactionHash, 'transaction_hash');
                     $returnData = $this->processStripeSession($session, $submission, $transaction);
                 } else {
-                    $error = __('Sorry! No Valid payment session found. Please try again');
+                    $error = __('Sorry! No Valid payment session found. Please try again', 'fluentformpro');
                     if (is_wp_error($session)) {
                         $error = $session->get_error_message();
                     }
@@ -355,7 +356,7 @@ class StripeProcessor extends BaseProcessor
         if($transaction->transaction_type == 'subscription') {
             $subscriptions = $this->getSubscriptions();
 
-            if($subscriptions) {
+            if(count($subscriptions)) {
                 $this->processSubscriptionSuccess($subscriptions, $invoice, $submission);
 
                 $vendorSubscription = $session->subscription;
@@ -597,7 +598,7 @@ class StripeProcessor extends BaseProcessor
 
             foreach ($metaData as $itemKey => $value) {
                 if (is_string($value) || is_numeric($value)) {
-                    $metaData[$itemKey] = strip_tags($value);
+                    $metaData[$itemKey] = wp_strip_all_tags($value);
                 }
             }
 
@@ -701,6 +702,7 @@ class StripeProcessor extends BaseProcessor
                 'component'        => 'Payment',
                 'status'           => 'error',
                 'title'            => __('Stripe Payment Error', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'description'      => __($message, 'fluentformpro')
             ];
 

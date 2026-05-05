@@ -137,10 +137,16 @@ class RepeaterContainer extends BaseFieldManager
         
         ob_start();
         ?>
-        <div <?php echo $atts; ?>>
-            <?php echo $this->buildElementLabel($data, $form); ?>
+        <div <?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $atts; ?>>
+            <?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $this->buildElementLabel($data, $form); ?>
             <div class='ff-el-input--content'>
-                <div role="list" aria-label="<?php echo $ariaLabel; ?>" data-max_repeat="<?php echo esc_attr($data['attributes']['data-max_repeat']); ?>" data-root_name="<?php echo esc_attr($rootName); ?>" class="ff_repeater_container_list ff_flexible_list">
+                <div role="list" aria-label="<?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $ariaLabel; ?>" data-max_repeat="<?php echo esc_attr($data['attributes']['data-max_repeat']); ?>" data-root_name="<?php echo esc_attr($rootName); ?>" class="ff_repeater_container_list ff_flexible_list">
                     <div class="ff_repeater_body" role="rowgroup">
                         <div class="ff_repeater_cont_row" role="row">
                             <?php $this->renderColumns($columns, $rootName, $data, $form); ?>
@@ -152,7 +158,7 @@ class RepeaterContainer extends BaseFieldManager
         <?php
         $html = ob_get_clean();
         
-        echo apply_filters('fluentform/rendering_field_html_' . $data['element'], $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $data['element'], $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
         \FluentForm\App\Helpers\Helper::getNextTabIndex(50);
     }
     
@@ -205,7 +211,7 @@ class RepeaterContainer extends BaseFieldManager
         
         $buttonWidth = 100 - $totalWidth;
         echo "<div class='ff_repeater_cell repeat_btn' role='cell' style='flex-basis: " . esc_attr($buttonWidth) . "%;'>";
-        echo $this->getRepeater($data['element']);
+        echo $this->getRepeater($data['element']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Repeater button HTML
         echo "</div>";
     }
     
@@ -216,7 +222,7 @@ class RepeaterContainer extends BaseFieldManager
         $containerClass .= ' ' . $hasConditions;
         
         $container_css_class = $this->wrapperClass . ' ff_columns_total_' . count($data['columns']);
-        $container_css_class .= ' ' . strip_tags($containerClass);
+        $container_css_class .= ' ' . wp_strip_all_tags($containerClass);
         
         return esc_attr($container_css_class);
     }
@@ -299,7 +305,9 @@ class RepeaterContainer extends BaseFieldManager
             <thead>
             <tr>
                 <?php foreach ($fields as $index => $field): ?>
-                    <th style="padding: 8px; background-color: #f8f8f8; border: 1px solid #cbcbcb; text-align: left;"><?php echo ArrayHelper::get($field, 'settings.label'); ?></th>
+                    <th style="padding: 8px; background-color: #f8f8f8; border: 1px solid #cbcbcb; text-align: left;"><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo ArrayHelper::get($field, 'settings.label'); ?></th>
                 <?php endforeach; ?>
             </tr>
             </thead>
@@ -335,7 +343,9 @@ class RepeaterContainer extends BaseFieldManager
                             }
                         }
                     ?>
-                        <td style="padding: 8px; border: 1px solid #cbcbcb;"><?php echo $value; ?></td>
+                        <td style="padding: 8px; border: 1px solid #cbcbcb;"><?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $value; ?></td>
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>

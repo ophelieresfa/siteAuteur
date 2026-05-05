@@ -1,4 +1,8 @@
-<?php if($transaction->payer_name || $transaction->payer_email) : ?>
+<?php
+
+defined('ABSPATH') or die;
+
+if($transaction->payer_name || $transaction->payer_email) : ?>
 <div class="ffp_customer_details">
     <h4><?php esc_html_e('Customer Details', 'fluentform'); ?></h4>
     <div  class="ffp_submission_details">

@@ -36,6 +36,11 @@ class ComposerScript
             $fileName = $file->getPathname();
 
             $content = file_get_contents($fileName);
+
+            if (strpos($content, 'WPFluent\\') === false) {
+                continue;
+            }
+
             $content = str_replace(
                 'WPFluent\\',
                 $namespace . '\\Framework\\',

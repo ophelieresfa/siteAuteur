@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Discord;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;

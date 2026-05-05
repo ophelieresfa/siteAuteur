@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Reports;
 
+defined('ABSPATH') or die;
+
 use FluentFormPro\Reports\ReportHelperPro as ReportHelper;
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;
 use FluentForm\Framework\Support\Sanitizer;
@@ -113,6 +115,7 @@ class ReportsResponseExtender
 
         if (!$startDate || !$endDate) {
             $endDate = current_time('Y-m-d H:i:s');
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $startDate = date('Y-m-d H:i:s', strtotime('-30 days', strtotime($endDate)));
         }
 
@@ -153,7 +156,7 @@ class ReportsResponseExtender
                 ]
             ];
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            throw new \Exception($e->getMessage()); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
     }
 
@@ -181,6 +184,7 @@ class ReportsResponseExtender
 
         if (!$startDate || !$endDate) {
             $endDate = current_time('Y-m-d H:i:s');
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $startDate = date('Y-m-d H:i:s', strtotime('-30 days', strtotime($endDate)));
         }
 
@@ -210,7 +214,7 @@ class ReportsResponseExtender
                 ]
             ];
         } catch (\Exception $e) {
-            throw new \Exception($e->getMessage());
+            throw new \Exception($e->getMessage()); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
     }
 

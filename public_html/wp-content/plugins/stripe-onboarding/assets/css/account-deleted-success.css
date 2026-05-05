@@ -1,0 +1,109 @@
+.sa-account-deleted-page {
+    padding: 50px 20px;
+}
+
+.sa-account-deleted-box {
+    max-width: 760px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #e7edf3;
+    border-radius: 5px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(31, 42, 68, 0.08);
+}
+
+.sa-account-deleted-icon {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 20px;
+}
+
+.sa-account-deleted-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.sa-account-deleted-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #41c59a;
+}
+
+.sa-account-deleted-box h1 {
+    margin: 0 0 16px;
+    font-size: 35px;
+    line-height: 1.1;
+    color: #343434;
+}
+
+.sa-account-deleted-text {
+    margin: 0 auto 30px;
+    max-width: 560px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #667284;
+}
+
+.sa-account-deleted-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sa-account-deleted-btn {
+    text-decoration: none;
+    transition: all 0.2s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 501;
+}
+
+.sa-account-deleted-btn-primary {
+    background: #41c59a;
+    border: 1px solid #41c59a;
+    color: #fff;
+}
+
+.sa-account-deleted-btn-primary:hover {
+    background: #fff;
+    border-color: #35b68c;
+    color: #35b68c;
+}
+
+.sa-account-deleted-btn-secondary {
+    background: #fff;
+    border: 1px solid #343434;
+    color: #343434;
+}
+
+.sa-account-deleted-btn-secondary:hover {
+    background: #343434;
+    color: #ffffff;
+}
+
+@media (max-width: 640px) {
+    .sa-account-deleted-page {
+        padding: 50px 16px;
+    }
+
+    .sa-account-deleted-box {
+        padding: 35px 22px;
+        border-radius: 5px;
+    }
+
+    .sa-account-deleted-box h1 {
+        font-size: 32px;
+    }
+
+    .sa-account-deleted-btn {
+        width: 100%;
+        min-width: 100%;
+    }
+}

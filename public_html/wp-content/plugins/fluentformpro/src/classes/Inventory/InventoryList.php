@@ -96,7 +96,7 @@ class InventoryList
         
         ob_start();
         require(FLUENTFORMPRO_DIR_PATH . 'src/views/inventory_list.php');
-        echo ob_get_clean();
+        echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Admin page HTML from template
     }
     
     public function formatSinglePaymentSubmission($name, $input,$submissionItems)

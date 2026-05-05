@@ -84,7 +84,7 @@ trait NotifyTrait
         }
 
         wp_send_json_success(array(
-            'message' => __(__('Sample sent successfully.', 'fluentformpro')),
+            'message' => __('Sample sent successfully.', 'fluentformpro'),
         ));
     }
 }

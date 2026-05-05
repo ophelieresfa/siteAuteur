@@ -35,6 +35,9 @@ class Bootstrap extends IntegrationManagerController
             $hasConstantContactAuthCode = isset($_REQUEST['ff_constant_contact_auth']) && isset($_REQUEST['code']);
 
             if ($hasConstantContactAuthCode) {
+                if (!current_user_can('fluentform_settings_manager')) {
+                    return;
+                }
                 // Get the access token now
                 $code = sanitize_text_field($_REQUEST['code']);
                 $settings = $this->getGlobalSettings([]);
@@ -144,6 +147,7 @@ class Bootstrap extends IntegrationManagerController
                 </li>
                 <li>
                     Set your Redirect Url as <b><?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         echo admin_url('?ff_constant_contact_auth=true'); ?></b>
                 </li>
             </ol>
@@ -721,6 +725,7 @@ class Bootstrap extends IntegrationManagerController
                 $results->get_error_message());
         } elseif ($contactId = ArrayHelper::get($results, 'contact_id')) {
             do_action('fluentform/integration_action_result', $feed, 'success',
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 __('Constant Contact has been successfully initialed and pushed data with Contact ID: ' . $contactId, 'fluentformpro'));
         }
     }

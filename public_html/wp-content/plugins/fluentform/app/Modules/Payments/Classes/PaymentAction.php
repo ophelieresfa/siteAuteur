@@ -7,6 +7,11 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\OrderItem;
+use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\SubmissionMeta;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\ConditionAssesor;
 use FluentForm\App\Services\Form\SubmissionHandlerService;
@@ -178,16 +183,12 @@ class PaymentAction
 
         if ($existingSubmission) {
             $insertId = $existingSubmission->id;
-            wpFluent()->table('fluentform_submissions')
-                ->where('id', $insertId)
-                ->update($submission);
+            Submission::where('id', $insertId)->update($submission);
 
             // delete the existing transactions here if any
-            wpFluent()->table('fluentform_transactions')
-                ->where('submission_id', $insertId)
-                ->delete();
+            Transaction::where('submission_id', $insertId)->delete();
         } else {
-            $insertId = wpFluent()->table('fluentform_submissions')->insertGetId($submission);
+            $insertId = Submission::create($submission)->id;
             $uidHash = md5(wp_generate_uuid4() . $insertId);
             Helper::setSubmissionMeta($insertId, '_entry_uid_hash', $uidHash, $this->form->id);
             $intermediatePaymentHash = md5('payment_' . wp_generate_uuid4() . '_' . $insertId . '_' . $this->form->id);
@@ -216,7 +217,7 @@ class PaymentAction
 
         $subsTotal = 0;
         if ($subscriptionItems && $existingSubmission) {
-            wpFluent()->table('fluentform_subscriptions')->where('submission_id', $existingSubmission->id)->delete();
+            Subscription::where('submission_id', $existingSubmission->id)->delete();
         }
 
         foreach ($subscriptionItems as $subscriptionItem) {
@@ -224,7 +225,7 @@ class PaymentAction
             $linePrice = $subscriptionItem['recurring_amount'] * $quantity;
             $subsTotal += intval($linePrice);
             $subscriptionItem['submission_id'] = $insertId;
-            wpFluent()->table('fluentform_subscriptions')->insert($subscriptionItem);
+            Subscription::create($subscriptionItem);
         }
 
         do_action('fluentform/notify_on_form_submit', $this->submissionId, $this->submissionData['response'], $this->form);
@@ -273,7 +274,7 @@ class PaymentAction
          * In the payment method, ideally they will send the response. But if no payment method exist then
          * we will handle here
          */
-        $submission = wpFluent()->table('fluentform_submissions')->find($insertId);
+        $submission = Submission::find($insertId);
     
         $returnData = (new SubmissionHandlerService())->processSubmissionData(
             $submission->id, $this->submissionData['response'], $this->form
@@ -643,8 +644,7 @@ class PaymentAction
             return false;
         }
 
-        $meta = wpFluent()->table('fluentform_submission_meta')
-            ->where('meta_key', '__entry_intermediate_hash')
+        $meta = SubmissionMeta::where('meta_key', '__entry_intermediate_hash')
             ->where('value', $entryUid)
             ->where('form_id', $this->form->id)
             ->first();
@@ -653,7 +653,7 @@ class PaymentAction
             return false;
         }
 
-        $submission = wpFluent()->table('fluentform_submissions')->find($meta->response_id);
+        $submission = Submission::find($meta->response_id);
 
         if ($submission && ($submission->payment_status == 'failed' || $submission->payment_status == 'pending' || $submission->payment_status == 'draft')) {
             return $submission;
@@ -666,21 +666,21 @@ class PaymentAction
     {
         if (!$existing) {
             foreach ($items as $item) {
-                wpFluent()->table('fluentform_order_items')->insert($item);
+                OrderItem::create($item);
             }
             return true;
         }
 
         if (!$items && $existing) {
-            wpFluent()->table('fluentform_order_items')->where('submission_id', $existing->id)->delete();
+            OrderItem::where('submission_id', $existing->id)->delete();
             return true;
         }
 
-        $exitingItems = wpFluent()->table('fluentform_order_items')->where('submission_id', $existing->id)->get();
+        $exitingItems = OrderItem::where('submission_id', $existing->id)->get();
 
-        if (!$exitingItems) {
+        if (!$exitingItems || count($exitingItems) === 0) {
             foreach ($items as $item) {
-                wpFluent()->table('fluentform_order_items')->insert($item);
+                OrderItem::create($item);
             }
             return true;
         }
@@ -699,16 +699,14 @@ class PaymentAction
                 // already exist no need to add
                 $verifiedIds[] = array_search($hash, $existingHashes);
             } else {
-                $newId = wpFluent()->table('fluentform_order_items')->insertGetId($item);
+                $newId = OrderItem::create($item)->id;
                 $verifiedIds[] = $newId;
                 $newIds[] = $newId;
             }
         }
 
         if ($verifiedIds) {
-            wpFluent()->table('fluentform_order_items')
-                ->whereNotIn('id', $verifiedIds)
-                ->delete();
+            OrderItem::whereNotIn('id', $verifiedIds)->delete();
         }
 
         return true;

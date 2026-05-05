@@ -1,0 +1,255 @@
+#content {
+    background: #f8f8f8;
+}
+
+.sa-buy-mod-page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.sa-buy-mod-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 28px;
+}
+
+.sa-buy-mod-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3fc095;
+}
+
+.sa-buy-mod-hero__content h1 {
+    margin: 0 0 18px;
+    font-size: 35px;
+    line-height: 1.05;
+    font-weight: 700;
+    color: #343434;
+}
+
+.sa-buy-mod-hero__content p {
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #5c677d;
+    max-width: 760px;
+}
+
+.sa-buy-mod-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.sa-buy-mod-hero__badges span {
+    display: flex;
+    font-size: 13px;
+    gap: 5px;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: #eefaf5;
+    color: #2aa97e;
+    font-weight: 600;
+}
+
+.sa-buy-mod-hero__visual {
+    text-align: center;
+}
+
+.sa-buy-mod-hero__visual img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    width: 65%;
+}
+
+.sa-buy-mod-card-wrap {
+    margin-bottom: 20px;
+}
+
+.sa-buy-mod-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.sa-buy-mod-card,
+.sa-buy-mod-faq {
+    background: #fff;
+    border: 1px solid #e7ebf1;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(36, 49, 78, 0.05);
+}
+
+.sa-buy-mod-card {
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    border-color: #3fc095;
+    box-shadow: 0 16px 40px rgba(63, 192, 149, 0.14);
+}
+
+.sa-buy-mod-card__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #effaf5;
+    color: #25ae7f;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #3fc095;
+}
+
+.sa-buy-mod-card h2 {
+    margin: 0 0 12px;
+    font-size: 25px;
+    line-height: 1.15;
+    color: #343434;
+}
+
+.sa-buy-mod-price {
+    margin-bottom: 14px;
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 800;
+    color: #343434;
+}
+
+.sa-buy-mod-card__subtitle {
+    margin: 0 auto 26px;
+    max-width: 680px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #67748e;
+}
+
+.sa-buy-mod-features {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    display: grid;
+    gap: 12px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #44516b;
+}
+
+.sa-buy-mod-cta {
+    margin-bottom: 18px;
+}
+
+.sa-buy-mod-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: #3fc095;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sa-buy-mod-btn:hover,
+.sa-buy-mod-btn:focus {
+    background: #2ea77f;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.sa-buy-mod-note {
+    margin: 0 !important;
+    font-size: 13px;
+    color: #67748e;
+}
+
+.sa-buy-mod-faq {
+    padding: 32px;
+}
+
+.sa-buy-mod-faq h3 {
+    margin: 0 0 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #343434;
+}
+
+.sa-buy-mod-faq__list {
+    display: grid;
+    gap: 16px;
+}
+
+.sa-buy-mod-faq__item {
+    padding: 20px 22px;
+    border: 1px solid #e7ebf1;
+    border-radius: 5px;
+    background: #fcfcfd;
+}
+
+.sa-buy-mod-faq__item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #343434;
+}
+
+.sa-buy-mod-faq__item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #67748e;
+}
+
+@media (max-width: 980px) {
+    .sa-buy-mod-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .sa-buy-mod-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .sa-buy-mod-page {
+        padding: 24px 16px 40px;
+    }
+
+    .sa-buy-mod-hero__content h1 {
+        font-size: 34px;
+    }
+
+    .sa-buy-mod-card {
+        padding: 28px 20px;
+    }
+
+    .sa-buy-mod-card h2 {
+        font-size: 24px;
+    }
+
+    .sa-buy-mod-price {
+        font-size: 38px;
+    }
+
+    .sa-buy-mod-btn {
+        width: 100%;
+    }
+}

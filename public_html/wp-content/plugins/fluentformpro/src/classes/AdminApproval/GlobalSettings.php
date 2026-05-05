@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\AdminApproval;
 
+defined('ABSPATH') or die;
+
 use FluentForm\Framework\Support\Arr;
 
 class GlobalSettings extends AdminApproval

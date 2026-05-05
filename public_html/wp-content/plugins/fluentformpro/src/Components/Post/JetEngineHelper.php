@@ -344,6 +344,7 @@ class JetEngineHelper
             if (strpos($format, 'K') !== false) {
                 $format = str_replace('K', 'A', $format);
             }
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $date = date($format, $date);
         }
         return $date ?: '';

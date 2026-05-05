@@ -332,13 +332,17 @@ class FluentFormAddOnUpdater
         }
 
         if (!current_user_can('update_plugins')) {
-            wp_die(__('You do not have permission to install plugin updates', 'edd'), __('Error', 'edd'),
-                array('response' => 403));
+            wp_die(
+                __('You do not have permission to install plugin updates', 'fluentformpro'), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                __('Error', 'fluentformpro'), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                array('response' => 403)
+            );
         }
 
         $response = $this->api_request('plugin_latest_version', array('slug' => $_REQUEST['slug']));
 
         if ($response && isset($response->sections['changelog'])) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             echo '<div style="background:#fff;padding:10px;">' . $response->sections['changelog'] . '</div>';
         }
 

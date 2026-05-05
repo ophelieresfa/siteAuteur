@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
     do_action_deprecated(
         'fluentform_global_menu',
         [

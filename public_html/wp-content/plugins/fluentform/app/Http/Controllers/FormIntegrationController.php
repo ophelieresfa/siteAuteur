@@ -25,7 +25,7 @@ class FormIntegrationController extends Controller
         try {
             $integration = $integrationService->find($this->request->all());
             return $this->sendSuccess($integration);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $this->sendError([
                 'message' => $e->getMessage(),
             ], 422);
@@ -37,7 +37,7 @@ class FormIntegrationController extends Controller
         try {
             $integration = $integrationService->update($this->request->all());
             return $this->sendSuccess($integration);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $this->sendError([
                 'message' => $e->getMessage()
             ], 422);
@@ -47,12 +47,13 @@ class FormIntegrationController extends Controller
     public function delete(FormIntegrationService $integrationService)
     {
         try {
+            $formId = intval($this->request->get('form_id'));
             $id = intval($this->request->get('integration_id'));
-            $integrationService->delete($id);
+            $integrationService->delete($id, $formId);
             return $this->sendSuccess([
                 'message' => __('Successfully deleted the Integration.', 'fluentform'),
             ], 200);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $this->sendError([
                 'message' => $e->getMessage(),
             ], 422);
@@ -91,7 +92,7 @@ class FormIntegrationController extends Controller
             return $this->sendSuccess([
                 'merge_fields' => $merge_fields,
             ]);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             return $this->sendError([
                 'message' => $e->getMessage(),
             ], 422);

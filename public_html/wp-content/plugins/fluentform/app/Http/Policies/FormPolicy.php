@@ -3,7 +3,7 @@
 namespace FluentForm\App\Http\Policies;
 
 use FluentForm\App\Modules\Acl\Acl;
-use FluentForm\Framework\Request\Request;
+use FluentForm\Framework\Http\Request\Request;
 use FluentForm\Framework\Foundation\Policy;
 
 class FormPolicy extends Policy
@@ -29,10 +29,26 @@ class FormPolicy extends Policy
         return Acl::hasAnyFormPermission($request->get('form_id'));
     }
 
+    public function find(Request $request)
+    {
+        return Acl::hasPermission('fluentform_forms_manager', $request->get('form_id'));
+    }
+
+    public function delete(Request $request)
+    {
+        return Acl::hasPermission('fluentform_forms_manager', $request->get('form_id'));
+    }
+
+    public function integrationListComponent(Request $request)
+    {
+        return Acl::hasPermission('fluentform_forms_manager', $request->get('form_id'));
+    }
+
     public function updateModuleStatus(Request $request)
     {
         return Acl::hasPermission('fluentform_settings_manager', $request->get('form_id'));
     }
+
     public function updateIntegration(Request $request)
     {
         return Acl::hasPermission('fluentform_settings_manager', $request->get('form_id'));

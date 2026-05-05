@@ -1,0 +1,345 @@
+.sa-cgv-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    color: #343434;
+    font-family: inherit;
+}
+
+.ast-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sa-cgv-page * {
+    box-sizing: border-box;
+}
+
+.sa-cgv-container {
+    width: min(1180px, calc(100% - 42px));
+    margin: 0 auto;
+}
+
+.sa-cgv-hero {
+    position: relative;
+    padding: 30px 0;
+    background:
+        radial-gradient(circle at 16% 18%, rgba(63, 192, 149, 0.18), transparent 30%),
+        radial-gradient(circle at 84% 12%, rgba(63, 192, 149, 0.12), transparent 26%),
+        linear-gradient(180deg, #ffffff 0%, #effbf7 100%);
+    border-bottom: 1px solid rgba(229, 237, 240, 0.9);
+    text-align: center;
+}
+
+.sa-cgv-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 9px 16px;
+    margin: 0 auto 24px;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.14);
+    color: #3fc095;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.sa-cgv-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-cgv-badge svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sa-cgv-hero h1 {
+    margin: 0;
+    color: #343434;
+    font-size: 35px;
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+    font-weight: 700;
+}
+
+.sa-cgv-hero p {
+    max-width: 760px;
+    margin: 22px auto 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.sa-cgv-content {
+    padding: 50px 0;
+    background: #ffffff;
+}
+
+.sa-cgv-grid {
+    display: grid;
+    gap: 34px;
+}
+
+.sa-cgv-grid-two {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+}
+
+.sa-cgv-card,
+.sa-cgv-contact {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    box-shadow: 0 16px 38px rgba(23, 36, 58, 0.06);
+}
+
+.sa-cgv-card {
+    padding: 36px 38px 34px;
+}
+
+.sa-cgv-card-wide {
+    margin: 34px 0;
+}
+
+.sa-cgv-card-head {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.sa-cgv-icon,
+.sa-cgv-contact-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(63, 192, 149, 0.12);
+    color: #3fc095;
+}
+
+.sa-cgv-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.sa-cgv-contact-icon {
+    width: 40px;
+    height: 40px;
+    background: #3fc095;
+    color: #ffffff;
+}
+
+.sa-cgv-icon svg,
+.sa-cgv-contact-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sa-cgv-card h2,
+.sa-cgv-contact h2 {
+    margin: 0;
+    color: #3fc095;
+    font-size: 25px;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+}
+
+.sa-cgv-card p,
+.sa-cgv-contact p {
+    margin: 0 0 18px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.sa-cgv-card p:last-child,
+.sa-cgv-contact p:last-child {
+    margin-bottom: 0;
+}
+
+.sa-cgv-card strong,
+.sa-cgv-contact strong {
+    color: #343434;
+    font-weight: 501;
+}
+
+.sa-cgv-card a,
+.sa-cgv-contact a {
+    color: #3fc095;
+    text-decoration: none;
+    font-weight: 501;
+}
+
+.sa-cgv-card a:hover,
+.sa-cgv-contact a:hover {
+    text-decoration: underline;
+}
+
+.sa-cgv-card ul {
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+
+.sa-cgv-card li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 5px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.sa-cgv-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: #3fc095;
+}
+
+.sa-cgv-contact {
+    margin-top: 34px;
+    padding: 34px 42px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 34px;
+    align-items: center;
+    background: #edf9f3;
+    border-color: rgba(63, 192, 149, 0.22);
+}
+
+.sa-cgv-contact .sa-cgv-card-head {
+    margin-bottom: 0;
+}
+
+.sa-cgv-contact-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 20px;
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    box-shadow: 0 12px 28px rgba(23, 36, 58, 0.05);
+}
+
+.sa-cgv-contact-box strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.sa-cgv-contact-box a {
+    display: inline-block;
+    font-size: 14px;
+    color: #3fc095;
+}
+
+@media (max-width: 980px) {
+    .sa-cgv-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-cgv-contact {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-cgv-hero h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sa-cgv-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .sa-cgv-hero {
+        padding: 58px 0 54px;
+    }
+
+    .sa-cgv-hero h1 {
+        font-size: 34px;
+    }
+
+    .sa-cgv-hero p {
+        font-size: 15px;
+    }
+
+    .sa-cgv-content {
+        padding: 38px 0 56px;
+    }
+
+    .sa-cgv-card,
+    .sa-cgv-contact {
+        padding: 28px 22px;
+    }
+
+    .sa-cgv-card-head {
+        gap: 16px;
+        margin-bottom: 22px;
+    }
+
+    .sa-cgv-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    .sa-cgv-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .sa-cgv-card h2,
+    .sa-cgv-contact h2 {
+        font-size: 24px;
+    }
+
+    .sa-cgv-card p,
+    .sa-cgv-card li,
+    .sa-cgv-contact p {
+        font-size: 14px;
+    }
+
+    .sa-cgv-contact-box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .sa-cgv-card-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .sa-cgv-contact .sa-cgv-card-head {
+        align-items: flex-start;
+    }
+
+    .sa-cgv-contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

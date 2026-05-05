@@ -201,7 +201,7 @@ class RangeSliderField extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
     }
 
     private function registerScripts($form, $elementId)
@@ -237,7 +237,11 @@ class RangeSliderField extends BaseFieldManager
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 function initRangeSlider() {
-                    var $element = $('.<?php echo $form->instance_css_class; ?>').find("#<?php echo $elementId ?>");
+                    var $element = $('.<?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $form->instance_css_class; ?>').find("#<?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $elementId ?>");
 
                     if (!$element.length) {
                         return;
@@ -293,7 +297,9 @@ class RangeSliderField extends BaseFieldManager
 
                 initRangeSlider();
 
-                $(document).on('reInitExtras reInitRangeSliders', '.<?php echo $form->instance_css_class; ?>', function () {
+                $(document).on('reInitExtras reInitRangeSliders', '.<?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $form->instance_css_class; ?>', function () {
                     initRangeSlider();
                 });
             });

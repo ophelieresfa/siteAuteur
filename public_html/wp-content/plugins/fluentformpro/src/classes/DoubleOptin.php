@@ -296,7 +296,7 @@ class DoubleOptin
         );
 
         if (!$this->isActivated($formId)) {
-            die($invalidMessage);
+            die(wp_kses_post($invalidMessage));
         }
 
         $hash = sanitize_text_field(ArrayHelper::get($data, 'entry_confirmation'));
@@ -308,7 +308,7 @@ class DoubleOptin
             ->first();
 
         if (!$meta) {
-            die($invalidMessage);
+            die(wp_kses_post($invalidMessage));
         }
         $insertId = $meta->response_id;
 
@@ -318,7 +318,7 @@ class DoubleOptin
             ->first();
 
         if (!$entry) {
-            die($invalidMessage);
+            die(wp_kses_post($invalidMessage));
         }
 
         // Check if the confirmation has already been completed
@@ -327,7 +327,7 @@ class DoubleOptin
                 'fluentform/double_optin_already_confirmed_message',
                 __('The confirmation of the double opt-in has already been carried out and can only be done once. If you continue to experience issues, please contact the site administrator for assistance.', 'fluentformpro')
             );
-            die($alreadyConfirmedMessage);
+            die(wp_kses_post($alreadyConfirmedMessage));
         }
 
         $submissionData = json_decode($entry->response, true);
@@ -452,6 +452,7 @@ class DoubleOptin
         if (!$daySpan) {
             $daySpan = 7;
         }
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
         $date = date('Y-m-d H:i:s', (time() - $daySpan * DAY_IN_SECONDS));
 
         $oldEntries = wpFluent()->table('fluentform_submissions')
@@ -460,7 +461,7 @@ class DoubleOptin
             ->limit(100)
             ->get();
 
-        if ($oldEntries) {
+        if (count($oldEntries)) {
             $this->deleteEntries($oldEntries);
         }
     }
@@ -471,7 +472,7 @@ class DoubleOptin
             ->where('meta_key', 'auto_delete_days')
             ->get();
 
-        if (!$autoDeleteFormMetas) {
+        if (!count($autoDeleteFormMetas)) {
             return;
         }
 
@@ -485,6 +486,7 @@ class DoubleOptin
         }
 
         foreach ($formGroups as $delayDays => $formIds) {
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $date = date('Y-m-d H:i:s', (time() - $delayDays * DAY_IN_SECONDS));
             $oldEntries = wpFluent()->table('fluentform_submissions')
                 ->whereIn('form_id', $formIds)
@@ -498,7 +500,7 @@ class DoubleOptin
     // @todo need to move on helper class
     public function deleteEntries($entries)
     {
-        if (!$entries) {
+        if (!count($entries)) {
             return;
         }
 
@@ -588,7 +590,7 @@ class DoubleOptin
                 foreach ($files as $file) {
                     $file = wp_upload_dir()['basedir'] . FLUENTFORM_UPLOAD_DIR . '/' . basename($file);
                     if (is_readable($file) && !is_dir($file)) {
-                        @unlink($file);
+                        wp_delete_file($file);
                     }
                 }
             }

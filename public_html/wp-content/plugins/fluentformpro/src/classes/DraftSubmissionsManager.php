@@ -60,6 +60,7 @@ class DraftSubmissionsManager
 
             if (!is_email($emailAddress)) {
                 wp_send_json_error([
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                     'Error' => __("Please provide a valid email address to send entry {$action} email",
                         'fluentformpro')
                 ], 423);
@@ -81,7 +82,8 @@ class DraftSubmissionsManager
                 $saveProgressButton,
                 "settings.on_{$action}_email_subject",
                 sprintf(
-                    __('A Partial entry %s on form: %s and partial entry ID: %s', 'fluentformpro'),
+                    // translators: %1$s is the action verb, %2$s is the form name, %3$s is the partial entry ID
+                    __('A Partial entry %1$s on form: %2$s and partial entry ID: %3$s', 'fluentformpro'),
                     $actionVerb,
                     '{form_name}',
                     '{partial_entry_id}'
@@ -142,6 +144,7 @@ class DraftSubmissionsManager
 
     public function getEntry()
     {
+        $this->verify();
         $data = null;
         $entry = false;
         $attributes = $this->app->request->all();
@@ -641,6 +644,16 @@ class DraftSubmissionsManager
             }
         }
     
+        add_filter('fluentform/save_progress_vars', function ($vars) use ($key) {
+            $vars['key'] = $key;
+            return $vars;
+        });
+
+        add_filter('fluentform/conversational_extra_inputs', function ($inputs) use ($key) {
+            $inputs['__fluent_state_hash'] = $key;
+            return $inputs;
+        });
+
         add_action('wp_enqueue_scripts', function () use ($key) {
             $vars = apply_filters('fluentform/save_progress_vars', [
                 'source_url'          => esc_url(home_url(sanitize_text_field($_SERVER['REQUEST_URI']))),
@@ -734,6 +747,7 @@ class DraftSubmissionsManager
         $notify = $notifier->notify($emailFormat, $submittedData, $form);
         
         if ($notify) {
+            // translators: %s is the recipient email address
             $message = sprintf(__('Email Successfully Sent to %s', 'fluentformpro'),$toEmail);
             $message = apply_filters_deprecated(
                 'fluentform_email_resume_link_response',
@@ -756,10 +770,20 @@ class DraftSubmissionsManager
 
     private function deleteSavedStateDraft($form, $formData)
     {
-        if (!isset($formData['__fluent_state_hash'])) {
+        $hash = '';
+        if (isset($formData['__fluent_state_hash'])) {
+            $hash = $formData['__fluent_state_hash'];
+        } else {
+            $requestData = $this->app->request->get('data');
+            if (is_array($requestData) && isset($requestData['__fluent_state_hash'])) {
+                $hash = $requestData['__fluent_state_hash'];
+            }
+        }
+
+        if (!$hash) {
             return;
         }
-        $hash = sanitize_text_field($formData['__fluent_state_hash']);
+        $hash = sanitize_text_field($hash);
         ob_start();
         $draft = $this->get($hash, $form->id);
         if ($draft) {
@@ -958,7 +982,7 @@ class DraftSubmissionsManager
     {
         $nonce = $this->app->request->get('nonce');
         if (!wp_verify_nonce($nonce)) {
-            $nonceMessage =  __('Nonce verification failed, please try again.', 'fluentform');
+            $nonceMessage =  __('Nonce verification failed, please try again.', 'fluentformpro');
             $nonceMessage = apply_filters_deprecated(
                 'fluentform_nonce_error',
                 [

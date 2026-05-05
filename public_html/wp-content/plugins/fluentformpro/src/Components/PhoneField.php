@@ -211,7 +211,7 @@ class PhoneField extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
     }
 
     private function pushScripts($data, $form)
@@ -300,15 +300,23 @@ class PhoneField extends BaseFieldManager
                         if (typeof intlTelInputFunc == 'undefined') {
                             return;
                         }
-                        var telInput = jQuery('.<?php echo $form->instance_css_class; ?>').find("#<?php echo $data['attributes']['id']; ?>");
+                        var telInput = jQuery('.<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $form->instance_css_class; ?>').find("#<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $data['attributes']['id']; ?>");
                         if (!telInput.length) {
                             return;
                         }
 
-                        var itlOptions = JSON.parse('<?php echo $itlOptions; ?>');
+                        var itlOptions = JSON.parse('<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $itlOptions; ?>');
                         <?php if($geoLocate && $ipProviderUrl): ?>
                         itlOptions.geoIpLookup = function (success, failure) {
-                            jQuery.get("<?php echo $ipProviderUrl; ?>", function (res) {
+                            jQuery.get("<?php
+                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                echo $ipProviderUrl; ?>", function (res) {
                                 return true;
                             }, "json").always(function (resp) {
                                 var countryCode = (resp && resp.country) ? resp.country : "";
@@ -323,11 +331,15 @@ class PhoneField extends BaseFieldManager
                         }
                         var iti = intlTelInputFunc(telInput[0], itlOptions);
                         telInput.data('iti', iti);
-                        telInput.data('strict_validation', '<?php echo $strictValidation; ?>');
+                        telInput.data('strict_validation', '<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $strictValidation; ?>');
                     }
 
                     initTelInput();
-                    $(document).on('reInitExtras', '.<?php echo $form->instance_css_class; ?>', function () {
+                    $(document).on('reInitExtras', '.<?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $form->instance_css_class; ?>', function () {
                         initTelInput();
                     });
                 });

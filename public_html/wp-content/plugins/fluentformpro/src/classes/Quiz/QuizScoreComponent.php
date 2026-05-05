@@ -2,6 +2,7 @@
 
 namespace FluentFormPro\classes\Quiz;
 
+defined('ABSPATH') or die;
 
 use FluentForm\App\Services\FormBuilder\BaseFieldManager;
 use FluentForm\App\Services\FormBuilder\Components\Text;
@@ -124,8 +125,8 @@ class QuizScoreComponent extends BaseFieldManager
             ],
             'select_options' => [
                 'template'     => 'selectOptions',
-                'label'        => __('Personality Types', 'fluentform'),
-                'help_text'    => __('Create visual options for the field and checkmark them for default selection.', 'fluentform'),
+                'label'        => __('Personality Types', 'fluentformpro'),
+                'help_text'    => __('Create visual options for the field and checkmark them for default selection.', 'fluentformpro'),
                 'hide_default_value' => true,
                 'show_values'   => true,
                 'dependency'   => [
@@ -230,7 +231,7 @@ class QuizScoreComponent extends BaseFieldManager
     
     public static function determinePersonality($userSelectedValues, $field, $form)
     {
-        $personalityResult = apply_filters('fluentform/quiz_personality_test_fallback_label', __('Did not match any options!'), $form);
+        $personalityResult = apply_filters('fluentform/quiz_personality_test_fallback_label', __('Did not match any options!', 'fluentformpro'), $form);
         $personalityOptions = Arr::get($field, 'raw.options');
         if(empty($userSelectedValues) || empty($personalityOptions)){
             return $personalityResult;

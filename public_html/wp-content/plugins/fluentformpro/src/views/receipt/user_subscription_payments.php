@@ -1,11 +1,18 @@
+<?php defined('ABSPATH') or die; ?>
 <div class="ff_subscription_payments">
     <table style="width: 100%;border: 1px solid #cbcbcb;margin-top: 0;" class="table ffp_order_items_table ffp_table table_bordered">
         <thead>
         <tr>
-            <th><?php _e('Amount', 'fluentformpro'); ?></th>
-            <th><?php _e('Date', 'fluentformpro'); ?></th>
+            <th><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Amount', 'fluentformpro'); ?></th>
+            <th><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Date', 'fluentformpro'); ?></th>
             <?php if($config['has_view_action']): ?>
-            <th><?php _e('Actions', 'fluentformpro'); ?></th>
+            <th><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Actions', 'fluentformpro'); ?></th>
             <?php endif; ?>
         </tr>
         </thead>

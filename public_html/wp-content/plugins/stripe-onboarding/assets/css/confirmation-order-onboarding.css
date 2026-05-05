@@ -1,0 +1,419 @@
+.sa-confirm-onboarding-page {
+    background: #ffffff;
+    color: #343434;
+    font-family: inherit;
+}
+
+.sa-confirm-onboarding-page * {
+    box-sizing: border-box;
+}
+
+.sa-confirm-onboarding-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 30px 0 34px;
+}
+
+.sa-confirm-onboarding-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 430px;
+    gap: 54px;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.sa-confirm-onboarding-hero-left {
+    max-width: 650px;
+}
+
+.sa-confirm-onboarding-success-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: #3fc095;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 14px 34px rgba(63, 192, 149, 0.24);
+}
+
+.sa-confirm-onboarding-success-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.sa-confirm-onboarding-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #32bd8f;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.sa-confirm-onboarding-hero h1 {
+    margin: 0;
+    color: #343434;
+    font-size: 35px;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+}
+
+.sa-confirm-onboarding-hero p {
+    max-width: 620px;
+    margin: 18px 0 0;
+    color: #34415c;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.sa-confirm-onboarding-email-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 22px;
+    padding: 14px 20px 14px 14px;
+    border-radius: 5px;
+    background: #f0faf7;
+    border: 1px solid #e3f5ef;
+}
+
+.sa-confirm-onboarding-email-card > span {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.14);
+    color: #25b98b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-confirm-onboarding-email-card svg {
+    width: 22px;
+    height: 22px;
+}
+
+.sa-confirm-onboarding-email-card small {
+    display: block;
+    color: #343434;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.sa-confirm-onboarding-email-card strong {
+    display: block;
+    color: #20b989;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sa-confirm-onboarding-hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-confirm-onboarding-hero-visual img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: min(100%, 470px);
+    height: auto;
+}
+
+.sa-confirm-onboarding-main-card {
+    padding: 34px 42px;
+    background: #ffffff;
+    border: 1px solid #e7ecf2;
+    border-radius: 5px;
+    box-shadow: 0 12px 35px rgba(18, 31, 62, 0.07);
+}
+
+.sa-confirm-onboarding-card-header {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+    max-width: 820px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+
+.sa-confirm-onboarding-card-header > span {
+    width: 66px;
+    height: 66px;
+    border-radius: 999px;
+    background: #f1faf7;
+    color: #1f5a72;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-confirm-onboarding-card-header svg {
+    width: 34px;
+    height: 34px;
+}
+
+.sa-confirm-onboarding-card-header h2 {
+    margin: 0 0 5px;
+    color: #343434;
+    line-height: 1.35;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.sa-confirm-onboarding-card-header p {
+    margin: 0;
+    color: #536079;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sa-confirm-onboarding-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 32px;
+}
+
+.sa-confirm-onboarding-step {
+    position: relative;
+    padding: 22px 22px 22px 58px;
+    background: #f8fafc;
+    border: 1px solid #edf1f5;
+    border-radius: 5px;
+}
+
+.sa-confirm-onboarding-step > span {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 25px;
+    height: 25px;
+    border-radius: 999px;
+    background: #3fc095;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-confirm-onboarding-step h3 {
+    margin: 0 0 7px;
+    color: #343434;
+    font-size: 16px;
+    line-height: 1.22;
+    font-weight: 700;
+}
+
+.sa-confirm-onboarding-step p {
+    margin: 0;
+    color: #536079;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.sa-confirm-onboarding-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.sa-confirm-onboarding-primary,
+.sa-confirm-onboarding-secondary {
+    padding: 10px 20px;
+    border-radius: 5px;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 501;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none !important;
+    transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.sa-confirm-onboarding-primary {
+    min-width: 260px;
+    background: #3fc095;
+    border: 1px solid #3fc095;
+    color: #ffffff !important;
+    box-shadow: 0 10px 24px rgba(63, 192, 149, 0.22);
+}
+
+.sa-confirm-onboarding-primary span {
+    display: flex;
+    align-items: center;
+}
+
+.sa-confirm-onboarding-primary svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sa-confirm-onboarding-primary:hover {
+    background: #343434;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+}
+
+.sa-confirm-onboarding-secondary {
+    min-width: 230px;
+    background: #ffffff;
+    border: 1px solid #aeb7c7;
+    color: #25314c !important;
+}
+
+.sa-confirm-onboarding-secondary:hover {
+    border-color: #3fc095;
+    color: #3fc095 !important;
+    transform: translateY(-1px);
+}
+
+.sa-confirm-onboarding-help {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    border-radius: 5px;
+    box-shadow: 0 10px 35px rgba(31, 42, 68, 0.04);
+}
+
+.sa-confirm-onboarding-help-item {
+    position: relative;
+    min-height: 104px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sa-confirm-onboarding-help-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 26px;
+    right: 0;
+    bottom: 26px;
+    width: 1px;
+    background: #edf1f5;
+}
+
+.sa-confirm-onboarding-help-item > span {
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    border-radius: 999px;
+    background: #eefaf6;
+    color: #20b989;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-confirm-onboarding-help-item svg {
+    width: 28px;
+    height: 28px;
+}
+
+.sa-confirm-onboarding-help-item strong {
+    display: block;
+    color: #343434;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.sa-confirm-onboarding-help-item p {
+    margin: 0;
+    color: #69758d;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.sa-confirm-onboarding-help-item a {
+    color: #20b989 !important;
+    font-weight: 700;
+}
+
+@media (max-width: 980px) {
+    .sa-confirm-onboarding-container {
+        width: min(100% - 28px, 760px);
+        padding-top: 42px;
+    }
+
+    .sa-confirm-onboarding-hero,
+    .sa-confirm-onboarding-steps,
+    .sa-confirm-onboarding-help {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-confirm-onboarding-hero {
+        text-align: center;
+        gap: 28px;
+    }
+
+    .sa-confirm-onboarding-success-icon,
+    .sa-confirm-onboarding-email-card {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sa-confirm-onboarding-card-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .sa-confirm-onboarding-card-header > span {
+        margin: 0 auto;
+    }
+
+    .sa-confirm-onboarding-help-item:not(:last-child)::after {
+        top: auto;
+        left: 24px;
+        right: 24px;
+        bottom: 0;
+        width: auto;
+        height: 1px;
+    }
+}
+
+@media (max-width: 560px) {
+    .sa-confirm-onboarding-container {
+        width: min(100% - 22px, 100%);
+        padding-top: 34px;
+    }
+
+    .sa-confirm-onboarding-hero h1 {
+        font-size: 32px;
+    }
+
+    .sa-confirm-onboarding-main-card {
+        padding: 26px 18px;
+    }
+
+    .sa-confirm-onboarding-actions,
+    .sa-confirm-onboarding-primary,
+    .sa-confirm-onboarding-secondary {
+        width: 100%;
+    }
+
+    .sa-confirm-onboarding-help-item {
+        align-items: flex-start;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

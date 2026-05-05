@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\NewAirtable;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
@@ -70,6 +72,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (isset($fields['status']) && $fields['status'] === false) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($fields['message'], 'fluentformpro'),
                 'errors'  => []
             ], 423);
@@ -78,6 +81,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($fields as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -121,10 +125,12 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo'               => $this->logo,
             'menu_title'         => __('Airtable Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description'   => __($this->description, 'fluentformpro'),
             'valid_message'      => __('Your Airtable API Key is valid', 'fluentformpro'),
             'invalid_message'    => __('Your Airtable API Key is not valid', 'fluentformpro'),
             'save_button_text'   => __('Save Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'config_instruction' => __($this->getConfigInstructions(), 'fluentformpro'),
             'fields'             => [
                 'access_token' => [
@@ -337,7 +343,8 @@ class Bootstrap extends IntegrationManagerController
         if ($error) {
             wp_send_json_error([
                 'settings_fields' => $fieldSettings,
-                'message'         => __($message, 'fluentform'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+                'message'         => __($message, 'fluentformpro'),
                 'status'          => false
             ], 423);
         }
@@ -431,8 +438,11 @@ class Bootstrap extends IntegrationManagerController
             if (array_key_exists($fieldValue['type'], $supportedFormatsArray)) {
                 $data = [
                     'key'         => $fieldValue['id'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'placeholder' => __($fieldValue['name'], 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'        => __(ArrayHelper::get($supportedFormatsArray, $fieldValue['type']), 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'       => __($fieldValue['name'], 'fluentformpro'),
                     'required'    => false,
                     'component'   => 'value_text',

@@ -198,7 +198,7 @@ class FormIntegrationService
         }
         $formattedFeeds = [];
       
-        if (!empty($feeds)) {
+        if (count($feeds)) {
             foreach ($feeds as $feed) {
                 $data = json_decode($feed->value, true);
                 $enabled = $data['enabled'];
@@ -248,9 +248,13 @@ class FormIntegrationService
         ]);
     }
     
-    public function delete($id)
+    public function delete($id, $formId = null)
     {
-        FormMeta::where('id',$id)->delete();
+        $query = FormMeta::where('id', $id);
+        if ($formId) {
+            $query->where('form_id', $formId);
+        }
+        $query->delete();
     }
     
 }

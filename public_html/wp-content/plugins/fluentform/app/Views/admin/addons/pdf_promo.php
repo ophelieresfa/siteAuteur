@@ -1,3 +1,8 @@
+<?php
+
+defined('ABSPATH') or die;
+
+?>
 <div class="add_on_modules">
     <div class="modules_header mb-6">
         <h4 class="title mb-2"><?php esc_html_e('Fluent Forms PDF Modules', 'fluentform'); ?></h4>

@@ -96,14 +96,13 @@ class Scheduler
         foreach ($submissionCounts as $submissionCount) {
             $submissionCount->permalink = admin_url('admin.php?page=fluent_forms&route=entries&form_id='.$submissionCount->form_id);
         }
-        if(!$submissionCounts || $submissionCounts->isEmpty()) {
+        if(!$submissionCounts || count($submissionCounts) === 0) {
             return; // Nothing found
         }
 
         $paymentCounts = [];
         if(PaymentHelper::hasPaymentSettings()) {
-            $paymentCounts = wpFluent()->table('fluentform_transactions')
-                ->select([
+            $paymentCounts = \FluentForm\App\Models\Transaction::select([
                     wpFluent()->raw("SUM({$wpdb->prefix}fluentform_transactions.payment_total) as total_amount"),
                     'fluentform_transactions.form_id',
                     'fluentform_transactions.currency',

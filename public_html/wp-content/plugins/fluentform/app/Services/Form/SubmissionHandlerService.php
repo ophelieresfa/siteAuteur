@@ -133,7 +133,7 @@ class SubmissionHandlerService
         if (!$formData) {
             $formData = $this->formData;
         }
-        $previousItem = Submission::where('form_id', $formId)->orderBy('id', 'DESC')->first();
+        $previousItem = Submission::select('serial_number')->where('form_id', $formId)->orderBy('id', 'DESC')->first();
         $serialNumber = 1;
         if ($previousItem) {
             $serialNumber = $previousItem->serial_number + 1;

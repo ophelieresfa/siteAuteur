@@ -37,7 +37,7 @@ class PostFormHandler
 
         $feeds = $this->getFormFeeds($form);
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return;
         }
 
@@ -70,7 +70,7 @@ class PostFormHandler
     {
         $feeds = $this->getFormFeeds($form);
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return;
         }
 

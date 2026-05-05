@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Reports;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Models\Form;
 use FluentForm\App\Models\Submission;
@@ -800,7 +802,7 @@ class ReportHelperPro extends CoreReportHelper
     ) {
         if (apply_filters('fluentform/disable_submission_country_detection', false, $formId)) {
             return [
-                'is_country_disable' => __('Country detection is disabled. Please enable it to see the submission analysis by country.', 'fluentform')
+                'is_country_disable' => __('Country detection is disabled. Please enable it to see the submission analysis by country.', 'fluentformpro')
             ];
         }
 

@@ -1,6 +1,8 @@
 <?php
 namespace FluentForm\App\Modules\Form;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Helpers\Protector;
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;

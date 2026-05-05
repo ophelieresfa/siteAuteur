@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Mailjet;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -65,6 +67,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($this->getFields($settings['list_id']) as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -109,10 +112,12 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo'               => $this->logo,
             'menu_title'         => __('Mailjet Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description'   => __($this->description, 'fluentformpro'),
             'valid_message'      => __('Your Mailjet Integration Key is valid', 'fluentformpro'),
             'invalid_message'    => __('Your Mailjet Integration Key is not valid', 'fluentformpro'),
             'save_button_text'   => __('Save Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'config_instruction' => __($this->getConfigInstructions(), 'fluentformpro'),
             'fields'             => [
                 'api_key' => [

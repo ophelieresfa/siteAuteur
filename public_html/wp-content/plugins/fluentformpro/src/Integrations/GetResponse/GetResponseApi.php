@@ -347,11 +347,13 @@ class GetResponseApi
         } else if ($http_method == 'DELETE') {
             $options[CURLOPT_CUSTOMREQUEST] = 'DELETE';
         }
+        // phpcs:disable WordPress.WP.AlternativeFunctions.curl_curl_init, WordPress.WP.AlternativeFunctions.curl_curl_setopt_array, WordPress.WP.AlternativeFunctions.curl_curl_exec, WordPress.WP.AlternativeFunctions.curl_curl_getinfo, WordPress.WP.AlternativeFunctions.curl_curl_close -- GetResponse API requires direct cURL for multipart file uploads
         $curl = curl_init();
         curl_setopt_array($curl, $options);
         $response = json_decode(curl_exec($curl));
         $this->http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
+        // phpcs:enable
         return (object)$response;
     }
     /**

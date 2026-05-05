@@ -4,7 +4,7 @@ namespace FluentForm\App\Http\Policies;
 
 use FluentForm\App\Modules\Acl\Acl;
 use FluentForm\Framework\Foundation\Policy;
-use FluentForm\Framework\Request\Request;
+use FluentForm\Framework\Http\Request\Request;
 
 class GlobalSettingsPolicy extends Policy
 {

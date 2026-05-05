@@ -293,10 +293,14 @@ class Bootstrap extends IntegrationManagerController
         $constantContactV3 = admin_url('admin.php?page=fluent_forms_settings#general-constatantcontactv3-settings');
         ob_start();
         ?>
-        <p style="color: #f52020">Constant Contact V2 API got deprecated. Please connect with Constant Contact V3 API from <a href="<?php echo $constantContactV3 ?>" target="_blank">here.</a></p>
+        <p style="color: #f52020">Constant Contact V2 API got deprecated. Please connect with Constant Contact V3 API from <a href="<?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $constantContactV3 ?>" target="_blank">here.</a></p>
             <ol>
                 <li>Click here to <a
-                        href="<?php echo $this->getAuthenticateUri(); ?>""
+                        href="<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $this->getAuthenticateUri(); ?>""
                         target="_blank">Get Access Token</a>.
                 </li>
                 <li>Then If you already have  an account click "I already have an account"</li>

@@ -547,13 +547,8 @@ class Form
         ob_start();
         if (PaymentHelper::hasPaymentSettings()) {
             try {
-                wpFluent()->table('fluentform_order_items')
-                    ->where('form_id', $formId)
-                    ->delete();
-
-                wpFluent()->table('fluentform_transactions')
-                    ->where('form_id', $formId)
-                    ->delete();
+                \FluentForm\App\Models\OrderItem::where('form_id', $formId)->delete();
+                \FluentForm\App\Models\Transaction::where('form_id', $formId)->delete();
             } catch (\Exception $exception) {
             }
         }

@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FluentConversational\Classes;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Acl\Acl;
 use FluentForm\App\Modules\Payments\PaymentHelper;
@@ -69,7 +71,7 @@ class Form
 
         wp_enqueue_script(
             'fluent_forms_conversational_design',
-            fluentformMix('js/conversational_design.js'),
+            fluentFormMix('js/conversational_design.js'),
             ['jquery'],
             FLUENTFORM_VERSION,
             true
@@ -100,7 +102,7 @@ class Form
 
         wp_enqueue_style(
             'fluent_forms_conversion_style',
-            fluentformMix('css/conversational_design.css'),
+            fluentFormMix('css/conversational_design.css'),
             [],
             FLUENTFORM_VERSION
         );
@@ -567,6 +569,8 @@ class Form
             'extra_inputs'             => $this->getExtraHiddenInputs($formId),
             'uploading_txt'            => __('Uploading', 'fluentform'),
             'upload_completed_txt'     => __('100% Completed', 'fluentform'),
+            'unknown_error_txt'        => __('An unknown error occurred', 'fluentform'),
+            'request_error_txt'        => __('An error occurred while processing your request', 'fluentform'),
             'paymentConfig'            => $this->getPaymentConfig($form),
             'date_i18n'                => \FluentForm\App\Modules\Component\Component::getDatei18n(),
             'file_delete_nonce'        => wp_create_nonce('fluentform_file_delete')
@@ -584,7 +588,7 @@ class Form
         if ($hasSaveProgressButton && $saveProgressButton) {
             $this->localizeSaveProgressButton($saveProgressButton, $formId);
         }
-    
+
         /* This filter is deprecated and will be removed soon */
         $disableAnalytics = apply_filters('fluentform-disabled_analytics', true);
 
@@ -652,11 +656,13 @@ class Form
 
     private function getExtraHiddenInputs($formId)
     {
-        return [
+        $inputs = [
             '__fluent_form_embded_post_id'                => get_the_ID(),
             '_fluentform_' . $formId . '_fluentformnonce' => wp_create_nonce('fluentform-submit-form'),
             '_wp_http_referer'                            => esc_attr(wp_unslash(wpFluentForm('request')->server('REQUEST_URI'))),
         ];
+
+        return apply_filters('fluentform/conversational_extra_inputs', $inputs, $formId);
     }
 
     public function getRandomPhoto()
@@ -756,6 +762,8 @@ class Form
             'extra_inputs'             => $this->getExtraHiddenInputs($formId),
             'uploading_txt'            => __('Uploading', 'fluentform'),
             'upload_completed_txt'     => __('100% Completed', 'fluentform'),
+            'unknown_error_txt'        => __('An unknown error occurred', 'fluentform'),
+            'request_error_txt'        => __('An error occurred while processing your request', 'fluentform'),
             'paymentConfig'            => $this->getPaymentConfig($form),
             'date_i18n'                => \FluentForm\App\Modules\Component\Component::getDatei18n(),
             'rest'                     => Helper::getRestInfo(),
@@ -891,6 +899,7 @@ class Form
                     'discount:'       => __('Discount:', 'fluentform'),
                     'processing_text' => __('Processing payment. Please wait...', 'fluentform'),
                     'confirming_text' => __('Confirming payment. Please wait...', 'fluentform'),
+                    'signup_fee_for'  => __('Signup Fee for', 'fluentform'),
                 ],
             ];
 

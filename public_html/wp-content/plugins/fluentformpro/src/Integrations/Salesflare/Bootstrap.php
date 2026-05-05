@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Salesflare;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -31,6 +33,7 @@ class Bootstrap extends IntegrationManagerController
     public function pushIntegration($integrations, $formId)
     {
         $integrations[$this->integrationKey] = [
+            // translators: %s is the integration name
             'title' => sprintf(__('%s Integration', 'fluentformpro'), $this->name),
             'logo' => $this->logo,
             'is_active' => $this->isConfigured(),
@@ -38,6 +41,7 @@ class Bootstrap extends IntegrationManagerController
             'global_configure_url' => admin_url(
                 'admin.php?page=fluent_forms_settings#general-' . $this->key . '-settings'
             ),
+            // translators: %s is the integration name
             'configure_message' => sprintf(
                 __('%s is not configured yet! Please configure the addon first.', 'fluentformpro'),
                 $this->name
@@ -66,18 +70,22 @@ class Bootstrap extends IntegrationManagerController
     {
         return [
             'logo' => $this->logo,
+            // translators: %s is the integration name
             'menu_title' => sprintf(__('%s Integration Settings', 'fluentformpro'), $this->name),
             'menu_description' => __(
                 'Copy the API Key from Salesflare settings API keys and paste it here, then click on Save.',
                 'fluentformpro'
             ),
+            // translators: %s is the integration name
             'valid_message' => sprintf(__('Your %s API Key is valid', 'fluentformpro'), $this->name),
+            // translators: %s is the integration name
             'invalid_message' => sprintf(__('Your %s API Key is not valid', 'fluentformpro'), $this->name),
             'save_button_text' => __('Save Settings', 'fluentformpro'),
             'fields' => [
                 'apiKey' => [
                     'type' => 'text',
-                    'placeholder' => __('API Key', 'fluenformpro'),
+                    'placeholder' => __('API Key', 'fluentformpro'),
+                    // translators: %s is the integration name
                     'label_tips' => sprintf(
                         __(
                             'Enter your  %s Api Key, Copy the API Code and paste it here, then click on Save button',
@@ -85,15 +93,18 @@ class Bootstrap extends IntegrationManagerController
                         ),
                         $this->name
                     ),
+                    // translators: %s is the integration name
                     'label' => sprintf(__('%s API Key', 'fluentformpro'), $this->name),
                 ],
             ],
             'hide_on_valid' => true,
             'discard_settings' => [
+                // translators: %s is the integration name
                 'section_description' => sprintf(
                     __('Your %s API integration is up and running', 'fluentformpro'),
                     $this->name
                 ),
+                // translators: %s is the integration name
                 'button_text' => sprintf(__('Disconnect %s', 'fluentformpro'), $this->name),
                 'data' => [
                     'apiKey' => ''
@@ -195,6 +206,7 @@ class Bootstrap extends IntegrationManagerController
                     'key' => 'fields',
                     'require_list' => false,
                     'label' => __('Map Fields', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips' => __('Select which Fluent Forms fields pair with their<br /> respective ' . $this->name . ' fields.', 'fluentformpro'),
                     'component' => 'map_fields',
                     'field_label_remote' => $this->name . ' Field',
@@ -244,8 +256,10 @@ class Bootstrap extends IntegrationManagerController
                     'key' => 'custom_fields_mapping',
                     'require_list' => false,
                     'label' => __('Custom Fields', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips' => __('Select which Fluent Forms fields pair with their<br /> respective ' . $this->name . ' fields.', 'fluentformpro'),
                     'component' => 'dropdown_many_fields',
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'field_label_remote' => __($this->name . ' Field', 'fluentformpro'),
                     'field_label_local' => __('Form Field', 'fluentformpro'),
                     'options' => $this->customFields()
@@ -254,6 +268,7 @@ class Bootstrap extends IntegrationManagerController
                     'require_list' => false,
                     'key' => 'tags',
                     'label' => __('Tags', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips' => __('Associate tags to your ' . $this->name . ' contacts with a comma separated list (e.g. new lead, FluentForms, web source). Commas within a merge tag value will be created as a single tag.', 'fluentformpro'),
                     'component' => 'value_text',
                     'inline_tip' => __('Please provide each tag by comma separated value, You can use dynamic smart codes', 'fluentformpro')
@@ -262,6 +277,7 @@ class Bootstrap extends IntegrationManagerController
                     'require_list' => false,
                     'key' => 'conditionals',
                     'label' => __('Conditional Logics', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips' => __('Allow ' . $this->name . ' integration conditionally based on your submission values', 'fluentformpro'),
                     'component' => 'conditional_block'
                 ],

@@ -79,7 +79,7 @@ class TelegramApi
         $text = str_replace(['<br>'], "\n", $html);
         
         // Remove HTML tags but preserve newlines
-        $text = strip_tags($text);
+        $text = wp_strip_all_tags($text);
         
         // Decode HTML entities
         $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
@@ -97,6 +97,7 @@ class TelegramApi
 
         $postData = http_build_query($args);
 
+        // phpcs:disable WordPress.WP.AlternativeFunctions.curl_curl_init, WordPress.WP.AlternativeFunctions.curl_curl_setopt_array, WordPress.WP.AlternativeFunctions.curl_curl_exec, WordPress.WP.AlternativeFunctions.curl_curl_getinfo, WordPress.WP.AlternativeFunctions.curl_curl_error, WordPress.WP.AlternativeFunctions.curl_curl_close -- Telegram API requires direct cURL
         $ch = curl_init();
         $optArray = array(
             CURLOPT_URL            => $url,
@@ -113,6 +114,7 @@ class TelegramApi
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlError = curl_error($ch);
         curl_close($ch);
+        // phpcs:enable
 
         if ($curlError) {
             return new \WP_Error(300, 'CURL Error: ' . $curlError);

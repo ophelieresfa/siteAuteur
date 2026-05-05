@@ -3,7 +3,7 @@
 namespace FluentForm\App\Http\Policies;
 
 use FluentForm\App\Modules\Acl\Acl;
-use FluentForm\Framework\Request\Request;
+use FluentForm\Framework\Http\Request\Request;
 use FluentForm\Framework\Foundation\Policy;
 use FluentForm\Framework\Support\Arr;
 

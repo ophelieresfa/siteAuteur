@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or die;
+
 /**
  * @var $router \FluentForm\Framework\Http\Router
  */

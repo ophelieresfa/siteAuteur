@@ -3,6 +3,8 @@
 
 namespace FluentFormPro\classes\Quiz;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Acl\Acl;
 use FluentForm\App\Modules\Form\FormFieldsParser;
@@ -211,7 +213,7 @@ class QuizController
     {
         add_filter('fluentform/form_settings_menu', function ($menu) {
             $menu['quiz_settings'] = [
-                'title' => __('Quiz Settings', 'fluentform'),
+                'title' => __('Quiz Settings', 'fluentformpro'),
                 'slug' => 'form_settings',
                 'hash' => 'quiz_settings',
                 'route' => '/quiz_settings'

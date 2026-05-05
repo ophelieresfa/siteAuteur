@@ -123,7 +123,7 @@ class Acl
         $userCapability = static::getCurrentUserCapability();
 
         if ($userCapability) {
-            return $userCapability;
+            return true;
         } else {
             if (current_user_can('fluentform_full_access')) {
                 return true;

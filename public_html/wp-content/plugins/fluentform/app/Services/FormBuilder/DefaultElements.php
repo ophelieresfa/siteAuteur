@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 $fluentformDefaultGlobalMessages = \FluentForm\App\Helpers\Helper::getAllGlobalDefaultMessages();
 $fluentformDefaultElements = [
     'general' => [

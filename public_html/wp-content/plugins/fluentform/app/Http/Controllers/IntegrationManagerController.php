@@ -2,6 +2,7 @@
 
 namespace FluentForm\App\Http\Controllers;
 
+defined('ABSPATH') or die;
 
 use FluentForm\App\Helpers\IntegrationManagerHelper;
 use FluentForm\Framework\Foundation\App;

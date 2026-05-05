@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 // phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Template variables in view files
 use FluentForm\Framework\Helpers\ArrayHelper;
 ?>

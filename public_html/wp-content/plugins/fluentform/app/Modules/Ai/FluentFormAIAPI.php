@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Ai;
 
+defined('ABSPATH') or die;
+
 /**
  *  Handling AI Api.
  * @since 6.0.0

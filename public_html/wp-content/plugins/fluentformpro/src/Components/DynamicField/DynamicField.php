@@ -396,6 +396,7 @@ class DynamicField extends BaseFieldManager
                 return apply_filters('fluentform/dynamic_field_filter_get_result' . $source, [], $config);
             }
         }
+        // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         throw new \Exception(__('Invalid Field Config', 'fluentformpro'));
     }
 
@@ -703,7 +704,7 @@ class DynamicField extends BaseFieldManager
 
         $minChars = (int)Arr::get($data, 'settings.min_chars', 2);
         $maxSuggestions = (int)Arr::get($data, 'settings.max_suggestions', 10);
-        $placeholder = Arr::get($data, 'settings.placeholder', __('', 'fluentformpro'));
+        $placeholder = Arr::get($data, 'settings.placeholder', '');
 
         // Override type attribute to text
         $data['attributes']['type'] = 'text';
@@ -734,6 +735,7 @@ class DynamicField extends BaseFieldManager
 
         $html = $this->buildElementMarkup($elMarkup, $data, $form);
 
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
     }
 }

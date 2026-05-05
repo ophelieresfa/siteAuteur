@@ -54,7 +54,7 @@ class ResendNotificationHandler
 
         if (!$feed) {
             wp_send_json_error([
-                'message' => __('Sorry, No notification found!')
+                'message' => __('Sorry, No notification found!', 'fluentformpro')
             ], 423);
         }
 
@@ -433,7 +433,7 @@ class ResendNotificationHandler
             ->orderBy('id', 'ASC')
             ->get();
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return [];
         }
 
@@ -486,7 +486,7 @@ class ResendNotificationHandler
                                           ->where('feed_id', $feed->id)
                                           ->get();
 
-            if ($scheduledActions) {
+            if (count($scheduledActions)) {
                 foreach ($scheduledActions as $action) {
                     $feedData['action_id'] = $action->id;
                     $feedData['action_status'] = $action->status;

@@ -2,6 +2,7 @@
 
 namespace FluentForm\App\Modules\Payments\PaymentMethods\Stripe;
 
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 use FluentForm\App\Modules\Payments\PaymentMethods\Stripe\API\ApiRequest;
 
@@ -22,10 +23,9 @@ class PaymentManager
         }
 
         // Get the first transaction to determine the payment mode
-        $lastTransaction = wpFluent()->table('fluentform_transactions')
-            ->orderBy('id', 'DESC')
-            ->where('subscription_id', $subscription->id)
+        $lastTransaction = Transaction::where('subscription_id', $subscription->id)
             ->where('payment_method', 'stripe')
+            ->orderBy('id', 'DESC')
             ->first();
 
         if(!$lastTransaction) {

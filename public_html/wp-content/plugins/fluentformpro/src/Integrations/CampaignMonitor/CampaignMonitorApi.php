@@ -250,7 +250,7 @@ class CampaignMonitorApi {
 
         // If request attempt threw a WordPress error, throw exception.
         if ( is_wp_error( $response ) ) {
-            throw new \Exception( $response->get_error_message() );
+            throw new \Exception( $response->get_error_message() ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         // Decode response.
@@ -258,7 +258,7 @@ class CampaignMonitorApi {
 
         // If error response was received, throw exception.
         if ( isset( $response['Code'] ) ) {
-            throw new \Exception( $response['Message'] );
+            throw new \Exception( $response['Message'] ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         return $response;

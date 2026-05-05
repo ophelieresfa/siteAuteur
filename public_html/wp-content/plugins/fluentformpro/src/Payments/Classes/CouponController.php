@@ -14,6 +14,7 @@ class CouponController
     {
         $code = sanitize_text_field(ArrayHelper::get($_REQUEST, 'coupon'));
         $formId = intval(ArrayHelper::get($_REQUEST, 'form_id'));
+
         $totalAmount = intval(ArrayHelper::get($_REQUEST, 'total_amount'));
 
         $couponModel = new CouponModel();
@@ -21,6 +22,7 @@ class CouponController
 
         if (!$coupon) {
             wp_send_json([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from filter
                 'message' => __(apply_filters('fluentform/coupon_general_failure_message', 'The provided coupon is not valid', $formId), 'fluentformpro')
             ], 423);
         }
@@ -29,12 +31,14 @@ class CouponController
 
         if ($coupon->status != 'active' || $coupon->code !== $code) {
             wp_send_json([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                 'message' => __(ArrayHelper::get($failedMessageArray, 'inactive'), 'fluentformpro')
             ], 423);
         }
 
         if ($couponModel->isDateExpire($coupon)) {
             wp_send_json([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                 'message' => __(ArrayHelper::get($failedMessageArray, 'date_expire'), 'fluentformpro')
             ], 423);
         }
@@ -42,6 +46,7 @@ class CouponController
         if ($formIds = ArrayHelper::get($coupon->settings, 'allowed_form_ids')) {
             if (!in_array($formId, $formIds)) {
                 wp_send_json([
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                     'message' => __(ArrayHelper::get($failedMessageArray, 'allowed_form'), 'fluentformpro')
                 ], 423);
             }
@@ -55,11 +60,13 @@ class CouponController
             if ($userId) {
                 if (!$couponModel->hasLimit($coupon->code, $couponLimit, $userId)) {
                     wp_send_json([
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                         'message' => __(ArrayHelper::get($failedMessageArray, 'limit'), 'fluentformpro')
                     ], 423);
                 }
             } else {
                 wp_send_json([
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                     'message' => __(ArrayHelper::get($failedMessageArray, 'limit'), 'fluentformpro')
                 ], 423);
             }
@@ -67,6 +74,7 @@ class CouponController
 
         if ($coupon->min_amount && $coupon->min_amount > $totalAmount) {
             wp_send_json([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                 'message' => __(ArrayHelper::get($failedMessageArray, 'min_amount'), 'fluentformpro')
             ], 423);
         }
@@ -80,6 +88,7 @@ class CouponController
                 foreach ($codes as $couponItem) {
                     if (($couponItem->stackable != 'yes' || $coupon->stackable != 'yes') && $coupon->code != $couponItem->code) {
                         wp_send_json([
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
                             'message' => __(ArrayHelper::get($failedMessageArray, 'stackable'), 'fluentformpro')
                         ], 423);
                     }
@@ -99,6 +108,7 @@ class CouponController
 
         if ($coupon->min_amount) {
             $formattedCoupon['min_amount'] = $coupon->min_amount;
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from config
             $formattedCoupon['min_amount_message'] = __(ArrayHelper::get($failedMessageArray, 'min_amount'), 'fluentformpro');
         }
 
@@ -106,4 +116,5 @@ class CouponController
             'coupon' => $formattedCoupon
         ], 200);
     }
+
 }

@@ -95,11 +95,13 @@ class Bootstrap
         if($code < 300) {
             // it's a success
             do_action('fluentform/integration_action_result', $feed, 'success',
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 __('Webhook payload has been fired. Status Code: ' . $code . '& Response Body: ' . $responseBody, 'fluentformpro'));
             return;
         }
 
         do_action('fluentform/integration_action_result', $feed, 'failed',
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             __('FAILED. Status Code: ' . '& Response Body: ' . $responseBody, 'fluentformpro'));
     }
 

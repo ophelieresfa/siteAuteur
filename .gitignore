@@ -27,3 +27,5 @@ vendor/
 *.log
 .DS_Store
 Thumbs.db
+public_html/wp-content/plugins/fluentformpro/src/Integrations/Notion/API.php
+/public_html/wp-content/plugins/fluentformpro/src/Integrations

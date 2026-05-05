@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Airtable;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
@@ -70,6 +72,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (isset($fields['status']) && $fields['status'] === false) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($fields['message'], 'fluentformpro'),
                 'errors'  => []
             ], 423);
@@ -78,6 +81,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($fields as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error                 = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -123,10 +127,12 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo'               => $this->logo,
             'menu_title'         => __('Airtable Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description'   => __($this->description, 'fluentformpro'),
             'valid_message'      => __('Your Airtable API Key is valid', 'fluentformpro'),
             'invalid_message'    => __('Your Airtable API Key is not valid', 'fluentformpro'),
             'save_button_text'   => __('Save Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'config_instruction' => __($this->getConfigInstructions(), 'fluentformpro'),
             'fields'             => [
                 'api_key'  => [
@@ -165,7 +171,9 @@ class Bootstrap extends IntegrationManagerController
         $newAirtableLink = admin_url('admin.php?page=fluent_forms_settings#general-airtable_v2-settings');
         ob_start(); ?>
         <div>
-            <p style="color: #f52020">Airtable announces Personal API keys will be deprecated by the end of January 2024. So we will close this Airtable integration after January 2024. Please use new airtable integration from <a href="<?php echo $newAirtableLink ?>" target="_blank">here.</a></p>
+            <p style="color: #f52020">Airtable announces Personal API keys will be deprecated by the end of January 2024. So we will close this Airtable integration after January 2024. Please use new airtable integration from <a href="<?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $newAirtableLink ?>" target="_blank">here.</a></p>
             <ol>
                 <li>Go <a href="https://airtable.com/account" target="_blank">Here</a> and copy your API key and paste
                     it.
@@ -333,7 +341,8 @@ class Bootstrap extends IntegrationManagerController
         if ($error) {
             wp_send_json_error([
                 'settings_fields' => $fieldSettings,
-                'message'         => __($message, 'fluentform'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+                'message'         => __($message, 'fluentformpro'),
                 'status'          => false
             ], 423);
         }
@@ -414,8 +423,10 @@ class Bootstrap extends IntegrationManagerController
             if (is_array($fieldValues)) {
                 if (array_key_exists('name', $fieldValues) && array_key_exists('email', $fieldValues)) {
                     $customList['key']       = 'collab_' . $fieldKey;
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     $customList['label']     = __('Enter ' . $fieldKey, 'fluentformpro');
                     $customList['required']  = false;
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     $customList['tips']      = __('Enter ' . $fieldKey . ' value or choose form input provided by shortcode.',
                         'fluentformpro');
                     $customList['component'] = 'value_text';
@@ -426,8 +437,10 @@ class Bootstrap extends IntegrationManagerController
                         } else {
                             $customList['key'] = 'array_' . $fieldKey;
                         }
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $customList['label']     = __('Enter ' . $fieldKey, 'fluentformpro');
                         $customList['required']  = false;
+                        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                         $customList['tips']      = __('Enter ' . $fieldKey . ' value or choose form input provided by shortcode.',
                             'fluentformpro');
                         $customList['component'] = 'value_text';
@@ -440,8 +453,10 @@ class Bootstrap extends IntegrationManagerController
                     $customList['key'] = 'normal_' . $fieldKey;
                 }
                 $customList['component'] = 'value_text';
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $customList['label']     = __('Enter ' . $fieldKey, 'fluentformpro');
                 $customList['required']  = false;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $customList['tips']      = __('Enter ' . $fieldKey . ' value or choose form input provided by shortcode.', 'fluentformpro');
             }
 

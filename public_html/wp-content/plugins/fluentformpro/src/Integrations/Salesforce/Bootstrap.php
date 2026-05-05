@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Salesforce;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -31,6 +33,9 @@ class Bootstrap extends IntegrationManagerController
             $isSaleforceAuthCode = isset($_REQUEST['ff_salesforce_auth']) && isset($_REQUEST['code']);
 
             if ($isSaleforceAuthCode) {
+                if (!current_user_can('fluentform_settings_manager')) {
+                    return;
+                }
                 // Get the access token now
                 $code = sanitize_text_field($_REQUEST['code']);
                 $settings = $this->getGlobalSettings([]);
@@ -111,6 +116,7 @@ class Bootstrap extends IntegrationManagerController
         return [
             'logo'               => $this->logo,
             'menu_title'         => __('Salesforce Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'menu_description'   => __($this->description, 'fluentformpro'),
             'valid_message'      => __('Your Salesforce API Key is valid', 'fluentformpro'),
             'invalid_message'    => __('Your Salesforce API Key is not valid', 'fluentformpro'),
@@ -163,7 +169,9 @@ class Bootstrap extends IntegrationManagerController
         ob_start(); ?>
         <div>
             <ol>
-                <li>Open Setup Home -> Apps -> App Manager -> New Connected App and set the App Name, API Name and Contact Email. Check the Enable OAuth Settings and set the callback URL as <b><?php echo $authLink; ?></b></li>
+                <li>Open Setup Home -> Apps -> App Manager -> New Connected App and set the App Name, API Name and Contact Email. Check the Enable OAuth Settings and set the callback URL as <b><?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $authLink; ?></b></li>
                 <li>Select the scopes : "Manage user data via APIs (api) and Perform requests at any time (refresh_token, offline_access)". Save the connected app and wait a few minutes for it to be activated. Copy the Consumer Key and Consumer Secret to use them in the next step.<br/>
                 </li>
                 <li>Paste your Salesforce Domain URL, Consumer key and Consumer Secret and save the settings. This Domain URL uses a standard format as, <b>https://{MyDomainName}.my.salesforce.com</b>. For more details <a href="https://help.salesforce.com/s/articleView?id=sf.faq_domain_name_what.htm&type=5" target="_blank">click here</a>
@@ -342,6 +350,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($this->getFields($settings['list_id']) as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -372,6 +381,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($lists)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($lists->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -385,9 +395,12 @@ class Bootstrap extends IntegrationManagerController
                     if (!$input['nillable'] && $input['type'] != 'picklist' && $input['type'] != 'reference' && $input['type'] != 'boolean' && $input['type'] != 'date') {
                         $data = [
                             'key'         => $input['name'],
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'placeholder' => __($input['label'], 'fluentformpro'),
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'label'       => __($input['label'], 'fluentformpro'),
                             'required'    => true,
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'tips'        => __($input['label'] . ' is a required field.', 'fluentformpro'),
                             'component'   => 'value_text'
                         ];
@@ -397,9 +410,12 @@ class Bootstrap extends IntegrationManagerController
                     if ($input['type'] == 'email') {
                         $data = [
                             'key'         => $input['name'],
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'placeholder' => __($input['label'], 'fluentformpro'),
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'label'       => __($input['label'], 'fluentformpro'),
                             'required'    => false,
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'tips'        => __($input['label'] . ' is a required field.', 'fluentformpro'),
                             'component'   => 'value_text'
                         ];
@@ -409,9 +425,12 @@ class Bootstrap extends IntegrationManagerController
                     if (!$input['nillable'] && $input['type'] == 'picklist' && !empty($input['picklistValues'])) {
                         $data = [
                             'key'         => $input['name'],
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'placeholder' => __($input['label'], 'fluentformpro'),
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'label'       => __($input['label'], 'fluentformpro'),
                             'required'    => true,
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'tips'        => __($input['label'] . ' is a required list field.', 'fluentformpro'),
                             'component'   => 'select'
                         ];
@@ -426,9 +445,12 @@ class Bootstrap extends IntegrationManagerController
                     if ($input['nillable'] && $input['type'] == 'picklist' && !empty($input['picklistValues'])) {
                         $data = [
                             'key'         => $input['name'],
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'placeholder' => __($input['label'], 'fluentformpro'),
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'label'       => __($input['label'], 'fluentformpro'),
                             'required'    => false,
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'tips'        => __($input['label'] . ' is a list field.', 'fluentformpro'),
                             'component'   => 'select'
                         ];
@@ -443,9 +465,12 @@ class Bootstrap extends IntegrationManagerController
                     if (!$input['nillable'] && $input['type'] == 'date') {
                         $data = [
                             'key'         => $input['name'],
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'placeholder' => __($input['label'], 'fluentformpro'),
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'label'       => __($input['label'], 'fluentformpro'),
                             'required'    => true,
+                            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                             'tips'        => __($input['label'] . ' is a required field. Date format must be YYYY/MM/DD 00:00:00 format.', 'fluentformpro'),
                             'component'   => 'datetime'
                         ];

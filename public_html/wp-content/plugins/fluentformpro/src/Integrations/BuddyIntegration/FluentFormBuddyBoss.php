@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\BuddyIntegration;
 
+defined('ABSPATH') or die;
+
 class FluentFormBuddyBoss
 {
     public function init()

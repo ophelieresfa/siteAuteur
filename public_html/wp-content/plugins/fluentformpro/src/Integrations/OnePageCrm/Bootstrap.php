@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\OnePageCrm;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -66,6 +68,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($this->getFields($settings['list_id']) as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -737,6 +740,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $lists->get_error_message();
             $code = $lists->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -777,6 +781,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $lists->get_error_message();
             $code = $lists->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -815,6 +820,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $lists->get_error_message();
             $code = $lists->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -851,6 +857,7 @@ class Bootstrap extends IntegrationManagerController
             $error = $lists->get_error_message();
             $code = $lists->get_error_code();
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($error, 'fluentformpro')
             ], $code);
         }
@@ -863,9 +870,12 @@ class Bootstrap extends IntegrationManagerController
             if ($field['type'] == 'multiple_choice' || $field['type'] == 'select_box') {
                 $data = [
                     'key'         => 'custom_' . $field['id'] . '_multiple_choice_' . $field['name'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'placeholder' => __($field['name'], 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'       => __($field['name'], 'fluentformpro'),
                     'required'    => false,
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'        => __($field['name'] . ' is a ' . $field['type'] . ' type of field.',
                         'fluentformpro'),
                     'component'   => 'select'
@@ -880,17 +890,22 @@ class Bootstrap extends IntegrationManagerController
             } elseif ($field['type'] == 'anniversary' || $field['type'] == 'date') {
                 $data = [
                     'key'       => 'custom_' . $field['id'] . '_date_' . $field['name'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'     => __($field['name'], 'fluentformpro'),
                     'required'  => false,
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'      => __($field['name'] . ' is a ' . $field['type'] . ' type of field.', 'fluentformpro'),
                     'component' => 'datetime',
                 ];
             } else {
                 $data = [
                     'key'         => 'custom_' . $field['id'] . '_normal_' . $field['name'],
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'placeholder' => __($field['name'], 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label'       => __($field['name'], 'fluentformpro'),
                     'required'    => false,
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'tips'        => __($field['name'] . ' is a ' . $field['type'] . ' type of field.',
                         'fluentformpro'),
                     'component'   => 'value_text'
@@ -968,6 +983,7 @@ class Bootstrap extends IntegrationManagerController
             }
 
             if (strpos($key, 'date') !== false && strpos($key, 'custom') == false) {
+                // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                 $value = date('Y-m-d', strtotime($value));
                 $fieldFormatted[$key] = $value;
                 unset($fieldContainer[$key]);
@@ -979,6 +995,7 @@ class Bootstrap extends IntegrationManagerController
                 $fieldType = $arr[2];
 
                 if ($fieldType == 'date') {
+                    // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                     $value = date('Y-m-d', strtotime($value));
                 }
 

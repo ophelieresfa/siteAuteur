@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 /** @var object $transaction */
 /** @var string $transactionTotal */
 /** @var array $items */

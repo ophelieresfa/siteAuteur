@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Inventory;
 
+defined('ABSPATH') or die;
+
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;
 
 /**
@@ -51,6 +53,7 @@ class InventorySettingsManager
                         'show_stock'                 => 'no',
                         'simple_inventory'           => '',
                         'single_inventory_stock'     => 10,
+                        // translators: %s is the remaining stock quantity
                         'stock_quantity_label'       => sprintf(__(' - %s available', 'fluentformpro'),'{remaining_quantity}'),
                         'global_inventory'         => ''
                     ];
@@ -106,8 +109,8 @@ class InventorySettingsManager
             ],
             'global_inventory'   => [
                 'template'  => 'inventoryStock',
-                'label'     => __('Global Inventory', 'fluentform'),
-                'help_text' => __('Select a Global Inventory', 'fluentform'),
+                'label'     => __('Global Inventory', 'fluentformpro'),
+                'help_text' => __('Select a Global Inventory', 'fluentformpro'),
                 'options'   => $this->getGloablInventoryList(),
                 'dependency'       => [
                     'depends_on' => 'settings/inventory_type',
@@ -236,6 +239,7 @@ class InventorySettingsManager
                     'show_stock'                  => '',
                     'simple_inventory'            => '',
                     'single_inventory_stock'      => 1,
+                    // translators: %s is the remaining stock quantity
                     'stock_quantity_label'        => sprintf(__(' - %s available', 'fluentformpro'), '{remaining_quantity}')
                 ];
     

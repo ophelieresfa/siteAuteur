@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\SharePage;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Models\FormMeta;
 use FluentForm\App\Modules\Acl\Acl;
@@ -56,10 +58,7 @@ class SharePage
 
         $shareUrl = '';
         if ($settings['status'] == 'yes') {
-            $params = [
-                'ff_landing' => $formId
-            ];
-            $shareUrl = add_query_arg($params, home_url('/'));
+            $shareUrl = $this->buildShareUrl($formId, $settings);
         }
 
         wp_send_json_success([
@@ -89,13 +88,23 @@ class SharePage
 
         $shareUrl = '';
         if ($formattedSettings['status'] == 'yes') {
-            $shareUrl = add_query_arg(['ff_landing' => $formId], home_url('/'));
+            $shareUrl = $this->buildShareUrl($formId, $formattedSettings);
         }
 
         wp_send_json_success([
-            'message'   => __('Settings successfully updated'),
+            'message'   => __('Settings successfully updated', 'fluentformpro'),
             'share_url' => $shareUrl
         ]);
+    }
+
+    private function buildShareUrl($formId, $settings)
+    {
+        $params = ['ff_landing' => $formId];
+        $salt = ArrayHelper::get($settings, 'share_url_salt');
+        if ($salt) {
+            $params['form'] = $salt;
+        }
+        return add_query_arg($params, home_url('/'));
     }
 
     public function getSettings($formId)
@@ -311,7 +320,7 @@ class SharePage
         }
         
         status_header(200);
-        echo $this->loadView('landing_page_view', $landingVars);
+        echo $this->loadView('landing_page_view', $landingVars); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Landing page HTML from template
         exit(200);
     }
 
@@ -348,7 +357,7 @@ class SharePage
             ->where('fluentform_form_meta.value', 'like', '%"status":"yes"%')
             ->get();
 
-        if ($forms && count($forms) > 0) {
+        if (count($forms)) {
             foreach ($forms as $form) {
                 $formIds[] = $form->form_id;
             }

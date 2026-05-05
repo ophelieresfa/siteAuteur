@@ -153,14 +153,24 @@ class RepeaterField extends BaseFieldManager
 
         ob_start();
         ?>
-        <div <?php echo $atts; ?> >
-            <?php echo $this->buildElementLabel($data, $form); ?>
+        <div <?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $atts; ?> >
+            <?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+            echo $this->buildElementLabel($data, $form); ?>
             <div class='ff-el-input--content'>
-                <table role="table" aria-label="Repeater Field" data-max_repeat="<?php echo $maxRepeat; ?>" data-root_name="<?php echo $rootName; ?>" class="ff_repeater_table ff_flexible_table">
+                <table role="table" aria-label="Repeater Field" data-max_repeat="<?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $maxRepeat; ?>" data-root_name="<?php
+                    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                    echo $rootName; ?>" class="ff_repeater_table ff_flexible_table">
                     <thead>
                     <tr>
                         <?php foreach ($fields as $field): ?>
-                            <th><?php echo $this->buildElementLabel($field, $form); ?></th>
+                            <th><?php
+                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                echo $this->buildElementLabel($field, $form); ?></th>
                         <?php endforeach; ?>
                         <th></th>
                     </tr>
@@ -179,13 +189,17 @@ class RepeaterField extends BaseFieldManager
                             $item['attributes']['data-error_index'] = $rootName.'['.$key.']';
                             $item['attributes']['data-default'] = ArrayHelper::get($item, 'attributes.value');
                             ?>
-                            <td data-label="<?php echo $itemLabel; ?>">
+                            <td data-label="<?php
+                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                echo $itemLabel; ?>">
                                 <?php $item['element'] = $item['element'] == 'input_mask' ? 'input_text' : $item['element'] ; ?>
                                 <?php
                                     do_action('fluentform/render_item_' . $item['element'], $item, $form);?>
                             </td>
                         <?php endforeach; ?>
-                        <td class="repeat_btn"><?php echo $this->getRepeater($data['element']); ?></td>
+                        <td class="repeat_btn"><?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $this->getRepeater($data['element']); ?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -194,7 +208,7 @@ class RepeaterField extends BaseFieldManager
         <?php
         $html = ob_get_clean();
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
         \FluentForm\App\Helpers\Helper::getNextTabIndex(50);
     }
 
@@ -245,7 +259,9 @@ class RepeaterField extends BaseFieldManager
             <thead>
             <tr>
                 <?php foreach ($columns as $index => $count): ?>
-                  <th style="padding: 8px; background-color: #f8f8f8; border: 1px solid #cbcbcb; text-align: left;"><?php echo ArrayHelper::get($fields, $index . '.settings.label'); ?></th>
+                  <th style="padding: 8px; background-color: #f8f8f8; border: 1px solid #cbcbcb; text-align: left;"><?php
+                      // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                      echo ArrayHelper::get($fields, $index . '.settings.label'); ?></th>
                 <?php endforeach; ?>
             </tr>
             </thead>
@@ -253,7 +269,9 @@ class RepeaterField extends BaseFieldManager
             <?php foreach ($response as $responseIndex => $item): ?>
                 <tr>
                     <?php foreach ($columns as $index => $count): ?>
-                      <td style="padding: 8px; border: 1px solid #cbcbcb;"><?php echo ArrayHelper::get($item, $index); ?></td>
+                      <td style="padding: 8px; border: 1px solid #cbcbcb;"><?php
+                          // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                          echo ArrayHelper::get($item, $index); ?></td>
                     <?php endforeach; ?>
                 </tr>
             <?php endforeach; ?>

@@ -989,7 +989,7 @@ class PaymentHelper
             'onetime_only'   => __('One time payment of {first_interval_total}', 'fluentformpro'),
             'normal'         => __('{subscription_amount} for each {billing_interval}', 'fluentformpro'),
             'bill_times'     => __(', for {bill_times} installments', 'fluentformpro'),
-            'single_trial'   => __('Free for {trial_days} days then {subscription_amount} one time')
+            'single_trial'   => __('Free for {trial_days} days then {subscription_amount} one time', 'fluentformpro')
         ];
 
         $paymentSummaryText = apply_filters_deprecated(

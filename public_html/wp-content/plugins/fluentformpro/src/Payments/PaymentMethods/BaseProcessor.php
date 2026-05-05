@@ -52,6 +52,7 @@ abstract class BaseProcessor
         if (!in_array($transaction->status, ['pending', 'intended'], true)) {
             $this->logPaymentSecurityEvent(
                 $submissionId,
+                // translators: %s is the transaction status
                 sprintf(__('Payment confirmation attempted on transaction with status: %s', 'fluentformpro'), $transaction->status)
             );
             return new \WP_Error('invalid_transaction_status', __('This transaction cannot be confirmed.', 'fluentformpro'));
@@ -310,7 +311,7 @@ abstract class BaseProcessor
             ->get();
 
         $total = 0;
-        if ($refunds) {
+        if (count($refunds) > 0) {
             foreach ($refunds as $refund) {
                 $total += $refund->payment_total;
             }
@@ -576,6 +577,7 @@ abstract class BaseProcessor
         });
 
         status_header(200);
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo $this->loadView('frameless_view', $data);
         exit(200);
     }
@@ -1105,7 +1107,7 @@ abstract class BaseProcessor
         ];
         if ($hasSubscriptions) {
             $subscriptions = $this->getSubscriptions();
-            if ($subscriptions) {
+            if (count($subscriptions) > 0) {
                 $subscriptionInitialTotal = 0;
                 foreach ($subscriptions as $subscription) {
                     if (!$subscription->trial_days) {
@@ -1140,6 +1142,7 @@ abstract class BaseProcessor
     public function updateSubscriptionStatus($subscription, $newStatus, $note = '')
     {
         if(!$note) {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $note = __('Subscription status has been changed to '.$newStatus.' from '.$subscription->status, 'fluentformpro');
             $note = apply_filters('fluentform/subscription_confirmation_message', $note, [], $this->getForm());
         }

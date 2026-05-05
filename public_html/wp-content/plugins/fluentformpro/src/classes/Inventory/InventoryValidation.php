@@ -282,7 +282,7 @@ class InventoryValidation
             ->rightJoin('fluentform_submissions', 'fluentform_submissions.id', '=',
                 'fluentform_order_items.submission_id')
             ->get();
-        return (array)$quantity;
+        return is_object($quantity) && method_exists($quantity, 'toArray') ? $quantity->toArray() : (array)$quantity;
     }
     
     public static function getValidationMessage($item)

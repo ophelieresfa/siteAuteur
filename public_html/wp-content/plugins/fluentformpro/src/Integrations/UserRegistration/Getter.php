@@ -46,6 +46,7 @@ trait Getter
         if (!isset($errors['restricted'])) {
             $errors['restricted'] = [];
         }
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
         $errors['restricted'][] = __($msg, 'fluentformpro');
         return $errors;
     }

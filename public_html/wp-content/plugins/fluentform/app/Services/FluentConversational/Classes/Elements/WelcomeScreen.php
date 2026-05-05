@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FluentConversational\Classes\Elements;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Services\FormBuilder\BaseFieldManager;
 use FluentForm\Framework\Helpers\ArrayHelper;
 

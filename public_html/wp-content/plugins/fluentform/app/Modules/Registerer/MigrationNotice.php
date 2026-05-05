@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Registerer;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Models\Form;
 use FluentForm\App\Http\Controllers\AdminNoticeController;
 use FluentForm\App\Helpers\Helper;

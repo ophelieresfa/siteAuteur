@@ -56,6 +56,7 @@ class Bootstrap extends IntegrationManagerController
             'valid_message' => __('Your ClickSend API Key is valid', 'fluentformpro'),
             'invalid_message' => __('Your ClickSend API Key is not valid', 'fluentformpro'),
             'save_button_text' => __('Save Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'config_instruction' => __($this->getConfigInstructions(), 'fluentformpro'),
             'fields' => [
                 'senderNumber' => [
@@ -651,6 +652,7 @@ class Bootstrap extends IntegrationManagerController
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
 
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] .' is required', 'fluentformpro')];
             }
         }
@@ -850,12 +852,14 @@ class Bootstrap extends IntegrationManagerController
 
     public function handleFailed( $feed, $err_msg = 'ClickSend Integration Data insert failed.')
     {
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
         do_action('fluentform/integration_action_result', $feed, 'failed',  __($err_msg, 'fluentformpro'));
     }
 
     public function handleSuccess( $feed, $success_msg = 'ClickSend feed has been successfully initialed and pushed data')
     {
         // It's success
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
         do_action('fluentform/integration_action_result', $feed, 'success', __($success_msg, 'fluentformpro'));
     }
     protected function getConfigInstructions()

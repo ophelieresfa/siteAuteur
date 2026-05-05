@@ -105,7 +105,7 @@ class PaymentHandler
                 return;
             }
 
-            $src = fluentformMix('js/payment_handler.js');
+            $src = fluentFormMix('js/payment_handler.js');
             $version = FLUENTFORM_VERSION;
 
             // If pro is installed and script is compatible, load script from pro
@@ -474,7 +474,7 @@ class PaymentHandler
     
     public function maybeAddPaymentSettings($menus, $formId)
     {
-        $form = wpFluent()->table('fluentform_forms')->find($formId);
+        $form = \FluentForm\App\Models\Form::find($formId);
         if ($form->has_payment) {
             $menus = array_merge(array_slice($menus, 0, 1), array(
                 'payment_settings' => [
@@ -512,8 +512,7 @@ class PaymentHandler
         }
         
         if ($transactionHash) {
-            $transaction = wpFluent()->table('fluentform_transactions')
-                ->where('submission_id', $submissionId)
+            $transaction = \FluentForm\App\Models\Transaction::bySubmission($submissionId)
                 ->where('transaction_hash', $transactionHash)
                 ->first();
             if ($transaction) {
@@ -545,15 +544,14 @@ class PaymentHandler
         }
         $userEmail = $user->user_email;
         
-        $transactions = wpFluent()->table('fluentform_transactions')
-            ->where('payer_email', $userEmail)
+        $transactions = \FluentForm\App\Models\Transaction::where('payer_email', $userEmail)
             ->where(function ($query) {
                 $query->whereNull('user_id')
                     ->orWhere('user_id', '');
             })
             ->get();
         
-        if (!$transactions) {
+        if (count($transactions) === 0) {
             return false;
         }
         
@@ -567,15 +565,13 @@ class PaymentHandler
         $submissionIds = array_unique($submissionIds);
         $transactionIds = array_unique($transactionIds);
         
-        wpFluent()->table('fluentform_submissions')
-            ->whereIn('id', $submissionIds)
+        \FluentForm\App\Models\Submission::whereIn('id', $submissionIds)
             ->update([
                 'user_id'    => $userId,
                 'updated_at' => current_time('mysql')
             ]);
-        
-        wpFluent()->table('fluentform_transactions')
-            ->whereIn('id', $transactionIds)
+
+        \FluentForm\App\Models\Transaction::whereIn('id', $transactionIds)
             ->update([
                 'user_id'    => $userId,
                 'updated_at' => current_time('mysql')

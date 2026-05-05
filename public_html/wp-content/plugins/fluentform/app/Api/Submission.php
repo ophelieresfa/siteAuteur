@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Api;
 
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\Framework\Helpers\ArrayHelper;
 
 class Submission
@@ -82,23 +84,17 @@ class Submission
 
     public function transactions($columnValue, $column = 'submission_id')
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where($column, $columnValue)
-            ->get();
+        return Transaction::where($column, $columnValue)->get();
     }
 
     public function transaction($columnValue, $column = 'id')
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where($column, $columnValue)
-            ->first();
+        return Transaction::where($column, $columnValue)->first();
     }
 
     public function subscriptions($submissionId, $withTransactions = false)
     {
-        $subscriptions = wpFluent()->table('fluentform_subscriptions')
-            ->where('submission_id', $submissionId)
-            ->get();
+        $subscriptions = Subscription::bySubmission($submissionId)->get();
 
         if ($withTransactions) {
             foreach ($subscriptions as $subscription) {
@@ -111,9 +107,7 @@ class Submission
 
     public function getSubscription($subscriptionId, $withTransactions = false)
     {
-        $subscription = wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $subscriptionId)
-            ->first();
+        $subscription = Subscription::find($subscriptionId);
 
         if (!$subscription) {
             return false;
@@ -148,8 +142,7 @@ class Submission
             'grouped'           => false,
         ]);
 
-        $query = wpFluent()->table('fluentform_transactions')
-            ->orderBy('id', 'DESC')
+        $query = Transaction::orderBy('id', 'DESC')
             ->where(function ($q) use ($user) {
                 $q->where('user_id', $user->ID)
                     ->orderBy('id', 'DESC')
@@ -174,17 +167,14 @@ class Submission
     public function transactionsBySubscriptionId($subscriptionId)
     {
 
-        return wpFluent()->table('fluentform_transactions')
-            ->where('subscription_id', $subscriptionId)
+        return Transaction::where('subscription_id', $subscriptionId)
             ->orderBy('id', 'DESC')
             ->get();
     }
 
     public function transactionsBySubmissionId($submissionId)
     {
-        return wpFluent()->table('fluentform_transactions')
-            ->where('submission_id', $submissionId)
-            ->get();
+        return Transaction::bySubmission($submissionId)->get();
     }
 
     public function subscriptionsByUserId($userId = false, $args = [])
@@ -212,7 +202,7 @@ class Submission
             ->where('payment_type', 'subscription')
             ->get();
 
-        if (!$submissions) {
+        if (count($submissions) === 0) {
             return [];
         }
 
@@ -223,8 +213,7 @@ class Submission
             $currencyMaps[$submission->id] = $submission->currency;
         }
 
-        $query = wpFluent()->table('fluentform_subscriptions')
-            ->select(['fluentform_subscriptions.*'])
+        $query = Subscription::select(['fluentform_subscriptions.*'])
             ->orderBy('id', 'DESC')
             ->whereIn('submission_id', $submissionIds);
 

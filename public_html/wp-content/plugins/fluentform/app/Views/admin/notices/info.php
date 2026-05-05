@@ -1,3 +1,8 @@
+<?php
+
+defined('ABSPATH') or die;
+
+?>
 <div id="ff_notice_<?php echo esc_attr($notice['name']); ?>" class="update-nag fluentform-admin-notice fluent_info_notice">
     <?php if($show_logo): ?>
         <div class="ff_logo_holder">

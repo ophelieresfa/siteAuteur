@@ -371,7 +371,7 @@ class GlobalSearchService
 
         $forms = Form::where('status', 'published')
             ->select(['id', 'title', 'type'])->get();
-        if ($forms) {
+        if (count($forms) > 0) {
             foreach ($forms as $form) {
                 $formSpecificLinks = [
                     [
@@ -401,7 +401,7 @@ class GlobalSearchService
                     [
                         "title" => "Forms > $form->title > Settings & Integrations > Slack",
                         "icon"  => '',
-                        "path"  => "?page=fluent_forms&form_id=2&route=settings&sub_route=form_settings#/slack",
+                        "path"  => "?page=fluent_forms&form_id=$form->id&route=settings&sub_route=form_settings#/slack",
                         "tags"  => ['slack', "$form->id", $form->title]
                     ],
                     [
@@ -477,7 +477,7 @@ class GlobalSearchService
                     $formSpecificLinks[] = [
                         "title" => "Forms > $form->title > Settings & Integrations > Post Feeds",
                         "icon"  => '',
-                        "path"  => "?page=fluent_forms&form_id=104&route=settings&sub_route=form_settings#/post-feeds",
+                        "path"  => "?page=fluent_forms&form_id=$form->id&route=settings&sub_route=form_settings#/post-feeds",
                         "tags"  => ['post feeds', "$form->id", $form->title]
                     ];
                 }

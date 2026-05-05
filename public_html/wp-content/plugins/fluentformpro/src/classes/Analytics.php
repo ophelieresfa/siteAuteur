@@ -60,8 +60,11 @@ class Analytics
         $data = [];
 
         for ($i = 6; $i >= 0; $i--) {
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $start = date('Y-m-d 00:00:00', strtotime("-$i day"));
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $day = date('l', strtotime($start));
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $end = date('Y-m-d 23:59:59', strtotime("-$i day"));
             $uniqueViews = $this->getUniqueViews($form_id, $start, $end);
             $totalViews = $this->getTotalViews($form_id, $start, $end);
@@ -75,14 +78,18 @@ class Analytics
 
     private function byMonth($form_id) {
         $data = [];
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
         $totalDays = (int)date('t');
 
         for ($i = 1; $i <= $totalDays; $i++) {
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $start = date("Y-m-$i 00:00:00", strtotime("-$i day"));
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $end = date("Y-m-$i 23:59:59", strtotime("-$i day"));
             $uniqueViews = $this->getUniqueViews($form_id, $start, $end);
             $totalViews = $this->getTotalViews($form_id, $start, $end);
 
+            // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             $data['labels'][] = date('Y-m-d', strtotime($start));
             $data['totalViews'][] = $totalViews;
             $data['uniqueViews'][] = $uniqueViews;

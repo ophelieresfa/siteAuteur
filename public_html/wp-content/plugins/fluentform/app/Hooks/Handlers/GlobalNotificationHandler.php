@@ -61,7 +61,7 @@ class GlobalNotificationHandler
         $feedMetaKeys = array_keys($feedKeys);
         $feeds = $this->globalNotificationService->getNotificationFeeds($form, $feedMetaKeys);
         
-        if (! $feeds) {
+        if (count($feeds) === 0) {
             do_action_deprecated(
                 'fluentform_global_notify_completed',
                 [

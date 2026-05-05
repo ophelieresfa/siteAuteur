@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\Integrations\Slack;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;

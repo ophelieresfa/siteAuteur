@@ -80,15 +80,23 @@ class SaveProgressButton extends BaseFieldManager
                 'email_resume_link_enabled' => true,
                 'use_link_once'             => false,
                 'save_success_message' => __('Your progress has been successfully saved. You can access the form anytime by copying the link or get the resume form link to your email from below.','fluentformpro'),
+                // translators: %s is the form name
                 'email_subject' => sprintf(__('Resume Form Submission : %s','fluentformpro'), '{form_name}'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'email_body'    => __(self::getEmailBody(), 'fluentformpro'),
                 'send_email_on_entry_create' => false,
                 'on_create_email_address' => get_option('admin_email'),
-                'on_create_email_subject' => sprintf(__('A Partial entry created on form: %s and partial entry ID: %s','fluentformpro'), '{form_name}', '{partial_entry_id}'),
+                // translators: %1$s is the form name, %2$s is the partial entry ID
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+                'on_create_email_subject' => sprintf(__('A Partial entry created on form: %1$s and partial entry ID: %2$s','fluentformpro'), '{form_name}', '{partial_entry_id}'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'on_create_email_body'    => __(self::getAdminPartialEntryEmailBody('created'), 'fluentformpro'),
                 'send_email_on_entry_update' => false,
                 'on_update_email_address' => get_option('admin_email'),
-                'on_update_email_subject' => sprintf(__('A Partial entry updated on form: %s and partial entry ID: %s','fluentformpro'), '{form_name}', '{partial_entry_id}'),
+                // translators: %1$s is the form name, %2$s is the partial entry ID
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+                'on_update_email_subject' => sprintf(__('A Partial entry updated on form: %1$s and partial entry ID: %2$s','fluentformpro'), '{form_name}', '{partial_entry_id}'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'on_update_email_body'    => __(self::getAdminPartialEntryEmailBody('updated'), 'fluentformpro'),
             ],
             'editor_options' => [
@@ -145,43 +153,44 @@ class SaveProgressButton extends BaseFieldManager
         return [
             'save_success_message' => [
                 'template'  => 'inputTextarea',
-                'label'     => __('Success Message', 'fluentform'),
+                'label'     => __('Success Message', 'fluentformpro'),
                 'help_text'  => __('Message to show after saving form state.', 'fluentformpro'),
 
             ],
             'save_resume_for_logged_in_user' => [
                 'template'  => 'radioButton',
-                'label'     => __('Allow Only For Logged In User', 'fluentform'),
-                'help_text' => __('Only logged in user can see and use save and resume', 'fluentform'),
+                'label'     => __('Allow Only For Logged In User', 'fluentformpro'),
+                'help_text' => __('Only logged in user can see and use save and resume', 'fluentformpro'),
                 'options'   => [
                     [
                         'value' => true,
-                        'label' => __('Yes', 'fluentform'),
+                        'label' => __('Yes', 'fluentformpro'),
                     ],
                     [
                         'value' => false,
-                        'label' => __('No', 'fluentform'),
+                        'label' => __('No', 'fluentformpro'),
                     ],
                 ],
             ],
             'email_resume_link_enabled' => [
                 'template'  => 'radioButton',
-                'label'     => __('Enable Email Link', 'fluentform'),
-                'help_text' => __('Allow User to Email Resume Link', 'fluentform'),
+                'label'     => __('Enable Email Link', 'fluentformpro'),
+                'help_text' => __('Allow User to Email Resume Link', 'fluentformpro'),
                 'options'   => [
                     [
                         'value' => true,
-                        'label' => __('Yes', 'fluentform'),
+                        'label' => __('Yes', 'fluentformpro'),
                     ],
                     [
                         'value' => false,
-                        'label' => __('No', 'fluentform'),
+                        'label' => __('No', 'fluentformpro'),
                     ],
                 ],
             ],
             'email_subject' => [
                 'template'  => 'inputText',
-                'label'     => __('Email Subject', 'fluentform'),
+                'label'     => __('Email Subject', 'fluentformpro'),
+                // translators: %s is the placeholder name
                 'help_text'  => sprintf(__('Use %s placeholder to get the Form Name.', 'fluentformpro'),'{form_name}'),
                 'dependency' => [
                     'depends_on' => 'settings/email_resume_link_enabled',
@@ -191,8 +200,9 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'email_body' => [
                 'template'  => 'inputHTML',
-                'label'     => __('Email Body', 'fluentform'),
+                'label'     => __('Email Body', 'fluentformpro'),
                 'hide_extra' => 'yes',
+                // translators: %s is the placeholder name
                 'inline_help_text'  => sprintf(__('Use %s placeholder to get the email resume link.', 'fluentformpro'),'{email_resume_link}'),
                 'dependency' => [
                     'depends_on' => 'settings/email_resume_link_enabled',
@@ -202,16 +212,16 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'use_link_once' => [
                 'template'  => 'radioButton',
-                'label'     => __('Allow use the link only once', 'fluentform'),
-                'help_text' => __('Use the link only once after that no one can use it.', 'fluentform'),
+                'label'     => __('Allow use the link only once', 'fluentformpro'),
+                'help_text' => __('Use the link only once after that no one can use it.', 'fluentformpro'),
                 'options'   => [
                     [
                         'value' => true,
-                        'label' => __('Yes', 'fluentform'),
+                        'label' => __('Yes', 'fluentformpro'),
                     ],
                     [
                         'value' => false,
-                        'label' => __('No', 'fluentform'),
+                        'label' => __('No', 'fluentformpro'),
                     ],
                 ],
             ],
@@ -223,22 +233,22 @@ class SaveProgressButton extends BaseFieldManager
         return [
             'send_email_on_entry_create'  => [
                 'template'  => 'radioButton',
-                'label'     => __('Send Email on Partial Entry Created', 'fluentform'),
-                'help_text' => __('Send Email on Partial Entry Created', 'fluentform'),
+                'label'     => __('Send Email on Partial Entry Created', 'fluentformpro'),
+                'help_text' => __('Send Email on Partial Entry Created', 'fluentformpro'),
                 'options'   => [
                     [
                         'value' => true,
-                        'label' => __('Yes', 'fluentform'),
+                        'label' => __('Yes', 'fluentformpro'),
                     ],
                     [
                         'value' => false,
-                        'label' => __('No', 'fluentform'),
+                        'label' => __('No', 'fluentformpro'),
                     ],
                 ],
             ],
             'on_create_email_address'     => [
                 'template'   => 'inputText',
-                'label'      => __('Email Address', 'fluentform'),
+                'label'      => __('Email Address', 'fluentformpro'),
                 'help_text'  => __('Leaving it empty will send to Email to the Admin', 'fluentformpro'),
                 'dependency' => [
                     'depends_on' => 'settings/send_email_on_entry_create',
@@ -248,7 +258,8 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'on_create_email_subject'     => [
                 'template'   => 'inputText',
-                'label'      => __('Email Subject', 'fluentform'),
+                'label'      => __('Email Subject', 'fluentformpro'),
+                // translators: %s is the placeholder name
                 'help_text'  => sprintf(__('Use %s placeholder to get the Form Name.', 'fluentformpro'), '{form_name}'),
                 'dependency' => [
                     'depends_on' => 'settings/send_email_on_entry_create',
@@ -258,8 +269,9 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'on_create_email_body'        => [
                 'template'         => 'inputHTML',
-                'label'            => __('Email Body', 'fluentform'),
+                'label'            => __('Email Body', 'fluentformpro'),
                 'hide_extra'       => 'yes',
+                // translators: %s is the placeholder name
                 'inline_help_text' => sprintf(__('Use %s placeholder to get the partial entry details.', 'fluentformpro'),
                     '{partial_entry_link}'),
                 'dependency'       => [
@@ -270,22 +282,22 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'send_email_on_entry_update'  => [
                 'template'  => 'radioButton',
-                'label'     => __('Send Email on Partial Entry Updated', 'fluentform'),
-                'help_text' => __('Send Email on Partial Entry Updated', 'fluentform'),
+                'label'     => __('Send Email on Partial Entry Updated', 'fluentformpro'),
+                'help_text' => __('Send Email on Partial Entry Updated', 'fluentformpro'),
                 'options'   => [
                     [
                         'value' => true,
-                        'label' => __('Yes', 'fluentform'),
+                        'label' => __('Yes', 'fluentformpro'),
                     ],
                     [
                         'value' => false,
-                        'label' => __('No', 'fluentform'),
+                        'label' => __('No', 'fluentformpro'),
                     ],
                 ]
             ],
             'on_update_email_address'     => [
                 'template'   => 'inputText',
-                'label'      => __('Email Address', 'fluentform'),
+                'label'      => __('Email Address', 'fluentformpro'),
                 'help_text'  => __('Leaving it empty will send to Email to the Admin', 'fluentformpro'),
                 'dependency' => [
                     'depends_on' => 'settings/send_email_on_entry_update',
@@ -295,7 +307,8 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'on_update_email_subject'     => [
                 'template'   => 'inputText',
-                'label'      => __('Email Subject', 'fluentform'),
+                'label'      => __('Email Subject', 'fluentformpro'),
+                // translators: %s is the placeholder name
                 'help_text'  => sprintf(__('Use %s placeholder to get the Form Name.', 'fluentformpro'), '{form_name}'),
                 'dependency' => [
                     'depends_on' => 'settings/send_email_on_entry_update',
@@ -305,8 +318,9 @@ class SaveProgressButton extends BaseFieldManager
             ],
             'on_update_email_body'        => [
                 'template'         => 'inputHTML',
-                'label'            => __('Email Body', 'fluentform'),
+                'label'            => __('Email Body', 'fluentformpro'),
                 'hide_extra'       => 'yes',
+                // translators: %s is the placeholder name
                 'inline_help_text' => sprintf(__('Use %s placeholder to get the partial entry details.', 'fluentformpro'),
                     '{partial_entry_link}'),
                 'dependency'       => [
@@ -450,6 +464,7 @@ class SaveProgressButton extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
     }
     
@@ -485,6 +500,7 @@ class SaveProgressButton extends BaseFieldManager
                 $element['settings']['save_success_message'] = __('Your progress has been successfully saved. You can access the form anytime by copying the link or get the resume form link to your email from below.', 'fluentformpro');
             }
             if (!isset($element['settings']['email_subject'])) {
+                // translators: %s is the form name
                 $element['settings']['email_subject'] = sprintf(__('Resume Form Submission : %s',
                     'fluentformpro'), '{form_name}');
             }
@@ -501,9 +517,11 @@ class SaveProgressButton extends BaseFieldManager
                 $element['settings']['on_create_email_address'] = get_option('admin_email');
             }
             if (!isset($element['settings']['on_create_email_subject'])) {
-                $element['settings']['on_create_email_subject'] = sprintf(__('A Partial entry created on form: %s and partial entry ID: %s','fluentformpro'), '{form_name}', '{partial_entry_id}');
+                // translators: %1$s is the form name, %2$s is the partial entry ID
+                $element['settings']['on_create_email_subject'] = sprintf(__('A Partial entry created on form: %1$s and partial entry ID: %2$s','fluentformpro'), '{form_name}', '{partial_entry_id}');
             }
             if (!isset($element['settings']['on_create_email_body'])) {
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from method
                 $element['settings']['on_create_email_body'] = __(self::getAdminPartialEntryEmailBody('created'), 'fluentformpro');
             }
             if (!isset($element['settings']['send_email_on_entry_update'])) {
@@ -513,9 +531,11 @@ class SaveProgressButton extends BaseFieldManager
                 $element['settings']['on_update_email_address'] = get_option('admin_email');
             }
             if (!isset($element['settings']['on_update_email_subject'])) {
-                $element['settings']['on_update_email_subject'] = sprintf(__('A Partial entry updated on form: %s and partial entry ID: %s','fluentformpro'), '{form_name}', '{partial_entry_id}');
+                // translators: %1$s is the form name, %2$s is the partial entry ID
+                $element['settings']['on_update_email_subject'] = sprintf(__('A Partial entry updated on form: %1$s and partial entry ID: %2$s','fluentformpro'), '{form_name}', '{partial_entry_id}');
             }
             if (!isset($element['settings']['on_update_email_body'])) {
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from method
                 $element['settings']['on_update_email_body'] = __(self::getAdminPartialEntryEmailBody('updated'), 'fluentformpro');
             }
             if (!isset($element['attributes']['name'])) {

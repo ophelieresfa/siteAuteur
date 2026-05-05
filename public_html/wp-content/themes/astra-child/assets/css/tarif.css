@@ -1,0 +1,659 @@
+.sa-tarif-page {
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+    color: #343434;
+    font-family: inherit;
+}
+
+.ast-container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sa-tarif-page * {
+    box-sizing: border-box;
+}
+
+.sa-tarif-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sa-tarif-hero {
+    position: relative;
+    background:
+        radial-gradient(circle at 14% 18%, rgba(63, 192, 149, 0.18), transparent 30%),
+        radial-gradient(circle at 92% 10%, rgba(63, 192, 149, 0.11), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #f3fbf8 100%);
+}
+
+.sa-tarif-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 70px;
+    align-items: start;
+    padding-bottom: 50px;
+}
+
+.sa-tarif-hero-content {
+    margin-top: 50px;
+}
+
+.sa-tarif-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+    color: #3fc095;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sa-tarif-badge span,
+.sa-tarif-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.14);
+    color: #3fc095;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.sa-tarif-hero h1 {
+    max-width: 680px;
+    margin: 0;
+    color: #343434;
+    font-size: 40px;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+    font-weight: 700;
+}
+
+.sa-tarif-hero h1 strong {
+    color: #3fc095;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sa-tarif-hero-text {
+    max-width: 690px;
+    margin: 24px 0 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.72;
+}
+
+.sa-tarif-pills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 620px;
+    margin-top: 32px;
+}
+
+.sa-tarif-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(229, 237, 240, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 12px 30px rgba(23, 36, 58, 0.05);
+}
+
+.sa-tarif-pill-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    color: #3fc095;
+    background: rgba(63, 192, 149, 0.12);
+}
+
+.sa-tarif-pill svg,
+.sa-tarif-info-icon svg,
+.sa-tarif-summary-line svg,
+.sa-tarif-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sa-tarif-pill span:last-child {
+    color: #343434;
+    font-size: 14px;
+    font-weight: 501;
+    line-height: 1.35;
+}
+
+.sa-tarif-info-box {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    max-width: 620px;
+    margin-top: 24px;
+    padding: 22px 24px;
+    border-radius: 5px;
+    background: rgba(63, 192, 149, 0.11);
+    border: 1px solid rgba(63, 192, 149, 0.16);
+}
+
+.sa-tarif-info-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    color: #3fc095;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.sa-tarif-info-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.sa-tarif-info-box p {
+    margin: 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.sa-tarif-info-box strong {
+    color: #343434;
+}
+
+.sa-tarif-summary-card {
+    margin-top: 50px;
+    position: relative;
+    padding: 42px 36px 34px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    box-shadow: 0 18px 45px rgba(23, 36, 58, 0.10);
+}
+
+.sa-tarif-summary-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.sa-tarif-summary-card h2 {
+    margin: 0 0 20px;
+    color: #343434;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+}
+
+.sa-tarif-main-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.sa-tarif-main-price span {
+    color: #3fc095;
+    font-size: 25px;
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+    font-weight: 900;
+}
+
+.sa-tarif-main-price small {
+    color: #343434;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sa-tarif-price-note {
+    margin: 0 auto 28px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.sa-tarif-summary-lines {
+    padding: 8px 0 14px;
+    border-top: 1px solid #e5edf0;
+    border-bottom: 1px solid #e5edf0;
+}
+
+.sa-tarif-summary-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 7px 0;
+    color: #343434;
+    font-size: 15px;
+}
+
+.sa-tarif-summary-line span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    text-align: left;
+    font-size: 14px;
+}
+
+.sa-tarif-summary-line svg {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: #343434;
+    stroke-width: 2;
+}
+
+.sa-tarif-summary-line strong {
+    flex: 0 0 auto;
+    color: #3fc095;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.sa-tarif-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0 8px;
+    color: #343434;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sa-tarif-total strong {
+    color: #3fc095;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sa-tarif-renewal {
+    margin: 0 0 24px;
+    color: #343434;
+    font-size: 13px;
+}
+
+.sa-tarif-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 501;
+    background: #3fc095;
+    color: #ffffff;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 14px 28px rgba(63, 192, 149, 0.24);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sa-tarif-btn:hover {
+    transform: translateY(-2px);
+    background: #343434;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 18px 34px rgba(63, 192, 149, 0.30);
+}
+
+.sa-tarif-btn:focus {
+    color: #ffffff;
+}
+
+.cart-reassure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+.cart-reassure img {
+    width: 12px;
+    height: 14px;
+}
+
+.sa-tarif-secure {
+    margin: 0;
+    color: #343434;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.sa-tarif-included-section,
+.sa-tarif-process-section,
+.sa-tarif-faq-section {
+    padding: 50px 0;
+}
+
+.sa-tarif-included-section {
+    background: #ffffff;
+}
+
+.sa-tarif-process-section {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(63, 192, 149, 0.13), transparent 36%),
+        #f4fbf8;
+}
+
+.sa-tarif-faq-section {
+    background: #ffffff;
+}
+
+.sa-tarif-section-title {
+    max-width: 800px;
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.sa-tarif-section-title h2 {
+    margin: 0 0 14px;
+    color: #343434;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.04em;
+
+}
+
+.sa-tarif-section-title p {
+    margin: 0 auto;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.sa-tarif-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.sa-tarif-feature-card {
+    padding: 32px 24px 30px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    box-shadow: 0 10px 28px rgba(23, 36, 58, 0.055);
+}
+
+.sa-tarif-feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 66px;
+    height: 66px;
+    margin-bottom: 22px;
+    border-radius: 999px;
+    color: #3fc095;
+    background: rgba(63, 192, 149, 0.12);
+}
+
+.sa-tarif-feature-icon svg {
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sa-tarif-process-icon img {
+    width: 30px;
+}
+
+.sa-tarif-feature-card h3 {
+    margin: 0 0 12px;
+    color: #343434;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.sa-tarif-feature-card p {
+    margin: 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.sa-tarif-process-line {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 34px;
+    margin-top: 24px;
+}
+
+.sa-tarif-process-line::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 43px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(32, 168, 124, 0.35), transparent);
+}
+
+.sa-tarif-process-step {
+    position: relative;
+    text-align: center;
+}
+
+.sa-tarif-process-number {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    background: #3fc095;
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: 0 12px 26px rgba(63, 192, 149, 0.24);
+}
+
+.sa-tarif-process-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 78px;
+    height: 78px;
+    border-radius: 999px;
+    color: #343434;
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    box-shadow: 0 10px 26px rgba(23, 36, 58, 0.08);
+}
+
+.sa-tarif-process-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke-width: 2;
+}
+
+.sa-tarif-process {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sa-tarif-process-step h3 {
+    margin: 0 0 10px;
+    color: #343434;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sa-tarif-process-step p {
+    max-width: 240px;
+    margin: 0 auto;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.sa-tarif-faq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+    align-items: start;
+    max-width: none;
+    margin: 0;
+}
+
+.sa-tarif-faq-list details {
+    background: #ffffff;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    box-shadow: 0 8px 22px rgba(23, 36, 58, 0.05);
+    overflow: hidden;
+    align-self: start;
+}
+
+.sa-tarif-faq-list summary {
+    position: relative;
+    padding: 18px 52px 18px 22px;
+    cursor: pointer;
+    color: #343434;
+    font-size: 15px;
+    font-weight: 501;
+    list-style: none;
+}
+
+.sa-tarif-faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.sa-tarif-faq-list summary::after {
+    content: "+";
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3fc095;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.sa-tarif-faq-list details[open] summary::after {
+    content: "–";
+}
+
+.sa-tarif-faq-list details p {
+    margin: 0;
+    padding: 0 22px 20px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+@media (max-width: 1100px) {
+    .sa-tarif-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 44px;
+    }
+
+    .sa-tarif-summary-card {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .sa-tarif-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sa-tarif-process-line {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sa-tarif-process-line::before {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .sa-tarif-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .sa-tarif-hero {
+        padding: 52px 0 60px;
+    }
+
+    .sa-tarif-hero h1 {
+        font-size: 39px;
+    }
+
+    .sa-tarif-hero-text {
+        font-size: 16px;
+    }
+
+    .sa-tarif-pills {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-tarif-info-box {
+        align-items: flex-start;
+    }
+
+    .sa-tarif-summary-card {
+        padding: 38px 22px 28px;
+    }
+
+    .sa-tarif-main-price span {
+        font-size: 62px;
+    }
+
+    .sa-tarif-summary-line {
+        font-size: 14px;
+    }
+
+    .sa-tarif-included-section,
+    .sa-tarif-process-section,
+    .sa-tarif-faq-section {
+        padding: 58px 0;
+    }
+
+    .sa-tarif-features-grid,
+    .sa-tarif-process-line,
+    .sa-tarif-faq-list {
+        grid-template-columns: 1fr;
+    }
+}

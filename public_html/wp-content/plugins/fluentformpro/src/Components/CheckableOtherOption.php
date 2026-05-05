@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Components;
 
+defined('ABSPATH') or die;
+
 class CheckableOtherOption
 {
     /**

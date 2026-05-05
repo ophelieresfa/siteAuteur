@@ -1,0 +1,521 @@
+.sa-register-success-page {
+    position: relative;
+    min-height: calc(100vh - 90px);
+    padding: 70px 0;
+    background:
+        radial-gradient(circle at 14% 16%, rgba(63, 192, 149, 0.12), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(63, 192, 149, 0.12), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #e5edf0 100%);
+    overflow: hidden;
+    color: #343434;
+}
+
+.ast-container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.sa-register-success-page {
+    max-width: 100% !important;
+    padding: 50px 0;
+}
+
+.sa-register-success-page * {
+    box-sizing: border-box;
+}
+
+.sa-register-success-container {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.sa-register-success-hero {
+    display: flex;
+    gap: 70px;
+    align-items: start;
+}
+
+.sa-register-success-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.14);
+    color: #3fc095;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    gap: 10px;
+}
+
+.sa-register-success-badge span {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #3fc095;
+    color: #ffffff;
+}
+
+.sa-register-success-badge svg {
+    width: 10px;
+    height: 10px;
+}
+
+.sa-register-success-badge path,
+.sa-register-success-btn path,
+.sa-register-success-email-icon path,
+.sa-register-success-step-icon path,
+.sa-register-success-main-icon path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sa-register-success-left h1 {
+    margin: 20px 0 20px;
+    color: #343434;
+    font-size: 35px;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    font-weight: 700;
+}
+
+.sa-register-success-left h1 strong {
+    color: #3fc095;
+    font-weight: 700;
+}
+
+.sa-register-success-lead {
+    max-width: 650px;
+    margin: 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.sa-register-success-email {
+    width: fit-content;
+    min-width: 360px;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding: 15px 18px;
+    border: 1px solid #e5edf0;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(16, 23, 47, 0.06);
+}
+
+.sa-register-success-email-icon {
+    width: 34px;
+    height: 34px;
+    color: #3fc095;
+    flex: 0 0 auto;
+}
+
+.sa-register-success-email-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.sa-register-success-email span {
+    display: block;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.sa-register-success-email strong {
+    display: block;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 501;
+    word-break: break-word;
+}
+
+.sa-register-success-steps {
+    display: grid;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.sa-register-success-step {
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr) 44px;
+    gap: 18px;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid rgba(228, 234, 241, 0.9);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.93);
+    box-shadow: 0 14px 34px rgba(16, 23, 47, 0.07);
+}
+
+.sa-register-success-step-number {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.14);
+    color: #3fc095;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.sa-register-success-step-content h2 {
+    margin: 0 0 5px;
+    color: #343434;
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+
+.sa-register-success-step-content p {
+    margin: 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sa-register-success-step-icon {
+    width: 38px;
+    height: 38px;
+    color: #3fc095;
+}
+
+.sa-register-success-step-icon svg {
+    width: 38px;
+    height: 38px;
+}
+
+.sa-register-success-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 34px;
+}
+
+.sa-register-success-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 501;
+    text-decoration: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.sa-register-success-btn:hover {
+    transform: translateY(-2px);
+}
+
+.sa-register-success-btn span {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+}
+
+.sa-register-success-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.sa-register-success-btn-primary {
+    background: #3fc095;
+    color: #ffffff !important;
+    box-shadow: 0 18px 36px rgba(63, 192, 149, 0.32);
+}
+
+.sa-register-success-btn-primary:hover {
+    background: #3fc095;
+    color: #ffffff !important;
+}
+
+.sa-register-success-btn-secondary {
+    background: #ffffff;
+    color: #343434 !important;
+    border: 1px solid #e5edf0;
+    box-shadow: 0 12px 28px rgba(16, 23, 47, 0.06);
+}
+
+.sa-register-success-btn-secondary:hover {
+    border-color: rgba(63, 192, 149, 0.45);
+    color: #3fc095 !important;
+}
+
+.sa-register-success-note {
+    margin: 22px 0 0;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sa-register-success-note::before {
+    content: "i";
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    border-radius: 999px;
+    background: #7b8495;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.sa-register-success-right {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-register-success-bg-bubble {
+    position: absolute;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.13);
+    z-index: 0;
+}
+
+.sa-register-success-bg-bubble-1 {
+    width: 430px;
+    height: 430px;
+    right: 40px;
+    top: 32px;
+}
+
+.sa-register-success-bg-bubble-2 {
+    width: 120px;
+    height: 120px;
+    right: 0;
+    top: 50px;
+}
+
+.sa-register-success-bg-bubble-3 {
+    width: 150px;
+    height: 150px;
+    left: 10px;
+    bottom: 30px;
+}
+
+.sa-register-success-card {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    padding: 36px;
+    border: 1px solid rgba(228, 234, 241, 0.9);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 18px 45px rgba(23, 36, 58, 0.10);
+}
+
+.sa-register-success-main-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #5bd19b, #3fc095);
+    color: #ffffff;
+    box-shadow: 0 22px 45px rgba(63, 192, 149, 0.35);
+}
+
+.sa-register-success-main-icon > svg {
+    width: 50px;
+    height: 50px;
+}
+
+.sa-register-success-main-icon > span {
+    position: absolute;
+    right: -7px;
+    top: 18px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #3fc095;
+    color: #ffffff;
+    border: 4px solid #ffffff;
+}
+
+.sa-register-success-main-icon > span svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sa-register-success-card h3 {
+    margin: 0 0 14px;
+    color: #343434;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.sa-register-success-card > p {
+    max-width: 330px;
+    margin: 0 auto;
+    color: #343434;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.sa-register-success-progress {
+    position: relative;
+    display: grid;
+    gap: 24px;
+    margin-top: 34px;
+    padding-left: 14px;
+}
+
+.sa-register-success-progress::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 16px;
+    bottom: 16px;
+    width: 2px;
+    background: #e1e6ed;
+}
+
+.sa-register-success-progress-item {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 501;
+}
+
+.sa-register-success-progress-item span {
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 3px solid #d9dee7;
+    flex: 0 0 auto;
+}
+
+.sa-register-success-progress-item.is-done {
+    color: #343434;
+}
+
+.sa-register-success-progress-item.is-done span {
+    position: relative;
+    background: #3fc095;
+    border-color: #3fc095;
+}
+
+.sa-register-success-progress-item.is-done span::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    width: 8px;
+    height: 12px;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    transform: rotate(45deg);
+}
+
+.sa-register-success-progress-item.is-current {
+    color: #343434;
+    font-weight: 700;
+}
+
+.sa-register-success-progress-item.is-current span {
+    border-color: #3fc095;
+    box-shadow: inset 0 0 0 5px #ffffff;
+    background: #3fc095;
+}
+
+@media (max-width: 1024px) {
+    .sa-register-success-hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .sa-register-success-right {
+        min-height: auto;
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .sa-register-success-page {
+        padding: 42px 0;
+    }
+
+    .sa-register-success-container {
+        width: min(100% - 28px, 1180px);
+    }
+
+    .sa-register-success-left h1 {
+        font-size: 36px;
+    }
+
+    .sa-register-success-lead {
+        font-size: 16px;
+    }
+
+    .sa-register-success-email {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .sa-register-success-step {
+        grid-template-columns: 42px 1fr;
+    }
+
+    .sa-register-success-step-icon {
+        display: none;
+    }
+
+    .sa-register-success-actions {
+        flex-direction: column;
+    }
+
+    .sa-register-success-btn {
+        width: 100%;
+    }
+
+    .sa-register-success-card {
+        padding: 26px 22px;
+    }
+
+    .sa-register-success-main-icon {
+        width: 112px;
+        height: 112px;
+    }
+
+    .sa-register-success-main-icon > svg {
+        width: 58px;
+        height: 58px;
+    }
+}

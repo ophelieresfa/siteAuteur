@@ -54,6 +54,7 @@ class Accordion extends BaseFieldManager
                 if ('start' == $accordionType) {
                     if ($currentAccordion) {
                         $hasError = true;
+                        // translators: %s is the accordion title
                         $errorMessage = sprintf(
                             __('Error: Found a new accordion before closing the previous one. Please close the "%s" accordion before starting a new one.', 'fluentformpro'),
                             ArrayHelper::get($currentAccordion, 'title')
@@ -70,6 +71,7 @@ class Accordion extends BaseFieldManager
                         ];
                     } else {
                         $hasError = true;
+                        // translators: %s is the accordion title
                         $errorMessage = sprintf(
                             __('Error: Found a closing accordion without a matching opening accordion. Please add an Accordion field type Start before "%s" accordion.', 'fluentformpro'),
                             ArrayHelper::get($field, 'settings.title', 'Untitled Accordion')
@@ -82,6 +84,7 @@ class Accordion extends BaseFieldManager
                     } else {
                         $hasError = true;
                         $title = ArrayHelper::get($field, 'settings.title', 'Untitled Accordion');
+                        // translators: %s is the accordion title
                         $errorMessage = sprintf(
                             __('Error: Found a closing accordion without a matching opening accordion. Please add an Accordion field type Start before "%s" accordion.', 'fluentformpro'),
                             $title
@@ -92,6 +95,7 @@ class Accordion extends BaseFieldManager
             } elseif ('form_step' == $field['element'] && $currentAccordion) {
                 // Form steps inside accordions are not supported
                 $hasError = true;
+                // translators: %s is the accordion title
                 $errorMessage = sprintf(
                     __('Error: Form steps cannot be placed inside accordions. Found a step inside "%s" accordion.', 'fluentformpro'),
                     $currentAccordion['title']
@@ -103,6 +107,7 @@ class Accordion extends BaseFieldManager
         // Check if all accordions were properly closed
         if (!$hasError && $currentAccordion) {
             $hasError = true;
+            // translators: %s is the accordion title
             $errorMessage = sprintf(
                 __('Error: The accordion "%s" was not closed properly. Please add a closing accordion.', 'fluentformpro'),
                 $currentAccordion['title']
@@ -332,7 +337,7 @@ class Accordion extends BaseFieldManager
         } else {
             $html = $this->closeSection();
         }
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
     }
 
     private function closeSection()

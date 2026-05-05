@@ -1,10 +1,19 @@
+<?php defined('ABSPATH') or die; ?>
 <table style="width: 100%;border: 1px solid #cbcbcb;" class="table ffp_order_items_table ffp_table table_bordered">
     <thead>
     <tr>
-        <th><?php _e('Item', 'fluentformpro'); ?></th>
-        <th><?php _e('Quantity', 'fluentformpro'); ?></th>
-        <th><?php _e('Price', 'fluentformpro'); ?></th>
-        <th><?php _e('Line Total', 'fluentformpro'); ?></th>
+        <th><?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+            _e('Item', 'fluentformpro'); ?></th>
+        <th><?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+            _e('Quantity', 'fluentformpro'); ?></th>
+        <th><?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+            _e('Price', 'fluentformpro'); ?></th>
+        <th><?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+            _e('Line Total', 'fluentformpro'); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -20,19 +29,25 @@
     <tfoot>
     <?php if($discount_items): ?>
         <tr class="ffp_total_row">
-            <th style="text-align: right" colspan="3"><?php _e('Sub-Total', 'fluentformpro'); ?></th>
+            <th style="text-align: right" colspan="3"><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Sub-Total', 'fluentformpro'); ?></th>
             <td><?php echo esc_html($subTotal); ?></td>
         </tr>
         <?php foreach ($discount_items as $discount_item): ?>
         <tr class="ffp_total_row">
-            <th style="text-align: right" colspan="3"><?php _e('Discount:', 'fluentformpro'); ?> <?php echo esc_html($discount_item->item_name); ?></th>
+            <th style="text-align: right" colspan="3"><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Discount:', 'fluentformpro'); ?> <?php echo esc_html($discount_item->item_name); ?></th>
             <td>-<?php echo esc_html($discount_item->formatted_line_total); ?></td>
         </tr>
         <?php endforeach; ?>
     <?php endif; ?>
 
         <tr class="ffp_total_row">
-            <th style="text-align: right" colspan="3"><?php _e('Total', 'fluentformpro'); ?></th>
+            <th style="text-align: right" colspan="3"><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Total', 'fluentformpro'); ?></th>
             <td><?php echo esc_html($orderTotal); ?></td>
         </tr>
     </tfoot>

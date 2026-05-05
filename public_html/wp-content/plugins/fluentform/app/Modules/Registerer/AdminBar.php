@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Registerer;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Modules\Acl\Acl;
 use FluentForm\App\Services\Manager\FormManagerService;
 use FluentForm\Framework\Helpers\ArrayHelper;

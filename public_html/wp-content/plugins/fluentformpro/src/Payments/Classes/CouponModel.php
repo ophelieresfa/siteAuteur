@@ -93,6 +93,22 @@ class CouponModel
     public function getValidCoupons($coupons, $formId, $amountTotal)
     {
         $validCoupons = [];
+        $userId = get_current_user_id();
+
+        // Batch-fetch per-user usage counts for all limited coupons in one query
+        $userCouponCounts = [];
+        if ($userId) {
+            $limitedCodes = [];
+            foreach ($coupons as $coupon) {
+                $couponLimit = ArrayHelper::get($coupon->settings, 'coupon_limit', 0);
+                if ($couponLimit) {
+                    $limitedCodes[] = $coupon->code;
+                }
+            }
+            if ($limitedCodes) {
+                $userCouponCounts = $this->batchCouponAppliedCounts($limitedCodes, $userId);
+            }
+        }
 
         $otherCouponCodes = [];
         foreach ($coupons as $coupon) {
@@ -112,6 +128,17 @@ class CouponModel
 
             if ($coupon->min_amount && $coupon->min_amount > $amountTotal) {
                 continue;
+            }
+
+            $couponLimit = ArrayHelper::get($coupon->settings, 'coupon_limit', 0);
+            if ($couponLimit) {
+                if (!$userId) {
+                    continue;
+                }
+                $used = isset($userCouponCounts[$coupon->code]) ? $userCouponCounts[$coupon->code] : 0;
+                if ($used >= (int) $couponLimit) {
+                    continue;
+                }
             }
 
             if ($otherCouponCodes && $coupon->stackable != 'yes') {
@@ -250,5 +277,27 @@ class CouponModel
             $table->on('fluentform_submissions.user_id', '=', wpFluent()->raw(intval($userId)));
         })
         ->count();
+    }
+
+    protected function batchCouponAppliedCounts(array $couponCodes, $userId)
+    {
+        $rows = wpFluent()
+            ->table('fluentform_entry_details')
+            ->select(['fluentform_entry_details.field_value', wpFluent()->raw('COUNT(*) as usage_count')])
+            ->where('fluentform_entry_details.field_name', 'payment-coupon')
+            ->whereIn('fluentform_entry_details.field_value', $couponCodes)
+            ->join('fluentform_submissions', function ($table) use ($userId) {
+                $table->on('fluentform_submissions.id', '=', 'fluentform_entry_details.submission_id');
+                $table->on('fluentform_submissions.user_id', '=', wpFluent()->raw(intval($userId)));
+            })
+            ->groupBy('fluentform_entry_details.field_value')
+            ->get();
+
+        $counts = [];
+        foreach ($rows as $row) {
+            $counts[$row->field_value] = (int) $row->usage_count;
+        }
+
+        return $counts;
     }
 }

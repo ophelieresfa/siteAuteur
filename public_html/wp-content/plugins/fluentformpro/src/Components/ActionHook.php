@@ -45,7 +45,7 @@ class ActionHook extends BaseComponent
 		);
 
 		ob_start();
-		echo "<div {$atts}>";
+		echo "<div {$atts}>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped via buildAttributes
 		do_action($data['settings']['hook_name'], $form);
 		echo"</div>";
 		$html = ob_get_clean();
@@ -62,6 +62,6 @@ class ActionHook extends BaseComponent
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_'.$elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
 	}
 }

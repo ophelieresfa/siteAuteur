@@ -6,6 +6,22 @@ use FluentForm\Framework\Support\Arr;
 
 class GlobalSettingsService
 {
+    private function isAllowedOptionKey($key)
+    {
+        $allowedPrefixes = [
+            'fluentform_',
+            '_fluentform_',
+            'fluentform-',
+            '_fluentform-',
+        ];
+        foreach ($allowedPrefixes as $prefix) {
+            if (strpos($key, $prefix) === 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function get($attributes = [])
     {
         $values = [];
@@ -14,10 +30,17 @@ class GlobalSettingsService
         if (is_array($key)) {
             foreach ($key as $key_item) {
                 $sanitizedKey = sanitize_text_field($key_item);
+                if (!$this->isAllowedOptionKey($sanitizedKey)) {
+                    continue;
+                }
                 $values[$key_item] = get_option($sanitizedKey);
             }
         } else {
-            $values[$key] = get_option($key);
+            $sanitizedKey = sanitize_text_field($key);
+            if (!$this->isAllowedOptionKey($sanitizedKey)) {
+                return $values;
+            }
+            $values[$key] = get_option($sanitizedKey);
         }
     
         $values = apply_filters_deprecated(

@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\Integrations\MailChimp;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\App\Services\Integrations\MailChimp\MailChimpSubscriber as Subscriber;
 use FluentForm\Framework\Foundation\Application;

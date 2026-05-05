@@ -1,0 +1,447 @@
+@page {
+    margin: 18px 18px 20px 18px;
+}
+
+table,
+td,
+th {
+    border: none;
+}
+
+body.siteauteur-invoice-page {
+    margin: 0;
+    padding: 0;
+    background: #f6f8f9;
+    color: #1b2d5a;
+    font-family: DejaVu Sans, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.invoice-actions {
+    width: 80%;
+    margin: 20px auto 0 auto;
+    text-align: right;
+}
+
+.invoice-download-btn {
+    display: inline-block;
+    border: none;
+    background: #3fc095;
+    color: #ffffff;
+    font-family: DejaVu Sans, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.invoice-download-btn:hover {
+    opacity: 0.95;
+}
+
+.invoice-download-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.page {
+    background: #ffffff;
+    padding: 14px 10px 14px 10px;
+}
+
+.page-invoice {
+    width: 80%;
+    margin: 20px auto;
+    padding: 40px;
+}
+
+.header-table,
+.info-table,
+.items-table,
+.footer-layout,
+.note-layout,
+.totals-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.header-table {
+    margin-bottom: 18px;
+}
+
+.header-left {
+    width: 58%;
+    vertical-align: top;
+}
+
+.header-right {
+    width: 42%;
+    vertical-align: top;
+    text-align: right;
+}
+
+.kicker {
+    margin: 0 0 10px 0;
+    color: #3fc095;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.title {
+    margin: 0;
+    color: #152b57;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.company-name {
+    margin: 4px 0 6px 0;
+    color: #152b57;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.company-line {
+    margin: 0 0 4px 0;
+    color: #6f7f9b;
+    font-size: 11px;
+    word-break: break-word;
+}
+
+.status-wrap {
+    margin-bottom: 18px;
+}
+
+.info-table {
+    margin-bottom: 20px;
+}
+
+.info-table td {
+    width: 50%;
+    vertical-align: top;
+}
+
+.info-gap-left {
+    padding-right: 6px;
+}
+
+.info-gap-right {
+    padding-left: 6px;
+}
+
+.info-card {
+    border: 1px solid #dbe5e8;
+    border-radius: 5px;
+    padding: 16px 14px 14px 14px;
+    min-height: 118px;
+}
+
+.info-card-title {
+    margin: 0 0 12px 0;
+    color: #3fc095;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-line {
+    margin: 0 0 10px 0;
+    color: #2f446e;
+    font-size: 12px;
+    word-break: break-word;
+}
+
+.info-line strong {
+    color: #152b57;
+}
+
+.status-row {
+    margin: 0;
+    line-height: 24px;
+}
+
+.status-label-inline {
+    display: inline-block;
+    vertical-align: middle;
+    color: #152b57;
+    font-weight: 700;
+    margin-right: 6px;
+}
+
+.customer-name {
+    margin: 0 0 8px 0;
+    color: #152b57;
+    font-size: 15px;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.items-wrap {
+    border: 1px solid #dbe8e4;
+    border-radius: 5px;
+    margin-bottom: 18px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 0;
+}
+
+.items-table th {
+    background: #edf7f4;
+    color: #152b57;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 10px;
+    border-right: 1px solid #dbe8e4;
+    word-break: break-word;
+}
+
+.items-table th:last-child {
+    border-right: none;
+}
+
+.items-table td {
+    background: #ffffff;
+    color: #30476f;
+    font-size: 12px;
+    padding: 12px 10px;
+    border-top: 1px solid #e5edf0;
+    border-right: 1px solid #e5edf0;
+    vertical-align: top;
+    word-break: break-word;
+}
+
+.items-table td:last-child {
+    border-right: none;
+}
+
+.col-desc  { width: 42%; }
+.col-qty   { width: 10%; text-align: center; }
+.col-unit  { width: 24%; text-align: right; }
+.col-total { width: 24%; text-align: right; }
+
+.totals-wrap {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 26px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.totals-box {
+    display: inline-block;
+    width: 240px;
+    text-align: left;
+}
+
+.totals-table td {
+    padding: 7px 0;
+    font-size: 13px;
+    color: #30476f;
+}
+
+.totals-label {
+    text-align: left;
+    width: 50%;
+}
+
+.totals-value {
+    text-align: right;
+    width: 50%;
+}
+
+.total-divider td {
+    border-top: 1px solid #d8e2e7;
+    padding-top: 14px;
+}
+
+.grand-total td {
+    color: #152b57;
+    font-weight: 700;
+}
+
+.grand-total .totals-label {
+    font-size: 18px;
+}
+
+.grand-total .totals-value {
+    font-size: 18px;
+}
+
+.note-box {
+    border: 1px solid #d9ebe4;
+    background: #f3fbf8;
+    border-radius: 5px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.note-icon-cell {
+    width: 70px;
+    vertical-align: top;
+}
+
+.note-content-cell {
+    vertical-align: top;
+    padding-left: 8px;
+}
+
+.note-title {
+    margin: 0 0 2px 0;
+    color: #152b57;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.note-text {
+    margin: 0;
+    color: #6f7f9b;
+    font-size: 12px;
+    word-break: break-word;
+}
+
+.footer-table {
+    width: auto;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.footer-icon-cell {
+    width: 35px;
+    height: 40px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.note-layout {
+    margin: 0;
+}
+
+.footer-table > tbody > tr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.footer-text-cell {
+    vertical-align: middle;
+    text-align: left;
+    color: #7c8aa2;
+    font-size: 11px;
+    padding-left: 6px;
+}
+
+.status-pill {
+    display: inline-block;
+    min-width: 58px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 16px;
+    background: #e9f8f1;
+    color: #2aa878;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.status-pill-inner {
+    display: inline;
+    color: inherit;
+}
+
+.inline-status {
+    display: inline-block;
+    min-width: 48px;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 12px;
+    background: #e9f8f1;
+    color: #2aa878;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.inline-status-inner {
+    display: inline;
+    color: inherit;
+}
+
+.note-circle {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 50%;
+    border: 1px solid #d8e1e7;
+    background: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.note-circle-inner {
+    display: inline-block;
+    line-height: 42px;
+    vertical-align: top;
+}
+
+.footer-badge {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    background: #f0f4fb;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.footer-badge-inner {
+    display: inline-block;
+    line-height: 22px;
+    vertical-align: top;
+}
+
+.note-circle-inner svg,
+.footer-badge-inner svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1px;
+}
+
+@media print {
+    .invoice-actions {
+        display: none !important;
+    }
+
+    body.siteauteur-invoice-page {
+        background: #ffffff;
+    }
+
+    .page-invoice {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+}

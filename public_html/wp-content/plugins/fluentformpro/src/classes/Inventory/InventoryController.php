@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Inventory;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Models\SubmissionMeta;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -335,7 +337,7 @@ class InventoryController
         }
         
         if ($errors) {
-            throw new ValidationException('', 0, null, [
+            throw new ValidationException('', 0, null, [ // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
                 'errors' => $errors,
             ]);
         }

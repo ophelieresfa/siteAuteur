@@ -6,6 +6,9 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
+use FluentForm\App\Models\OrderItem;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\App\Modules\Acl\Acl;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -62,8 +65,7 @@ class PaymentEntries
         if(!$perPage) {
             $perPage = 10;
         }
-        $paymentsQuery = wpFluent()->table('fluentform_transactions')
-            ->select([
+        $paymentsQuery = Transaction::select([
                 'fluentform_transactions.id',
                 'fluentform_transactions.form_id',
                 'fluentform_transactions.submission_id',
@@ -152,10 +154,9 @@ class PaymentEntries
     
             
             // get submission ids to delete order items
-            $transactionData =  wpFluent()->table('fluentform_transactions')
-                                          ->select(['form_id','submission_id'])
-                                          ->whereIn ('fluentform_transactions.id',$entries)
-                                          ->get();
+            $transactionData = Transaction::select(['form_id', 'submission_id'])
+                ->whereIn('id', $entries)
+                ->get();
 
             $submission_ids = [];
 
@@ -164,7 +165,7 @@ class PaymentEntries
             }
 
             try {
-                if( !$submission_ids || !$transactionData ){
+                if (!$submission_ids || count($transactionData) === 0 ) {
                     throw new \Exception(__('Invalid transaction id', 'fluentform'));
                 }
                 do_action_deprecated(
@@ -180,16 +181,13 @@ class PaymentEntries
                 do_action('fluentform/before_entry_payment_deleted', $entries, $transactionData);
     
                 //delete data from transaction table
-                wpFluent()->table('fluentform_transactions')
-                          ->whereIn('id', $entries)->delete();
-                
+                Transaction::whereIn('id', $entries)->delete();
+
                 //delete data from order table
-                wpFluent()->table('fluentform_order_items')
-                          ->whereIn('submission_id', $submission_ids)->delete();
+                OrderItem::whereIn('submission_id', $submission_ids)->delete();
 
                 // delete data from subscriptions table
-	            wpFluent()->table('fluentform_subscriptions')
-		            ->whereIn('submission_id', $submission_ids)->delete();
+                Subscription::whereIn('submission_id', $submission_ids)->delete();
                 
                 //add log in each form that payment record has been deleted
                 foreach ($transactionData as $data){
@@ -231,8 +229,7 @@ class PaymentEntries
 
     public function getFilters()
     {
-        $transactionTypes = wpFluent()->table('fluentform_transactions')
-            ->select('transaction_type')
+        $transactionTypes = Transaction::select('transaction_type')
             ->groupBy('transaction_type')
             ->get();
         // Define transaction type labels
@@ -252,8 +249,7 @@ class PaymentEntries
             ];
         }
         
-        $statuses = wpFluent()->table('fluentform_transactions')
-            ->select('status')
+        $statuses = Transaction::select('status')
             ->groupBy('status')
             ->get();
         $statusTypes = PaymentHelper::getPaymentStatuses();
@@ -262,8 +258,7 @@ class PaymentEntries
             $formattedStatuses[] = ArrayHelper::get($statusTypes, $status->status, $status->status);
         }
         $allowFormIds = apply_filters('fluentform/current_user_allowed_forms', false);
-        $forms = wpFluent()->table('fluentform_transactions')
-            ->select('fluentform_transactions.form_id', 'fluentform_forms.title')
+        $forms = Transaction::select('fluentform_transactions.form_id', 'fluentform_forms.title')
             ->when($allowFormIds && is_array($allowFormIds), function ($q) use ($allowFormIds){
                 return $q->whereIn('fluentform_transactions.form_id', $allowFormIds);
             })
@@ -280,8 +275,7 @@ class PaymentEntries
             ];
         }
 
-        $paymentMethods = wpFluent()->table('fluentform_transactions')
-            ->select('payment_method')
+        $paymentMethods = Transaction::select('payment_method')
             ->groupBy('payment_method')
             ->get();
 

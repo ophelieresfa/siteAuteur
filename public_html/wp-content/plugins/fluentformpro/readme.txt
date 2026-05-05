@@ -4,7 +4,7 @@ Tags: contact form, contact forms, wp forms, forms, form builder, contact form b
 Requires at least: 4.5
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 6.1.21
+Stable tag: 6.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -361,6 +361,15 @@ The entire source code is <a href="https://github.com/fluentform/fluentform">ava
 12. Asset Loading Comparison with Other Plugins
 
 == Changelog ==
+= 6.2.0 (Date: April 01, 2026) =
+
+- Fixes Square payment by migrating from deprecated CreateCheckout to Payment Links API
+- Fixes Square order ID validation to prevent tampering on payment callback
+- Updates Square payments to the latest Payment Links API
+- Fixes Authorize.Net not sending full billing address with payments
+- Fixes draft not clearing after submission via Save & Resume link
+- Improves payment security across all gateways
+
 = 6.1.21 (Date: March 17, 2026) =
 - Hardens payment confirmation endpoints against fraud and DoS across all gateways
 - Adds centralized payment validation (BaseProcessor) with transaction status, ownership, and double-pay prevention

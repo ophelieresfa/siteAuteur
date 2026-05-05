@@ -7,6 +7,7 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\SubmissionMeta;
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentFormPro\Payments\PaymentHelper;
 use FluentFormPro\Payments\PaymentMethods\BaseProcessor;
@@ -196,7 +197,7 @@ class PayPalProcessor extends BaseProcessor
         }
 
         $discountItems = $this->getDiscountItems();
-        if ($discountItems) {
+        if (count($discountItems)) {
             $discountTotal = 0;
             foreach ($discountItems as $discountItem) {
                 $discountTotal += $discountItem->line_total;
@@ -352,7 +353,8 @@ class PayPalProcessor extends BaseProcessor
                         'status'           => 'error',
                         'title'            => __('PayPal Amount Mismatch', 'fluentformpro'),
                         'description'      => sprintf(
-                            __('Expected %d cents but PayPal reported %d cents. Payment marked for review.', 'fluentformpro'),
+                            // translators: %1$d is the expected amount in cents, %2$d is the PayPal reported amount in cents
+                            __('Expected %1$d cents but PayPal reported %2$d cents. Payment marked for review.', 'fluentformpro'),
                             intval($transaction->payment_total),
                             $paidAmountInCents
                         )
@@ -650,11 +652,14 @@ class PayPalProcessor extends BaseProcessor
     public function addDelayedCheck($submissionId)
     {
         wp_enqueue_script('ff_paypal', FLUENTFORMPRO_DIR_URL.'public/js/ff_paypal.js', ['jquery'], FLUENTFORM_VERSION, true);
+        $checkToken = wp_generate_password(32, false);
+        Helper::setSubmissionMeta($submissionId, '_ff_payment_check_token', $checkToken);
         $delayedCheckVars = [
-            'ajax_url'        => admin_url('admin-ajax.php'),
-            'submission_id'   => $submissionId,
-            'timeout'         => 10000,
-            'onFailedMessage' => __("Sorry! We couldn't mark your payment as paid. Please try again later!",
+            'ajax_url'           => admin_url('admin-ajax.php'),
+            'submission_id'      => $submissionId,
+            '_ff_payment_token'  => $checkToken,
+            'timeout'            => 10000,
+            'onFailedMessage'    => __("Sorry! We couldn't mark your payment as paid. Please try again later!",
                 'fluentformpro')
         ];
         wp_localize_script('ff_paypal', 'ff_paypal_vars',apply_filters('fluentform/paypal_delayed_check_vars',  $delayedCheckVars));
@@ -668,6 +673,14 @@ class PayPalProcessor extends BaseProcessor
     {
         $submissionId = intval($_REQUEST['submission_id']);
 
+        $token = isset($_REQUEST['_ff_payment_token']) ? sanitize_text_field($_REQUEST['_ff_payment_token']) : '';
+        $storedToken = Helper::getSubmissionMeta($submissionId, '_ff_payment_check_token');
+        if (!$token || !$storedToken || !hash_equals($storedToken, $token)) {
+            wp_send_json([
+                'message' => __('Security verification failed.', 'fluentformpro'),
+            ], 403);
+        }
+
         $this->setSubmissionId($submissionId);
 
         $submission = $this->getSubmission();
@@ -677,8 +690,11 @@ class PayPalProcessor extends BaseProcessor
                 'message' => __('Invalid Payment Transaction', 'fluentformpro'),
             ]);
         }
-    
+
         if ($submission->payment_status == 'paid') {
+            SubmissionMeta::where('response_id', $submissionId)
+                ->where('meta_key', '_ff_payment_check_token')
+                ->delete();
             wp_send_json_success([
                 'nextAction'     => 'reload',
             ]);

@@ -247,7 +247,7 @@ class Bootstrap extends IntegrationManagerController
             if (empty($meta['slug'])) {
                 $slug = sanitize_title($meta['label'], 'column_' . $index, 'display');
                 if (isset($keys[$slug])) {
-                    $slug = $slug . '_' . time() . '_' . mt_rand(1, 100);
+                    $slug = $slug . '_' . time() . '_' . wp_rand(1, 100);
                 }
                 $settings['meta_fields'][$index]['slug'] = $slug;
                 $keys[$slug] = $meta['label'];

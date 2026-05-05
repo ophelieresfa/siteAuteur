@@ -7,6 +7,9 @@ if (!defined('ABSPATH')) {
 }
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\Submission;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentForm\App\Modules\Payments\PaymentHelper;
 use FluentForm\App\Modules\Payments\PaymentMethods\BaseProcessor;
@@ -75,16 +78,13 @@ class StripeListener
         $transactionId = ArrayHelper::get($meta, 'transaction_id');
 
         if(!$transactionId) {
-            $transaction = wpFluent()->table('fluentform_transactions')
-                ->where('charge_id', $charge->payment_intent)
-                ->first();
+            $transaction = Transaction::byChargeId($charge->payment_intent)->first();
             if(!$transaction) {
                 return;
             }
         } else {
             $submissionId = ArrayHelper::get($meta, 'submission_id');
-            $transaction = wpFluent()->table('fluentform_transactions')
-                ->where('submission_id', $submissionId)
+            $transaction = Transaction::bySubmission($submissionId)
                 ->where('id', $transactionId)
                 ->where('payment_method', 'stripe')
                 ->first();
@@ -122,9 +122,7 @@ class StripeListener
             $updateData['charge_id'] = $charge->payment_intent;
         }
 
-        wpFluent()->table('fluentform_transactions')
-            ->where('id', $transaction->id)
-            ->update($updateData);
+        Transaction::where('id', $transaction->id)->update($updateData);
 
         // We have to fire transaction paid hook here
 
@@ -147,8 +145,7 @@ class StripeListener
             return;
         }
 
-        $subscription = wpFluent()->table('fluentform_subscriptions')
-            ->where('vendor_subscription_id', $subscriptionId)
+        $subscription = Subscription::byVendorSubscriptionId($subscriptionId)
             ->where('vendor_customer_id', $data->customer)
             ->first();
 
@@ -156,9 +153,7 @@ class StripeListener
             return;
         }
 
-        $submission = wpFluent()->table('fluentform_submissions')
-            ->where('id', $subscription->submission_id)
-            ->first();
+        $submission = Submission::find($subscription->submission_id);
 
         if (!$submission) {
             return;
@@ -167,9 +162,8 @@ class StripeListener
         $transactionData = $this->createSubsTransactionDataFromInvoice($data, $subscription, $submission);
 
         // We may have an already exist session charge that we have to update
-        $pendingTransaction = wpFluent()->table('fluentform_transactions')
+        $pendingTransaction = Transaction::bySubmission($submission->id)
             ->whereNull('charge_id')
-            ->where('submission_id', $submission->id)
             ->where('status', 'pending')
             ->first();
 
@@ -177,9 +171,7 @@ class StripeListener
             unset($transactionData['transaction_hash']);
             unset($transactionData['created_at']);
 
-            wpFluent()->table('fluentform_transactions')
-                ->where('id', $pendingTransaction->id)
-                ->update($transactionData);
+            Transaction::where('id', $pendingTransaction->id)->update($transactionData);
         } else {
             (new StripeProcessor())->recordSubscriptionCharge($subscription, $transactionData);
         }
@@ -203,8 +195,7 @@ class StripeListener
         $data = $event->data->object;
         $subscriptionId = $data->id;
 
-        $subscription = wpFluent()->table('fluentform_subscriptions')
-            ->where('vendor_subscription_id', $subscriptionId)
+        $subscription = Subscription::byVendorSubscriptionId($subscriptionId)
             ->where('status', '!=', 'completed')
             ->first();
 
@@ -257,9 +248,7 @@ class StripeListener
         }
 
         // let's get the pending submission
-        $submission = wpFluent()->table('fluentform_submissions')
-            ->where('id', $submissionId)
-            ->first();
+        $submission = Submission::find($submissionId);
 
         if (!$submission) {
             return;
@@ -271,10 +260,9 @@ class StripeListener
             return;
         }
 
-        $transaction = wpFluent()->table('fluentform_transactions')
+        $transaction = Transaction::bySubmission($submission->id)
             ->where('form_id', $submission->form_id)
             ->where('id', $transactionId)
-            ->where('submission_id', $submission->id)
             ->first();
 
         if(!$transaction) {
@@ -316,6 +304,11 @@ class StripeListener
         $secret = 'whsec_NsNZNMSnWVPLt8GErz3SVZ97pWu8eb6D';
 
         $expectedSignature = \hash_hmac('sha256', $payload, $secret);
+
+        // Reject events older than 5 minutes to prevent replay attacks
+        if (abs(time() - $timestamp) > 300) {
+            return false;
+        }
 
         foreach ($signatures as $signature) {
             if ($this->secureCompare($signature, $expectedSignature)) {

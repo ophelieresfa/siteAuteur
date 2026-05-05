@@ -153,7 +153,7 @@ class StepFormEntries
 
         ob_start();
         require(FLUENTFORMPRO_DIR_PATH . 'src/views/step_form_entries.php');
-        echo ob_get_clean();
+        echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Admin page HTML from template
     }
 
     protected function enqueueScript()

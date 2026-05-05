@@ -112,6 +112,7 @@ class SurveyResultProcessor
         $showLabel = $showLabel == 'yes';
         $showCount = $showCount == 'yes';
         ob_start();
+        // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped -- Survey result HTML rendering with sanitized values
         ?>
         <div class="ff_poll_result ff_poll_<?php echo $data['element']; ?>">
             <?php if ($showLabel): ?>
@@ -138,6 +139,7 @@ class SurveyResultProcessor
             <?php endif; ?>
         </div>
         <?php
+        // phpcs:enable WordPress.Security.EscapeOutput.OutputNotEscaped
         return ob_get_clean();
     }
 

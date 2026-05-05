@@ -109,13 +109,13 @@ class IContactApi
 			
 			if (isset( $response['errors'])) {
 				if (isset($response['errors'][0]) && is_string($response['errors'][0])) {
-					throw new Exception( $response['errors'][0] );
+					throw new Exception( $response['errors'][0] ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 				}
 			}
 
 			if (isset($response['warnings'])) {
 				if (isset($response['warnings'][0]) && is_string($response['warnings'][0])) {
-					throw new Exception( $response['warnings'][0] );
+					throw new Exception( $response['warnings'][0] ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 				}
 			}
 			
@@ -136,14 +136,14 @@ class IContactApi
 		if ( empty( $this->account_id ) ) {
 			$accounts = $this->make_request('/');
 			if ( isset( $accounts['errors'] ) )
-				throw new Exception( $accounts['errors'][0] );
+				throw new Exception( $accounts['errors'][0] ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			
 			$account = $accounts['accounts'][0];
 
 			if ( $account['enabled'] == 1 ) {
 				$this->account_id = $account['accountId'];
 			} else {
-				throw new Exception(__('Your account has been disabled.', 'fluentformpro'));
+				throw new Exception(__('Your account has been disabled.', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			}
 		}
 		
@@ -218,7 +218,7 @@ class IContactApi
 		$clients = $this->make_request( $this->account_id . '/c/', array( 'limit' => 999 ) );
 		
 		if ( isset( $clients['errors'] ) ) {
-			throw new Exception(__('No client folders were found for this account.', 'fluentformpro'));
+			throw new Exception(__('No client folders were found for this account.', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 		}
 		
 		return $clients['clientfolders'];

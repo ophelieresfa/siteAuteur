@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Mailster;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -46,6 +48,7 @@ class Bootstrap extends IntegrationManagerController
 		foreach ($this->getFields() as $field){
 			if ($field['required'] && empty($settings[$field['key']])) {
 				$error = true;
+				// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
 				$errors[$field['key']] = [__($field['label'].' is required', 'fluentformpro')];
 			}
 		}
@@ -73,6 +76,8 @@ class Bootstrap extends IntegrationManagerController
         $message = __('Fluent Forms Mailster Integration Requires Mailster Plugin', 'fluentformpro') . '<b><a href="' . $pluginInfo->url
             . '">' . $install_url_text . '</a></b>';
 
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         printf('<div class="%1$s"><p>%2$s</p></div>', esc_attr($class), __($message, 'fluentformpro'));
     }
 

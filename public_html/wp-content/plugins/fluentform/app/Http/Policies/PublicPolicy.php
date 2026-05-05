@@ -3,7 +3,7 @@
 namespace FluentForm\App\Http\Policies;
 
 
-use FluentForm\Framework\Request\Request;
+use FluentForm\Framework\Http\Request\Request;
 use FluentForm\Framework\Foundation\Policy;
 
 class PublicPolicy extends Policy

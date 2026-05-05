@@ -792,6 +792,7 @@ class AuthorizeNetProcessor extends BaseProcessor
             $customerName = PaymentHelper::getCustomerName($submission, $form);
             $customerEmail = PaymentHelper::getCustomerEmail($submission, $form);
             $customerAddress = PaymentHelper::getCustomerAddress($submission);
+            $customerPhone = PaymentHelper::getCustomerPhoneNumber($submission, $form);
 
             // Parse customer name
             $nameParts = explode(' ', trim($customerName), 2);
@@ -805,11 +806,21 @@ class AuthorizeNetProcessor extends BaseProcessor
             ];
 
             if ($customerAddress) {
-                $billTo['address'] = ArrayHelper::get($customerAddress, 'address_1', '');
+                $addressLine1 = ArrayHelper::get($customerAddress, 'address_line_1', '');
+                $addressLine2 = ArrayHelper::get($customerAddress, 'address_line_2', '');
+                $billTo['address'] = $addressLine2 ? $addressLine1 . ', ' . $addressLine2 : $addressLine1;
                 $billTo['city'] = ArrayHelper::get($customerAddress, 'city', '');
                 $billTo['state'] = ArrayHelper::get($customerAddress, 'state', '');
                 $billTo['zip'] = ArrayHelper::get($customerAddress, 'zip', '');
                 $billTo['country'] = ArrayHelper::get($customerAddress, 'country', 'US');
+            }
+
+            if ($customerEmail) {
+                $billTo['email'] = $customerEmail;
+            }
+
+            if ($customerPhone) {
+                $billTo['phoneNumber'] = $customerPhone;
             }
 
             // Determine transaction type based on settings

@@ -330,11 +330,27 @@ class PaymentAction
             }
 
             if ($inputType == 'number') {
-                $price = $data[$name];
+                $price = floatval($data[$name]);
+                $minValue = floatval(ArrayHelper::get($paymentInput, 'settings.min_value', 0));
+                $maxValue = floatval(ArrayHelper::get($paymentInput, 'settings.max_value', 0));
+                if ($price <= 0) {
+                    wp_send_json(['errors' => __('Invalid payment amount.', 'fluentformpro')], 422);
+                }
+                if ($minValue && $price < $minValue) {
+                    // translators: %s is the minimum payment amount
+                    wp_send_json(['errors' => sprintf(__('Minimum amount is %s.', 'fluentformpro'), $minValue)], 422);
+                }
+                if ($maxValue && $price > $maxValue) {
+                    // translators: %s is the maximum payment amount
+                    wp_send_json(['errors' => sprintf(__('Maximum amount is %s.', 'fluentformpro'), $maxValue)], 422);
+                }
             } else if ($inputType == 'single') {
                 $price = ArrayHelper::get($paymentInput, 'attributes.value');
                 if (ArrayHelper::get($paymentInput, 'settings.dynamic_default_value')) {
-                    $price = $data[$name];
+                    $price = floatval($data[$name]);
+                    if ($price <= 0) {
+                        wp_send_json(['errors' => __('Invalid payment amount.', 'fluentformpro')], 422);
+                    }
                 }
             } else if ($inputType == 'radio' || $inputType == 'select') {
                 $item = $this->getItemFromVariables($paymentInput, $data[$name]);
@@ -672,7 +688,7 @@ class PaymentAction
 
         $exitingItems = wpFluent()->table('fluentform_order_items')->where('submission_id', $existing->id)->get();
 
-        if (!$exitingItems) {
+        if (!count($exitingItems)) {
             foreach ($items as $item) {
                 wpFluent()->table('fluentform_order_items')->insert($item);
             }

@@ -48,9 +48,9 @@ class FormStep extends BaseComponent
             \FluentForm\Framework\Helpers\ArrayHelper::except($data['attributes'], 'name')
         );
 
-        echo "<div class='ff-step-container' {$atts}>";
+        echo "<div class='ff-step-container' {$atts}>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped via buildAttributes
         if ($nav) {
-            echo "<div class='ff-step-header'>{$nav}</div>";
+            echo "<div class='ff-step-header'>{$nav}</div>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Step navigation HTML
         }
 
         echo "<span class='ff_step_start'></span><div class='ff-step-body'>";
@@ -59,7 +59,7 @@ class FormStep extends BaseComponent
         $atts = $this->buildAttributes(
             \FluentForm\Framework\Helpers\ArrayHelper::except($data['attributes'], 'name')
         );
-        echo "<div {$atts}>";
+        echo "<div {$atts}>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped via buildAttributes
     }
 
     /**
@@ -70,12 +70,12 @@ class FormStep extends BaseComponent
      */
     public function compile($data, $form)
     {
-        echo $this->compileButtons($data['settings']);
+        echo $this->compileButtons($data['settings']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Step button HTML
         $data['attributes']['class'] .= ' fluentform-step';
         $atts = $this->buildAttributes(
             \FluentForm\Framework\Helpers\ArrayHelper::except($data['attributes'], 'name')
         );
-        echo "</div><div style='display: none;' {$atts}>";
+        echo "</div><div style='display: none;' {$atts}>"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped via buildAttributes
     }
 
     /**
@@ -89,7 +89,9 @@ class FormStep extends BaseComponent
         $btnPrev = $this->compileButtons($data['settings']);
         ?>
         <div class="ff-step-t-container ff-inner_submit_container ff-column-container ff_columns_total_2">
-            <div class="ff-t-cell ff-t-column-1"><?php  echo $btnPrev; ?></div>
+            <div class="ff-t-cell ff-t-column-1"><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                echo $btnPrev; ?></div>
             <div class="ff-t-cell ff-t-column-2">
                 <?php
                 do_action('fluentform/render_item_submit_button', $form->fields['submitButton'], $form);

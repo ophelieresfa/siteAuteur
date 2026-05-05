@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Chat;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Models\FormMeta;
 use FluentForm\App\Services\FormBuilder\ShortCodeParser;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -92,6 +94,7 @@ class ChatApi
         if ($code !== 200) {
             $error = __('Something went wrong.', 'fluentformpro');
             if (isset($body['error']['message'])) {
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $error = __($body['error']['message'], 'fluentformpro');
             }
             return new \WP_Error(423, $error);

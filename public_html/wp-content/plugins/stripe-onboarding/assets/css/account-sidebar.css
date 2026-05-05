@@ -1,0 +1,149 @@
+.sa-account-sidebar {
+    position: sticky;
+    top: 50px;
+}
+
+.sa-account-sidebar-card {
+    background: #ffffff;
+    border: 1px solid #e8edf3;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(31, 42, 68, 0.05);
+    width: 250px;
+}
+
+.sa-account-sidebar-title {
+    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6b7280;
+}
+
+.sa-account-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sa-account-menu li {
+    margin-bottom: 5px;
+}
+
+.sa-account-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.sa-account-menu li a {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #23314b;
+    transition: all 0.2s ease;
+    height: 40px;
+    line-height: initial;
+}
+
+.sa-account-menu li a:hover {
+    background: #edf9f4;
+}
+
+.sa-account-menu li.active a {
+    background: #3fc095;
+    color: #ffffff;
+}
+
+.sa-account-menu-group {
+    margin-bottom: 5px;
+}
+
+.sa-account-submenu-toggle {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 0;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #23314b;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.sa-account-submenu-toggle:hover {
+    background: #edf9f4;
+    color: #23314b;
+}
+
+.sa-account-submenu-toggle:focus {
+    background: #edf9f4;
+    color: #23314b;
+}
+
+.sa-account-submenu-arrow {
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #23314b;
+    border-bottom: 2px solid #23314b;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.sa-account-menu-group.is-open .sa-account-submenu-arrow {
+    transform: rotate(225deg) translateY(-4px);
+}
+
+.sa-account-submenu {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0 0 0 14px;
+    display: none;
+}
+
+.sa-account-menu-group.is-open .sa-account-submenu {
+    margin: 10px 0 0 0;
+    display: block;
+}
+
+.sa-account-submenu li {
+    margin-bottom: 4px;
+}
+
+.sa-account-submenu li a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #23314b;
+    transition: all 0.2s ease;
+    height: auto;
+}
+
+.sa-account-submenu li a:hover {
+    background: #f5fbf8;
+}
+
+.sa-account-submenu li.active a {
+    background: #3fc095;
+    color: #fff;
+}
+
+@media (max-width: 1100px) {
+    .sa-account-sidebar {
+        position: static;
+    }
+}

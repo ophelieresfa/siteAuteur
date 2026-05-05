@@ -18,7 +18,7 @@ class Logger
         $statuses = Arr::get($attributes, 'status');
         $formIds = Arr::get($attributes, 'form_id');
         $components = Arr::get($attributes, 'component');
-        $sortBy = Arr::get($attributes, 'sort_by', 'DESC');
+        $sortBy = \FluentForm\App\Helpers\Helper::sanitizeOrderValue(Arr::get($attributes, 'sort_by', 'DESC'));
         $type = Arr::get($attributes, 'type', 'log');
         $dateRange = Arr::get($attributes, 'date_range', []);
         $startDate = Arr::get($dateRange, 0);
@@ -143,26 +143,30 @@ class Logger
         $type = Arr::get($attributes, 'type', 'log');
 
         if ('log' === $type) {
-            $logs = Log::select('status', 'component', 'parent_source_id as form_id')->get();
+            $statusRows = Log::select('status')->distinct()->get();
+            $componentRows = Log::select('component')->distinct()->get();
+            $formIdRows = Log::select('parent_source_id as form_id')->distinct()->get();
         } else {
-            $logs = Scheduler::select('status', 'action as component', 'form_id')->get();
+            $statusRows = Scheduler::select('status')->distinct()->get();
+            $componentRows = Scheduler::select('action as component')->distinct()->get();
+            $formIdRows = Scheduler::select('form_id')->distinct()->get();
         }
 
-        $statuses = $logs->groupBy('status')->keys()->map(function ($item) {
+        $statuses = $statusRows->pluck('status')->filter()->map(function ($item) {
             return [
                 'label' => ucwords($item),
                 'value' => $item,
             ];
-        });
+        })->values();
 
-        $components = $logs->groupBy('component')->keys()->map(function ($item) use ($type) {
+        $components = $componentRows->pluck('component')->filter()->map(function ($item) use ($type) {
             return [
                 'label' => Helper::getLogInitiator($item, $type),
                 'value' => $item,
             ];
-        });
+        })->values();
 
-        $formIds = $logs->pluck('form_id')->unique()->filter()->toArray();
+        $formIds = $formIdRows->pluck('form_id')->filter()->toArray();
         if ($allowForms = FormManagerService::getUserAllowedForms()) {
             $formIds = array_filter($formIds, function($value) use ($allowForms) {
                 return in_array($value, $allowForms);

@@ -88,6 +88,26 @@ class Form extends Model
         return $this->hasMany(Log::class, 'parent_source_id', 'id');
     }
 
+    /**
+     * A form has many transactions.
+     *
+     * @return \FluentForm\Framework\Database\Orm\Relations\HasMany
+     */
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'form_id', 'id');
+    }
+
+    /**
+     * A form has many order items.
+     *
+     * @return \FluentForm\Framework\Database\Orm\Relations\HasMany
+     */
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'form_id', 'id');
+    }
+
     public static function prepare($attributes = [])
     {
         $now = current_time('mysql');
@@ -256,17 +276,9 @@ class Form extends Model
 
         if (PaymentHelper::hasPaymentSettings()) {
             try {
-                wpFluent()->table('fluentform_order_items')
-                    ->where('form_id', $formId)
-                    ->delete();
-
-                wpFluent()->table('fluentform_transactions')
-                    ->where('form_id', $formId)
-                    ->delete();
-
-                wpFluent()->table('fluentform_subscriptions')
-                    ->where('form_id', $formId)
-                    ->delete();
+                OrderItem::where('form_id', $formId)->delete();
+                Transaction::where('form_id', $formId)->delete();
+                Subscription::where('form_id', $formId)->delete();
             } catch (\Exception $e) {
             }
         }

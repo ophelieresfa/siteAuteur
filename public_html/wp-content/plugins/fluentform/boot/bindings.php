@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Services\FormBuilder\Components;
 use FluentForm\App\Services\FormBuilder\FormBuilder;
 use FluentForm\App\Services\WPAsync\FluentFormAsyncRequest;

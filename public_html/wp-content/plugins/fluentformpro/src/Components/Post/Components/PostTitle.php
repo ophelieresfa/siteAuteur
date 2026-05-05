@@ -110,6 +110,7 @@ class PostTitle extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
     }
 

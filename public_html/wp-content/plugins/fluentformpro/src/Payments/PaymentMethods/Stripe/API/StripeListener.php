@@ -18,10 +18,21 @@ class StripeListener
 
     public function verifyIPN()
     {
-        // $signature = $_SERVER['HTTP_STRIPE_SIGNATURE'];
-
-        // retrieve the request's body and parse it as JSON
+        $signature = isset($_SERVER['HTTP_STRIPE_SIGNATURE']) ? $_SERVER['HTTP_STRIPE_SIGNATURE'] : '';
         $body = @file_get_contents('php://input');
+
+        // Verify webhook signature if signing secret is configured
+        $webhookSecret = get_option('fluentform_stripe_webhook_secret', '');
+        if ($webhookSecret) {
+            if (!$signature) {
+                status_header(401);
+                exit('Missing Stripe signature header');
+            }
+            if (!$this->verifySignature($body, $signature, $webhookSecret)) {
+                status_header(403);
+                exit('Invalid Stripe signature');
+            }
+        }
 
         $event = json_decode($body);
 
@@ -122,11 +133,36 @@ class StripeListener
             $updateData['charge_id'] = $charge->payment_intent;
         }
 
+        // Validate amount and currency before marking as paid
+        // payment_total is always in cents; for zero-decimal currencies
+        // Stripe receives/returns payment_total/100, so compare accordingly
+        $chargeAmount = (int) $charge->amount;
+        if ($transaction->payment_total) {
+            $expectedAmount = intval($transaction->payment_total);
+            if (PaymentHelper::isZeroDecimal($transaction->currency)) {
+                $expectedAmount = intval($transaction->payment_total / 100);
+            }
+            if ($chargeAmount != $expectedAmount ||
+                strtolower($charge->currency) != strtolower($transaction->currency)) {
+                do_action('fluentform/log_data', [
+                    'parent_source_id' => $transaction->form_id ?? 0,
+                    'source_type'      => 'submission_item',
+                    'source_id'        => $transaction->submission_id,
+                    'component'        => 'Payment',
+                    'status'           => 'error',
+                    'title'            => __('Stripe Webhook Amount/Currency Mismatch', 'fluentformpro'),
+                    'description'      => __('Expected amount does not match charge amount or currency mismatch.', 'fluentformpro')
+                ]);
+                wpFluent()->table('fluentform_transactions')
+                    ->where('id', $transaction->id)
+                    ->update(['status' => 'failed']);
+                return;
+            }
+        }
+
         wpFluent()->table('fluentform_transactions')
             ->where('id', $transaction->id)
             ->update($updateData);
-
-        // We have to fire transaction paid hook here
 
     }
 
@@ -323,6 +359,10 @@ class StripeListener
 
         foreach ($signatures as $signature) {
             if ($this->secureCompare($signature, $expectedSignature)) {
+                // Reject events older than 5 minutes to prevent replay attacks
+                if (abs(time() - $timestamp) > 300) {
+                    return false;
+                }
                 return true;
             }
         }

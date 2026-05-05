@@ -69,6 +69,7 @@ class API
             if (is_null($body)) {
                 return new \WP_Error($code, __('Bad Request.', 'fluentformpro'));
             }
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             return new \WP_Error($code, __('Error related to ' . $body['ErrorRelatedTo'][0] . ': ' . $body['ErrorMessage'], 'fluentformpro'));
         }
     }

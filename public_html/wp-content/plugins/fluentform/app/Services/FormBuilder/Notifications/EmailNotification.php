@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FormBuilder\Notifications;
 
+defined('ABSPATH') or die;
+
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\App\Modules\Form\FormFieldsParser;

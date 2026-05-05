@@ -25,10 +25,11 @@ class LogController extends Controller
                 $logger->get($attributes)
             );
         } catch (Exception $e) {
-            return $this->sendError([
-                'message' => __('Something went wrong, please try again!', 'fluentform'),
-                'error'   => $e->getMessage(),
-            ]);
+            $response = ['message' => __('Something went wrong, please try again!', 'fluentform')];
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                $response['error'] = $e->getMessage();
+            }
+            return $this->sendError($response);
         }
     }
 
@@ -46,10 +47,11 @@ class LogController extends Controller
                 $logger->getFilters($attributes)
             );
         } catch (Exception $e) {
-            return $this->sendError([
-                'message' => __('Something went wrong, please try again!', 'fluentform'),
-                'error'   => $e->getMessage(),
-            ]);
+            $response = ['message' => __('Something went wrong, please try again!', 'fluentform')];
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                $response['error'] = $e->getMessage();
+            }
+            return $this->sendError($response);
         }
     }
 
@@ -67,9 +69,11 @@ class LogController extends Controller
                 $logger->remove($attributes)
             );
         } catch (Exception $e) {
-            return $this->sendError([
-                'message' => $e->getMessage(),
-            ]);
+            $response = ['message' => __('Something went wrong, please try again!', 'fluentform')];
+            if (defined('WP_DEBUG') && WP_DEBUG) {
+                $response['error'] = $e->getMessage();
+            }
+            return $this->sendError($response);
         }
     }
 }

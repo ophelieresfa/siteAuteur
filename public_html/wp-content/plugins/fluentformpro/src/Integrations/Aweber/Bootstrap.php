@@ -149,7 +149,9 @@ class Bootstrap extends IntegrationManagerController
         <div><h4>To Authenticate AWeber you need an access token.</h4>
             <ol>
                 <li>Click here to <a
-                        href="<?php echo $this->getAuthenticateUri(); ?>""
+                        href="<?php
+                            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo $this->getAuthenticateUri(); ?>""
                         target="_blank">Get Access Token</a>.
                 </li>
                 <li>Then login and allow with your AWeber account.</li>

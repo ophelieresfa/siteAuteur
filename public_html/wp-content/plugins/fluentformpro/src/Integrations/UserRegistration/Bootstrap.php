@@ -232,6 +232,7 @@ class Bootstrap extends IntegrationManagerController
                 'require_list' => false,
                 'key'          => 'conditionals',
                 'label'        => __('Conditional Logics', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'tips'         => __('Allow '. $this->title . ' integration conditionally based on your submission values', 'fluentformpro'),
                 'component'    => 'conditional_block'
             ],
@@ -350,8 +351,10 @@ class Bootstrap extends IntegrationManagerController
                 'key'                => 'CustomFields',
                 'require_list'       => false,
                 'label'              => __('Map Fields', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'tips'               => __('Associate your user '. $customFieldMsg .' fields to the appropriate Fluent Forms fields by selecting the appropriate form field from the list.', 'fluentformpro'),
                 'component'          => 'map_fields',
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'field_label_remote' => __('User ' . ucfirst($customFieldMsg) . ' Field', 'fluentformpro'),
                 'field_label_local'  => __('Form Field', 'fluentformpro'),
                 'primary_fileds'     => $map_primary_field

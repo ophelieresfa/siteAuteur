@@ -1,0 +1,257 @@
+.sa-404-card {
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 18px 45px rgba(31, 42, 68, 0.10);
+    border: 1px solid rgba(214, 225, 236, 0.75);
+    overflow: hidden;
+}
+
+.sa-404-content {
+    display: grid;
+    grid-template-columns: 1fr 0.95fr;
+    align-items: center;
+    gap: 42px;
+    padding: 0 50px;
+}
+
+.sa-404-left {
+    max-width: 560px;
+}
+
+.sa-404-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.sa-404-eyebrow span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 54px;
+    height: 30px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(63, 192, 149, 0.15);
+    color: #3fc095;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+}
+
+.sa-404-left h1 {
+    margin: 0;
+    color: #343434;
+    font-size: 35px;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+}
+
+.sa-404-text {
+    margin: 10px 0 24px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 1.65;
+    max-width: 590px;
+}
+
+.sa-404-search {
+    display: grid;
+    grid-template-columns: 1fr 56px;
+    gap: 12px;
+    max-width: 520px;
+    margin: 0 0 24px;
+}
+
+.sa-404-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.sa-404-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 501;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.sa-404-btn:hover {
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.sa-404-btn-primary {
+    background: #3fc095;
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(63, 192, 149, 0.23);
+}
+
+.sa-404-btn-primary:hover {
+    background: #343434;
+    color: #ffffff;
+    box-shadow: 0 12px 24px rgba(63, 192, 149, 0.32);
+}
+
+.sa-404-btn-outline {
+    color: #343434;
+    border: 1px solid #343434;
+}
+
+.sa-404-btn-outline:hover {
+    color: #3fc095;
+    border: 1px solid #3fc095;
+}
+
+.sa-404-useful-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    font-size: 14px;
+}
+
+.sa-404-useful-links span {
+    color: #343434;
+}
+
+.sa-404-useful-links a {
+    color: #3fc095;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sa-404-useful-links a:hover {
+    color: #343434;
+    text-decoration: underline;
+}
+
+.sa-404-useful-links b {
+    color: #343434;
+    font-weight: 600;
+}
+
+.sa-404-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+}
+
+.sa-404-right::before {
+    content: "";
+    position: absolute;
+    width: 370px;
+    height: 240px;
+    border-radius: 100% 50% 100% 50%;
+    background: #eef4fb;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sa-404-right img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: min(100%, 560px);
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive tablette */
+@media (max-width: 1024px) {
+    .sa-404-section {
+        padding: 48px 20px 30px;
+    }
+
+    .sa-404-content {
+        grid-template-columns: 1fr;
+        padding: 44px 36px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .sa-404-left {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .sa-404-eyebrow,
+    .sa-404-actions,
+    .sa-404-useful-links {
+        justify-content: center;
+    }
+
+    .sa-404-search {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sa-404-right img {
+        width: min(100%, 430px);
+    }
+}
+
+/* Responsive mobile */
+@media (max-width: 640px) {
+    .sa-404-section {
+        padding: 30px 14px 24px;
+    }
+
+    .sa-404-card {
+        border-radius: 5px;
+    }
+
+    .sa-404-content {
+        padding: 34px 20px;
+    }
+
+    .sa-404-left h1 {
+        font-size: 34px;
+    }
+
+    .sa-404-text {
+        font-size: 15.5px;
+    }
+
+    .sa-404-search {
+        grid-template-columns: 1fr 52px;
+        gap: 8px;
+    }
+
+    .sa-404-search input,
+    .sa-404-search button {
+        height: 50px;
+    }
+
+    .sa-404-search button {
+        width: 52px;
+    }
+
+    .sa-404-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sa-404-btn {
+        width: 100%;
+    }
+
+    .sa-404-right img {
+        width: min(100%, 340px);
+    }
+}

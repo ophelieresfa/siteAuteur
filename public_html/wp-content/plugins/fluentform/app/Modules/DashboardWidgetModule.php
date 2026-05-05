@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Models\Submission;
 
@@ -50,7 +52,7 @@ class DashboardWidgetModule
             set_transient($cacheKey, $stats, 10 * MINUTE_IN_SECONDS);
         }
 
-        if ( ! $stats || $stats->isEmpty()) {
+        if (!$stats || count($stats) === 0) {
             echo 'You can see your submission stats here';
             return;
         }

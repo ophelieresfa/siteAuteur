@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
 // phpcs:ignore Internal.NoCodeFound -- View file contains CSS, not PHP code
 ?>
 <style type="text/css">

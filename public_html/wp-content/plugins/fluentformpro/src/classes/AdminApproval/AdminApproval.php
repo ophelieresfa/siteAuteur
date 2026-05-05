@@ -185,6 +185,7 @@ class AdminApproval
         if (!$daySpan) {
             $daySpan = 7;
         }
+        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
         $date = date('Y-m-d H:i:s', (time() - $daySpan * DAY_IN_SECONDS));
         
         $oldEntries = wpFluent()->table('fluentform_submissions')
@@ -193,7 +194,7 @@ class AdminApproval
             ->limit(100)
             ->get();
         
-        if ($oldEntries) {
+        if (count($oldEntries)) {
             // @todo need to move 'deleteEntries' method on helper class
             (new DoubleOptin())->deleteEntries($oldEntries);
         }

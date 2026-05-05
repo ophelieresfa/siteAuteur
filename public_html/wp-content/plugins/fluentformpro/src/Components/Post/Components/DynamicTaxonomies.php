@@ -41,6 +41,7 @@ class DynamicTaxonomies
                     'hierarchical' => $isHi
                 ],
                 'settings' => [
+                    // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                     'label' => __($object->label, 'fluentformpro'),
                     'admin_field_label' => '',
                     'help_message' => '',

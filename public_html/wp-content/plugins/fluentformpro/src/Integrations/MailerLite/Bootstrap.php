@@ -255,7 +255,7 @@ class Bootstrap extends IntegrationManagerController
         $subscriber = [
             'email'                  => '',
             'confirmation_ip'        => $entry->ip,
-            'confirmation_timestamp' => date('Y-m-d H:i:s'),
+            'confirmation_timestamp' => date('Y-m-d H:i:s'), // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
             'fields'                 => [],
             'resubscribe'            => !empty($feedData['resubscribe']) ? true : false
         ];

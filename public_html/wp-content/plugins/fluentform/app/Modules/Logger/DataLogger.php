@@ -329,7 +329,7 @@ class DataLogger
             ], 423);
         }
 
-        if (!$actionFeed->status == 'success') {
+        if ($actionFeed->status == 'success') {
             wp_send_json_error([
                 'message' => 'API log already in success mode'
             ], 423);
@@ -344,7 +344,7 @@ class DataLogger
         $entry = $this->getEntry($submission, $form);
         $formData = json_decode($submission->response, true);
 
-        wpFluent()->table($this->table)
+        wpFluent()->table('ff_scheduled_actions')
             ->where('id', $actionFeed->id)
             ->update([
                 'status'      => 'manual_retry',

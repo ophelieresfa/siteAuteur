@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FormBuilder\Components;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\Framework\Helpers\ArrayHelper;
 

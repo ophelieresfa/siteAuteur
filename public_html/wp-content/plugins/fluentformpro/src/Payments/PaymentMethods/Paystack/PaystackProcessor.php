@@ -100,7 +100,8 @@ class PaystackProcessor extends BaseProcessor
                 'status'           => 'error',
                 'title'            => __('Transaction Amount Mismatch - PayStack', 'fluentformpro'),
                 'description'      => sprintf(
-                    __('Transaction Amount should be %s but received %s. Payment %s.', 'fluentformpro'),
+                    // translators: %1$s is the expected amount, %2$s is the received amount, %3$s is the payment status
+                    __('Transaction Amount should be %1$s but received %2$s. Payment %3$s.', 'fluentformpro'),
                     PaymentHelper::formatMoney($transaction->payment_total, $transaction->currency),
                     PaymentHelper::formatMoney(intval($vendorTransaction['amount']), strtoupper($vendorTransaction['currency'])),
                     $strict ? 'rejected' : 'marked for review'

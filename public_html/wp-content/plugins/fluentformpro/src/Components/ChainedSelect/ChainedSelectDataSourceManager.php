@@ -45,7 +45,7 @@ class ChainedSelectDataSourceManager
             if ($url = $request->get('url')) {
                 $this->validateUrl($url);
                 
-                $parsedUrl = parse_url($url);
+                $parsedUrl = wp_parse_url($url);
                 $path = isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
                 
                 $hasCsvInPath = preg_match('/\.csv(\?|$|#|&|%)/i', $path);
@@ -143,7 +143,7 @@ class ChainedSelectDataSourceManager
     protected function validateUrl($url)
     {
         if (empty($url)) {
-            throw new Exception(__('URL is required.', 'fluentformpro'), 400);
+            throw new Exception(__('URL is required.', 'fluentformpro'), 400); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         // Use WordPress URL validation
@@ -152,20 +152,20 @@ class ChainedSelectDataSourceManager
         }
 
         if (!wp_http_validate_url($url)) {
-            throw new Exception(__('Invalid URL format.', 'fluentformpro'), 400);
+            throw new Exception(__('Invalid URL format.', 'fluentformpro'), 400); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         // Parse URL to validate scheme
-        $parsedUrl = parse_url($url);
-        
+        $parsedUrl = wp_parse_url($url);
+
         if (!$parsedUrl || !isset($parsedUrl['scheme'])) {
-            throw new Exception(__('Invalid URL format.', 'fluentformpro'), 400);
+            throw new Exception(__('Invalid URL format.', 'fluentformpro'), 400); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
 
         // Only allow http and https schemes
         $allowedSchemes = ['http', 'https'];
         if (!in_array(strtolower($parsedUrl['scheme']), $allowedSchemes)) {
-            throw new Exception(__('Only HTTP and HTTPS URLs are allowed.', 'fluentformpro'), 400);
+            throw new Exception(__('Only HTTP and HTTPS URLs are allowed.', 'fluentformpro'), 400); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
     }
 
@@ -189,6 +189,7 @@ class ChainedSelectDataSourceManager
         $path = wp_upload_dir()['basedir'] . FLUENTFORM_UPLOAD_DIR;
 
         if (!is_dir($path)) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir -- Direct mkdir needed for upload directory creation
             mkdir($path, 0755);
             file_put_contents(
                 wp_upload_dir()['basedir'] . FLUENTFORM_UPLOAD_DIR . '/.htaccess',
@@ -219,6 +220,7 @@ class ChainedSelectDataSourceManager
             return false;
         }
 
+        // phpcs:ignore Generic.PHP.ForbiddenFunctions.Found -- Required for CSV file upload handling
         if (move_uploaded_file($fileArray['tmp_name'], $target)) {
             return $target;
         }
@@ -297,14 +299,14 @@ class ChainedSelectDataSourceManager
         $currentField = reset($currentField);
 
         if (count($chainedSelects) == 1) {
-            file_exists($target) && @unlink($target);
+            file_exists($target) && wp_delete_file($target);
         } else {
             $metaKeys = array_map(function ($field) {
                 return $field->settings->data_source->meta_key;
             }, $chainedSelects);
 
             if (count(array_intersect($metaKeys, [$metaKey])) < 2) {
-                file_exists($target) && @unlink($target);
+                file_exists($target) && wp_delete_file($target);
             }
         }
 

@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Chat;
 
+defined('ABSPATH') or die;
+
 use Exception;
 use FluentForm\App\Models\Form;
 use FluentForm\App\Models\FormMeta;
@@ -24,8 +26,8 @@ class ChatFormBuilder extends FormService
     public function buildForm()
     {
         try {
-            Acl::verifyNonce();
-            
+            Acl::verify('fluentform_forms_manager');
+
             $attributes = $this->app->request->all();
             
             $form = $this->generateForm($attributes);
@@ -35,7 +37,7 @@ class ChatFormBuilder extends FormService
                 'redirect_url' => admin_url(
                     'admin.php?page=fluent_forms&form_id=' . $form->id . '&route=editor'
                 ),
-                'message' => __('Successfully created a form.', 'fluentform'),
+                'message' => __('Successfully created a form.', 'fluentformpro'),
             ], 200);
         } catch (Exception $e) {
             wp_send_json_error([
@@ -71,7 +73,7 @@ class ChatFormBuilder extends FormService
         $fluentFormFields = $this->maybeAddPayments($fluentFormFields, $allFields);
         $fluentFormFields = array_filter($fluentFormFields);
         if (!$fluentFormFields) {
-            throw new Exception(__('Empty form. Please try again!', 'fluentformpro'));
+            throw new Exception(__('Empty form. Please try again!', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         $title = Arr::get($form, 'title', '');
         return $this->saveForm($fluentFormFields, $title, $hasStep, $isConversational);
@@ -87,7 +89,7 @@ class ChatFormBuilder extends FormService
         $startingQuery = "Create a form for ";
         $query = \FluentForm\Framework\Support\Sanitizer::sanitizeTextField(Arr::get($args, 'query'));
         if (empty($query)) {
-            throw new Exception(__('Query is empty!', 'fluentformpro'));
+            throw new Exception(__('Query is empty!', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         
         $additionalQuery = \FluentForm\Framework\Support\Sanitizer::sanitizeTextField(Arr::get($args, 'additional_query'));
@@ -118,7 +120,7 @@ class ChatFormBuilder extends FormService
         $response = json_decode($response, true);
 
         if (is_wp_error($response) || empty($response['fields'])) {
-            throw new Exception(__('Invalid response: Please try again! :', 'fluentformpro'));
+            throw new Exception(__('Invalid response: Please try again! :', 'fluentformpro')); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         
         return $response;

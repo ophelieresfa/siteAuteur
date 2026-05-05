@@ -7,8 +7,8 @@ return array (
   'slug' => 'fluentform',
   'domain_path' => '/resources/languages',
   'text_domain' => 'fluentform',
-  'hook_prefix' => 'fluentform',
+  'hook_prefix' => '',
   'rest_namespace' => 'fluentform',
   'rest_version' => 'v1',
-  'env' => 'production',
+  'env'            => 'production',
 );

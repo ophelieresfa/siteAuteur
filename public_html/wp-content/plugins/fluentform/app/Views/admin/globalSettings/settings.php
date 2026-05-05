@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
     do_action_deprecated(
         'fluentform_before_global_settings_option_render',
         [],

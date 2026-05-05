@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\classes\Inventory;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\Report\ReportHelper;
 use FluentForm\Framework\Helpers\ArrayHelper as Arr;

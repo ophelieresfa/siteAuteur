@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Payments\PaymentMethods\Paddle;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -52,7 +54,7 @@ class PaddleProcessor extends BaseProcessor
             ]);
         }
 
-        $uniqueHash = md5($submission->id . '-' . $form->id . '-' . time() . '-' . mt_rand(100, 999));
+        $uniqueHash = wp_generate_password(32, false);
 
         $transactionId = $this->insertTransaction([
             'transaction_type' => 'onetime',
@@ -443,7 +445,8 @@ class PaddleProcessor extends BaseProcessor
                     'status'           => 'error',
                     'title'            => __('Paddle Amount Mismatch', 'fluentformpro'),
                     'description'      => sprintf(
-                        __('Expected %d but Paddle reported %d. Payment %s.', 'fluentformpro'),
+                        // translators: %1$d is the expected amount, %2$d is the Paddle reported amount, %3$s is the payment status
+                        __('Expected %1$d but Paddle reported %2$d. Payment %3$s.', 'fluentformpro'),
                         intval($transaction->payment_total),
                         $paddleTotal,
                         $strict ? 'rejected' : 'marked for review'
@@ -710,6 +713,7 @@ class PaddleProcessor extends BaseProcessor
                         'component'        => 'Payment',
                         'status'           => 'info',
                         'title'            => __('Existing Customer Found', 'fluentformpro'),
+                        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                         'description'      => __("Using existing customer with ID: {$customerId}", 'fluentformpro')
                     ]);
                 } else {
@@ -732,6 +736,7 @@ class PaddleProcessor extends BaseProcessor
                     'component'        => 'Payment',
                     'status'           => 'failed',
                     'title'            => __('Skip Customer Creation', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                     'description'      => __("Error Code: {$errorCode}. Reason: {$errorMessage}", 'fluentformpro')
                 ]);
             }
@@ -746,6 +751,7 @@ class PaddleProcessor extends BaseProcessor
                     'component'        => 'Payment',
                     'status'           => 'info',
                     'title'            => __('Customer Created', 'fluentformpro'),
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                     'description'      => __("Customer created with ID: {$customerId}", 'fluentformpro')
                 ]);
             }
@@ -824,6 +830,7 @@ class PaddleProcessor extends BaseProcessor
                 'component'        => 'Payment',
                 'status'           => 'info',
                 'title'            => __('Customer Address Created', 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                 'description'      => __("Customer address created for customer ID: {$customerId}", 'fluentformpro')
             ]);
             
@@ -837,6 +844,7 @@ class PaddleProcessor extends BaseProcessor
             'component'        => 'Payment',
             'status'           => 'failed',
             'title'            => __('Skip Customer Address Creation', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
             'description'      => __("Could not be able to create address for customer ID: {$customerId}", 'fluentformpro')
         ]);
     }

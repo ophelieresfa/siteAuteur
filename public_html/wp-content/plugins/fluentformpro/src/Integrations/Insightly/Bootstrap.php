@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Integrations\Insightly;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Http\Controllers\IntegrationManagerController;
 use FluentForm\Framework\Foundation\Application;
 use FluentForm\Framework\Helpers\ArrayHelper;
@@ -65,6 +67,7 @@ class Bootstrap extends IntegrationManagerController
         foreach ($this->getFields($settings['list_id']) as $field) {
             if ($field['required'] && empty($settings[$field['key']])) {
                 $error = true;
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 $errors[$field['key']] = [__($field['label'] . ' is required', 'fluentformpro')];
             }
         }
@@ -112,6 +115,7 @@ class Bootstrap extends IntegrationManagerController
             'valid_message' => __('Your Insightly Integration Key is valid', 'fluentformpro'),
             'invalid_message' => __('Your Insightly Integration Key is not valid', 'fluentformpro'),
             'save_button_text' => __('Save Settings', 'fluentformpro'),
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             'config_instruction' => __($this->getConfigInstructions(), 'fluentformpro'),
             'fields' => [
                 'url' => [
@@ -1074,6 +1078,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($customFields)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($customFields->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1083,9 +1088,12 @@ class Bootstrap extends IntegrationManagerController
         foreach ($customFields as $fieldValue) {
             $customFormattedFields[] = [
                 'key' => 'custom*' . $fieldValue['FIELD_NAME'],
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'placeholder' => __('Enter ' . $fieldValue['FIELD_LABEL'], 'fluentformpro'),
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'label' => __($fieldValue['FIELD_LABEL'], 'fluentformpro'),
                 'required' => false,
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'tips' => __($fieldValue['FIELD_LABEL'] . ' is a ' . $fieldValue['FIELD_TYPE'] . ' type field.',
                     'fluentformpro'),
                 'component' => 'value_text'
@@ -1103,6 +1111,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($leadStatuses)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($leadStatuses->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1133,6 +1142,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($leadSources)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($leadSources->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1163,6 +1173,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($opportunities)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($opportunities->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1193,6 +1204,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($projects)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($projects->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1223,6 +1235,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($opportunityCategories)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($opportunityCategories->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1253,6 +1266,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($users)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($users->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1296,6 +1310,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($pipelines)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($pipelines->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1326,6 +1341,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($pipelineStages)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($pipelineStages->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1356,6 +1372,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($projectCategories)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($projectCategories->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1386,6 +1403,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($organisations)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($organisations->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1416,6 +1434,7 @@ class Bootstrap extends IntegrationManagerController
 
         if (is_wp_error($taskCategories)) {
             wp_send_json_error([
+                // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
                 'message' => __($taskCategories->get_error_message(), 'fluentformpro'),
             ], 423);
         }
@@ -1479,6 +1498,7 @@ class Bootstrap extends IntegrationManagerController
 
                     if($fieldType == 'date') {
                         $timeStamp = strtotime($feedData[$key]);
+                        // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date -- Local timezone intended
                         $date = date('Y-m-d H:i:s', $timeStamp);
                         $subscriber['attributes'][$fieldName] = $date;
                     }

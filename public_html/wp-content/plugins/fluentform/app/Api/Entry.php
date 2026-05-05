@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Api;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Modules\Form\FormDataParser;
 use FluentForm\App\Modules\Form\FormFieldsParser;
 use FluentForm\App\Services\Report\ReportHelper;

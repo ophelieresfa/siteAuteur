@@ -18,7 +18,7 @@ class UserUpdateFormHandler
     public function maybePopulateUserUpdateForm($form)
     {
         $feeds = $this->getFormUserFeeds($form);
-        if (!$feeds) {
+        if (!count($feeds)) {
             return $form;
         }
         foreach ($feeds as $feed) {
@@ -34,7 +34,7 @@ class UserUpdateFormHandler
     public function addWhiteListedFields($whiteListKeys, $formId)
     {
         $feeds = $this->getFormUserFeeds($formId);
-        if (!$feeds) {
+        if (!count($feeds)) {
             return $whiteListKeys;
         }
         foreach ($feeds as $feed) {
@@ -65,7 +65,7 @@ class UserUpdateFormHandler
     public function maybeEnqueueUserUpdateScript($form)
     {
         $feeds = $this->getFormUserFeeds($form);
-        if (!$feeds) {
+        if (!count($feeds)) {
             return;
         }
         foreach ($feeds as $feed) {
@@ -193,7 +193,7 @@ class UserUpdateFormHandler
     {
         $feeds = $this->getFormUserFeeds($form);
 
-        if (!$feeds) {
+        if (!count($feeds)) {
             return $errors;
         }
 

@@ -844,8 +844,7 @@ class PaymentHelper
 
         $data = wp_parse_args($data, $defaults);
 
-        return wpFluent()->table('fluentform_logs')
-            ->insertGetId($data);
+        return \FluentForm\App\Models\Log::create($data)->id;
 
     }
 
@@ -855,7 +854,7 @@ class PaymentHelper
             return false;
         }
 
-        $form = wpFluent()->table('fluentform_forms')->where('id', $submission->form_id)->first();
+        $form = \FluentForm\App\Models\Form::find($submission->form_id);
 
         $formData = $submission->response;
         if (!is_array($formData)) {
@@ -898,20 +897,15 @@ class PaymentHelper
 
     public static function recordSubscriptionCancelled($subscription, $vendorData, $logData = [])
     {
-        wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $subscription->id)
+        \FluentForm\App\Models\Subscription::where('id', $subscription->id)
             ->update([
                 'status'     => 'cancelled',
                 'updated_at' => current_time('mysql')
             ]);
 
-        $subscription = wpFluent()->table('fluentform_subscriptions')
-            ->where('id', $subscription->id)
-            ->first();
+        $subscription = \FluentForm\App\Models\Subscription::find($subscription->id);
 
-        $submission = wpFluent()->table('fluentform_submissions')
-            ->where('id', $subscription->submission_id)
-            ->first();
+        $submission = \FluentForm\App\Models\Submission::find($subscription->submission_id);
 
         $logDefaults = [
             'parent_source_id' => $subscription->form_id,

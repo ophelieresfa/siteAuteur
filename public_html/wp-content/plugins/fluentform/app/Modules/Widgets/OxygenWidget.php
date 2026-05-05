@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Widgets;
 
+defined('ABSPATH') or die;
+
 if (!class_exists('OxyEl')) {
     return;
 }

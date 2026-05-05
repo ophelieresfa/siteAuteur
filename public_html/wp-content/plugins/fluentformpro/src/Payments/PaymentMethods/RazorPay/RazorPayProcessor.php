@@ -241,7 +241,8 @@ class RazorPayProcessor extends BaseProcessor
                 'status'           => 'error',
                 'title'            => __('RazorPay Amount Mismatch', 'fluentformpro'),
                 'description'      => sprintf(
-                    __('Expected %d but RazorPay reported %d. Payment %s.', 'fluentformpro'),
+                    // translators: %1$d is the expected amount, %2$d is the RazorPay reported amount, %3$s is the payment status
+                    __('Expected %1$d but RazorPay reported %2$d. Payment %3$s.', 'fluentformpro'),
                     intval($transaction->payment_total),
                     $vendorAmount,
                     $strict ? 'rejected' : 'marked for review'

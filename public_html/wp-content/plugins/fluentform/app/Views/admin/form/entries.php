@@ -1,4 +1,7 @@
 <?php
+
+defined('ABSPATH') or die;
+
     do_action('fluentform/before_form_entry_app', $form_id);
 ?>
 <div class="ff_form_entries" id="ff_form_entries_app">

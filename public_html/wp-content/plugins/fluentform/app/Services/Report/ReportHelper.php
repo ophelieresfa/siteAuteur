@@ -247,25 +247,147 @@ class ReportHelper
 
     public static function maybeMigrateData($formId)
     {
-        // We have to check if we need to migrate the data
         if ('yes' == Helper::getFormMeta($formId, 'report_data_migrated')) {
             return true;
         }
-        // let's migrate the data
-        $unmigratedData = Submission::select(['id', 'response'])
-            ->where('form_id', $formId)
-            ->doesntHave('entryDetails')
-            ->get();
 
-        if (!$unmigratedData) {
-            return Helper::setFormMeta($formId, 'report_data_migrated', 'yes');
+        // Check if migration is already in progress (with 5-minute staleness timeout)
+        $migrationStatus = Helper::getFormMeta($formId, 'report_data_migration_status');
+        if ($migrationStatus && strpos($migrationStatus, 'processing:') === 0) {
+            $startedAt = (int) substr($migrationStatus, 11);
+            if ((time() - $startedAt) < 300) {
+                return true;
+            }
         }
-        $submissionService = new SubmissionService();
-        foreach ($unmigratedData as $datum) {
-            $value = json_decode($datum->response, true);
-            $submissionService->recordEntryDetails($datum->id, $formId, $value);
-        }
+
+        Helper::setFormMeta($formId, 'report_data_migration_status', 'processing:' . time());
+
+        // Dispatch a non-blocking background request
+        $args = [
+            'timeout'  => 0.1,
+            'blocking' => false,
+            'body'     => [
+                'action'  => 'fluentform_report_data_migrate',
+                'form_id' => $formId,
+                'nonce'   => wp_create_nonce('fluentform_report_data_migrate'),
+            ],
+            'cookies'  => is_user_logged_in() ? wp_unslash($_COOKIE) : [],
+            'sslverify' => apply_filters('fluentform/https_local_ssl_verify', false),
+        ];
+
+        wp_remote_post(esc_url_raw(Helper::getAjaxUrl()), $args);
+
         return true;
+    }
+
+    /**
+     * Ensure submission_id index exists on entry_details table for efficient anti-join queries.
+     */
+    private static $indexEnsured = false;
+
+    private static function ensureEntryDetailsIndex()
+    {
+        if (static::$indexEnsured) {
+            return;
+        }
+
+        global $wpdb;
+        $table = $wpdb->prefix . 'fluentform_entry_details';
+
+        // Check if index already exists
+        $indexExists = $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(1) FROM INFORMATION_SCHEMA.STATISTICS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = %s AND INDEX_NAME = 'idx_submission_id'",
+            $table
+        ));
+
+        if (!$indexExists) {
+            // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- $table is hardcoded prefix + table name, not user input
+            $wpdb->query("ALTER TABLE `{$table}` ADD INDEX `idx_submission_id` (`submission_id`)");
+        }
+
+        static::$indexEnsured = true;
+    }
+
+    public static function runMigrationBatch($formId)
+    {
+        if ('yes' == Helper::getFormMeta($formId, 'report_data_migrated')) {
+            return;
+        }
+
+        // Acquire a MySQL advisory lock to prevent concurrent batch execution per form.
+        // GET_LOCK returns 1 if acquired, 0 if timed out, NULL on error.
+        global $wpdb;
+        $lockName = 'ff_report_migrate_' . intval($formId);
+        $gotLock = $wpdb->get_var($wpdb->prepare("SELECT GET_LOCK(%s, 0)", $lockName));
+
+        if (!$gotLock) {
+            return; // Another worker holds the lock for this form
+        }
+
+        try {
+            // Ensure index exists for efficient doesntHave('entryDetails') queries
+            static::ensureEntryDetailsIndex();
+
+            $batchSize = apply_filters('fluentform/report_migration_batch_size', 200);
+            $maxBatches = apply_filters('fluentform/report_migration_max_batches', 50);
+            $submissionService = new SubmissionService();
+            $lastId = (int) Helper::getFormMeta($formId, 'report_data_migration_last_id');
+
+            for ($batch = 0; $batch < $maxBatches; $batch++) {
+                $unmigratedData = Submission::select(['id', 'response'])
+                    ->where('form_id', $formId)
+                    ->where('id', '>', $lastId)
+                    ->doesntHave('entryDetails')
+                    ->orderBy('id', 'ASC')
+                    ->limit($batchSize)
+                    ->get();
+
+                if (!$unmigratedData || count($unmigratedData) === 0) {
+                    break;
+                }
+
+                foreach ($unmigratedData as $datum) {
+                    $lastId = $datum->id;
+                    $value = json_decode($datum->response, true);
+                    if (is_array($value) && !empty($value)) {
+                        $submissionService->recordEntryDetails($datum->id, $formId, $value);
+                    }
+
+                    // If no entry_details were created (empty/invalid response or all values filtered),
+                    // insert a sentinel so doesntHave('entryDetails') excludes this row
+                    $hasDetails = EntryDetails::where('submission_id', $datum->id)->exists();
+                    if (!$hasDetails) {
+                        EntryDetails::insert([
+                            'form_id'        => $formId,
+                            'submission_id'  => $datum->id,
+                            'field_name'     => '_migration_skipped',
+                            'sub_field_name' => '',
+                            'field_value'    => '',
+                        ]);
+                    }
+                }
+
+                Helper::setFormMeta($formId, 'report_data_migration_last_id', $lastId);
+
+                if ($unmigratedData->count() < $batchSize) {
+                    break;
+                }
+            }
+
+            // Only mark complete if no unmigrated rows remain
+            $remaining = Submission::where('form_id', $formId)
+                ->doesntHave('entryDetails')
+                ->count();
+
+            if ($remaining === 0) {
+                Helper::setFormMeta($formId, 'report_data_migrated', 'yes');
+                Helper::setFormMeta($formId, 'report_data_migration_last_id', 0);
+            }
+
+            Helper::setFormMeta($formId, 'report_data_migration_status', 'completed');
+        } finally {
+            $wpdb->query($wpdb->prepare("SELECT RELEASE_LOCK(%s)", $lockName));
+        }
     }
 
     /**
@@ -1085,8 +1207,7 @@ class ReportHelper
         list($startDate, $endDate) = self::processDateRange($startDate, $endDate);
         
         // Base query for transactions
-        $query = wpFluent()->table('fluentform_transactions')
-            ->whereBetween('created_at', [$startDate, $endDate]);
+        $query = \FluentForm\App\Models\Transaction::whereBetween('created_at', [$startDate, $endDate]);
         
         // Filter by transaction type if specified
         if ($type === 'subscription') {

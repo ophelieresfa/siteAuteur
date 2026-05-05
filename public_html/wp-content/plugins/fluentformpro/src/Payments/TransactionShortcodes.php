@@ -101,7 +101,7 @@ class TransactionShortcodes
         if(!$transaction) {
             if($echo) {
                 status_header(200);
-                echo __('Sorry no transaction found', 'fluentformpro');
+                echo esc_html__('Sorry no transaction found', 'fluentformpro');
                 exit(200);
             }
             return '';
@@ -144,7 +144,7 @@ class TransactionShortcodes
         extract($data);
         ob_start();
         include($file);
-        echo  ob_get_clean();
+        echo  ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Receipt page HTML from template
         exit(200);
     }
 
@@ -170,7 +170,7 @@ class TransactionShortcodes
             'statuses'   => ArrayHelper::get($atts, 'subscription_statuses', [])
         ]);
 
-        if (!$subscriptions) {
+        if (!count($subscriptions)) {
             return '';
         }
 
@@ -180,6 +180,7 @@ class TransactionShortcodes
 
             if ($subscription->status == 'active') {
                 if ($subscription->bill_times) {
+                    // translators: %d is the number of payments
                     $billingText = sprintf(esc_html__('Will be cancelled after %d payments', 'fluentformpro'), $subscription->bill_times);
                 } else {
                     $billingText = __('will be billed until cancelled', 'fluentformpro');
@@ -210,7 +211,7 @@ class TransactionShortcodes
             'statuses'          => ArrayHelper::get($atts, 'payment_statuses', [])
         ]);
 
-        if (!$transactions) {
+        if (!count($transactions)) {
             return '';
         }
 
@@ -274,7 +275,7 @@ class TransactionShortcodes
 
         $transactions = fluentFormApi('submissions')->transactionsBySubscriptionId($subscription->id);
 
-        if (!$transactions) {
+        if (!count($transactions)) {
             wp_send_json_error([
                 'message' => __('Sorry, no related payments found', 'fluentformpro'),
             ], 423);
@@ -445,8 +446,12 @@ class TransactionShortcodes
         $userid = get_current_user_id();
         $submission = fluentFormApi('submissions')->find($subscription->submission_id);
 
-        if (!$submission || ($submission->user_id != $userid && !$this->canCancelSubscription($subscription))) {
-            $this->sendError(__('Sorry, you can not cancel this subscription at this moment', 'fluentformpro'));
+        if (!$submission || $submission->user_id != $userid) {
+            $this->sendError(__('Sorry, you do not have permission to cancel this subscription', 'fluentformpro'));
+        }
+
+        if (!$this->canCancelSubscription($subscription)) {
+            $this->sendError(__('Sorry, this subscription cannot be cancelled at this moment', 'fluentformpro'));
         }
     
         $handler = apply_filters_deprecated(

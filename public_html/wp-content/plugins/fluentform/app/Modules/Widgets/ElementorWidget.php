@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Modules\Widgets;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Modules\Widgets\FluentFormWidget;
 
 class ElementorWidget

@@ -1,12 +1,17 @@
+<?php defined('ABSPATH') or die; ?>
 <ul class="ffp_payment_info_table">
     <li>
-        <b><?php _e('Amount:', 'fluentformpro');?></b> <?php echo esc_html($orderTotal); ?></b>
+        <b><?php
+            // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+            _e('Amount:', 'fluentformpro');?></b> <?php echo esc_html($orderTotal); ?></b>
     </li>
     <?php
     $paymentMethod = $submission->payment_method;
     if($paymentMethod): ?>
         <li>
-            <b><?php _e('Payment Method:', 'fluentformpro');?></b> <?php
+            <b><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Payment Method:', 'fluentformpro');?></b> <?php
             $paymentMethod = apply_filters_deprecated(
                 'fluentform_payment_method_public_name_' . $paymentMethod,
                 [
@@ -32,7 +37,9 @@
         }
         ?>
         <li>
-            <b><?php _e('Payment Status:', 'fluentformpro');?></b> <?php echo esc_html($submission->payment_status); ?></b>
+            <b><?php
+                // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                _e('Payment Status:', 'fluentformpro');?></b> <?php echo esc_html($submission->payment_status); ?></b>
         </li>
     <?php endif; ?>
 </ul>

@@ -2,6 +2,8 @@
 
 namespace FluentFormPro\Components\Post;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Api\FormProperties;
 use FluentForm\App\Helpers\Helper;
 use FluentForm\App\Modules\Component\Component;
@@ -81,7 +83,7 @@ class PopulatePostForm
         if (!$posts) {
             $queryParams = [
                 'post_type'      => $postType,
-                'posts_per_page' => -1
+                'posts_per_page' => apply_filters('fluentform/post_selection_posts_per_page', -1, $data, $form)
             ];
 
             $extraParams = ArrayHelper::get($data, 'settings.post_extra_query_params');
@@ -106,8 +108,7 @@ class PopulatePostForm
                 $queryParams = wp_parse_args($get_array, $queryParams);
             }
 
-            $posts = query_posts($queryParams);
-            wp_reset_query();
+            $posts = get_posts($queryParams);
         }
 
         $formattedOptions = [];
@@ -225,7 +226,7 @@ class PopulatePostForm
 		}
 
 		$feeds = $this->getFormFeeds($formId);
-		if (!$feeds) {
+		if (!count($feeds)) {
 			return $meta_fields;
 		}
 

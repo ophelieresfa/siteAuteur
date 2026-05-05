@@ -210,7 +210,8 @@ class MollieProcessor extends BaseProcessor
                     'status'           => 'error',
                     'title'            => __('Mollie Amount Mismatch', 'fluentformpro'),
                     'description'      => sprintf(
-                        __('Expected %d cents but Mollie reported %d cents. Payment marked for review.', 'fluentformpro'),
+                        // translators: %1$d is the expected amount in cents, %2$d is the Mollie reported amount in cents
+                        __('Expected %1$d cents but Mollie reported %2$d cents. Payment marked for review.', 'fluentformpro'),
                         intval($transaction->payment_total),
                         $mollieAmountInCents
                     )
@@ -274,6 +275,7 @@ class MollieProcessor extends BaseProcessor
                         'insert_id' => $submission->id,
                         'title'     => __('Payment Failed', 'fluentformpro'),
                         'result'    => false,
+                        // translators: %s is the payment status
                         'error'     => sprintf(__('Payment %s. Please try again.', 'fluentformpro'), $mollieStatus)
                     ];
                 } else {

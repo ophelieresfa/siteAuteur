@@ -3,6 +3,8 @@
 namespace FluentForm\App\Modules\Payments   ;
 
 use FluentForm\App\Helpers\Helper;
+use FluentForm\App\Models\Subscription;
+use FluentForm\App\Models\Transaction;
 use FluentForm\Framework\Helpers\ArrayHelper;
 use FluentForm\App\Modules\Payments\Classes\PaymentReceipt;
 use FluentForm\App\Modules\Payments\Orders\OrderData;
@@ -54,11 +56,11 @@ class TransactionShortcodes
         if ($atts['type'] == 'all' || $atts['type'] == 'subscriptions') {
             $subscriptionsHtml = $this->getSubscriptionsHtml($userId, $viewConfig, $atts);
             if ($subscriptionsHtml) {
-                wp_enqueue_script('fluentform_transactions', fluentformMix('js/fluentform_transactions_ui.js'), ['jquery'], FLUENTFORM_VERSION, true);
+                wp_enqueue_script('fluentform_transactions', fluentFormMix('js/fluentform_transactions_ui.js'), ['jquery'], FLUENTFORM_VERSION, true);
 
                 wp_enqueue_style(
                     'fluentform_transactions',
-                    fluentformMix('css/fluentform_transactions.css'),
+                    fluentFormMix('css/fluentform_transactions.css'),
                     [],
                     FLUENTFORM_VERSION
                 );
@@ -128,7 +130,7 @@ class TransactionShortcodes
         }
 
         add_action('wp_enqueue_scripts', function () {
-            wp_enqueue_style('fluent-form-landing', fluentformMix('css/frameless.css'), [], FLUENTFORM_VERSION);
+            wp_enqueue_style('fluent-form-landing', fluentFormMix('css/frameless.css'), [], FLUENTFORM_VERSION);
         });
 
         $form = fluentFormApi('forms')->find($transaction->form_id);
@@ -178,7 +180,7 @@ class TransactionShortcodes
             'statuses'   => ArrayHelper::get($atts, 'subscription_statuses', [])
         ]);
 
-        if (!$subscriptions) {
+        if (!count($subscriptions)) {
             return '';
         }
 
@@ -219,7 +221,7 @@ class TransactionShortcodes
             'statuses'          => ArrayHelper::get($atts, 'payment_statuses', [])
         ]);
 
-        if (!$transactions) {
+        if (!count($transactions)) {
             return '';
         }
 
@@ -230,11 +232,8 @@ class TransactionShortcodes
 
             if (!$transaction->transaction_hash) {
                 $hash = md5(wp_generate_uuid4() . wp_rand(0, 1000));
-                wpFluent()->table('fluentform_transactions')
-                    ->where('id', $transaction->id)
-                    ->update([
-                        'transaction_hash' => $hash
-                    ]);
+                Transaction::where('id', $transaction->id)
+                    ->update(['transaction_hash' => $hash]);
                 $transaction->transaction_hash = $hash;
             }
 
@@ -269,8 +268,7 @@ class TransactionShortcodes
 
         $userId = get_current_user_id();
 
-        $subscription = wpFluent()->table('fluentform_subscriptions')
-            ->select(['fluentform_subscriptions.*', 'fluentform_submissions.user_id'])
+        $subscription = Subscription::select(['fluentform_subscriptions.*', 'fluentform_submissions.user_id'])
             ->where('fluentform_submissions.user_id', $userId)
             ->where('fluentform_subscriptions.id', $subscriptionId)
             ->join('fluentform_submissions', 'fluentform_submissions.id', '=', 'fluentform_subscriptions.submission_id')
@@ -284,7 +282,7 @@ class TransactionShortcodes
 
         $transactions = fluentFormApi('submissions')->transactionsBySubscriptionId($subscription->id);
 
-        if (!$transactions) {
+        if (!count($transactions)) {
             wp_send_json_error([
                 'message' => __('Sorry, no related payments found', 'fluentform'),
             ], 423);
@@ -295,11 +293,8 @@ class TransactionShortcodes
         foreach ($transactions as $transaction) {
             if (!$transaction->transaction_hash) {
                 $hash = md5(wp_generate_uuid4() . wp_rand(0, 1000));
-                wpFluent()->table('fluentform_transactions')
-                    ->where('id', $transaction->id)
-                    ->update([
-                        'transaction_hash' => $hash
-                    ]);
+                Transaction::where('id', $transaction->id)
+                    ->update(['transaction_hash' => $hash]);
                 $transaction->transaction_hash = $hash;
             }
 

@@ -127,7 +127,7 @@ class OrderData
             $total += $item->line_total;
         }
 
-        if($discountItems) {
+        if(count($discountItems)) {
             foreach ($discountItems as $discountItem) {
                 $total -= $discountItem->line_total;
             }

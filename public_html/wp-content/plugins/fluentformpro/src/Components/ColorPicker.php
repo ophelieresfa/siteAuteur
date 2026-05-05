@@ -117,7 +117,7 @@ class ColorPicker extends BaseFieldManager
             'Use fluentform/rendering_field_html_' . $elementName . ' instead of fluentform_rendering_field_html_' . $elementName
         );
 
-        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form);
+        echo apply_filters('fluentform/rendering_field_html_' . $elementName, $html, $data, $form); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Form field HTML rendering
     }
 
     private function pushScripts($data, $form)
@@ -133,11 +133,15 @@ class ColorPicker extends BaseFieldManager
                 jQuery(document).ready(function ($) {
                     function initColorPicker() {
                         var pickr = Pickr.create({
-                            el: '#<?php echo $data['attributes']['id']; ?>',
+                            el: '#<?php
+                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                echo $data['attributes']['id']; ?>',
                             theme: 'monolith', // or 'monolith', or 'nano'
                             useAsButton: true,
                             swatches: null,
-                            default: '<?php echo ($data['attributes']['value']) ? $data['attributes']['value'] : '#693030'; ?>',
+                            default: '<?php
+                                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                echo ($data['attributes']['value']) ? $data['attributes']['value'] : '#693030'; ?>',
                             comparison: false,
                             lockOpacity: true,
                             autoReposition: false,
@@ -163,9 +167,15 @@ class ColorPicker extends BaseFieldManager
                                 }
                             },
                             strings: {
-                                save: '<?php _e('Save', 'fluentformpro');?>',  // Default for save button
-                                clear: '<?php _e('Clear', 'fluentformpro');?>', // Default for clear button
-                                cancel: '<?php _e('Cancel', 'fluentformpro');?>' // Default for cancel button
+                                save: '<?php
+                                    // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                                    _e('Save', 'fluentformpro');?>',  // Default for save button
+                                clear: '<?php
+                                    // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                                    _e('Clear', 'fluentformpro');?>', // Default for clear button
+                                cancel: '<?php
+                                    // phpcs:ignore WordPress.Security.EscapeOutput.UnsafePrintingFunction
+                                    _e('Cancel', 'fluentformpro');?>' // Default for cancel button
                             }
                         });
 
@@ -181,7 +191,9 @@ class ColorPicker extends BaseFieldManager
 
 
                     initColorPicker();
-                    $(document).on('reInitExtras', '.<?php echo $form->instance_css_class; ?>', function () {
+                    $(document).on('reInitExtras', '.<?php
+                        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                        echo $form->instance_css_class; ?>', function () {
                         initColorPicker();
                     });
                 });

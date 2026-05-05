@@ -1,0 +1,642 @@
+#content {
+    background: #f6f7f8;
+    padding-bottom: 60px;
+}
+
+header .ast-container {
+    max-width: 100% !important;
+    padding: 0;
+}
+
+.sa-account-premium {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* HERO */
+.sa-password-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: center;
+}
+
+.sa-account-hero-left {
+    padding-top: 16px;
+}
+
+.sa-account-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3fc095;
+}
+
+.sa-password-hero h1 {
+    margin: 0 0 16px;
+    font-size: 35px;
+    line-height: 1.05;
+    font-weight: 700;
+    color: #343434;
+}
+
+.sa-account-hero-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.65;
+    color: #343434;
+}
+
+.sa-account-help-card {
+    padding: 24px;
+    margin: 20px 0;
+    background: #f3fbf7;
+    border: 1px solid #e7ebf1;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(36, 49, 78, 0.05);
+}
+
+.sa-account-help-card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #343434;
+}
+
+.sa-account-help-card p {
+    margin: 0 0 14px;
+    font-size: 14px;
+    color: #67748e;
+}
+
+.sa-account-help-btn {
+    font-size: 14px;
+    color: #3fc095;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 501;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #dce8e1;
+}
+
+.sa-account-help-btn:hover {
+    background: #fcfefd;
+}
+
+/* BODY */
+.sa-account-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.sa-account-main-premium {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* CARDS */
+.sa-password-main-card,
+.sa-security-card {
+    background: #fff;
+    border: 1px solid #e8edf2;
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgba(20, 29, 51, 0.04);
+}
+
+.sa-password-main-card {
+    padding: 26px 26px 24px;
+}
+
+.sa-security-card {
+    padding: 22px 26px;
+}
+
+.sa-password-card-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.sa-password-card-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 999px;
+    background: #edf9f3;
+    color: #3fc095;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-password-card-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.sa-delete-card-icon {
+    background: #fff1f1;
+    color: #ea6d6d;
+}
+
+.sa-password-card-header h2 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #343434;
+}
+
+.sa-password-card-header p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #343434;
+}
+
+/* ALERTS */
+.sa-account-alert {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.sa-account-alert-error {
+    background: #fff1f1;
+    border: 1px solid #f1caca;
+    color: #c74242;
+}
+
+.sa-account-alert-success {
+    background: #edf9f3;
+    border: 1px solid #cdebd9;
+    color: #1f7a50;
+}
+
+/* FORM */
+.sa-password-form {
+    margin-top: 18px;
+}
+
+.sa-password-field {
+    margin-bottom: 18px;
+}
+
+.sa-password-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #343434;
+}
+
+.sa-password-input-wrap {
+    position: relative;
+}
+
+.sa-password-input-wrap input {
+    width: 100%;
+    height: 40px;
+    padding: 0 74px 0 48px;
+    border: 1px solid #dbe2ea;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 13px;
+    color: #25324b;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.sa-password-input-wrap input::placeholder {
+    color: #7b8598;
+}
+
+.sa-password-input-wrap input:focus {
+    border-color: #3fc095;
+    box-shadow: 0 0 0 3px rgba(67, 197, 158, 0.12);
+}
+
+.sa-password-input-wrap input:-webkit-autofill,
+.sa-password-input-wrap input:-webkit-autofill:hover,
+.sa-password-input-wrap input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    -webkit-text-fill-color: #25324b;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.sa-password-input-icon {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #8b96aa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-password-input-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.sa-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid #e6ebf1;
+    border-radius: 0 8px 8px 0;
+    background: transparent;
+    color: #8a94a8;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sa-password-toggle:hover {
+    background: #343434;
+    color: #fff;
+}
+
+.sa-password-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.sa-password-toggle .sa-eye-open {
+    display: none;
+}
+
+.sa-password-toggle.is-visible .sa-eye-closed {
+    display: none;
+}
+
+.sa-password-toggle.is-visible .sa-eye-open {
+    display: block;
+}
+
+/* STRENGTH */
+.sa-password-strength {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.sa-strength-bars {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sa-strength-bars span {
+    display: block;
+    width: 76px;
+    height: 5px;
+    border-radius: 999px;
+    background: #cfd6df;
+    transition: background-color .2s ease, opacity .2s ease;
+}
+
+.sa-strength-bars span.is-active.is-level-1 {
+    background-color: #ef7e7e;
+}
+
+.sa-strength-bars span.is-active.is-level-2 {
+    background-color: #f2b94b;
+}
+
+.sa-strength-bars span.is-active.is-level-3 {
+    background-color: #5bbf8a;
+}
+
+.sa-strength-bars span.is-active.is-level-4 {
+    background-color: #3fc095;
+}
+
+.sa-strength-text {
+    font-size: 13px;
+    color: #343434;
+}
+
+.sa-strength-text strong {
+    font-weight: 700;
+}
+
+#sa-password-strength-text.is-level-0,
+#sa-password-strength-text.is-level-1 {
+    color: #ef7e7e;
+}
+
+#sa-password-strength-text.is-level-2 {
+    color: #f2b94b;
+}
+
+#sa-password-strength-text.is-level-3 {
+    color: #5bbf8a;
+}
+
+#sa-password-strength-text.is-level-4 {
+    color: #3fc095;
+}
+
+/* RULES */
+.sa-password-rules {
+    margin: 0 0 18px;
+    padding: 14px 16px;
+    border: 1px solid #dcefe5;
+    border-radius: 5px;
+    background: #f3fbf7;
+}
+
+.sa-password-rules h4 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #343434;
+}
+
+.sa-password-rules ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.sa-password-rules li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #4f5c76;
+    opacity: 0.75;
+    transition: opacity .2s ease, color .2s ease;
+}
+
+.sa-password-rules li.is-valid {
+    opacity: 1;
+    color: #343434;
+}
+
+.sa-rule-check {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    color: #b8c2d1;
+    display: inline-flex;
+}
+
+.sa-password-rules li.is-valid .sa-rule-check {
+    color: #3fc095;
+}
+
+.sa-rule-check svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ACTIONS */
+.sa-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.sa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.sa-btn-secondary {
+    background: #fff;
+    color: #3fc095;
+    border-color: #3fc095;
+    line-height: 16px;
+}
+
+.sa-btn-secondary:hover {
+    background: #343434;
+    color: #fff;
+    border-color: #343434;
+}
+
+.sa-btn-secondary:focus {
+    color: #fff;
+}
+
+.sa-btn-primary {
+    line-height: 16px;
+    background: #3fc095;
+    color: #fff;
+}
+
+.sa-btn-primary:hover {
+    background: #343434;
+}
+
+.sa-btn-danger {
+    min-width: 290px;
+    background: #fff;
+    color: #e05f5f;
+    border-color: #f0c2c2;
+}
+
+.sa-btn-danger:hover {
+    background: #fff6f5;
+    color: #c94a42;
+    border-color: #d98a85;
+}
+
+.sa-btn-danger:focus {
+    border: 1px solid #e5a39f;
+    background: #ffffff;
+    color: #d45a52;
+}
+
+/* SECURITY */
+.sa-security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    padding-left: 66px;
+    margin-top: 4px;
+}
+
+.sa-security-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sa-security-label {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #7a8599;
+}
+
+.sa-security-item strong {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #343434;
+}
+
+/* DELETE */
+.sa-delete-warning-box {
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    border: 1px solid #f1caca;
+    background: #fff4f4;
+    color: #c74242;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 14px;
+    margin-top: 20px;
+}
+
+.sa-delete-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.sa-delete-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #343434;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.sa-delete-info-bullet {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 999px;
+    background: #ea6d6d;
+}
+
+.sa-delete-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #344054;
+}
+
+.sa-delete-checkbox input {
+    margin-top: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1180px) {
+    .sa-account-help-card {
+        width: 280px;
+        min-width: 280px;
+    }
+
+    .sa-password-hero h1 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 980px) {
+    .sa-password-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .sa-account-help-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .sa-account-body {
+        flex-direction: column;
+    }
+
+    .sa-security-grid {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sa-account-premium {
+        padding: 0 16px;
+    }
+
+    .sa-password-hero h1 {
+        font-size: 34px;
+    }
+
+    .sa-password-main-card,
+    .sa-security-card {
+        padding: 20px;
+    }
+
+    .sa-password-card-header {
+        gap: 14px;
+        align-items: flex-start;
+    }
+
+    .sa-password-strength {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sa-strength-bars span {
+        width: 54px;
+    }
+
+    .sa-form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sa-btn,
+    .sa-btn-primary,
+    .sa-btn-danger {
+        width: 100%;
+        min-width: 0;
+    }
+}

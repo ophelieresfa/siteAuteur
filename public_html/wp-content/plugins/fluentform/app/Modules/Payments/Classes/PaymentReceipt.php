@@ -120,12 +120,12 @@ class PaymentReceipt
 
         $html .= $this->paymentInfo();
 
-        if ($this->orderItems) {
+        if (count($this->getOrderItems())) {
 	        $html .= '<h4>' . __('Order Details', 'fluentform') . '</h4>';
 	        $html .= $this->itemDetails();
         }
 
-        if ($this->subscriptions) {
+        if (count($this->getSubscriptions())) {
         	$html .= '<h4>' . __('Subscriptions', 'fluentform') . '</h4>';
         	$html .= $this->subscriptionDetails();
         }
@@ -191,7 +191,7 @@ class PaymentReceipt
         $orderItems = $this->getOrderItems();
         $subscriptions = $this->getSubscriptions();
 
-        if (!$orderItems && !$subscriptions) {
+        if (!count($orderItems) && !count($subscriptions)) {
             return;
         }
 
@@ -230,7 +230,7 @@ class PaymentReceipt
 
         $orderItems = $this->getOrderItems();
 
-        if (!$orderItems) {
+        if (!count($orderItems)) {
             return '';
         }
 
@@ -263,7 +263,7 @@ class PaymentReceipt
             return $preRender;
         }
 
-        if (!$orderItems) {
+        if (!count($orderItems)) {
             return '';
         }
 

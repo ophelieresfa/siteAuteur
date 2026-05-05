@@ -2,6 +2,8 @@
 
 namespace FluentForm\App\Services\FormBuilder;
 
+defined('ABSPATH') or die;
+
 use FluentForm\App\Services\FormBuilder\Components\BaseComponent;
 
 abstract class BaseFieldManager extends BaseComponent

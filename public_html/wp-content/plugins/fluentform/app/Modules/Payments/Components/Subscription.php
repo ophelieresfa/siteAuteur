@@ -498,7 +498,7 @@ class Subscription extends BaseFieldManager
 
     public function addWhiteListedFields($whiteListedFields, $formId)
     {
-        $form = wpFluent()->table('fluentform_forms')->find($formId);
+        $form = \FluentForm\App\Models\Form::find($formId);
         if (!$form->has_payment) {
           return $whiteListedFields;
         }

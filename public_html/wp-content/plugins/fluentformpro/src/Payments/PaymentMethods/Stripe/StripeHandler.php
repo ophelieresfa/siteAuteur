@@ -153,10 +153,12 @@ class StripeHandler
         $mode = $settings['payment_mode'];
 
         if (empty($settings[$mode . '_publishable_key'])) {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $errors[$mode . '_publishable_key'] = __(ucfirst($mode) . ' Publishable Key is required', 'fluentformpro');
         }
 
         if (empty($settings[$mode . '_secret_key'])) {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $errors[$mode . '_secret_key'] = __(ucfirst($mode) . ' Secret Key is required', 'fluentformpro');
         }
 
@@ -180,6 +182,7 @@ class StripeHandler
         }
 
         if ($transaction->status == 'requires_capture') {
+            // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Dynamic string from API/config
             $transaction->additional_note = __('<b>Action Required: </b> The payment has been authorized but not captured yet. Please <a target="_blank" rel="noopener" href="' . $transaction->action_url . '">Click here</a> to capture this payment in stripe.com', 'fluentformpro');
         }
 
